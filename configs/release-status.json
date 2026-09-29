@@ -11,7 +11,7 @@
   "public_input_benchmark_rerun": true,
   "stock_kitchen_0_2_36_comparison": true,
   "remote_configured": true,
-  "published": false,
+  "published": true,
   "tested_stack": {
     "kitchen": {
       "version": "0.2.36",
@@ -33,5 +33,6 @@
     "cutlass": "v4.5.0",
     "policy": "Initial source-release qualification; see docs/INSTALL.md for build and fallback."
   },
-  "scope": "GPU evidence and limitations in docs/BENCHMARK-036.md"
+  "scope": "GPU evidence and limitations in docs/BENCHMARK-036.md",
+  "repository": "https://github.com/Tokha233/ComfyUI-H3-SpeedKit"
 }
