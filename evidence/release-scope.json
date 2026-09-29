@@ -1,0 +1,302 @@
+[
+  {
+    "id": "01",
+    "title": "Larry v4 固定 LoRA 预合并",
+    "historical_status": "共同基础",
+    "origin": "项目适配与优化",
+    "release_target": "配方/转换工具",
+    "extraction_requirement": "先发身份与方法；合法源码闭包和 post-cast 等价验证后再发转换器；不分发私有 baked 权重",
+    "gpu_implementation_in_this_repo": false,
+    "kitchen036_migration": "input_contract: merged Larry; not shipped weights"
+  },
+  {
+    "id": "02",
+    "title": "原生分配器与 DynamicVRAM 权重预取",
+    "historical_status": "共同基础",
+    "origin": "上游已有能力，项目沿用",
+    "release_target": "沿用上游",
+    "extraction_requirement": "不独立重写 DynamicVRAM；说明配置与复现条件，不算自有新增",
+    "gpu_implementation_in_this_repo": false,
+    "kitchen036_migration": "retained_upstream"
+  },
+  {
+    "id": "03",
+    "title": "QKV 载体、所有权转移与去 V clone",
+    "historical_status": "R85 固定",
+    "origin": "项目适配与优化",
+    "release_target": "首版 DiT/runtime",
+    "extraction_requirement": "提取 carrier/owner，未知 stride、consumer 回退",
+    "gpu_implementation_in_this_repo": true,
+    "kitchen036_migration": "ported"
+  },
+  {
+    "id": "04",
+    "title": "RMSNorm 与 video/audio/text 分段调制融合",
+    "historical_status": "R85 固定",
+    "origin": "项目适配与优化",
+    "release_target": "首版 DiT/kernel",
+    "extraction_requirement": "RMS/分段调制；明确 token 区间和 BF16 落点",
+    "gpu_implementation_in_this_repo": true,
+    "kitchen036_migration": "ported"
+  },
+  {
+    "id": "05",
+    "title": "Residual、gate、norm2 与调制融合",
+    "historical_status": "R85 固定",
+    "origin": "项目适配与优化",
+    "release_target": "首版 DiT/kernel",
+    "extraction_requirement": "Residual/norm 融合；回归 FMA、strided 与 boundary",
+    "gpu_implementation_in_this_repo": true,
+    "kitchen036_migration": "subsumed_by_gate_epilogue_and_norm_quant"
+  },
+  {
+    "id": "06",
+    "title": "Norm/Residual/调制直接产生 ConvRot INT8 输入",
+    "historical_status": "R85 固定",
+    "origin": "项目适配与优化",
+    "release_target": "首版 DiT/kernel",
+    "extraction_requirement": "直接产生 ConvRot code/scale；契约与回退先行",
+    "gpu_implementation_in_this_repo": true,
+    "kitchen036_migration": "ported"
+  },
+  {
+    "id": "07",
+    "title": "K5376/K7168 ConvRot 寄存器与线程调度",
+    "historical_status": "R85 固定",
+    "origin": "项目适配与优化",
+    "release_target": "首版 DiT/kernel",
+    "extraction_requirement": "K5376/K7168 分派；不是所有宽度通用调度",
+    "gpu_implementation_in_this_repo": true,
+    "kitchen036_migration": "ported"
+  },
+  {
+    "id": "08",
+    "title": "Attention 直接输出 BSHD 与精确 V 量化",
+    "historical_status": "R85 固定",
+    "origin": "项目适配与优化",
+    "release_target": "首版 DiT/kernel",
+    "extraction_requirement": "BSHD 与 V quant 精确交接；比较新版是否已覆盖",
+    "gpu_implementation_in_this_repo": true,
+    "kitchen036_migration": "ported"
+  },
+  {
+    "id": "09",
+    "title": "SM120 dense：3 槽 TMA、Q 寄存器缓存、提前释放 K",
+    "historical_status": "R85 固定",
+    "origin": "基于 SageAttention/Kitchen 的硬件适配",
+    "release_target": "首版 DiT/kernel",
+    "extraction_requirement": "SM120 dense；先与 Kitchen .36 比较，只保留净增量",
+    "gpu_implementation_in_this_repo": true,
+    "kitchen036_migration": "ported"
+  },
+  {
+    "id": "10",
+    "title": "o_scale 等于 1 的恒等乘法消除",
+    "historical_status": "R85 固定",
+    "origin": "项目适配与优化",
+    "release_target": "首版 DiT/kernel",
+    "extraction_requirement": "精确等于 1 的 scale 分支；独立计数不虚构独立收益",
+    "gpu_implementation_in_this_repo": true,
+    "kitchen036_migration": "ported"
+  },
+  {
+    "id": "11",
+    "title": "Packed embedding 复制后释放无消费者的引用",
+    "historical_status": "R85 固定",
+    "origin": "项目适配与优化",
+    "release_target": "首版 DiT/runtime",
+    "extraction_requirement": "embedding 生命周期；承认主要收益可能为显存",
+    "gpu_implementation_in_this_repo": true,
+    "kitchen036_migration": "ported_model_object_patch"
+  },
+  {
+    "id": "12",
+    "title": "跨 block FC2 residual→下一层 norm/quant",
+    "historical_status": "R85 固定",
+    "origin": "项目适配与优化",
+    "release_target": "首版 DiT/runtime",
+    "extraction_requirement": "跨 block 状态最需重构；request 隔离、取消、重入必测",
+    "gpu_implementation_in_this_repo": true,
+    "kitchen036_migration": "subsumed_by_direct_gate_epilogue_no_token_needed"
+  },
+  {
+    "id": "13",
+    "title": "Out-proj/FC2 INT8 GEMM gate-residual epilogue",
+    "historical_status": "R85 固定",
+    "origin": "项目适配与优化",
+    "release_target": "首版 DiT/kernel",
+    "extraction_requirement": "GEMM epilogue 保留原舍入；含源码与数值测试",
+    "gpu_implementation_in_this_repo": true,
+    "kitchen036_migration": "ported"
+  },
+  {
+    "id": "14",
+    "title": "FC1 与 QKV 的 tile raster 配置",
+    "historical_status": "R85 固定",
+    "origin": "项目适配与优化",
+    "release_target": "首版 DiT/kernel",
+    "extraction_requirement": "真实 shape 的 FC1/QKV tile 分派，不固化短测结果",
+    "gpu_implementation_in_this_repo": true,
+    "kitchen036_migration": "ported"
+  },
+  {
+    "id": "15",
+    "title": "QKV projection 后的 RMS/RoPE/Q quant/V partial-max 融合",
+    "historical_status": "R85 固定",
+    "origin": "项目适配与优化",
+    "release_target": "首版 DiT/kernel",
+    "extraction_requirement": "QKV/RMS/RoPE/quant；保留量化落点与权重身份",
+    "gpu_implementation_in_this_repo": true,
+    "kitchen036_migration": "ported"
+  },
+  {
+    "id": "16",
+    "title": "当前输入的 9 行 K-only anchor 与 4-warp K fusion",
+    "historical_status": "R85 固定",
+    "origin": "项目适配与优化",
+    "release_target": "首版 DiT/kernel",
+    "extraction_requirement": "当前 K-only anchor；不得命名为跨步 cache",
+    "gpu_implementation_in_this_repo": true,
+    "kitchen036_migration": "ported"
+  },
+  {
+    "id": "17",
+    "title": "末层 reference prefix 无消费者行裁剪",
+    "historical_status": "R85 固定",
+    "origin": "项目适配与优化",
+    "release_target": "首版 DiT/kernel",
+    "extraction_requirement": "末层死输出消除；必须证明消费者集合，K/V 保留",
+    "gpu_implementation_in_this_repo": true,
+    "kitchen036_migration": "ported_qualified_layouts"
+  },
+  {
+    "id": "18",
+    "title": "INT8 ConvRot ViT3D decoder，保留旧 FP16 encoder",
+    "historical_status": "R85 固定",
+    "origin": "上游量化模型与实现，项目接入验证",
+    "release_target": "第二阶段 VAE/上游集成",
+    "extraction_requirement": "INT8 decoder opt-in；原作者与权重许可清楚标注",
+    "gpu_implementation_in_this_repo": true,
+    "kitchen036_migration": "ported_old_encoder_plus_int8_decoder"
+  },
+  {
+    "id": "19",
+    "title": "VAE 内部 RMS/SwiGLU 输入量化与残差 epilogue",
+    "historical_status": "R85 固定",
+    "origin": "上游实现与项目兼容迁移",
+    "release_target": "第二阶段 VAE/上游集成",
+    "extraction_requirement": "沿用上游输入激活/epilogue/RoPE；ABI 版本核实",
+    "gpu_implementation_in_this_repo": true,
+    "kitchen036_migration": "ported_upstream_vae_helpers"
+  },
+  {
+    "id": "20",
+    "title": "Tile 批量、预分配 canvas 与引用释放",
+    "historical_status": "R85 固定",
+    "origin": "上游 canvas/tile 能力与项目输出接入",
+    "release_target": "第二阶段 VAE/上游集成",
+    "extraction_requirement": "tiling/canvas 不变；区分上游能力与接入工作",
+    "gpu_implementation_in_this_repo": true,
+    "kitchen036_migration": "retained_in_pinned_vae"
+  },
+  {
+    "id": "21",
+    "title": "最终 blend→GPU RGB8 转换融合",
+    "historical_status": "R85 固定",
+    "origin": "项目适配与优化",
+    "release_target": "第二阶段 output/kernel",
+    "extraction_requirement": "最后 blend 后 RGB8；高效输出接口单独设计",
+    "gpu_implementation_in_this_repo": true,
+    "kitchen036_migration": "ported"
+  },
+  {
+    "id": "22",
+    "title": "双 pinned buffer 与事件驱动 D2H",
+    "historical_status": "R85 固定",
+    "origin": "项目适配与优化",
+    "release_target": "第二阶段 output/runtime",
+    "extraction_requirement": "双 pinned slot 和事件；消费者归还与取消排空",
+    "gpu_implementation_in_this_repo": true,
+    "kitchen036_migration": "ported"
+  },
+  {
+    "id": "23",
+    "title": "CPU x264/AAC/MP4 与下一请求 GPU 重叠",
+    "historical_status": "服务层已验证",
+    "origin": "原部署已有异步能力，项目保留并约束所有权",
+    "release_target": "可选服务示例",
+    "extraction_requirement": "有界 CPU 编码与下个 GPU 请求；不计作单个节点收益",
+    "gpu_implementation_in_this_repo": false,
+    "kitchen036_migration": "service_API_pending_test"
+  },
+  {
+    "id": "24",
+    "title": "本地不可变模型缓存与 Qwen 保留热页",
+    "historical_status": "服务层已验证",
+    "origin": "项目适配与优化",
+    "release_target": "可选服务示例",
+    "extraction_requirement": "本地缓存身份与 RAM 预算；去内部存储和 Qwen 服务耦合",
+    "gpu_implementation_in_this_repo": false,
+    "kitchen036_migration": "deployment_recommendation"
+  },
+  {
+    "id": "25",
+    "title": "素材预取、请求隔离与编码排空",
+    "historical_status": "服务层已验证",
+    "origin": "项目适配与优化",
+    "release_target": "可选服务示例",
+    "extraction_requirement": "素材预取/终态/隔离；只保留通用抽象与可运行本地示例",
+    "gpu_implementation_in_this_repo": false,
+    "kitchen036_migration": "service_API_pending_test"
+  },
+  {
+    "id": "26",
+    "title": "音频 VAE 搬 CPU 的实验与保留 GPU 的原因",
+    "historical_status": "未采用",
+    "origin": "项目适配与优化",
+    "release_target": "只公开负结果",
+    "extraction_requirement": "CPU audio 更慢且 PCM 不同；默认继续 GPU FP32",
+    "gpu_implementation_in_this_repo": false,
+    "kitchen036_migration": "rejected_CPU_audio_retained_GPU"
+  },
+  {
+    "id": "27",
+    "title": "VAE 阶段静态 cast/load",
+    "historical_status": "后续候选",
+    "origin": "项目适配与优化",
+    "release_target": "候选研究",
+    "extraction_requirement": "静态 VAE 未入 R85；别加进首版已证实收益",
+    "gpu_implementation_in_this_repo": false,
+    "kitchen036_migration": "experimental_not_enabled"
+  },
+  {
+    "id": "28",
+    "title": "R234v2：VAE RMS/RoPE→Q 旋转量化",
+    "historical_status": "后续候选",
+    "origin": "项目适配与优化",
+    "release_target": "候选研究",
+    "extraction_requirement": "VAE Q 融合 v2，可独立跟进；不覆盖 DiT D128",
+    "gpu_implementation_in_this_repo": false,
+    "kitchen036_migration": "experimental_not_enabled"
+  },
+  {
+    "id": "29",
+    "title": "R244：VAE D64 cached-Q 与小 Q tile",
+    "historical_status": "后续候选",
+    "origin": "项目适配与优化",
+    "release_target": "候选研究",
+    "extraction_requirement": "VAE D64 cached Q；微观收益与全视频收益分开",
+    "gpu_implementation_in_this_repo": false,
+    "kitchen036_migration": "experimental_not_enabled"
+  },
+  {
+    "id": "30",
+    "title": "新 PyTorch/Triton、NVFP4 与近似计算候选",
+    "historical_status": "未采用",
+    "origin": "项目适配与优化",
+    "release_target": "只公开实验说明",
+    "extraction_requirement": "新栈/NVFP4/cache 等不入默认；性能与精度另验",
+    "gpu_implementation_in_this_repo": false,
+    "kitchen036_migration": "historical_not_enabled"
+  }
+]

@@ -1,0 +1,157 @@
+{
+  "schema": 1,
+  "status": "success",
+  "records": [
+    {
+      "arm": "stock",
+      "repeat": -1,
+      "warmup": true,
+      "seconds": 15.331590350018814,
+      "dit_seconds": 12.747622541966848,
+      "decode_seconds": 2.137784744030796,
+      "sha256": [
+        "55da3d72b024c2f7bfb9a4c3355c13ed05098df7ef3e8434115d432a153724ad",
+        "4e290afdba63f9b8e4ac9f5189bab5e7580414cc455a218c30b0860bb4704b5e",
+        "bdd464575c1bd4f7aa7657828ec222d539873ce8a29458f0b075b52b8cd9881d",
+        "e4bf6819bf0cbcd62e79fffbff84d12bc2aa21c290b26d1ce52be17e6eae0b24"
+      ],
+      "four_sha_equal_stock": true
+    },
+    {
+      "arm": "speedkit",
+      "repeat": -1,
+      "warmup": true,
+      "seconds": 8.041168171912432,
+      "dit_seconds": 7.0454005129868165,
+      "decode_seconds": 0.5541065420256928,
+      "sha256": [
+        "55da3d72b024c2f7bfb9a4c3355c13ed05098df7ef3e8434115d432a153724ad",
+        "4e290afdba63f9b8e4ac9f5189bab5e7580414cc455a218c30b0860bb4704b5e",
+        "bdd464575c1bd4f7aa7657828ec222d539873ce8a29458f0b075b52b8cd9881d",
+        "e4bf6819bf0cbcd62e79fffbff84d12bc2aa21c290b26d1ce52be17e6eae0b24"
+      ],
+      "backend": {
+        "skip": 128,
+        "counts": {
+          "qkv": 50,
+          "attention": 50,
+          "norm_quant": 100,
+          "fc1": 50,
+          "gate": 100,
+          "last_block_window": 1
+        },
+        "tokens": 4194,
+        "shape_key": [
+          4194,
+          128
+        ],
+        "verify": true
+      },
+      "four_sha_equal_stock": true
+    },
+    {
+      "arm": "speedkit",
+      "repeat": 0,
+      "warmup": false,
+      "seconds": 3.9451162859331816,
+      "dit_seconds": 3.0538111040368676,
+      "decode_seconds": 0.448718175990507,
+      "sha256": [
+        "55da3d72b024c2f7bfb9a4c3355c13ed05098df7ef3e8434115d432a153724ad",
+        "4e290afdba63f9b8e4ac9f5189bab5e7580414cc455a218c30b0860bb4704b5e",
+        "bdd464575c1bd4f7aa7657828ec222d539873ce8a29458f0b075b52b8cd9881d",
+        "e4bf6819bf0cbcd62e79fffbff84d12bc2aa21c290b26d1ce52be17e6eae0b24"
+      ],
+      "backend": {
+        "skip": 128,
+        "counts": {
+          "qkv": 50,
+          "attention": 50,
+          "norm_quant": 100,
+          "fc1": 50,
+          "gate": 100,
+          "last_block_window": 1
+        },
+        "tokens": 4194,
+        "shape_key": [
+          4194,
+          128
+        ],
+        "verify": false
+      },
+      "four_sha_equal_stock": true
+    },
+    {
+      "arm": "stock",
+      "repeat": 0,
+      "warmup": false,
+      "seconds": 4.350760669913143,
+      "dit_seconds": 3.372648700955324,
+      "decode_seconds": 0.5290321309585124,
+      "sha256": [
+        "55da3d72b024c2f7bfb9a4c3355c13ed05098df7ef3e8434115d432a153724ad",
+        "4e290afdba63f9b8e4ac9f5189bab5e7580414cc455a218c30b0860bb4704b5e",
+        "bdd464575c1bd4f7aa7657828ec222d539873ce8a29458f0b075b52b8cd9881d",
+        "e4bf6819bf0cbcd62e79fffbff84d12bc2aa21c290b26d1ce52be17e6eae0b24"
+      ],
+      "four_sha_equal_stock": true
+    },
+    {
+      "arm": "stock",
+      "repeat": 1,
+      "warmup": false,
+      "seconds": 4.6225024269660935,
+      "dit_seconds": 3.370688564958982,
+      "decode_seconds": 0.5295783089241013,
+      "sha256": [
+        "55da3d72b024c2f7bfb9a4c3355c13ed05098df7ef3e8434115d432a153724ad",
+        "4e290afdba63f9b8e4ac9f5189bab5e7580414cc455a218c30b0860bb4704b5e",
+        "bdd464575c1bd4f7aa7657828ec222d539873ce8a29458f0b075b52b8cd9881d",
+        "e4bf6819bf0cbcd62e79fffbff84d12bc2aa21c290b26d1ce52be17e6eae0b24"
+      ],
+      "four_sha_equal_stock": true
+    },
+    {
+      "arm": "speedkit",
+      "repeat": 1,
+      "warmup": false,
+      "seconds": 3.9460270350100473,
+      "dit_seconds": 3.052147082053125,
+      "decode_seconds": 0.4469641550676897,
+      "sha256": [
+        "55da3d72b024c2f7bfb9a4c3355c13ed05098df7ef3e8434115d432a153724ad",
+        "4e290afdba63f9b8e4ac9f5189bab5e7580414cc455a218c30b0860bb4704b5e",
+        "bdd464575c1bd4f7aa7657828ec222d539873ce8a29458f0b075b52b8cd9881d",
+        "e4bf6819bf0cbcd62e79fffbff84d12bc2aa21c290b26d1ce52be17e6eae0b24"
+      ],
+      "backend": {
+        "skip": 128,
+        "counts": {
+          "qkv": 50,
+          "attention": 50,
+          "norm_quant": 100,
+          "fc1": 50,
+          "gate": 100,
+          "last_block_window": 1
+        },
+        "tokens": 4194,
+        "shape_key": [
+          4194,
+          128
+        ],
+        "verify": false
+      },
+      "four_sha_equal_stock": true
+    }
+  ],
+  "precision": "INT8 DiT + INT8 VAE / GPU FP32 audio",
+  "timing": "frozen condition to completed local MP4; hash and condition preparation excluded",
+  "input": {
+    "width": 384,
+    "height": 256,
+    "requested_frames": 124,
+    "steps": 8,
+    "seed": 42
+  },
+  "environment": {}
+}

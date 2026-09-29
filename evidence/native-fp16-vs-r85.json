@@ -1,0 +1,449 @@
+{
+  "status": "complete",
+  "n_formal": 8,
+  "n_warmup": 4,
+  "cases": [
+    {
+      "case": 1,
+      "n": {
+        "stock": 2,
+        "r85": 2
+      },
+      "arms": {
+        "stock": {
+          "total_seconds": {
+            "mean": 270.67897685297066,
+            "min": 270.1104651009664,
+            "max": 271.24748860497493
+          },
+          "dit_seconds": {
+            "mean": 241.41419208003208,
+            "min": 241.3893690140685,
+            "max": 241.43901514599565
+          },
+          "video_seconds": {
+            "mean": 24.473009044013452,
+            "min": 23.93096152099315,
+            "max": 25.015056567033753
+          },
+          "audio_seconds": {
+            "mean": 0.11876000056508929,
+            "min": 0.11808733211364597,
+            "max": 0.1194326690165326
+          },
+          "export_seconds": {
+            "mean": 4.540801749972161,
+            "min": 4.495773739996366,
+            "max": 4.585829759947956
+          },
+          "other_seconds": {
+            "mean": 0.13221397838788107,
+            "min": 0.12662736186757684,
+            "max": 0.1378005949081853
+          }
+        },
+        "r85": {
+          "total_seconds": {
+            "mean": 240.11423641152214,
+            "min": 240.11094092496205,
+            "max": 240.11753189808223
+          },
+          "dit_seconds": {
+            "mean": 225.6020205905079,
+            "min": 225.59486616007052,
+            "max": 225.60917502094526
+          },
+          "video_seconds": {
+            "mean": 9.863415588450152,
+            "min": 9.857828712905757,
+            "max": 9.869002463994548
+          },
+          "audio_seconds": {
+            "mean": 0.11891753104282543,
+            "min": 0.11881453299429268,
+            "max": 0.11902052909135818
+          },
+          "export_seconds": {
+            "mean": 4.474090596020687,
+            "min": 4.468103319057263,
+            "max": 4.480077872984111
+          },
+          "other_seconds": {
+            "mean": 0.05579210550058633,
+            "min": 0.051429762155748904,
+            "max": 0.06015444884542376
+          }
+        }
+      },
+      "reduction_percent": {
+        "total_seconds": 11.291878222981055,
+        "dit_seconds": 6.549810246566712,
+        "video_seconds": 59.69675992555183,
+        "audio_seconds": -0.13264607358249858,
+        "export_seconds": 1.4691492301306175,
+        "other_seconds": 57.80165896157594
+      }
+    },
+    {
+      "case": 8,
+      "n": {
+        "stock": 2,
+        "r85": 2
+      },
+      "arms": {
+        "stock": {
+          "total_seconds": {
+            "mean": 258.3231389380526,
+            "min": 258.2788406830514,
+            "max": 258.3674371930538
+          },
+          "dit_seconds": {
+            "mean": 226.48846947250422,
+            "min": 226.48020816606004,
+            "max": 226.4967307789484
+          },
+          "video_seconds": {
+            "mean": 26.762967063987162,
+            "min": 26.716232932987623,
+            "max": 26.8097011949867
+          },
+          "audio_seconds": {
+            "mean": 0.12602897046599537,
+            "min": 0.12422696594148874,
+            "max": 0.127830974990502
+          },
+          "export_seconds": {
+            "mean": 4.801931597001385,
+            "min": 4.793880000943318,
+            "max": 4.809983193059452
+          },
+          "other_seconds": {
+            "mean": 0.14374183409381658,
+            "min": 0.14289825223386288,
+            "max": 0.14458541595377028
+          }
+        },
+        "r85": {
+          "total_seconds": {
+            "mean": 227.57072076847544,
+            "min": 227.55899765400682,
+            "max": 227.58244388294406
+          },
+          "dit_seconds": {
+            "mean": 212.0202742809779,
+            "min": 212.01627365802415,
+            "max": 212.02427490393165
+          },
+          "video_seconds": {
+            "mean": 10.512820900476072,
+            "min": 10.502074267948046,
+            "max": 10.523567533004098
+          },
+          "audio_seconds": {
+            "mean": 0.12343554600374773,
+            "min": 0.1229110429994762,
+            "max": 0.12396004900801927
+          },
+          "export_seconds": {
+            "mean": 4.853499457472935,
+            "min": 4.848287067958154,
+            "max": 4.858711846987717
+          },
+          "other_seconds": {
+            "mean": 0.060690583544783294,
+            "min": 0.05993079592008144,
+            "max": 0.06145037116948515
+          }
+        }
+      },
+      "reduction_percent": {
+        "total_seconds": 11.904631654755383,
+        "dit_seconds": 6.388049345391844,
+        "video_seconds": 60.718776526753814,
+        "audio_seconds": 2.057800244386976,
+        "export_seconds": -1.073898272598317,
+        "other_seconds": 57.77806514895857
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "case": 1,
+      "mode": "stock",
+      "source": "r369-c1-ab-0-stock",
+      "group": 0,
+      "gpu_uuid": "paired-device-A",
+      "signature": [
+        "d7f6b67bed376e4fc8b805474f5d8ab1ac961de9a5a98ea778cd8fccc590f8bf",
+        "5973eeb3722428b4af01ea3dc4fbc275ac601b020bb82391167aaf4d0e68ee04",
+        "c08ce0d938cbfb3dabdeddb961ae26c86c7335c92afca488c526c3ede04c5d64",
+        "122d47f4b48601a8b88d6847634e6455ad61c8bb8d10fb42613c15fabe688dce"
+      ],
+      "total_seconds": 271.24748860497493,
+      "dit_seconds": 241.3893690140685,
+      "video_seconds": 25.015056567033753,
+      "audio_seconds": 0.1194326690165326,
+      "export_seconds": 4.585829759947956,
+      "peak_allocated_bytes": 12046076416,
+      "peak_reserved_bytes": 19948109824,
+      "nfe": 8,
+      "attention_calls": 400,
+      "other_seconds": 0.1378005949081853
+    },
+    {
+      "case": 1,
+      "mode": "stock",
+      "source": "r369-c1-ab-0-stock",
+      "group": 1,
+      "gpu_uuid": "paired-device-A",
+      "signature": [
+        "d7f6b67bed376e4fc8b805474f5d8ab1ac961de9a5a98ea778cd8fccc590f8bf",
+        "5973eeb3722428b4af01ea3dc4fbc275ac601b020bb82391167aaf4d0e68ee04",
+        "c08ce0d938cbfb3dabdeddb961ae26c86c7335c92afca488c526c3ede04c5d64",
+        "122d47f4b48601a8b88d6847634e6455ad61c8bb8d10fb42613c15fabe688dce"
+      ],
+      "total_seconds": 270.1104651009664,
+      "dit_seconds": 241.43901514599565,
+      "video_seconds": 23.93096152099315,
+      "audio_seconds": 0.11808733211364597,
+      "export_seconds": 4.495773739996366,
+      "peak_allocated_bytes": 12046076416,
+      "peak_reserved_bytes": 19948109824,
+      "nfe": 8,
+      "attention_calls": 400,
+      "other_seconds": 0.12662736186757684
+    },
+    {
+      "case": 1,
+      "mode": "r85",
+      "source": "r369-c1-ab-1-r85",
+      "group": 0,
+      "gpu_uuid": "paired-device-A",
+      "signature": [
+        "d7f6b67bed376e4fc8b805474f5d8ab1ac961de9a5a98ea778cd8fccc590f8bf",
+        "5973eeb3722428b4af01ea3dc4fbc275ac601b020bb82391167aaf4d0e68ee04",
+        "fa0a22a4cb29b4bd4f606824d86be60500e55b838fdcdb17c810f751b143cbe2",
+        "122d47f4b48601a8b88d6847634e6455ad61c8bb8d10fb42613c15fabe688dce"
+      ],
+      "total_seconds": 240.11753189808223,
+      "dit_seconds": 225.60917502094526,
+      "video_seconds": 9.857828712905757,
+      "audio_seconds": 0.11902052909135818,
+      "export_seconds": 4.480077872984111,
+      "peak_allocated_bytes": 9645278720,
+      "peak_reserved_bytes": 14430502912,
+      "nfe": 8,
+      "attention_calls": 400,
+      "other_seconds": 0.051429762155748904
+    },
+    {
+      "case": 1,
+      "mode": "r85",
+      "source": "r369-c1-ab-1-r85",
+      "group": 1,
+      "gpu_uuid": "paired-device-A",
+      "signature": [
+        "d7f6b67bed376e4fc8b805474f5d8ab1ac961de9a5a98ea778cd8fccc590f8bf",
+        "5973eeb3722428b4af01ea3dc4fbc275ac601b020bb82391167aaf4d0e68ee04",
+        "fa0a22a4cb29b4bd4f606824d86be60500e55b838fdcdb17c810f751b143cbe2",
+        "122d47f4b48601a8b88d6847634e6455ad61c8bb8d10fb42613c15fabe688dce"
+      ],
+      "total_seconds": 240.11094092496205,
+      "dit_seconds": 225.59486616007052,
+      "video_seconds": 9.869002463994548,
+      "audio_seconds": 0.11881453299429268,
+      "export_seconds": 4.468103319057263,
+      "peak_allocated_bytes": 9645278720,
+      "peak_reserved_bytes": 14430502912,
+      "nfe": 8,
+      "attention_calls": 400,
+      "other_seconds": 0.06015444884542376
+    },
+    {
+      "case": 8,
+      "mode": "r85",
+      "source": "r369-c8-ba-0-r85",
+      "group": 0,
+      "gpu_uuid": "paired-device-B",
+      "signature": [
+        "71d58b454e5e8eea5cbd513516c8cce86fcdef8c83e198cafeecdd9bb437dcd0",
+        "e95f269243f0c41bdde9a9b176b73c087a74f20917317c05204fca4bb89a0226",
+        "86113c37439276adc259ad00f0d33fe25c2295c6a85e6ee775a1b750eca56aab",
+        "3402341092c55f2c8f78de8332732b84ed2bfc9d38da4bde3525476b5125f6af"
+      ],
+      "total_seconds": 227.58244388294406,
+      "dit_seconds": 212.01627365802415,
+      "video_seconds": 10.523567533004098,
+      "audio_seconds": 0.12396004900801927,
+      "export_seconds": 4.858711846987717,
+      "peak_allocated_bytes": 9199717888,
+      "peak_reserved_bytes": 13845397504,
+      "nfe": 8,
+      "attention_calls": 400,
+      "other_seconds": 0.05993079592008144
+    },
+    {
+      "case": 8,
+      "mode": "r85",
+      "source": "r369-c8-ba-0-r85",
+      "group": 1,
+      "gpu_uuid": "paired-device-B",
+      "signature": [
+        "71d58b454e5e8eea5cbd513516c8cce86fcdef8c83e198cafeecdd9bb437dcd0",
+        "e95f269243f0c41bdde9a9b176b73c087a74f20917317c05204fca4bb89a0226",
+        "86113c37439276adc259ad00f0d33fe25c2295c6a85e6ee775a1b750eca56aab",
+        "3402341092c55f2c8f78de8332732b84ed2bfc9d38da4bde3525476b5125f6af"
+      ],
+      "total_seconds": 227.55899765400682,
+      "dit_seconds": 212.02427490393165,
+      "video_seconds": 10.502074267948046,
+      "audio_seconds": 0.1229110429994762,
+      "export_seconds": 4.848287067958154,
+      "peak_allocated_bytes": 9199717888,
+      "peak_reserved_bytes": 13845397504,
+      "nfe": 8,
+      "attention_calls": 400,
+      "other_seconds": 0.06145037116948515
+    },
+    {
+      "case": 8,
+      "mode": "stock",
+      "source": "r369-c8-ba-1-stock",
+      "group": 0,
+      "gpu_uuid": "paired-device-B",
+      "signature": [
+        "71d58b454e5e8eea5cbd513516c8cce86fcdef8c83e198cafeecdd9bb437dcd0",
+        "e95f269243f0c41bdde9a9b176b73c087a74f20917317c05204fca4bb89a0226",
+        "0e2674e16b79c29d213e6825bc8c67de447501a275ff36a713ddf87103ef06a4",
+        "3402341092c55f2c8f78de8332732b84ed2bfc9d38da4bde3525476b5125f6af"
+      ],
+      "total_seconds": 258.3674371930538,
+      "dit_seconds": 226.4967307789484,
+      "video_seconds": 26.8097011949867,
+      "audio_seconds": 0.12422696594148874,
+      "export_seconds": 4.793880000943318,
+      "peak_allocated_bytes": 11562721792,
+      "peak_reserved_bytes": 18532532224,
+      "nfe": 8,
+      "attention_calls": 400,
+      "other_seconds": 0.14289825223386288
+    },
+    {
+      "case": 8,
+      "mode": "stock",
+      "source": "r369-c8-ba-1-stock",
+      "group": 1,
+      "gpu_uuid": "paired-device-B",
+      "signature": [
+        "71d58b454e5e8eea5cbd513516c8cce86fcdef8c83e198cafeecdd9bb437dcd0",
+        "e95f269243f0c41bdde9a9b176b73c087a74f20917317c05204fca4bb89a0226",
+        "0e2674e16b79c29d213e6825bc8c67de447501a275ff36a713ddf87103ef06a4",
+        "3402341092c55f2c8f78de8332732b84ed2bfc9d38da4bde3525476b5125f6af"
+      ],
+      "total_seconds": 258.2788406830514,
+      "dit_seconds": 226.48020816606004,
+      "video_seconds": 26.716232932987623,
+      "audio_seconds": 0.127830974990502,
+      "export_seconds": 4.809983193059452,
+      "peak_allocated_bytes": 11562721792,
+      "peak_reserved_bytes": 18532532224,
+      "nfe": 8,
+      "attention_calls": 400,
+      "other_seconds": 0.14458541595377028
+    }
+  ],
+  "sources": [
+    {
+      "id": "r369-c1-ab-0-stock",
+      "sha256": "9f497111764e3d7426d4ee8416ca88881b5337b5767e5c1fa4a9d1f569d35b53",
+      "bytes": 18163,
+      "mode": "stock",
+      "code_sha256": "d453d7abc8fa74ab84114956b06ff143fa59180623ae6629a24bb5eb5b779341",
+      "warmups": 1,
+      "gpu_uuid": "paired-device-A"
+    },
+    {
+      "id": "r369-c1-ab-1-r85",
+      "sha256": "bb4df11d3633ae1a8ad72c340f4d0bae55d103d3ae588068ece92498f8a9ab4f",
+      "bytes": 29351,
+      "mode": "r85",
+      "code_sha256": "8bafa96329ce1bfcbf6363dc766c9f334c7af36112ae49690f2004addebf316c",
+      "warmups": 1,
+      "gpu_uuid": "paired-device-A"
+    },
+    {
+      "id": "r369-c8-ba-0-r85",
+      "sha256": "19d6fd0f374206202c67e2701226940fe7449af6ed86a6a11acdab9a5d57c64a",
+      "bytes": 29406,
+      "mode": "r85",
+      "code_sha256": "8bafa96329ce1bfcbf6363dc766c9f334c7af36112ae49690f2004addebf316c",
+      "warmups": 1,
+      "gpu_uuid": "paired-device-B"
+    },
+    {
+      "id": "r369-c8-ba-1-stock",
+      "sha256": "1b4416e39cf48a868335ce36fa7875bf72d650c65da05ef188c9e2c9d9d6799c",
+      "bytes": 18152,
+      "mode": "stock",
+      "code_sha256": "d453d7abc8fa74ab84114956b06ff143fa59180623ae6629a24bb5eb5b779341",
+      "warmups": 1,
+      "gpu_uuid": "paired-device-B"
+    }
+  ],
+  "video_vae_identities": {
+    "stock": {
+      "path": "minimax_h3_video_vae_fp16.safetensors",
+      "bytes": 5207808496,
+      "sha256": "7c1f131492e7eddacaac9069a61b81bdd39de5cc96561e677c5eab1cdce5e522",
+      "storage_dtypes": {
+        "F16": 562
+      }
+    },
+    "r85": {
+      "path": "minimax_h3_video_vae_int8_convrot.safetensors",
+      "bytes": 2811065184,
+      "sha256": "52a2c8c73583c86e4f41cdcce3a6ad0ea562987bc0bf3d60a0cef5f5c8e60c0e",
+      "storage_dtypes": {
+        "F32": 527,
+        "F16": 35,
+        "I8": 144,
+        "U8": 144
+      }
+    }
+  },
+  "all_latents_pcm_equal_historical": true,
+  "r85_rgb_equal_historical": true,
+  "native_rgb_repeat_equal": true,
+  "scope": "Kitchen0.2.35 stock + native FP16 video VAE -> frozen R85 + INT8 video VAE. Same Larry8 INT8 baked DiT, frozen condition, GPU FP32 audio, CPU MP4. Two cases, AB/BA per GPU; one warm and two formal per arm in independent processes. Not BF16 VAE.",
+  "excludes": [
+    "Qwen/reference processing",
+    "HTTP/queue/network/upload",
+    "initial checkpoint reads",
+    "static VAE/R234/R244 candidates",
+    "steady state asynchronous queue throughput"
+  ],
+  "limitation": "n=2 per case and arm; not a confidence interval or full15 full-pipeline result",
+  "matched_work_sums": {
+    "stock": {
+      "total_seconds": 529.0021157910232,
+      "dit_seconds": 467.9026615525363,
+      "video_seconds": 51.235976108000614,
+      "audio_seconds": 0.24478897103108466,
+      "export_seconds": 9.342733346973546,
+      "other_seconds": 0.27595581248169765
+    },
+    "r85": {
+      "total_seconds": 467.6849571799976,
+      "dit_seconds": 437.6222948714858,
+      "video_seconds": 20.376236488926224,
+      "audio_seconds": 0.24235307704657316,
+      "export_seconds": 9.327590053493623,
+      "other_seconds": 0.11648268904536963
+    }
+  },
+  "total_reduction_percent": 11.591098935273136,
+  "dit_reduction_percent": 6.471509817998888,
+  "video_reduction_percent": 60.23060740372148,
+  "capacity_increase_percent": 13.11078273304962,
+  "saved_seconds_per_request": 30.65857930551283
+}

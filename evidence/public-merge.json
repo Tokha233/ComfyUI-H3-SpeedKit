@@ -1,0 +1,8 @@
+{
+  "tensors": 932,
+  "patches": 208,
+  "strength": 1.0,
+  "sha256": "422dffed547dbe9d1e693ace73ee66c85cdf7fc62bb5514973851aa6f84547dc",
+  "base_sha256": "9255f52b6677845ad238f20dfaafa94727053694127ab7f255c048f0f9365779",
+  "lora_sha256": "7098acf3ee75028fd9fcd948f50fcc8d995057fabb76f86bd3ca2c0ffc58e409"
+}

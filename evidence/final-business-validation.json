@@ -1,0 +1,51 @@
+{
+  "status": "success",
+  "case": 1,
+  "source": "final guards, model-local Kitchen INT8 fallback, packaged old encoder/INT8 decoder",
+  "formal": [
+    {
+      "seconds": 239.75329691008665,
+      "dit_seconds": 225.58504080597777,
+      "four_sha_equal_r85": true,
+      "backend": {
+        "skip": 17024,
+        "counts": {
+          "qkv": 50,
+          "attention": 50,
+          "norm_quant": 100,
+          "fc1": 50,
+          "gate": 100,
+          "last_block_window": 1
+        },
+        "tokens": 90461,
+        "shape_key": [
+          90461,
+          17024
+        ],
+        "verify": false
+      }
+    },
+    {
+      "seconds": 239.88485376199242,
+      "dit_seconds": 225.622845859034,
+      "four_sha_equal_r85": true,
+      "backend": {
+        "skip": 17024,
+        "counts": {
+          "qkv": 50,
+          "attention": 50,
+          "norm_quant": 100,
+          "fc1": 50,
+          "gate": 100,
+          "last_block_window": 1
+        },
+        "tokens": 90461,
+        "shape_key": [
+          90461,
+          17024
+        ],
+        "verify": false
+      }
+    }
+  ]
+}

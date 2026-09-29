@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "checks": [
+    "disabled_clone",
+    "stock_reference",
+    "clone_options_no_eager_global_mutation",
+    "unknown_layout_fallback_exact",
+    "candidate_mismatch_returns_intact_reference",
+    "original_clone_after_failed_candidate_exact",
+    "duplicate_patch_rejected"
+  ]
+}

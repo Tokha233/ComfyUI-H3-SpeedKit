@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "offline_metric_checks": 415,
+  "unit_tests": 6,
+  "public_input_shapes": [
+    [
+      384,
+      256,
+      124
+    ],
+    [
+      768,
+      512,
+      124
+    ]
+  ],
+  "public_input_all_four_sha_equal": true,
+  "native_libraries_built": 9,
+  "node_loading": true,
+  "old_encoder_fixture_exact": true,
+  "node_decode_and_export_exact": true,
+  "html_qa": {
+    "desktop": [
+      1440,
+      1000
+    ],
+    "mobile": [
+      390,
+      844
+    ],
+    "horizontal_overflow": false,
+    "optimization_details": 30
+  },
+  "python_wheel_build": "passed; source checkout required for CUDA kernels",
+  "pending": [],
+  "all15_vae_rgb_exact": true,
+  "isolation_gpu_checks": 7,
+  "final_business_repeats": 2,
+  "final_business_four_sha_equal": true,
+  "api_prompt_executor_workflow": true
+}

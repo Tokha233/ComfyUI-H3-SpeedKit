@@ -1,0 +1,57 @@
+{
+  "status": "success",
+  "checks": [
+    {
+      "name": "ComfyUI_V3_load",
+      "nodes": [
+        "H3SpeedKitEnvironment",
+        "H3SpeedKitOptimize",
+        "H3SpeedKitVideoVAELoader",
+        "H3SpeedKitDecode",
+        "H3SpeedKitSaveVideo"
+      ]
+    },
+    {
+      "name": "five_V3_schemas"
+    },
+    {
+      "name": "old_encoder_bit_exact",
+      "sha256": "946fd6dabd7c52624aca4f7dd7e5560ac667061402d220533004c24d54737a61",
+      "shape": [
+        1,
+        24,
+        1,
+        16,
+        24
+      ]
+    },
+    {
+      "name": "decode_node",
+      "seconds": 10.63967442594003,
+      "shape": [
+        260,
+        1344,
+        768,
+        3
+      ],
+      "rgb_sha256": "86113c37439276adc259ad00f0d33fe25c2295c6a85e6ee775a1b750eca56aab"
+    },
+    {
+      "name": "packaged_RGB_equal_r85"
+    },
+    {
+      "name": "PCM_equal_r85"
+    },
+    {
+      "name": "save_node",
+      "seconds": 3.213134979014285,
+      "bytes": 1916357
+    },
+    {
+      "name": "codec_decoded_comparison",
+      "frames": 260,
+      "equal": true,
+      "same_frame_count": true
+    }
+  ]
+}

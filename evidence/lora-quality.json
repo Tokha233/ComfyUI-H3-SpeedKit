@@ -1,0 +1,1122 @@
+{
+  "groups": {
+    "Q1_early_five_stories": [
+      {
+        "id": "e1_d2_l5",
+        "source": "S10",
+        "segments": 15,
+        "stories": [
+          {
+            "story": "V1",
+            "ssim": 0.692107,
+            "psnr_db": 18.651652,
+            "lpips": 0.3404599860554836,
+            "waveform_corr": 0.1426889466328611,
+            "spectral_cosine": 0.7960247170538483,
+            "normalized_rmse": 1.8238749937610157
+          },
+          {
+            "story": "V2",
+            "ssim": 0.634354,
+            "psnr_db": 16.011409,
+            "lpips": 0.4273103065178043,
+            "waveform_corr": 0.21146710791792514,
+            "spectral_cosine": 0.8108187575916573,
+            "normalized_rmse": 1.2801786056547297
+          },
+          {
+            "story": "V3",
+            "ssim": 0.694108,
+            "psnr_db": 18.38111,
+            "lpips": 0.3806119552299158,
+            "waveform_corr": 0.2533573360374562,
+            "spectral_cosine": 0.8539747418918411,
+            "normalized_rmse": 1.801240778809238
+          },
+          {
+            "story": "V4",
+            "ssim": 0.701027,
+            "psnr_db": 17.376648,
+            "lpips": 0.3569343927605399,
+            "waveform_corr": 0.17285206525989513,
+            "spectral_cosine": 0.7842873383699623,
+            "normalized_rmse": 1.9920046064623245
+          },
+          {
+            "story": "V5",
+            "ssim": 0.691396,
+            "psnr_db": 17.541584,
+            "lpips": 0.36540165171027184,
+            "waveform_corr": 0.12993101239603852,
+            "spectral_cosine": 0.7868449392227943,
+            "normalized_rmse": 1.7204209659142817
+          }
+        ],
+        "mean": {
+          "ssim": 0.6825984,
+          "psnr_db": 17.5924806,
+          "lpips": 0.37414365845480313,
+          "waveform_corr": 0.18205929364883522,
+          "spectral_cosine": 0.8063900988260206,
+          "normalized_rmse": 1.723543990120318
+        }
+      },
+      {
+        "id": "e1_d2_l6",
+        "source": "S10",
+        "segments": 15,
+        "stories": [
+          {
+            "story": "V1",
+            "ssim": 0.701045,
+            "psnr_db": 18.978658,
+            "lpips": 0.3303667280029078,
+            "waveform_corr": 0.08848706914170477,
+            "spectral_cosine": 0.7933933004578968,
+            "normalized_rmse": 1.6099480042612995
+          },
+          {
+            "story": "V2",
+            "ssim": 0.635765,
+            "psnr_db": 16.073,
+            "lpips": 0.4257958824517297,
+            "waveform_corr": 0.3725188201151553,
+            "spectral_cosine": 0.8270920099017858,
+            "normalized_rmse": 1.1115270366939876
+          },
+          {
+            "story": "V3",
+            "ssim": 0.704344,
+            "psnr_db": 18.741417,
+            "lpips": 0.3742482824556863,
+            "waveform_corr": 0.33423113726301595,
+            "spectral_cosine": 0.8602945546471569,
+            "normalized_rmse": 1.5200212370052892
+          },
+          {
+            "story": "V4",
+            "ssim": 0.706322,
+            "psnr_db": 17.390427,
+            "lpips": 0.34954648953059625,
+            "waveform_corr": 0.15646386709377824,
+            "spectral_cosine": 0.7684053135217191,
+            "normalized_rmse": 1.7111089227736467
+          },
+          {
+            "story": "V5",
+            "ssim": 0.702715,
+            "psnr_db": 17.816554,
+            "lpips": 0.35199653756405624,
+            "waveform_corr": 0.11797661253382823,
+            "spectral_cosine": 0.7808718176972235,
+            "normalized_rmse": 1.427442012305635
+          }
+        ],
+        "mean": {
+          "ssim": 0.6900382,
+          "psnr_db": 17.8000112,
+          "lpips": 0.36639078400099523,
+          "waveform_corr": 0.2139355012294965,
+          "spectral_cosine": 0.8060113992451564,
+          "normalized_rmse": 1.4760094426079715
+        }
+      },
+      {
+        "id": "e1_d2_l8",
+        "source": "S10",
+        "segments": 15,
+        "stories": [
+          {
+            "story": "V1",
+            "ssim": 0.706983,
+            "psnr_db": 19.148383,
+            "lpips": 0.3288637108978678,
+            "waveform_corr": 0.11905471683034788,
+            "spectral_cosine": 0.7803366245469726,
+            "normalized_rmse": 1.3872216016285943
+          },
+          {
+            "story": "V2",
+            "ssim": 0.647474,
+            "psnr_db": 16.484942,
+            "lpips": 0.4070000638727282,
+            "waveform_corr": 0.18249456459373672,
+            "spectral_cosine": 0.8290726698202605,
+            "normalized_rmse": 1.2777341172312304
+          },
+          {
+            "story": "V3",
+            "ssim": 0.713623,
+            "psnr_db": 18.964357,
+            "lpips": 0.36605809050709454,
+            "waveform_corr": 0.3920380741131394,
+            "spectral_cosine": 0.8832020032360787,
+            "normalized_rmse": 1.3301962228685393
+          },
+          {
+            "story": "V4",
+            "ssim": 0.701595,
+            "psnr_db": 17.167144,
+            "lpips": 0.36031245902694503,
+            "waveform_corr": 0.18490279146999597,
+            "spectral_cosine": 0.7598341770083563,
+            "normalized_rmse": 1.4666747324069729
+          },
+          {
+            "story": "V5",
+            "ssim": 0.705298,
+            "psnr_db": 17.903335,
+            "lpips": 0.35122416966727804,
+            "waveform_corr": 0.08451859694295054,
+            "spectral_cosine": 0.7888057363453842,
+            "normalized_rmse": 1.3483730876294162
+          }
+        ],
+        "mean": {
+          "ssim": 0.6949946,
+          "psnr_db": 17.933632199999998,
+          "lpips": 0.36269169879438273,
+          "waveform_corr": 0.1926017487900341,
+          "spectral_cosine": 0.8082502421914104,
+          "normalized_rmse": 1.3620399523529507
+        }
+      },
+      {
+        "id": "turbo4_same_n9",
+        "source": "S11",
+        "segments": 15,
+        "stories": [
+          {
+            "story": "V1",
+            "ssim": 0.708968,
+            "psnr_db": 19.233529,
+            "lpips": 0.3236077603746633,
+            "waveform_corr": 0.1551498970354086,
+            "spectral_cosine": 0.7786998916369342,
+            "normalized_rmse": 1.3383635914193903
+          },
+          {
+            "story": "V2",
+            "ssim": 0.649298,
+            "psnr_db": 16.494994,
+            "lpips": 0.40661866010212505,
+            "waveform_corr": 0.16309029440375153,
+            "spectral_cosine": 0.8260596830085573,
+            "normalized_rmse": 1.2686185126751484
+          },
+          {
+            "story": "V3",
+            "ssim": 0.715617,
+            "psnr_db": 19.074576,
+            "lpips": 0.36317564458099766,
+            "waveform_corr": 0.3388975971503407,
+            "spectral_cosine": 0.8776895722326384,
+            "normalized_rmse": 1.407158970733572
+          },
+          {
+            "story": "V4",
+            "ssim": 0.702024,
+            "psnr_db": 17.186514,
+            "lpips": 0.36341454962204245,
+            "waveform_corr": 0.2884480813777815,
+            "spectral_cosine": 0.7600266778292223,
+            "normalized_rmse": 1.3186420466430122
+          },
+          {
+            "story": "V5",
+            "ssim": 0.707927,
+            "psnr_db": 18.106867,
+            "lpips": 0.3441247833626611,
+            "waveform_corr": 0.10403813464908156,
+            "spectral_cosine": 0.7963273060804523,
+            "normalized_rmse": 1.3340844283706081
+          }
+        ],
+        "mean": {
+          "ssim": 0.6967668,
+          "psnr_db": 18.019296,
+          "lpips": 0.3601882796084979,
+          "waveform_corr": 0.20992480092327276,
+          "spectral_cosine": 0.8077606261575608,
+          "normalized_rmse": 1.3333735099683461
+        }
+      },
+      {
+        "id": "ref2va_turbo8_euler",
+        "source": "S11",
+        "segments": 15,
+        "stories": [
+          {
+            "story": "V1",
+            "ssim": 0.729975,
+            "psnr_db": 19.655088,
+            "lpips": 0.31331284148771255,
+            "waveform_corr": 0.15347695325765953,
+            "spectral_cosine": 0.7955552510252958,
+            "normalized_rmse": 1.2059409817143238
+          },
+          {
+            "story": "V2",
+            "ssim": 0.663931,
+            "psnr_db": 16.801411,
+            "lpips": 0.37850114239043875,
+            "waveform_corr": 0.34185709800909997,
+            "spectral_cosine": 0.8449441930146196,
+            "normalized_rmse": 1.1445245442973628
+          },
+          {
+            "story": "V3",
+            "ssim": 0.732056,
+            "psnr_db": 19.116492,
+            "lpips": 0.3409932996354886,
+            "waveform_corr": 0.36516297585722185,
+            "spectral_cosine": 0.8662691266003328,
+            "normalized_rmse": 1.0574204877069266
+          },
+          {
+            "story": "V4",
+            "ssim": 0.728619,
+            "psnr_db": 17.842523,
+            "lpips": 0.33099090282259314,
+            "waveform_corr": 0.33368202792577595,
+            "spectral_cosine": 0.8459160461702271,
+            "normalized_rmse": 1.0830547521783034
+          },
+          {
+            "story": "V5",
+            "ssim": 0.725913,
+            "psnr_db": 18.669338,
+            "lpips": 0.34068671826805386,
+            "waveform_corr": 0.322432998829986,
+            "spectral_cosine": 0.7983684665361663,
+            "normalized_rmse": 1.1622487450221188
+          }
+        ],
+        "mean": {
+          "ssim": 0.7160988,
+          "psnr_db": 18.4169704,
+          "lpips": 0.3408969809208574,
+          "waveform_corr": 0.3033224107759486,
+          "spectral_cosine": 0.8302106166693284,
+          "normalized_rmse": 1.130637902183807
+        }
+      },
+      {
+        "id": "pulpcut_turbo8_euler",
+        "source": "S11",
+        "segments": 15,
+        "stories": [
+          {
+            "story": "V1",
+            "ssim": 0.693176,
+            "psnr_db": 18.72288,
+            "lpips": 0.33085514800470384,
+            "waveform_corr": 0.17481569025184768,
+            "spectral_cosine": 0.7930399815807195,
+            "normalized_rmse": 1.6630606435868038
+          },
+          {
+            "story": "V2",
+            "ssim": 0.631603,
+            "psnr_db": 16.349849,
+            "lpips": 0.40394858405238293,
+            "waveform_corr": 0.10311394537083267,
+            "spectral_cosine": 0.8220086084035056,
+            "normalized_rmse": 1.3881285110412385
+          },
+          {
+            "story": "V3",
+            "ssim": 0.69838,
+            "psnr_db": 18.264775,
+            "lpips": 0.37992594691354836,
+            "waveform_corr": 0.2984171970835716,
+            "spectral_cosine": 0.8721910701793986,
+            "normalized_rmse": 1.4773626180387145
+          },
+          {
+            "story": "V4",
+            "ssim": 0.715062,
+            "psnr_db": 17.601307,
+            "lpips": 0.3476054547675725,
+            "waveform_corr": 0.402821201890527,
+            "spectral_cosine": 0.8037413606073754,
+            "normalized_rmse": 1.4103536054059456
+          },
+          {
+            "story": "V5",
+            "ssim": 0.692236,
+            "psnr_db": 17.625052,
+            "lpips": 0.3691808759633984,
+            "waveform_corr": 0.18758023800753917,
+            "spectral_cosine": 0.8280656529582934,
+            "normalized_rmse": 1.616911041607018
+          }
+        ],
+        "mean": {
+          "ssim": 0.6860914,
+          "psnr_db": 17.7127726,
+          "lpips": 0.3663032019403212,
+          "waveform_corr": 0.23334965452086362,
+          "spectral_cosine": 0.8238093347458586,
+          "normalized_rmse": 1.5111632839359441
+        }
+      },
+      {
+        "id": "pdd_ref2va_n4",
+        "source": "S11",
+        "segments": 15,
+        "stories": [
+          {
+            "story": "V1",
+            "ssim": 0.746191,
+            "psnr_db": 19.746028,
+            "lpips": 0.3186927833518044,
+            "waveform_corr": 0.07526483425346782,
+            "spectral_cosine": 0.7685042430346601,
+            "normalized_rmse": 1.2182419525518213
+          },
+          {
+            "story": "V2",
+            "ssim": 0.665849,
+            "psnr_db": 16.428942,
+            "lpips": 0.4012573781560679,
+            "waveform_corr": 0.27911962743142354,
+            "spectral_cosine": 0.8216437228209649,
+            "normalized_rmse": 1.120756568761738
+          },
+          {
+            "story": "V3",
+            "ssim": 0.757434,
+            "psnr_db": 19.396986,
+            "lpips": 0.32704272310235605,
+            "waveform_corr": 0.23023262704659028,
+            "spectral_cosine": 0.8453244222046054,
+            "normalized_rmse": 1.1112021344576068
+          },
+          {
+            "story": "V4",
+            "ssim": 0.753085,
+            "psnr_db": 18.306031,
+            "lpips": 0.34133815380006,
+            "waveform_corr": 0.11938992598534306,
+            "spectral_cosine": 0.7554826679072991,
+            "normalized_rmse": 1.0480859440323953
+          },
+          {
+            "story": "V5",
+            "ssim": 0.748446,
+            "psnr_db": 18.902176,
+            "lpips": 0.33294312922017916,
+            "waveform_corr": 0.15904178474968825,
+            "spectral_cosine": 0.7459367359411737,
+            "normalized_rmse": 1.2398650553536645
+          }
+        ],
+        "mean": {
+          "ssim": 0.734201,
+          "psnr_db": 18.5560326,
+          "lpips": 0.3442548335260935,
+          "waveform_corr": 0.17260975989330257,
+          "spectral_cosine": 0.7873783583817406,
+          "normalized_rmse": 1.1476303310314453
+        }
+      },
+      {
+        "id": "pdd_ref2va_n6",
+        "source": "S11",
+        "segments": 15,
+        "stories": [
+          {
+            "story": "V1",
+            "ssim": 0.74461,
+            "psnr_db": 19.69207,
+            "lpips": 0.31796570195526375,
+            "waveform_corr": 0.07217912849099113,
+            "spectral_cosine": 0.7870771631785506,
+            "normalized_rmse": 1.1877367296807444
+          },
+          {
+            "story": "V2",
+            "ssim": 0.661939,
+            "psnr_db": 16.366312,
+            "lpips": 0.4006959282961048,
+            "waveform_corr": 0.2953458801854357,
+            "spectral_cosine": 0.8630790612882556,
+            "normalized_rmse": 1.1115343259312158
+          },
+          {
+            "story": "V3",
+            "ssim": 0.756637,
+            "psnr_db": 19.336724,
+            "lpips": 0.322959411944916,
+            "waveform_corr": 0.3206798828294264,
+            "spectral_cosine": 0.873442365023843,
+            "normalized_rmse": 1.0682538314638093
+          },
+          {
+            "story": "V4",
+            "ssim": 0.750931,
+            "psnr_db": 18.255364,
+            "lpips": 0.3400455443509694,
+            "waveform_corr": 0.13743978928886166,
+            "spectral_cosine": 0.777711138448801,
+            "normalized_rmse": 1.0715079663880882
+          },
+          {
+            "story": "V5",
+            "ssim": 0.746053,
+            "psnr_db": 18.861238,
+            "lpips": 0.33127416111528873,
+            "waveform_corr": 0.14032509542413382,
+            "spectral_cosine": 0.7651337508409228,
+            "normalized_rmse": 1.2149687085783165
+          }
+        ],
+        "mean": {
+          "ssim": 0.732034,
+          "psnr_db": 18.5023416,
+          "lpips": 0.34258814953250855,
+          "waveform_corr": 0.19319395524376975,
+          "spectral_cosine": 0.8132886957560747,
+          "normalized_rmse": 1.1308003124084347
+        }
+      },
+      {
+        "id": "pdd_ref2va_n8",
+        "source": "S11",
+        "segments": 15,
+        "stories": [
+          {
+            "story": "V1",
+            "ssim": 0.737894,
+            "psnr_db": 19.50104,
+            "lpips": 0.30293228391741145,
+            "waveform_corr": 0.3221909952930947,
+            "spectral_cosine": 0.822914516810435,
+            "normalized_rmse": 1.0494909337314182
+          },
+          {
+            "story": "V2",
+            "ssim": 0.651477,
+            "psnr_db": 16.088823,
+            "lpips": 0.4133839734265062,
+            "waveform_corr": 0.3841614210980722,
+            "spectral_cosine": 0.8699889807462854,
+            "normalized_rmse": 1.0268985078809365
+          },
+          {
+            "story": "V3",
+            "ssim": 0.755873,
+            "psnr_db": 19.362134,
+            "lpips": 0.31178947326852313,
+            "waveform_corr": 0.3890841040432863,
+            "spectral_cosine": 0.8916451890437722,
+            "normalized_rmse": 1.0754678121874912
+          },
+          {
+            "story": "V4",
+            "ssim": 0.743917,
+            "psnr_db": 18.147037,
+            "lpips": 0.32938743100084106,
+            "waveform_corr": 0.10844482432138519,
+            "spectral_cosine": 0.791355298962975,
+            "normalized_rmse": 1.1884294059074532
+          },
+          {
+            "story": "V5",
+            "ssim": 0.743589,
+            "psnr_db": 18.808681,
+            "lpips": 0.3225487342902592,
+            "waveform_corr": 0.17239247108658445,
+            "spectral_cosine": 0.8088279210790401,
+            "normalized_rmse": 1.2797114105879601
+          }
+        ],
+        "mean": {
+          "ssim": 0.72655,
+          "psnr_db": 18.381543,
+          "lpips": 0.3360083791807082,
+          "waveform_corr": 0.2752547631684846,
+          "spectral_cosine": 0.8369463813285016,
+          "normalized_rmse": 1.1239996140590518
+        }
+      },
+      {
+        "id": "larry_v4_pruned_n8_a4",
+        "source": "S11",
+        "segments": 15,
+        "stories": [
+          {
+            "story": "V1",
+            "ssim": 0.728455,
+            "psnr_db": 19.638844,
+            "lpips": 0.29524934023130134,
+            "waveform_corr": 0.2019515726075246,
+            "spectral_cosine": 0.8105760599328734,
+            "normalized_rmse": 1.376981366438487
+          },
+          {
+            "story": "V2",
+            "ssim": 0.702452,
+            "psnr_db": 18.57567,
+            "lpips": 0.2674495432464803,
+            "waveform_corr": 0.3049719665778004,
+            "spectral_cosine": 0.8859759736900723,
+            "normalized_rmse": 1.1879614047973814
+          },
+          {
+            "story": "V3",
+            "ssim": 0.747673,
+            "psnr_db": 20.094264,
+            "lpips": 0.2834920640756835,
+            "waveform_corr": 0.3797614577074552,
+            "spectral_cosine": 0.8956277650140986,
+            "normalized_rmse": 1.306552581765731
+          },
+          {
+            "story": "V4",
+            "ssim": 0.753971,
+            "psnr_db": 18.952157,
+            "lpips": 0.27049679411896344,
+            "waveform_corr": 0.572545983528304,
+            "spectral_cosine": 0.8789054422409222,
+            "normalized_rmse": 1.1048545303512827
+          },
+          {
+            "story": "V5",
+            "ssim": 0.749376,
+            "psnr_db": 19.364052,
+            "lpips": 0.28755378776362966,
+            "waveform_corr": 0.29890083702780157,
+            "spectral_cosine": 0.8712593083238799,
+            "normalized_rmse": 1.3948157068988802
+          }
+        ],
+        "mean": {
+          "ssim": 0.7363854,
+          "psnr_db": 19.3249974,
+          "lpips": 0.28084830588721166,
+          "waveform_corr": 0.35162636348977716,
+          "spectral_cosine": 0.8684689098403693,
+          "normalized_rmse": 1.2742331180503526
+        }
+      },
+      {
+        "id": "audio_refine_l5_a4_d50",
+        "source": "S11",
+        "segments": 15,
+        "stories": [
+          {
+            "story": "V1",
+            "ssim": 0.69209,
+            "psnr_db": 18.651731,
+            "lpips": 0.34053124023265524,
+            "waveform_corr": 0.15111783347339763,
+            "spectral_cosine": 0.793946297228496,
+            "normalized_rmse": 1.7787339286138717
+          },
+          {
+            "story": "V2",
+            "ssim": 0.634348,
+            "psnr_db": 16.011538,
+            "lpips": 0.4273632779473164,
+            "waveform_corr": 0.22108266880471353,
+            "spectral_cosine": 0.8152665374735972,
+            "normalized_rmse": 1.2287929933034993
+          },
+          {
+            "story": "V3",
+            "ssim": 0.694102,
+            "psnr_db": 18.381169,
+            "lpips": 0.38075567047987413,
+            "waveform_corr": 0.2532824749633293,
+            "spectral_cosine": 0.8508203177549668,
+            "normalized_rmse": 1.6801595057284473
+          },
+          {
+            "story": "V4",
+            "ssim": 0.701018,
+            "psnr_db": 17.376692,
+            "lpips": 0.3570182105076724,
+            "waveform_corr": 0.20443695005729776,
+            "spectral_cosine": 0.7838482716445273,
+            "normalized_rmse": 1.9221546069387436
+          },
+          {
+            "story": "V5",
+            "ssim": 0.691381,
+            "psnr_db": 17.541531,
+            "lpips": 0.3653252537229231,
+            "waveform_corr": 0.1294094474722372,
+            "spectral_cosine": 0.8028183425766717,
+            "normalized_rmse": 1.6189657641664124
+          }
+        ],
+        "mean": {
+          "ssim": 0.6825878000000001,
+          "psnr_db": 17.5925322,
+          "lpips": 0.3741987305780882,
+          "waveform_corr": 0.1918658749541951,
+          "spectral_cosine": 0.8093399533356518,
+          "normalized_rmse": 1.6457613597501948
+        }
+      }
+    ],
+    "Q2_kitchen_five_stories": [
+      {
+        "id": "base20_eb",
+        "seconds_per_story": 1763.64,
+        "lpips": 0.19267,
+        "audio8k": 0.905287,
+        "ssim": 0.80075,
+        "worst_story_lpips": 0.22371,
+        "cache_hits": 0
+      },
+      {
+        "id": "base16_eb",
+        "seconds_per_story": 1431.07,
+        "lpips": 0.210804,
+        "audio8k": 0.895965,
+        "ssim": 0.792964,
+        "worst_story_lpips": 0.240634,
+        "cache_hits": 0
+      },
+      {
+        "id": "ref_ultra16_cap4",
+        "seconds_per_story": 1486.6,
+        "lpips": 0.210804,
+        "audio8k": 0.895965,
+        "ssim": 0.792964,
+        "worst_story_lpips": 0.240634,
+        "cache_hits": 0
+      },
+      {
+        "id": "ref_conservative16_cap4",
+        "seconds_per_story": 1493.85,
+        "lpips": 0.210804,
+        "audio8k": 0.895965,
+        "ssim": 0.792964,
+        "worst_story_lpips": 0.240634,
+        "cache_hits": 0
+      },
+      {
+        "id": "adaptive16_cap4",
+        "seconds_per_story": 1301.91,
+        "lpips": 0.211442,
+        "audio8k": 0.889856,
+        "ssim": 0.79322,
+        "worst_story_lpips": 0.240785,
+        "cache_hits": 50
+      },
+      {
+        "id": "adaptive_audio16_cap4",
+        "seconds_per_story": 1282.02,
+        "lpips": 0.211442,
+        "audio8k": 0.889856,
+        "ssim": 0.79322,
+        "worst_story_lpips": 0.240785,
+        "cache_hits": 50
+      },
+      {
+        "id": "deep20_cap5",
+        "seconds_per_story": 1422.67,
+        "lpips": 0.225162,
+        "audio8k": 0.884871,
+        "ssim": 0.778841,
+        "worst_story_lpips": 0.256383,
+        "cache_hits": 75
+      },
+      {
+        "id": "spectrum20_cap5",
+        "seconds_per_story": 1388.62,
+        "lpips": 0.226778,
+        "audio8k": 0.88758,
+        "ssim": 0.783101,
+        "worst_story_lpips": 0.252445,
+        "cache_hits": 75
+      },
+      {
+        "id": "spectrum16_cap2",
+        "seconds_per_story": 1291.28,
+        "lpips": 0.227575,
+        "audio8k": 0.880592,
+        "ssim": 0.780256,
+        "worst_story_lpips": 0.261145,
+        "cache_hits": 30
+      },
+      {
+        "id": "spectrum16_cap4",
+        "seconds_per_story": 1135.05,
+        "lpips": 0.228155,
+        "audio8k": 0.88431,
+        "ssim": 0.781953,
+        "worst_story_lpips": 0.259235,
+        "cache_hits": 60
+      },
+      {
+        "id": "deep16_cap4",
+        "seconds_per_story": 1163.57,
+        "lpips": 0.230039,
+        "audio8k": 0.882288,
+        "ssim": 0.777474,
+        "worst_story_lpips": 0.260924,
+        "cache_hits": 60
+      },
+      {
+        "id": "deep16_cap2",
+        "seconds_per_story": 1301.27,
+        "lpips": 0.230063,
+        "audio8k": 0.882507,
+        "ssim": 0.777423,
+        "worst_story_lpips": 0.260718,
+        "cache_hits": 30
+      },
+      {
+        "id": "dmd12_eb_0p65",
+        "seconds_per_story": 1116.97,
+        "lpips": 0.244671,
+        "audio8k": 0.892321,
+        "ssim": 0.75673,
+        "worst_story_lpips": 0.259759,
+        "cache_hits": 0
+      },
+      {
+        "id": "base12_eb",
+        "seconds_per_story": 1104.87,
+        "lpips": 0.247016,
+        "audio8k": 0.86552,
+        "ssim": 0.767527,
+        "worst_story_lpips": 0.264237,
+        "cache_hits": 0
+      },
+      {
+        "id": "dmd8_eb_0p65",
+        "seconds_per_story": 785.78,
+        "lpips": 0.272869,
+        "audio8k": 0.86876,
+        "ssim": 0.744334,
+        "worst_story_lpips": 0.281281,
+        "cache_hits": 0
+      },
+      {
+        "id": "larry12_eb",
+        "seconds_per_story": 1121.03,
+        "lpips": 0.274395,
+        "audio8k": 0.874511,
+        "ssim": 0.737772,
+        "worst_story_lpips": 0.308505,
+        "cache_hits": 0
+      },
+      {
+        "id": "dmd12_eb_0p85",
+        "seconds_per_story": 1117.88,
+        "lpips": 0.27441,
+        "audio8k": 0.873392,
+        "ssim": 0.732907,
+        "worst_story_lpips": 0.286117,
+        "cache_hits": 0
+      },
+      {
+        "id": "dmd8_eb_0p85",
+        "seconds_per_story": 783.92,
+        "lpips": 0.278975,
+        "audio8k": 0.875586,
+        "ssim": 0.733579,
+        "worst_story_lpips": 0.288493,
+        "cache_hits": 0
+      },
+      {
+        "id": "larry8_eb",
+        "seconds_per_story": 784.58,
+        "lpips": 0.280303,
+        "audio8k": 0.869221,
+        "ssim": 0.736525,
+        "worst_story_lpips": 0.300606,
+        "cache_hits": 0
+      },
+      {
+        "id": "larry8_refine2_none",
+        "seconds_per_story": 1069.86,
+        "lpips": 0.280303,
+        "audio8k": 0.811456,
+        "ssim": 0.736525,
+        "worst_story_lpips": 0.300606,
+        "cache_hits": 0
+      },
+      {
+        "id": "larry8_refine2_frozen",
+        "seconds_per_story": 1021.89,
+        "lpips": 0.280303,
+        "audio8k": 0.808333,
+        "ssim": 0.736525,
+        "worst_story_lpips": 0.300606,
+        "cache_hits": 15
+      },
+      {
+        "id": "larry8_refine4_none",
+        "seconds_per_story": 1235.15,
+        "lpips": 0.280303,
+        "audio8k": 0.85057,
+        "ssim": 0.736525,
+        "worst_story_lpips": 0.300606,
+        "cache_hits": 0
+      },
+      {
+        "id": "larry8_refine4_frozen",
+        "seconds_per_story": 1049.0,
+        "lpips": 0.280303,
+        "audio8k": 0.846374,
+        "ssim": 0.736525,
+        "worst_story_lpips": 0.300606,
+        "cache_hits": 45
+      },
+      {
+        "id": "larry8_refine2_d0p3",
+        "seconds_per_story": 1071.5,
+        "lpips": 0.280303,
+        "audio8k": 0.855607,
+        "ssim": 0.736525,
+        "worst_story_lpips": 0.300606,
+        "cache_hits": 0
+      },
+      {
+        "id": "larry8_refine4_d0p3",
+        "seconds_per_story": 1236.61,
+        "lpips": 0.280303,
+        "audio8k": 0.852538,
+        "ssim": 0.736525,
+        "worst_story_lpips": 0.300606,
+        "cache_hits": 0
+      },
+      {
+        "id": "dmd8_eb_1p0",
+        "seconds_per_story": 784.57,
+        "lpips": 0.303796,
+        "audio8k": 0.858642,
+        "ssim": 0.715628,
+        "worst_story_lpips": 0.320108,
+        "cache_hits": 0
+      },
+      {
+        "id": "dmd8_native_0p85",
+        "seconds_per_story": 786.47,
+        "lpips": 0.318007,
+        "audio8k": 0.852454,
+        "ssim": 0.718232,
+        "worst_story_lpips": 0.334465,
+        "cache_hits": 0
+      },
+      {
+        "id": "dmd8_native_1p0",
+        "seconds_per_story": 785.58,
+        "lpips": 0.320005,
+        "audio8k": 0.84297,
+        "ssim": 0.713232,
+        "worst_story_lpips": 0.341563,
+        "cache_hits": 0
+      },
+      {
+        "id": "larry8_native",
+        "seconds_per_story": 785.32,
+        "lpips": 0.32452,
+        "audio8k": 0.848686,
+        "ssim": 0.718295,
+        "worst_story_lpips": 0.342657,
+        "cache_hits": 0
+      },
+      {
+        "id": "dmd8_native_0p65",
+        "seconds_per_story": 789.01,
+        "lpips": 0.329439,
+        "audio8k": 0.859492,
+        "ssim": 0.718638,
+        "worst_story_lpips": 0.367887,
+        "cache_hits": 0
+      },
+      {
+        "id": "base8_native",
+        "seconds_per_story": 779.09,
+        "lpips": 0.354767,
+        "audio8k": 0.801214,
+        "ssim": 0.720373,
+        "worst_story_lpips": 0.385957,
+        "cache_hits": 0
+      }
+    ],
+    "Q3_hyperflow_15_segments": {
+      "hyperflow_dense": {
+        "n": 15,
+        "cases": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15"
+        ],
+        "mean": {
+          "ssim": 0.7310191333333333,
+          "lpips": 0.29949383989419426,
+          "audio8k": 0.8640056588065385,
+          "audio32k": 0.6747814046520025
+        },
+        "matched_larry": {
+          "ssim": 0.7319794666666667,
+          "lpips": 0.28336726912932075,
+          "audio8k": 0.8691781218252603,
+          "audio32k": 0.6958988736754735
+        }
+      },
+      "hyperflow_tau1": {
+        "n": 15,
+        "cases": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15"
+        ],
+        "mean": {
+          "ssim": 0.7285832,
+          "lpips": 0.305696383431905,
+          "audio8k": 0.8457456911193835,
+          "audio32k": 0.6315279943421305
+        },
+        "matched_larry": {
+          "ssim": 0.7319794666666667,
+          "lpips": 0.28336726912932075,
+          "audio8k": 0.8691781218252603,
+          "audio32k": 0.6958988736754735
+        }
+      },
+      "hyperflow_tau025": {
+        "n": 6,
+        "cases": [
+          "1",
+          "3",
+          "4",
+          "8",
+          "12",
+          "15"
+        ],
+        "mean": {
+          "ssim": 0.7194286666666667,
+          "lpips": 0.3230246979547929,
+          "audio8k": 0.8304825914994602,
+          "audio32k": 0.5629796176741046
+        },
+        "matched_larry": {
+          "ssim": 0.7168293333333333,
+          "lpips": 0.31237377180301723,
+          "audio8k": 0.8511143181653211,
+          "audio32k": 0.6889903390649315
+        }
+      },
+      "hyperflow_tau05": {
+        "n": 6,
+        "cases": [
+          "1",
+          "3",
+          "4",
+          "8",
+          "12",
+          "15"
+        ],
+        "mean": {
+          "ssim": 0.7187921666666667,
+          "lpips": 0.32338702001175723,
+          "audio8k": 0.8308346318067247,
+          "audio32k": 0.5447477854204241
+        },
+        "matched_larry": {
+          "ssim": 0.7168293333333333,
+          "lpips": 0.31237377180301723,
+          "audio8k": 0.8511143181653211,
+          "audio32k": 0.6889903390649315
+        }
+      }
+    }
+  },
+  "asr_matched_hyperflow": {
+    "CER": {
+      "cases": [
+        "1",
+        "2",
+        "3",
+        "5",
+        "6"
+      ],
+      "profiles": {
+        "Larry8_INT8decode": {
+          "micro_error_rate": 0.028169014084507043,
+          "macro_error_rate": 0.030632411067193676,
+          "tokens": 142
+        },
+        "hyperflow_dense": {
+          "micro_error_rate": 0.1267605633802817,
+          "macro_error_rate": 0.11396574440052701,
+          "tokens": 142
+        },
+        "hyperflow_tau1": {
+          "micro_error_rate": 0.09859154929577464,
+          "macro_error_rate": 0.09123847167325429,
+          "tokens": 142
+        }
+      }
+    },
+    "WER": {
+      "cases": [
+        "7",
+        "8",
+        "9",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "profiles": {
+        "Larry8_INT8decode": {
+          "micro_error_rate": 0.10891089108910891,
+          "macro_error_rate": 0.18125,
+          "tokens": 101
+        },
+        "hyperflow_dense": {
+          "micro_error_rate": 0.12871287128712872,
+          "macro_error_rate": 0.23124999999999998,
+          "tokens": 101
+        },
+        "hyperflow_tau1": {
+          "micro_error_rate": 0.1188118811881188,
+          "macro_error_rate": 0.17212301587301587,
+          "tokens": 101
+        }
+      }
+    }
+  },
+  "provenance": {
+    "Q1": "S10/S11; per-story scalar raw results",
+    "Q2": "S12; rounded report table, not new GPU timings",
+    "Q3": "S13; equal-segment group, not equal-story group"
+  },
+  "note": "Keep groups separate. Similarity to BF16/50 reference is not isolated quantization error or MOS. Early Turbo4 5/6/8 are configured steps, not instrumented NFE."
+}

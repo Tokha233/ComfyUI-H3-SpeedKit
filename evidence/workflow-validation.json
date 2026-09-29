@@ -1,0 +1,24 @@
+{
+  "status": "success",
+  "engine": "ComfyUI PromptExecutor",
+  "prompt_validation": true,
+  "outputs": [
+    "13"
+  ],
+  "custom_nodes": [
+    "H3SpeedKitOptimize",
+    "H3SpeedKitVideoVAELoader",
+    "H3SpeedKitDecode",
+    "H3SpeedKitSaveVideo"
+  ],
+  "reference_conditioning": true,
+  "sampler_steps": 8,
+  "local_mp4_completed": true,
+  "input_size": [
+    384,
+    256,
+    124
+  ],
+  "public_models": true,
+  "scope": "The API graph was executed with local model filenames and 384x256 size substituted. Canvas import layout has not been frontend-qualified."
+}

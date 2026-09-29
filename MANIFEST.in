@@ -1,0 +1,5 @@
+recursive-include kernels *.cu *.cuh
+recursive-include tools *.py
+recursive-include configs *.json
+recursive-include third_party *
+include NOTICE LICENSE

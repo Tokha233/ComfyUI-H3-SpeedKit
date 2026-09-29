@@ -1,0 +1,20 @@
+name: Runtime or installation issue
+description: Include the tested version and a minimal public reproduction.
+body:
+  - type: markdown
+    attributes:
+      value: "This revision ships diagnostics and evidence only. Do not include credentials or private media."
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment report
+      description: Output of python -m h3_speedkit; remove anything you do not want public.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Expected and actual behavior
+      description: Include the commit, command, traceback and minimal public reproduction.
+    validations:
+      required: true

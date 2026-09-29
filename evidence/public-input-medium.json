@@ -1,0 +1,158 @@
+{
+  "schema": 1,
+  "status": "success",
+  "records": [
+    {
+      "arm": "stock",
+      "repeat": -1,
+      "warmup": true,
+      "seconds": 28.77598688902799,
+      "dit_seconds": 24.331719062989578,
+      "decode_seconds": 3.6295680380426347,
+      "sha256": [
+        "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+        "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb",
+        "127f05afbea9f7d6a77c8b24e633aceeb2a718d65f12c1ee9d7dae6dfd2af3d6",
+        "24d2fce7641d923c17e8ba07fac3701d0c43ff094110f37a56c97116cbfc3e25"
+      ],
+      "four_sha_equal_stock": true
+    },
+    {
+      "arm": "speedkit",
+      "repeat": -1,
+      "warmup": true,
+      "seconds": 33.331853457028046,
+      "dit_seconds": 30.508907838957384,
+      "decode_seconds": 2.0565411580028012,
+      "sha256": [
+        "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+        "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb",
+        "127f05afbea9f7d6a77c8b24e633aceeb2a718d65f12c1ee9d7dae6dfd2af3d6",
+        "24d2fce7641d923c17e8ba07fac3701d0c43ff094110f37a56c97116cbfc3e25"
+      ],
+      "backend": {
+        "skip": 128,
+        "counts": {
+          "qkv": 50,
+          "attention": 50,
+          "norm_quant": 100,
+          "fc1": 50,
+          "gate": 100,
+          "last_block_window": 1
+        },
+        "tokens": 14850,
+        "shape_key": [
+          14850,
+          128
+        ],
+        "verify": true
+      },
+      "four_sha_equal_stock": true
+    },
+    {
+      "arm": "speedkit",
+      "repeat": 0,
+      "warmup": false,
+      "seconds": 16.766043875948526,
+      "dit_seconds": 13.92902881198097,
+      "decode_seconds": 2.066456326050684,
+      "sha256": [
+        "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+        "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb",
+        "127f05afbea9f7d6a77c8b24e633aceeb2a718d65f12c1ee9d7dae6dfd2af3d6",
+        "24d2fce7641d923c17e8ba07fac3701d0c43ff094110f37a56c97116cbfc3e25"
+      ],
+      "backend": {
+        "skip": 128,
+        "counts": {
+          "qkv": 50,
+          "attention": 50,
+          "norm_quant": 100,
+          "fc1": 50,
+          "gate": 100,
+          "last_block_window": 1
+        },
+        "tokens": 14850,
+        "shape_key": [
+          14850,
+          128
+        ],
+        "verify": false
+      },
+      "four_sha_equal_stock": true
+    },
+    {
+      "arm": "stock",
+      "repeat": 0,
+      "warmup": false,
+      "seconds": 19.46504401101265,
+      "dit_seconds": 16.189231717959046,
+      "decode_seconds": 2.4455906220246106,
+      "sha256": [
+        "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+        "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb",
+        "127f05afbea9f7d6a77c8b24e633aceeb2a718d65f12c1ee9d7dae6dfd2af3d6",
+        "24d2fce7641d923c17e8ba07fac3701d0c43ff094110f37a56c97116cbfc3e25"
+      ],
+      "four_sha_equal_stock": true
+    },
+    {
+      "arm": "stock",
+      "repeat": 1,
+      "warmup": false,
+      "seconds": 19.15496019704733,
+      "dit_seconds": 15.893491873051971,
+      "decode_seconds": 2.4559708799934015,
+      "sha256": [
+        "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+        "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb",
+        "127f05afbea9f7d6a77c8b24e633aceeb2a718d65f12c1ee9d7dae6dfd2af3d6",
+        "24d2fce7641d923c17e8ba07fac3701d0c43ff094110f37a56c97116cbfc3e25"
+      ],
+      "four_sha_equal_stock": true
+    },
+    {
+      "arm": "speedkit",
+      "repeat": 1,
+      "warmup": false,
+      "seconds": 16.761190115008503,
+      "dit_seconds": 13.944730071001686,
+      "decode_seconds": 2.060762263019569,
+      "sha256": [
+        "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+        "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb",
+        "127f05afbea9f7d6a77c8b24e633aceeb2a718d65f12c1ee9d7dae6dfd2af3d6",
+        "24d2fce7641d923c17e8ba07fac3701d0c43ff094110f37a56c97116cbfc3e25"
+      ],
+      "backend": {
+        "skip": 128,
+        "counts": {
+          "qkv": 50,
+          "attention": 50,
+          "norm_quant": 100,
+          "fc1": 50,
+          "gate": 100,
+          "last_block_window": 1
+        },
+        "tokens": 14850,
+        "shape_key": [
+          14850,
+          128
+        ],
+        "verify": false
+      },
+      "four_sha_equal_stock": true
+    }
+  ],
+  "precision": "INT8 DiT + INT8 VAE / GPU FP32 audio",
+  "timing": "frozen condition to completed local MP4; hash and condition preparation excluded",
+  "input": {
+    "width": 768,
+    "height": 512,
+    "requested_frames": 124,
+    "steps": 8,
+    "seed": 42
+  },
+  "environment": {},
+  "source_environment": "Pinned public Comfy H3/model_patcher/attention/ops files, original public reference and public merged Larry; full condition encoding invoked in this run."
+}

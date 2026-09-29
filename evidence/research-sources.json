@@ -1,0 +1,308 @@
+[
+  {
+    "id": "h3-optimizations-meta",
+    "url": "https://api.github.com/repos/Zironic/H3-Optimizations",
+    "resolved_url": "https://api.github.com/repos/Zironic/H3-Optimizations",
+    "bytes": 5278,
+    "sha256": "a7a52e8b918adf5a1a64059e8625a4ffb0d95adab6ccbb27432c2b0b0c6115bc",
+    "retrieved_at": "2026-09-29T17:38:55.253440+00:00"
+  },
+  {
+    "id": "h3-optimizations-readme",
+    "url": "https://raw.githubusercontent.com/Zironic/H3-Optimizations/main/README.md",
+    "resolved_url": "https://raw.githubusercontent.com/Zironic/H3-Optimizations/main/README.md",
+    "bytes": 36485,
+    "sha256": "9fa168e4e05b9a04ea9975aedd44da5c3cc8b14aa6ad52ac146f40e37382b8bf",
+    "retrieved_at": "2026-09-29T17:38:55.301837+00:00"
+  },
+  {
+    "id": "h3-optimizations-pyproject",
+    "url": "https://raw.githubusercontent.com/Zironic/H3-Optimizations/main/pyproject.toml",
+    "resolved_url": "https://raw.githubusercontent.com/Zironic/H3-Optimizations/main/pyproject.toml",
+    "bytes": 615,
+    "sha256": "1e6eb84b7b0c44eb127a54da2267fb0a81c7b267fb2c3b95683bbedc35c496f0",
+    "retrieved_at": "2026-09-29T17:38:55.169575+00:00"
+  },
+  {
+    "id": "h3-optimizations-license",
+    "url": "https://raw.githubusercontent.com/Zironic/H3-Optimizations/main/LICENSE",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "id": "nunchaku-readme",
+    "url": "https://raw.githubusercontent.com/nunchux-ai/ComfyUI-nunchaku/main/README.md",
+    "resolved_url": "https://raw.githubusercontent.com/nunchux-ai/ComfyUI-nunchaku/main/README.md",
+    "bytes": 8201,
+    "sha256": "97371037959af245b0358a13c5c9062b1296b268f68d1df96394c66bb484ee4a",
+    "retrieved_at": "2026-09-29T17:38:55.154302+00:00"
+  },
+  {
+    "id": "nunchaku-core-readme",
+    "url": "https://raw.githubusercontent.com/nunchux-ai/nunchaku/main/README.md",
+    "resolved_url": "https://raw.githubusercontent.com/nunchux-ai/nunchaku/main/README.md",
+    "bytes": 17394,
+    "sha256": "d8abacaeb29519eb76e6dc6ccc926b4cc81261a8a723d06c5e88bccb245bd56b",
+    "retrieved_at": "2026-09-29T17:38:55.841958+00:00"
+  },
+  {
+    "id": "kitchen-readme",
+    "url": "https://raw.githubusercontent.com/Comfy-Org/comfy-kitchen/main/README.md",
+    "resolved_url": "https://raw.githubusercontent.com/Comfy-Org/comfy-kitchen/main/README.md",
+    "bytes": 17744,
+    "sha256": "0eab47dacca478e1f5e3bef68bb694c85297ca14daf2173517752c9ba5c2ccfd",
+    "retrieved_at": "2026-09-29T17:38:55.974026+00:00"
+  },
+  {
+    "id": "kitchen-pyproject",
+    "url": "https://raw.githubusercontent.com/Comfy-Org/comfy-kitchen/main/pyproject.toml",
+    "resolved_url": "https://raw.githubusercontent.com/Comfy-Org/comfy-kitchen/main/pyproject.toml",
+    "bytes": 3189,
+    "sha256": "fc772e1d9b530b876e24ce3e7a5df1afdb50374f87871194fec88214fd5b7e3d",
+    "retrieved_at": "2026-09-29T17:38:56.204516+00:00"
+  },
+  {
+    "id": "wavespeed-readme",
+    "url": "https://raw.githubusercontent.com/chengzeyi/Comfy-WaveSpeed/main/README.md",
+    "resolved_url": "https://raw.githubusercontent.com/chengzeyi/Comfy-WaveSpeed/main/README.md",
+    "bytes": 8418,
+    "sha256": "d096f58abfa08bee0a9c25f902954e5728e7759c3b4ebb610703c8d9d6bbe407",
+    "retrieved_at": "2026-09-29T17:38:56.192741+00:00"
+  },
+  {
+    "id": "wavespeed-init",
+    "url": "https://raw.githubusercontent.com/chengzeyi/Comfy-WaveSpeed/main/__init__.py",
+    "resolved_url": "https://raw.githubusercontent.com/chengzeyi/Comfy-WaveSpeed/main/__init__.py",
+    "bytes": 1946,
+    "sha256": "b84f1b58ea0bc8d11717ddc2360a6fb88098c07a3274abd7447ef3c318798fa5",
+    "retrieved_at": "2026-09-29T17:38:56.514278+00:00"
+  },
+  {
+    "id": "sageattention-readme",
+    "url": "https://raw.githubusercontent.com/thu-ml/SageAttention/main/README.md",
+    "resolved_url": "https://raw.githubusercontent.com/thu-ml/SageAttention/main/README.md",
+    "bytes": 11335,
+    "sha256": "0cc6662bcf49645b10524f51de5178ab9d83946ae89bfa502a1f16c742bd74ac",
+    "retrieved_at": "2026-09-29T17:38:56.510503+00:00"
+  },
+  {
+    "id": "cutlass-license",
+    "url": "https://raw.githubusercontent.com/NVIDIA/cutlass/main/LICENSE.txt",
+    "resolved_url": "https://raw.githubusercontent.com/NVIDIA/cutlass/main/LICENSE.txt",
+    "bytes": 1861,
+    "sha256": "ad1513ca983da737a6843364ad19e8424a56d860736c2da773b8c5be527e1475",
+    "retrieved_at": "2026-09-29T17:38:56.738837+00:00"
+  },
+  {
+    "id": "comfyui-license",
+    "url": "https://raw.githubusercontent.com/Comfy-Org/ComfyUI/master/LICENSE",
+    "resolved_url": "https://raw.githubusercontent.com/Comfy-Org/ComfyUI/master/LICENSE",
+    "bytes": 35149,
+    "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+    "retrieved_at": "2026-09-29T17:38:56.949169+00:00"
+  },
+  {
+    "id": "kitchen-license",
+    "url": "https://raw.githubusercontent.com/Comfy-Org/comfy-kitchen/main/LICENSE",
+    "resolved_url": "https://raw.githubusercontent.com/Comfy-Org/comfy-kitchen/main/LICENSE",
+    "bytes": 11364,
+    "sha256": "cd1c9ea1573c9047e9b5a3676ecc1c8f755e56f249ac1ebd8b5ceda7899037da",
+    "retrieved_at": "2026-09-29T17:38:57.239976+00:00"
+  },
+  {
+    "id": "sageattention-license",
+    "url": "https://raw.githubusercontent.com/thu-ml/SageAttention/main/LICENSE",
+    "resolved_url": "https://raw.githubusercontent.com/thu-ml/SageAttention/main/LICENSE",
+    "bytes": 11357,
+    "sha256": "178f46f58127373d449565589a32c2b5b60c082934618c17b7ce6890c61ef394",
+    "retrieved_at": "2026-09-29T17:38:57.240723+00:00"
+  },
+  {
+    "id": "ref2va-vsa-license",
+    "url": "https://raw.githubusercontent.com/Kablex/ComfyUI-Ref2VA-VSA/main/LICENSE",
+    "resolved_url": "https://raw.githubusercontent.com/Kablex/ComfyUI-Ref2VA-VSA/main/LICENSE",
+    "bytes": 5025,
+    "sha256": "4ff00d82f56c56ec49ca5316fceb6722525db70fcb5f3c27b7df768c9f22ec19",
+    "retrieved_at": "2026-09-29T17:38:57.321364+00:00"
+  },
+  {
+    "id": "learn-cuda-license",
+    "url": "https://raw.githubusercontent.com/gau-nernst/learn-cuda/8c4d1b887a25727b320bc3ace19b63e2db6f8b44/LICENSE",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "id": "comfy-model-patcher",
+    "url": "https://raw.githubusercontent.com/Comfy-Org/ComfyUI/master/comfy/model_patcher.py",
+    "resolved_url": "https://raw.githubusercontent.com/Comfy-Org/ComfyUI/master/comfy/model_patcher.py",
+    "bytes": 102928,
+    "sha256": "edd607a2513794db7c1a003a08466869c9ba5bc9471559e4902699731b64a9c9",
+    "retrieved_at": "2026-09-29T17:38:57.909576+00:00"
+  },
+  {
+    "id": "comfy-patcher-extension",
+    "url": "https://raw.githubusercontent.com/Comfy-Org/ComfyUI/master/comfy/patcher_extension.py",
+    "resolved_url": "https://raw.githubusercontent.com/Comfy-Org/ComfyUI/master/comfy/patcher_extension.py",
+    "bytes": 6886,
+    "sha256": "1c7b3b855278d0b95d1c1a705fa0b3c91a265f320e2f97bdeb9d15469d6d4ac7",
+    "retrieved_at": "2026-09-29T17:38:57.991516+00:00"
+  },
+  {
+    "id": "registry-publishing",
+    "url": "https://docs.comfy.org/registry/publishing.md",
+    "resolved_url": "https://docs.comfy.org/registry/publishing.md",
+    "bytes": 6937,
+    "sha256": "ccd983a30859c8959404962e7e85a49ea7d4cc590a696cb7d12b3dc02a66cc4d",
+    "retrieved_at": "2026-09-29T17:38:58.109540+00:00"
+  },
+  {
+    "id": "registry-specifications",
+    "url": "https://docs.comfy.org/registry/specifications.md",
+    "resolved_url": "https://docs.comfy.org/registry/specifications.md",
+    "bytes": 8849,
+    "sha256": "65c88fa3ae6f059c72c7f7e5837f4b3135272b18c2a047acfde3385662b75c92",
+    "retrieved_at": "2026-09-29T17:38:58.060965+00:00"
+  },
+  {
+    "id": "comfy-node-v3",
+    "url": "https://docs.comfy.org/custom-nodes/v3_migration.md",
+    "resolved_url": "https://docs.comfy.org/custom-nodes/v3_migration.md",
+    "bytes": 34129,
+    "sha256": "4a6b34987e0f19fc34dfbd8b8e7358ca779429ec9dec1ee94d989938be953c49",
+    "retrieved_at": "2026-09-29T17:38:58.050863+00:00"
+  },
+  {
+    "id": "comfy-node-v3-overview",
+    "url": "https://docs.comfy.org/custom-nodes/backend/server_overview.md",
+    "resolved_url": "https://docs.comfy.org/custom-nodes/backend/server_overview.md",
+    "bytes": 9323,
+    "sha256": "75fd4c1d7301266a6867c8cfed45e5f9e310ab9f3b31e5e99ba3d2bdcffe61d0",
+    "retrieved_at": "2026-09-29T17:38:58.472443+00:00"
+  },
+  {
+    "id": "h3-teacache-readme",
+    "url": "https://raw.githubusercontent.com/Icyoung/ComfyUI-MiniMaxH3-TeaCache/main/README.md",
+    "resolved_url": "https://raw.githubusercontent.com/Icyoung/ComfyUI-MiniMaxH3-TeaCache/main/README.md",
+    "bytes": 3835,
+    "sha256": "a73b4a5da1645cf61a212ed95dd3e3c1baafc456caa207fd2f7915ad8a0715c7",
+    "retrieved_at": "2026-09-29T17:38:58.675042+00:00"
+  },
+  {
+    "id": "h3-teacache-meta",
+    "url": "https://api.github.com/repos/Icyoung/ComfyUI-MiniMaxH3-TeaCache",
+    "resolved_url": "https://api.github.com/repos/Icyoung/ComfyUI-MiniMaxH3-TeaCache",
+    "bytes": 6029,
+    "sha256": "b9c435ab13ce2ffba1baac98425afbf1e61242e7339bf2f2c636da625789a0ef",
+    "retrieved_at": "2026-09-29T17:38:59.373478+00:00"
+  },
+  {
+    "id": "kitchen-recent-commits",
+    "url": "https://api.github.com/repos/Comfy-Org/comfy-kitchen/commits?per_page=6",
+    "sha256": "77b989432b5937689b7ae764dbf8bc2c2bb0d12653e0b44e9893c5840ceb09fe",
+    "bytes": 22722,
+    "retrieved_at": "2026-09-29T17:39:40.953486+00:00"
+  },
+  {
+    "id": "h3-optimizations-tree",
+    "url": "https://api.github.com/repos/Zironic/H3-Optimizations/git/trees/main?recursive=1",
+    "sha256": "8a9b72e62daa532acf9e6acf979799ca450ba93f9e4e3c9b0dc1b570bbefe9e0",
+    "bytes": 346235,
+    "retrieved_at": "2026-09-29T17:39:41.574987+00:00"
+  },
+  {
+    "id": "h3-optimizations-recent-commits",
+    "url": "https://api.github.com/repos/Zironic/H3-Optimizations/commits?per_page=5",
+    "sha256": "cc949248b2318369ec922ff77e16dc1f90b88a49bf1322352755a0eacdcdfa79",
+    "bytes": 13990,
+    "retrieved_at": "2026-09-29T17:39:41.469894+00:00"
+  },
+  {
+    "id": "nunchaku-releases",
+    "url": "https://api.github.com/repos/nunchux-ai/nunchaku/releases?per_page=2",
+    "sha256": "8a1ac85b97cf1d1d5e7cf6916e825fd723915fdfc0471e2bcac0679195cbac27",
+    "bytes": 150685,
+    "retrieved_at": "2026-09-29T17:39:41.321005+00:00"
+  },
+  {
+    "id": "kitchen-releases",
+    "url": "https://api.github.com/repos/Comfy-Org/comfy-kitchen/releases?per_page=2",
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "bytes": 2,
+    "retrieved_at": "2026-09-29T17:39:41.795781+00:00"
+  },
+  {
+    "id": "larry-card",
+    "url": "https://huggingface.co/larryvrh/MiniMax-H3-Turbo-Lora/raw/main/README.md",
+    "sha256": "0445dc4967a9ecf6ac5c8e37b4c86b837021d99058bc5af68f188b1d66b62b65",
+    "bytes": 7448,
+    "retrieved_at": "2026-09-29T17:39:42.043930+00:00"
+  },
+  {
+    "id": "comfy-model-card",
+    "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/raw/main/README.md",
+    "sha256": "cfe1e532856bc48fc2a6de64b5db0aa68282476f5488975bf3d1519438515fe9",
+    "bytes": 8293,
+    "retrieved_at": "2026-09-29T17:39:42.322026+00:00"
+  },
+  {
+    "id": "learn-cuda-tree",
+    "url": "https://api.github.com/repos/gau-nernst/learn-cuda/git/trees/8c4d1b887a25727b320bc3ace19b63e2db6f8b44?recursive=1",
+    "sha256": "0926df28bb45cb1abe70ca669d99c9cbd8ee06bfab3478bbbc0c03683cd41857",
+    "bytes": 31955,
+    "retrieved_at": "2026-09-29T17:39:42.445597+00:00"
+  },
+  {
+    "id": "kitchen-pr208",
+    "url": "https://api.github.com/repos/Comfy-Org/comfy-kitchen/pulls/208",
+    "sha256": "774067e9652313214d275680ee43cc17f331a2bdfa974feb1858328fb09528b7",
+    "bytes": 17356,
+    "retrieved_at": "2026-09-29T17:41:18.833847+00:00"
+  },
+  {
+    "id": "kitchen-pr208-files",
+    "url": "https://api.github.com/repos/Comfy-Org/comfy-kitchen/pulls/208/files?per_page=100",
+    "sha256": "45e28d1bed135a66d3595decd4181d7179e4304f7bf40e3c540e5886138c94aa",
+    "bytes": 156573,
+    "retrieved_at": "2026-09-29T17:41:19.612452+00:00"
+  },
+  {
+    "id": "kitchen-attention-0432",
+    "url": "https://api.github.com/repos/Comfy-Org/comfy-kitchen/commits/0432be9a3ac8193e4c516ad167560adabab3f146",
+    "sha256": "6c6cc5b6d943093315b4eef487968582aa818649a5da07d2157104d6f339f5da",
+    "bytes": 6451,
+    "retrieved_at": "2026-09-29T17:41:18.829278+00:00"
+  },
+  {
+    "id": "kitchen-attention-b54f",
+    "url": "https://api.github.com/repos/Comfy-Org/comfy-kitchen/commits/b54f85128ee4246cb42b9888d1e0ae1a0d829049",
+    "sha256": "b0fa65b6406894d71291a9ecdb4a3329303eaac771c6c0c6169063450659dbed",
+    "bytes": 23701,
+    "retrieved_at": "2026-09-29T17:41:19.331878+00:00"
+  },
+  {
+    "id": "h3-optimizations-native-license",
+    "url": "https://raw.githubusercontent.com/Zironic/H3-Optimizations/862774944a331bc1a66cee1cf805b94bd138ebbe/native/LICENSE",
+    "sha256": "cd1c9ea1573c9047e9b5a3676ecc1c8f755e56f249ac1ebd8b5ceda7899037da",
+    "bytes": 11364,
+    "retrieved_at": "2026-09-29T17:41:19.545840+00:00"
+  },
+  {
+    "id": "h3-optimizations-native-notice",
+    "url": "https://raw.githubusercontent.com/Zironic/H3-Optimizations/862774944a331bc1a66cee1cf805b94bd138ebbe/native/NOTICE.upstream",
+    "sha256": "8fee3e9e9a54050364c05220230f5bcb140e38f96ff43c23fe06ec49d96e94af",
+    "bytes": 5898,
+    "retrieved_at": "2026-09-29T17:41:19.613249+00:00"
+  },
+  {
+    "id": "model-license",
+    "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3/raw/main/LICENSE",
+    "sha256": "59b99642b95ea21630e311198ddbfffbfe05aadba0c2f5d884cbdf4efcc90f44",
+    "bytes": 17604,
+    "retrieved_at": "2026-09-29T17:41:20.481654+00:00"
+  },
+  {
+    "id": "project-name-search",
+    "url": "https://api.github.com/search/repositories?q=H3-SpeedKit+in:name&per_page=5",
+    "sha256": "4af480b8ee5b87b369a76c49bd22c9a783908272ebffbe97898f8ab0f0772a5f",
+    "bytes": 55,
+    "retrieved_at": "2026-09-29T17:41:20.266036+00:00"
+  }
+]

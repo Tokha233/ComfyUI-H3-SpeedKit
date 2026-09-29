@@ -1,0 +1,21 @@
+{
+  "kitchen": {
+    "version": "0.2.36",
+    "commit": "888b13e2c0e721f6576fe351a2ad79894b1c451f"
+  },
+  "comfyui": {
+    "commit": "2504e68d4d9dedb514e172692f13436623f25aed",
+    "model_file_sha256": "26ae72f5834cc9038a38600cd12c72d28da785cdaacd578d5b042b58ad48b09b"
+  },
+  "pytorch": "2.12.0+cu130",
+  "torch_git": "7661cd9c6b841b62b7f411aa52ec51f05457263b",
+  "triton": "3.7.0",
+  "cuda_toolkit": "13.0",
+  "gpu": "RTX 5090 D v2",
+  "compute_capability": [
+    12,
+    0
+  ],
+  "cutlass": "v4.5.0",
+  "policy": "Initial source-release qualification; see docs/INSTALL.md for build and fallback."
+}

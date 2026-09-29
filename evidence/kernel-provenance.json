@@ -1,0 +1,202 @@
+{
+  "schema": 1,
+  "files": [
+    {
+      "path": "kernels/convrot/convrot_register_v2.cu",
+      "sha256": "5608d71342957c404b9e35d022cc3ae57036c508b1d42846e20d942c5e131cc4",
+      "license": "Apache-2.0",
+      "origin": "https://github.com/Comfy-Org/comfy-kitchen/tree/888b13e2c0e721f6576fe351a2ad79894b1c451f; https://github.com/sgl-project/sglang/commit/3299804f81b686d3752287e19d9c9d2987d1afc1",
+      "modifications": "SGLang register layout with Kitchen arithmetic barriers and vectorized IO."
+    },
+    {
+      "path": "kernels/convrot/vendor/convrot64_exact.cuh",
+      "sha256": "627e712d02387aa933baed2ef83925422433f22286e70233d0ed2bb4b2a42b6b",
+      "license": "Apache-2.0",
+      "origin": "https://github.com/Comfy-Org/comfy-kitchen/tree/888b13e2c0e721f6576fe351a2ad79894b1c451f; https://github.com/sgl-project/sglang/commit/3299804f81b686d3752287e19d9c9d2987d1afc1",
+      "modifications": "SGLang register layout with Kitchen arithmetic barriers and vectorized IO."
+    },
+    {
+      "path": "kernels/convrot/vendor/dtype_dispatch.cuh",
+      "sha256": "ad281375922b5bc345b0bbde75ee9c24e9ecc81e8c6d94f79a09d315ecb90a70",
+      "license": "Apache-2.0",
+      "origin": "https://github.com/Comfy-Org/comfy-kitchen/tree/888b13e2c0e721f6576fe351a2ad79894b1c451f; https://github.com/sgl-project/sglang/commit/3299804f81b686d3752287e19d9c9d2987d1afc1",
+      "modifications": "SGLang register layout with Kitchen arithmetic barriers and vectorized IO."
+    },
+    {
+      "path": "kernels/convrot/vendor/utils.cuh",
+      "sha256": "a3482d9911029f017c64b39dae5198f76a4c9585b8ede5c734643bcc18d04a4d",
+      "license": "Apache-2.0",
+      "origin": "https://github.com/Comfy-Org/comfy-kitchen/tree/888b13e2c0e721f6576fe351a2ad79894b1c451f; https://github.com/sgl-project/sglang/commit/3299804f81b686d3752287e19d9c9d2987d1afc1",
+      "modifications": "SGLang register layout with Kitchen arithmetic barriers and vectorized IO."
+    },
+    {
+      "path": "kernels/dense/attn_utils.cuh",
+      "sha256": "0753fd89cecf0d1d35e125bc501fe3fd785eb7903107c968f81741fbce2ab13e",
+      "license": "Apache-2.0",
+      "origin": "https://github.com/Comfy-Org/comfy-kitchen/tree/888b13e2c0e721f6576fe351a2ad79894b1c451f; https://github.com/thu-ml/SageAttention/tree/d1a57a546c3d395b1ffcbeecc66d81db76f3b4b5",
+      "modifications": "SM120 D128 three-slot TMA pipeline, cached Q registers, BSHD output, live final-layer query window; upstream KV/softmax order retained."
+    },
+    {
+      "path": "kernels/dense/cp_async.cuh",
+      "sha256": "d804ae201feecafb23a9ac08f1db39509bb93a73da87d5ce18eb66ff6dbb0977",
+      "license": "Apache-2.0",
+      "origin": "https://github.com/Comfy-Org/comfy-kitchen/tree/888b13e2c0e721f6576fe351a2ad79894b1c451f; https://github.com/thu-ml/SageAttention/tree/d1a57a546c3d395b1ffcbeecc66d81db76f3b4b5",
+      "modifications": "SM120 D128 three-slot TMA pipeline, cached Q registers, BSHD output, live final-layer query window; upstream KV/softmax order retained."
+    },
+    {
+      "path": "kernels/dense/dense_ring.cu",
+      "sha256": "786fdb002913f01d370225aa8ce61b802b52b852dcbd6f865674d57bfd870522",
+      "license": "Apache-2.0",
+      "origin": "https://github.com/Comfy-Org/comfy-kitchen/tree/888b13e2c0e721f6576fe351a2ad79894b1c451f; https://github.com/thu-ml/SageAttention/tree/d1a57a546c3d395b1ffcbeecc66d81db76f3b4b5",
+      "modifications": "SM120 D128 three-slot TMA pipeline, cached Q registers, BSHD output, live final-layer query window; upstream KV/softmax order retained."
+    },
+    {
+      "path": "kernels/dense/math.cuh",
+      "sha256": "7efd9e56ecad034311e4bb9d0aa0f14fa40750f52fe17cd26b7d54162ed7ee3a",
+      "license": "Apache-2.0",
+      "origin": "https://github.com/Comfy-Org/comfy-kitchen/tree/888b13e2c0e721f6576fe351a2ad79894b1c451f; https://github.com/thu-ml/SageAttention/tree/d1a57a546c3d395b1ffcbeecc66d81db76f3b4b5",
+      "modifications": "SM120 D128 three-slot TMA pipeline, cached Q registers, BSHD output, live final-layer query window; upstream KV/softmax order retained."
+    },
+    {
+      "path": "kernels/dense/mma.cuh",
+      "sha256": "1335e47299c6e178a4a0b0b2ba76db76ce4730e6ac347206e5e86f14681eeff0",
+      "license": "Apache-2.0",
+      "origin": "https://github.com/Comfy-Org/comfy-kitchen/tree/888b13e2c0e721f6576fe351a2ad79894b1c451f; https://github.com/thu-ml/SageAttention/tree/d1a57a546c3d395b1ffcbeecc66d81db76f3b4b5",
+      "modifications": "SM120 D128 three-slot TMA pipeline, cached Q registers, BSHD output, live final-layer query window; upstream KV/softmax order retained."
+    },
+    {
+      "path": "kernels/dense/numeric_conversion.cuh",
+      "sha256": "14cbcb4345c039d24f967a2bbf6ebc8420519adee9798f96f4dfb397ddb2adf6",
+      "license": "Apache-2.0",
+      "origin": "https://github.com/Comfy-Org/comfy-kitchen/tree/888b13e2c0e721f6576fe351a2ad79894b1c451f; https://github.com/thu-ml/SageAttention/tree/d1a57a546c3d395b1ffcbeecc66d81db76f3b4b5",
+      "modifications": "SM120 D128 three-slot TMA pipeline, cached Q registers, BSHD output, live final-layer query window; upstream KV/softmax order retained."
+    },
+    {
+      "path": "kernels/dense/permuted_smem.cuh",
+      "sha256": "1819af7bbb7ec32b5b340b4dded5e9d8cf9cb121295ad14b5ae260ec3b61ce6a",
+      "license": "Apache-2.0",
+      "origin": "https://github.com/Comfy-Org/comfy-kitchen/tree/888b13e2c0e721f6576fe351a2ad79894b1c451f; https://github.com/thu-ml/SageAttention/tree/d1a57a546c3d395b1ffcbeecc66d81db76f3b4b5",
+      "modifications": "SM120 D128 three-slot TMA pipeline, cached Q registers, BSHD output, live final-layer query window; upstream KV/softmax order retained."
+    },
+    {
+      "path": "kernels/dense/qk_int_sv_i8_cuda.cuh",
+      "sha256": "1617ea7ecc57709f16df0f2aad2256b5fabb8f36ee6ca0b01ea4fcb05c144a43",
+      "license": "Apache-2.0",
+      "origin": "https://github.com/Comfy-Org/comfy-kitchen/tree/888b13e2c0e721f6576fe351a2ad79894b1c451f; https://github.com/thu-ml/SageAttention/tree/d1a57a546c3d395b1ffcbeecc66d81db76f3b4b5",
+      "modifications": "SM120 D128 three-slot TMA pipeline, cached Q registers, BSHD output, live final-layer query window; upstream KV/softmax order retained."
+    },
+    {
+      "path": "kernels/dense/tma_helpers.cuh",
+      "sha256": "b76ad2875c91cba4d5eda8a844f851b7b07ace536286419ef4253363ae105a68",
+      "license": "Apache-2.0",
+      "origin": "https://github.com/Comfy-Org/comfy-kitchen/tree/888b13e2c0e721f6576fe351a2ad79894b1c451f; https://github.com/thu-ml/SageAttention/tree/d1a57a546c3d395b1ffcbeecc66d81db76f3b4b5",
+      "modifications": "SM120 D128 three-slot TMA pipeline, cached Q registers, BSHD output, live final-layer query window; upstream KV/softmax order retained."
+    },
+    {
+      "path": "kernels/gemm/cutlass_gemm_common.cuh",
+      "sha256": "44ff6c902f3cc4cf3a5ec9c8173e7f75ebaa91299c7832b5c90bbd8c615b0910",
+      "license": "Apache-2.0",
+      "origin": "https://github.com/Comfy-Org/comfy-kitchen/tree/888b13e2c0e721f6576fe351a2ad79894b1c451f",
+      "modifications": "R84 fused QKV/RMS/RoPE and quantization, R82 current-input K sampling, FC1 raster-8, exact BF16 gate/residual epilogue."
+    },
+    {
+      "path": "kernels/gemm/fc1.cu",
+      "sha256": "7113011d1565a3ca9d3bdf71f89a982fa92d9ee65f4265206adbd86ec32c6d71",
+      "license": "Apache-2.0",
+      "origin": "https://github.com/Comfy-Org/comfy-kitchen/tree/888b13e2c0e721f6576fe351a2ad79894b1c451f",
+      "modifications": "R84 fused QKV/RMS/RoPE and quantization, R82 current-input K sampling, FC1 raster-8, exact BF16 gate/residual epilogue."
+    },
+    {
+      "path": "kernels/gemm/gate.cu",
+      "sha256": "bb0853147b9256360e4dc126c9a3ccdc9be84ccc81551e28c0cbb6d916052617",
+      "license": "Apache-2.0",
+      "origin": "https://github.com/Comfy-Org/comfy-kitchen/tree/888b13e2c0e721f6576fe351a2ad79894b1c451f",
+      "modifications": "R84 fused QKV/RMS/RoPE and quantization, R82 current-input K sampling, FC1 raster-8, exact BF16 gate/residual epilogue."
+    },
+    {
+      "path": "kernels/gemm/indexed_gate.cuh",
+      "sha256": "b28df17c06338986b0387a2caa56d72c0de3cb8a61e7743589ca3440f72f4738",
+      "license": "Apache-2.0",
+      "origin": "https://github.com/Comfy-Org/comfy-kitchen/tree/888b13e2c0e721f6576fe351a2ad79894b1c451f",
+      "modifications": "R84 fused QKV/RMS/RoPE and quantization, R82 current-input K sampling, FC1 raster-8, exact BF16 gate/residual epilogue."
+    },
+    {
+      "path": "kernels/gemm/r79_sample_anchor.cu",
+      "sha256": "e6613e1e99d2c63596da768cf719b0679f377bd0df4fa2e9429c4d4ab6af5684",
+      "license": "Apache-2.0",
+      "origin": "https://github.com/Comfy-Org/comfy-kitchen/tree/888b13e2c0e721f6576fe351a2ad79894b1c451f",
+      "modifications": "R84 fused QKV/RMS/RoPE and quantization, R82 current-input K sampling, FC1 raster-8, exact BF16 gate/residual epilogue."
+    },
+    {
+      "path": "kernels/gemm/r82_sample_konly.cu",
+      "sha256": "fa4279ea8a9b8c8251ad6f06d36393f795e930e248ae2bfa2ddf41c7bb8ed666",
+      "license": "Apache-2.0",
+      "origin": "https://github.com/Comfy-Org/comfy-kitchen/tree/888b13e2c0e721f6576fe351a2ad79894b1c451f",
+      "modifications": "R84 fused QKV/RMS/RoPE and quantization, R82 current-input K sampling, FC1 raster-8, exact BF16 gate/residual epilogue."
+    },
+    {
+      "path": "kernels/gemm/r84_kfourwarp.cu",
+      "sha256": "6b91a95b89a6d0db8d874d9a4d3968c6a24b9577d6ccfa1822ff41691f99e7b5",
+      "license": "Apache-2.0",
+      "origin": "https://github.com/Comfy-Org/comfy-kitchen/tree/888b13e2c0e721f6576fe351a2ad79894b1c451f",
+      "modifications": "R84 fused QKV/RMS/RoPE and quantization, R82 current-input K sampling, FC1 raster-8, exact BF16 gate/residual epilogue."
+    },
+    {
+      "path": "kernels/norm_quant/norm_quant.cu",
+      "sha256": "37185bf2b851444b48a7c8d9fdd8fed16c4138118b6d0029d2c24975a4b14674",
+      "license": "Apache-2.0 AND BSD-3-Clause",
+      "origin": "https://github.com/Comfy-Org/comfy-kitchen/tree/888b13e2c0e721f6576fe351a2ad79894b1c451f; https://github.com/sgl-project/sglang/commit/3299804f81b686d3752287e19d9c9d2987d1afc1; https://github.com/pytorch/pytorch/tree/7661cd9c6b841b62b7f411aa52ec51f05457263b",
+      "modifications": "PyTorch RMS reduction plus modulation and exact ConvRot256 quantization, no intermediate global tensors."
+    },
+    {
+      "path": "kernels/norm_quant/vendor/convrot64_exact.cuh",
+      "sha256": "627e712d02387aa933baed2ef83925422433f22286e70233d0ed2bb4b2a42b6b",
+      "license": "Apache-2.0 AND BSD-3-Clause",
+      "origin": "https://github.com/Comfy-Org/comfy-kitchen/tree/888b13e2c0e721f6576fe351a2ad79894b1c451f; https://github.com/sgl-project/sglang/commit/3299804f81b686d3752287e19d9c9d2987d1afc1; https://github.com/pytorch/pytorch/tree/7661cd9c6b841b62b7f411aa52ec51f05457263b",
+      "modifications": "PyTorch RMS reduction plus modulation and exact ConvRot256 quantization, no intermediate global tensors."
+    },
+    {
+      "path": "kernels/norm_quant/vendor/dtype_dispatch.cuh",
+      "sha256": "ad281375922b5bc345b0bbde75ee9c24e9ecc81e8c6d94f79a09d315ecb90a70",
+      "license": "Apache-2.0 AND BSD-3-Clause",
+      "origin": "https://github.com/Comfy-Org/comfy-kitchen/tree/888b13e2c0e721f6576fe351a2ad79894b1c451f; https://github.com/sgl-project/sglang/commit/3299804f81b686d3752287e19d9c9d2987d1afc1; https://github.com/pytorch/pytorch/tree/7661cd9c6b841b62b7f411aa52ec51f05457263b",
+      "modifications": "PyTorch RMS reduction plus modulation and exact ConvRot256 quantization, no intermediate global tensors."
+    },
+    {
+      "path": "kernels/norm_quant/vendor/utils.cuh",
+      "sha256": "a3482d9911029f017c64b39dae5198f76a4c9585b8ede5c734643bcc18d04a4d",
+      "license": "Apache-2.0 AND BSD-3-Clause",
+      "origin": "https://github.com/Comfy-Org/comfy-kitchen/tree/888b13e2c0e721f6576fe351a2ad79894b1c451f; https://github.com/sgl-project/sglang/commit/3299804f81b686d3752287e19d9c9d2987d1afc1; https://github.com/pytorch/pytorch/tree/7661cd9c6b841b62b7f411aa52ec51f05457263b",
+      "modifications": "PyTorch RMS reduction plus modulation and exact ConvRot256 quantization, no intermediate global tensors."
+    },
+    {
+      "path": "kernels/residual_quant/residual_quant.cu",
+      "sha256": "570cb0c5cc65e8ad56382a0b695be22d4faf2c6ed28f6d045b5c192469521605",
+      "license": "Apache-2.0 AND BSD-3-Clause",
+      "origin": "https://github.com/Comfy-Org/comfy-kitchen/tree/888b13e2c0e721f6576fe351a2ad79894b1c451f; https://github.com/sgl-project/sglang/commit/3299804f81b686d3752287e19d9c9d2987d1afc1; https://github.com/pytorch/pytorch/tree/7661cd9c6b841b62b7f411aa52ec51f05457263b",
+      "modifications": "Historical fused residual-normalization source; built for research, not used by v0.1 default chain."
+    },
+    {
+      "path": "kernels/residual_quant/vendor/convrot64_exact.cuh",
+      "sha256": "627e712d02387aa933baed2ef83925422433f22286e70233d0ed2bb4b2a42b6b",
+      "license": "Apache-2.0 AND BSD-3-Clause",
+      "origin": "https://github.com/Comfy-Org/comfy-kitchen/tree/888b13e2c0e721f6576fe351a2ad79894b1c451f; https://github.com/sgl-project/sglang/commit/3299804f81b686d3752287e19d9c9d2987d1afc1; https://github.com/pytorch/pytorch/tree/7661cd9c6b841b62b7f411aa52ec51f05457263b",
+      "modifications": "Historical fused residual-normalization source; built for research, not used by v0.1 default chain."
+    },
+    {
+      "path": "kernels/residual_quant/vendor/dtype_dispatch.cuh",
+      "sha256": "ad281375922b5bc345b0bbde75ee9c24e9ecc81e8c6d94f79a09d315ecb90a70",
+      "license": "Apache-2.0 AND BSD-3-Clause",
+      "origin": "https://github.com/Comfy-Org/comfy-kitchen/tree/888b13e2c0e721f6576fe351a2ad79894b1c451f; https://github.com/sgl-project/sglang/commit/3299804f81b686d3752287e19d9c9d2987d1afc1; https://github.com/pytorch/pytorch/tree/7661cd9c6b841b62b7f411aa52ec51f05457263b",
+      "modifications": "Historical fused residual-normalization source; built for research, not used by v0.1 default chain."
+    },
+    {
+      "path": "kernels/residual_quant/vendor/utils.cuh",
+      "sha256": "a3482d9911029f017c64b39dae5198f76a4c9585b8ede5c734643bcc18d04a4d",
+      "license": "Apache-2.0 AND BSD-3-Clause",
+      "origin": "https://github.com/Comfy-Org/comfy-kitchen/tree/888b13e2c0e721f6576fe351a2ad79894b1c451f; https://github.com/sgl-project/sglang/commit/3299804f81b686d3752287e19d9c9d2987d1afc1; https://github.com/pytorch/pytorch/tree/7661cd9c6b841b62b7f411aa52ec51f05457263b",
+      "modifications": "Historical fused residual-normalization source; built for research, not used by v0.1 default chain."
+    }
+  ],
+  "note": "Headers preserve original attributions. Extraction SHA records describe the R85 source; this index describes the published source."
+}

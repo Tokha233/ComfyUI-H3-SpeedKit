@@ -1,0 +1,17 @@
+name: Benchmark result
+description: Submit a comparable performance or quality result.
+body:
+  - type: textarea
+    id: setup
+    attributes:
+      label: Baseline and candidate identities
+      description: Hardware, runtime, source commits, model/LoRA/VAE SHA, seed, dimensions, frames and actual NFE.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Timings, repeats and quality
+      description: Specify timer boundaries, warmups, raw samples, output comparisons and fallback counts. Keep private inputs out.
+    validations:
+      required: true

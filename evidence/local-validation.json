@@ -1,0 +1,45 @@
+{
+  "status": "passed",
+  "date": "2026-09-30",
+  "scope": "Offline evidence, diagnostic CLI, pure-Python wheel build/import, and browser QA. No ComfyUI runtime smoke test and no GPU inference.",
+  "checks": [
+    {
+      "command": "python tools/verify_metrics.py",
+      "exit_code": 0,
+      "stdout": "{\"status\": \"passed\", \"arithmetic_checks\": 109, \"r85_unique_cases\": 15, \"r85_formal_requests\": 60, \"r207_video_reduction_pct\": 6.801731017104585, \"scope\": \"Offline evidence recomputation; not new GPU inference, independent media re-evaluation, or a current production audit.\"}",
+      "stderr": ""
+    },
+    {
+      "command": "python tools/verify_stock_comparison.py",
+      "exit_code": 0,
+      "stdout": "{\"status\": \"verified\", \"checks\": 100, \"formal_requests\": 8, \"historical_four_sha_equal\": true, \"total_reduction_percent\": 6.685482751904026, \"capacity_increase_percent\": 7.164461596183669}",
+      "stderr": ""
+    },
+    {
+      "command": "python tools/verify_native_comparison.py",
+      "exit_code": 0,
+      "stdout": "{\"status\": \"verified\", \"checks\": 176, \"formal_full_requests\": 8, \"formal_decode\": 60, \"quality_clips\": 15, \"native_dtype\": \"FP16\", \"latents_pcm_equal\": true, \"r85_rgb_historical_equal\": true, \"total_reduction_percent\": 11.591098935273136, \"ssim\": 0.9890704}",
+      "stderr": ""
+    },
+    {
+      "command": "python -m unittest discover -s tests -v",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_arch_match_is_not_a_support_claim (test_diagnostics.DiagnosticsTest.test_arch_match_is_not_a_support_claim) ... ok\ntest_default_does_not_import_torch (test_diagnostics.DiagnosticsTest.test_default_does_not_import_torch) ... ok\ntest_failed_probe_does_not_expose_raw_error (test_diagnostics.DiagnosticsTest.test_failed_probe_does_not_expose_raw_error) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.008s\n\nOK"
+    },
+    {
+      "command": "python tools/check_repository.py",
+      "exit_code": 0,
+      "stdout": "{\n  \"status\": \"passed\",\n  \"files\": 60,\n  \"local_links_checked\": 117,\n  \"errors\": []\n}",
+      "stderr": ""
+    }
+  ],
+  "diagnostics_wheel": {
+    "filename": "h3_speedkit-0.0.1-py3-none-any.whl",
+    "sha256": "c5d72731598bacb71d90b443727ad21f14803c4ec9e758f89e227fa73c00952e",
+    "gpu_backend": false,
+    "zip_import_test": "passed"
+  },
+  "gpu_experiments_performed_this_turn": false,
+  "historical_note": "Bootstrap-time validation; current source release checks are in release-validation.json."
+}

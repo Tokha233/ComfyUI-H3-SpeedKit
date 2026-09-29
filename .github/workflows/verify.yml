@@ -1,0 +1,23 @@
+name: Verify offline evidence and tooling
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s tests -v
+      - run: python tools/verify_metrics.py
+      - run: python tools/verify_stock_comparison.py
+      - run: python tools/verify_native_comparison.py
+      - run: python tools/verify_kitchen036.py
+      - run: python tools/report_metrics.py
+      - run: python tools/check_repository.py
+# No model downloads, GPU performance claim or package publishing in this CI.

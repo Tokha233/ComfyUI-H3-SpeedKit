@@ -1,0 +1,297 @@
+{
+  "schema": 1,
+  "date": "2026-09-30",
+  "stack": "Kitchen 0.2.36 / Torch 2.12.0+cu130 / RTX 5090 D v2",
+  "scope": "Two private representative segments, 243/260 frames, same baked Larry v4 INT8 checkpoint, eight Euler/beta steps, frozen condition through finished local MP4. Excludes Qwen/reference preparation, cold checkpoint read, queue/network/upload. Separate process warmups and two formal repeats per arm; stock followed by package, not randomized. Same historical CPU exporter for these measurements.",
+  "source_revision": "package-r4; final source validation recorded separately",
+  "private_inputs_published": false,
+  "records": [
+    {
+      "case": 1,
+      "arm": "stock_fp16",
+      "run": 0,
+      "seconds": 270.45472720102407,
+      "dit_seconds": 241.52319764893036,
+      "video_seconds": 24.11746780294925,
+      "audio_seconds": 0.11914755508769304,
+      "export_seconds": 4.569132728036493,
+      "sha256": [
+        "d7f6b67bed376e4fc8b805474f5d8ab1ac961de9a5a98ea778cd8fccc590f8bf",
+        "5973eeb3722428b4af01ea3dc4fbc275ac601b020bb82391167aaf4d0e68ee04",
+        "c08ce0d938cbfb3dabdeddb961ae26c86c7335c92afca488c526c3ede04c5d64",
+        "122d47f4b48601a8b88d6847634e6455ad61c8bb8d10fb42613c15fabe688dce"
+      ],
+      "nfe": 8,
+      "backend": null
+    },
+    {
+      "case": 1,
+      "arm": "stock_fp16",
+      "run": 1,
+      "seconds": 270.6963408419397,
+      "dit_seconds": 241.44836863595992,
+      "video_seconds": 24.482563865021802,
+      "audio_seconds": 0.1192794939270243,
+      "export_seconds": 4.461838353076018,
+      "sha256": [
+        "d7f6b67bed376e4fc8b805474f5d8ab1ac961de9a5a98ea778cd8fccc590f8bf",
+        "5973eeb3722428b4af01ea3dc4fbc275ac601b020bb82391167aaf4d0e68ee04",
+        "c08ce0d938cbfb3dabdeddb961ae26c86c7335c92afca488c526c3ede04c5d64",
+        "122d47f4b48601a8b88d6847634e6455ad61c8bb8d10fb42613c15fabe688dce"
+      ],
+      "nfe": 8,
+      "backend": null
+    },
+    {
+      "case": 1,
+      "arm": "stock_int8",
+      "run": 0,
+      "seconds": 257.2963984629605,
+      "dit_seconds": 241.46890507999342,
+      "video_seconds": 11.242893605027348,
+      "audio_seconds": 0.1189434319967404,
+      "export_seconds": 4.340030680061318,
+      "sha256": [
+        "d7f6b67bed376e4fc8b805474f5d8ab1ac961de9a5a98ea778cd8fccc590f8bf",
+        "5973eeb3722428b4af01ea3dc4fbc275ac601b020bb82391167aaf4d0e68ee04",
+        "fa0a22a4cb29b4bd4f606824d86be60500e55b838fdcdb17c810f751b143cbe2",
+        "122d47f4b48601a8b88d6847634e6455ad61c8bb8d10fb42613c15fabe688dce"
+      ],
+      "nfe": 8,
+      "backend": null
+    },
+    {
+      "case": 1,
+      "arm": "stock_int8",
+      "run": 1,
+      "seconds": 257.5834122929955,
+      "dit_seconds": 241.5397094549844,
+      "video_seconds": 11.32399414095562,
+      "audio_seconds": 0.11929802200756967,
+      "export_seconds": 4.429064532974735,
+      "sha256": [
+        "d7f6b67bed376e4fc8b805474f5d8ab1ac961de9a5a98ea778cd8fccc590f8bf",
+        "5973eeb3722428b4af01ea3dc4fbc275ac601b020bb82391167aaf4d0e68ee04",
+        "fa0a22a4cb29b4bd4f606824d86be60500e55b838fdcdb17c810f751b143cbe2",
+        "122d47f4b48601a8b88d6847634e6455ad61c8bb8d10fb42613c15fabe688dce"
+      ],
+      "nfe": 8,
+      "backend": null
+    },
+    {
+      "case": 1,
+      "arm": "speedkit_int8",
+      "run": 0,
+      "seconds": 239.91010150301736,
+      "dit_seconds": 225.5454655890353,
+      "video_seconds": 9.63642226997763,
+      "audio_seconds": 0.11823674303013831,
+      "export_seconds": 4.5625320438994095,
+      "sha256": [
+        "d7f6b67bed376e4fc8b805474f5d8ab1ac961de9a5a98ea778cd8fccc590f8bf",
+        "5973eeb3722428b4af01ea3dc4fbc275ac601b020bb82391167aaf4d0e68ee04",
+        "fa0a22a4cb29b4bd4f606824d86be60500e55b838fdcdb17c810f751b143cbe2",
+        "122d47f4b48601a8b88d6847634e6455ad61c8bb8d10fb42613c15fabe688dce"
+      ],
+      "nfe": 8,
+      "backend": {
+        "skip": 17024,
+        "counts": {
+          "qkv": 50,
+          "attention": 50,
+          "norm_quant": 100,
+          "fc1": 50,
+          "gate": 100,
+          "last_block_window": 1
+        },
+        "tokens": 90461
+      }
+    },
+    {
+      "case": 1,
+      "arm": "speedkit_int8",
+      "run": 1,
+      "seconds": 239.98886055091862,
+      "dit_seconds": 225.55242539802566,
+      "video_seconds": 9.754249756108038,
+      "audio_seconds": 0.11926166503690183,
+      "export_seconds": 4.508731826907024,
+      "sha256": [
+        "d7f6b67bed376e4fc8b805474f5d8ab1ac961de9a5a98ea778cd8fccc590f8bf",
+        "5973eeb3722428b4af01ea3dc4fbc275ac601b020bb82391167aaf4d0e68ee04",
+        "fa0a22a4cb29b4bd4f606824d86be60500e55b838fdcdb17c810f751b143cbe2",
+        "122d47f4b48601a8b88d6847634e6455ad61c8bb8d10fb42613c15fabe688dce"
+      ],
+      "nfe": 8,
+      "backend": {
+        "skip": 17024,
+        "counts": {
+          "qkv": 50,
+          "attention": 50,
+          "norm_quant": 100,
+          "fc1": 50,
+          "gate": 100,
+          "last_block_window": 1
+        },
+        "tokens": 90461
+      }
+    },
+    {
+      "case": 8,
+      "arm": "stock_fp16",
+      "run": 0,
+      "seconds": 258.36354100098833,
+      "dit_seconds": 226.46598901192192,
+      "video_seconds": 26.836738389916718,
+      "audio_seconds": 0.12244278111029416,
+      "export_seconds": 4.805596389924176,
+      "sha256": [
+        "71d58b454e5e8eea5cbd513516c8cce86fcdef8c83e198cafeecdd9bb437dcd0",
+        "e95f269243f0c41bdde9a9b176b73c087a74f20917317c05204fca4bb89a0226",
+        "0e2674e16b79c29d213e6825bc8c67de447501a275ff36a713ddf87103ef06a4",
+        "3402341092c55f2c8f78de8332732b84ed2bfc9d38da4bde3525476b5125f6af"
+      ],
+      "nfe": 8,
+      "backend": null
+    },
+    {
+      "case": 8,
+      "arm": "stock_fp16",
+      "run": 1,
+      "seconds": 258.24338103295304,
+      "dit_seconds": 226.46805161703378,
+      "video_seconds": 26.92730560398195,
+      "audio_seconds": 0.12175989802926779,
+      "export_seconds": 4.593296090955846,
+      "sha256": [
+        "71d58b454e5e8eea5cbd513516c8cce86fcdef8c83e198cafeecdd9bb437dcd0",
+        "e95f269243f0c41bdde9a9b176b73c087a74f20917317c05204fca4bb89a0226",
+        "0e2674e16b79c29d213e6825bc8c67de447501a275ff36a713ddf87103ef06a4",
+        "3402341092c55f2c8f78de8332732b84ed2bfc9d38da4bde3525476b5125f6af"
+      ],
+      "nfe": 8,
+      "backend": null
+    },
+    {
+      "case": 8,
+      "arm": "stock_int8",
+      "run": 0,
+      "seconds": 243.42449108103756,
+      "dit_seconds": 226.45423578296322,
+      "video_seconds": 12.097856027889065,
+      "audio_seconds": 0.1208119229413569,
+      "export_seconds": 4.617156991967931,
+      "sha256": [
+        "71d58b454e5e8eea5cbd513516c8cce86fcdef8c83e198cafeecdd9bb437dcd0",
+        "e95f269243f0c41bdde9a9b176b73c087a74f20917317c05204fca4bb89a0226",
+        "86113c37439276adc259ad00f0d33fe25c2295c6a85e6ee775a1b750eca56aab",
+        "3402341092c55f2c8f78de8332732b84ed2bfc9d38da4bde3525476b5125f6af"
+      ],
+      "nfe": 8,
+      "backend": null
+    },
+    {
+      "case": 8,
+      "arm": "stock_int8",
+      "run": 1,
+      "seconds": 243.49408833798952,
+      "dit_seconds": 226.48196569702122,
+      "video_seconds": 12.125497539062053,
+      "audio_seconds": 0.12167441297788173,
+      "export_seconds": 4.63104393100366,
+      "sha256": [
+        "71d58b454e5e8eea5cbd513516c8cce86fcdef8c83e198cafeecdd9bb437dcd0",
+        "e95f269243f0c41bdde9a9b176b73c087a74f20917317c05204fca4bb89a0226",
+        "86113c37439276adc259ad00f0d33fe25c2295c6a85e6ee775a1b750eca56aab",
+        "3402341092c55f2c8f78de8332732b84ed2bfc9d38da4bde3525476b5125f6af"
+      ],
+      "nfe": 8,
+      "backend": null
+    },
+    {
+      "case": 8,
+      "arm": "speedkit_int8",
+      "run": 0,
+      "seconds": 227.34362377796788,
+      "dit_seconds": 212.02416308701504,
+      "video_seconds": 10.498719898983836,
+      "audio_seconds": 0.12029817700386047,
+      "export_seconds": 4.650665430002846,
+      "sha256": [
+        "71d58b454e5e8eea5cbd513516c8cce86fcdef8c83e198cafeecdd9bb437dcd0",
+        "e95f269243f0c41bdde9a9b176b73c087a74f20917317c05204fca4bb89a0226",
+        "86113c37439276adc259ad00f0d33fe25c2295c6a85e6ee775a1b750eca56aab",
+        "3402341092c55f2c8f78de8332732b84ed2bfc9d38da4bde3525476b5125f6af"
+      ],
+      "nfe": 8,
+      "backend": {
+        "skip": 8576,
+        "counts": {
+          "qkv": 50,
+          "attention": 50,
+          "norm_quant": 100,
+          "fc1": 50,
+          "gate": 100,
+          "last_block_window": 1
+        },
+        "tokens": 87142
+      }
+    },
+    {
+      "case": 8,
+      "arm": "speedkit_int8",
+      "run": 1,
+      "seconds": 227.26214230805635,
+      "dit_seconds": 212.05890138901304,
+      "video_seconds": 10.450215043965727,
+      "audio_seconds": 0.11988949100486934,
+      "export_seconds": 4.5808989650104195,
+      "sha256": [
+        "71d58b454e5e8eea5cbd513516c8cce86fcdef8c83e198cafeecdd9bb437dcd0",
+        "e95f269243f0c41bdde9a9b176b73c087a74f20917317c05204fca4bb89a0226",
+        "86113c37439276adc259ad00f0d33fe25c2295c6a85e6ee775a1b750eca56aab",
+        "3402341092c55f2c8f78de8332732b84ed2bfc9d38da4bde3525476b5125f6af"
+      ],
+      "nfe": 8,
+      "backend": {
+        "skip": 8576,
+        "counts": {
+          "qkv": 50,
+          "attention": 50,
+          "norm_quant": 100,
+          "fc1": 50,
+          "gate": 100,
+          "last_block_window": 1
+        },
+        "tokens": 87142
+      }
+    }
+  ],
+  "summary": {
+    "stock_fp16": {
+      "seconds": 264.4394975192263,
+      "dit_seconds": 233.9764017284615,
+      "video_seconds": 25.59101891546743,
+      "audio_seconds": 0.12065743203856982,
+      "export_seconds": 4.607465890498133
+    },
+    "stock_int8": {
+      "seconds": 250.44959754374577,
+      "dit_seconds": 233.98620400374057,
+      "video_seconds": 11.697560328233521,
+      "audio_seconds": 0.12018194748088717,
+      "export_seconds": 4.504324034001911
+    },
+    "speedkit_int8": {
+      "seconds": 233.62618203499005,
+      "dit_seconds": 218.79523886577226,
+      "video_seconds": 10.084901742258808,
+      "audio_seconds": 0.11942151901894249,
+      "export_seconds": 4.575707066454925
+    },
+    "latency_reduction_vs_fp16": 0.11652312068848913,
+    "capacity_equivalent_vs_fp16": 0.1318915337991584,
+    "latency_reduction_vs_int8": 0.06717285902532621,
+    "dit_reduction": 0.06492248208670226
+  }
+}

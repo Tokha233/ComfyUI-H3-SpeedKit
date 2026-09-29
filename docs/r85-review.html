@@ -1,0 +1,3010 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>H3 · 5090 D v2 推理优化全景</title><style>
+:root{--ink:#182a31;--muted:#56686d;--line:#d6dfdf;--teal:#006f67;--paper:#fbfaf6;--aside:#edf2ee}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.8 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}aside{position:fixed;left:0;top:0;bottom:0;width:244px;padding:32px 22px;background:var(--aside);border-right:1px solid var(--line);overflow:auto}.brand{font-size:25px;font-weight:750;line-height:1.4}.sub{font-size:13px;color:var(--muted);margin:14px 0 25px}nav a{display:block;padding:9px 12px;margin:3px 0;border-radius:6px;text-decoration:none;color:var(--ink);font-size:14px}nav a:hover,nav a.active{background:#d6e6df;color:var(--teal)}main{margin-left:244px;padding:46px 48px 100px;max-width:1600px}.tag{font-size:12px;letter-spacing:2px;color:var(--teal);font-weight:700}header h1{font-size:42px;line-height:1.3;max-width:900px;margin:16px 0}header p{max-width:960px;color:var(--muted)}.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:30px 0}.card{padding:22px 20px;background:white;border:1px solid var(--line);border-top:3px solid var(--teal);border-radius:5px}.card strong{font-size:32px;display:block;line-height:1.4}.card span{font-size:13px;color:var(--muted)}.notice{background:#fff2d7;border-left:4px solid #af720b;padding:14px 20px;margin:22px 0}.chapter{padding-top:34px;scroll-margin-top:20px;border-top:1px solid var(--line);margin-top:38px}.eyebrow{font-size:12px;color:var(--teal);letter-spacing:2px}.chapter h1{font-size:30px;line-height:1.5;margin:12px 0 25px}.chapter h2{font-size:23px;margin-top:34px;line-height:1.5}.chapter h3{font-size:19px;margin-top:25px}p,li{max-width:1050px;overflow-wrap:anywhere}a{color:var(--teal);text-underline-offset:3px}strong{font-weight:700}code{font:13px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;overflow-wrap:anywhere;background:#eaf0ed;padding:2px 5px;border-radius:3px}pre{background:#142c31;color:#eaf1ec;padding:20px;overflow:auto;border-radius:6px}pre code{color:inherit;background:transparent;white-space:pre;font-size:13px}table{border-collapse:collapse;width:100%;font-size:14px;margin:18px 0;background:#fff}th,td{border-bottom:1px solid var(--line);padding:12px 13px;text-align:left;vertical-align:top;min-width:84px}th{background:#e5efea;font-weight:650}tr:nth-child(even) td{background:#f7f9f6}.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:5px;margin:18px 0}.table-wrap table{margin:0}blockquote{border-left:3px solid var(--teal);padding-left:20px;color:var(--muted)}button{border:1px solid var(--line);padding:9px 14px;background:white;color:var(--ink);border-radius:5px;cursor:pointer}footer{font-size:13px;color:var(--muted);margin-top:50px}#evidence code{font-size:11px}#evidence td:last-child{max-width:300px}
+@media(max-width:850px){aside{position:static;width:auto;padding:20px;border-right:none;border-bottom:1px solid var(--line)}.brand{font-size:22px}.sub{margin:6px 0 14px}nav{display:flex;gap:4px;overflow-x:auto}nav a{white-space:nowrap;flex-shrink:0}main{margin-left:0;padding:28px 18px 60px}header h1{font-size:30px}.cards{grid-template-columns:1fr;gap:10px}.card{padding:14px 18px}.card strong{font-size:27px}.chapter h1{font-size:25px}.chapter h2{font-size:21px}th,td{min-width:115px;padding:10px;font-size:13px}}
+@media print{aside,button{display:none}main{margin:0;padding:0;max-width:none}.cards{grid-template-columns:repeat(3,1fr)}body{background:white;font-size:11px}.chapter{break-before:page}table{font-size:10px}th,td{min-width:0;padding:5px}.table-wrap{overflow:visible}a{color:inherit;text-decoration:none}}
+.stage-chart{padding:22px;background:white;border:1px solid #cfddd5;border-radius:8px;margin-bottom:30px}.stage-chart h2{margin:0!important}.stage-chart p{font-size:13px}.stage-legend{display:flex;flex-wrap:wrap;gap:15px;font-size:12px}.stage-legend i{display:inline-block;width:12px;height:12px;margin-right:5px;border-radius:2px}.stage-case h3{font-size:15px!important;margin:20px 0 10px!important}.stage-case small{font-weight:400;color:#59736b;margin-left:10px}.stage-row{display:grid;grid-template-columns:122px 1fr 78px;gap:12px;align-items:center;font-size:13px;margin:12px 0}.stage-track{display:flex;width:100%;height:30px;background:#f3f5f2;border-radius:3px;overflow:hidden}.stage-track span{display:block;height:100%}.stage-row strong{text-align:right;font-variant-numeric:tabular-nums}@media(max-width:600px){.stage-chart{padding:15px}.stage-row{grid-template-columns:1fr 70px;gap:6px}.stage-row>div:first-child{grid-column:1/-1}.stage-track{height:22px}.stage-row strong{font-size:12px}}
+.opt-controls{display:flex;flex-wrap:wrap;align-items:flex-end;gap:12px;padding:16px;background:#edf2ee;border:1px solid var(--line);border-radius:8px;margin:24px 0}.opt-controls label{display:flex;flex-direction:column;gap:5px;font-size:12px;font-weight:650}.opt-controls input,.opt-controls select{font:14px inherit;padding:10px;border:1px solid #bccdca;border-radius:5px;background:#fff;color:var(--ink);height:43px}.opt-controls input{width:280px;max-width:100%}.opt-controls button{height:43px}.opt-controls span{font-size:13px;padding-bottom:8px;color:var(--muted)}.opt-card{border:1px solid var(--line);background:white;border-radius:8px;margin:15px 0;overflow:hidden;scroll-margin-top:20px}.opt-card[hidden]{display:none}.opt-card summary{list-style:none;display:flex;align-items:center;gap:15px;padding:19px 21px;cursor:pointer}.opt-card summary::-webkit-details-marker{display:none}.opt-num{display:grid;place-items:center;background:#e6f0eb;color:#00756e;min-width:40px;height:40px;border-radius:7px;font-weight:750}.opt-card summary small{display:block;color:#536a67;font-size:12px;line-height:1.5}.opt-card summary b{display:block;font-size:19px;line-height:1.6}.opt-toggle{margin-left:auto}.opt-card[open] .opt-toggle{transform:rotate(180deg)}.opt-body{border-top:1px solid #e1e8e4;padding:7px 22px 22px}.opt-origin{font-size:12px;color:#5b706a;margin:8px 0 14px}.opt-pair{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0 18px}.opt-pair>div{background:#f5f7f4;padding:14px 17px;border-radius:5px}.opt-pair>div:last-child{background:#eaf5ef;border-left:3px solid #008175}.opt-pair h3,.opt-field h3{font-size:14px!important;margin:0 0 6px!important}.opt-pair p,.opt-field p{margin:0;font-size:14px;line-height:1.9}.opt-field{display:grid;grid-template-columns:190px 1fr;gap:16px;padding:11px 0;border-top:1px solid #e8eeea}.opt-field h3{color:#4d6560;font-weight:600}.opt-field:last-child p{font:13px/1.8 ui-monospace,monospace;word-break:break-word}
+@media(max-width:850px){.opt-pair{grid-template-columns:1fr}.opt-field{grid-template-columns:1fr;gap:2px}.opt-controls label:first-child{width:100%}.opt-controls input{width:100%}.opt-body{padding:8px 14px 16px}.opt-card summary{padding:14px 12px;gap:10px}.opt-card summary b{font-size:17px}}
+@media print{.opt-controls{display:none}.opt-card{break-inside:avoid}.opt-card summary{padding:10px}.opt-body{display:block!important}.opt-field p,.opt-pair p{font-size:10px}.opt-field{grid-template-columns:130px 1fr}}
+</style></head><body><div style="padding:16px 24px;background:#fff4d6;color:#3d3010;border-bottom:1px solid #ddc889">历史 R85 测评资料：GPU 后端尚未迁入本仓库；不是当前节点安装后的收益。<a href="open-source-review.html">查看开源方案与实际进度</a></div><aside><div class="brand">H3 / SM120<br>推理优化记录</div><div class="sub">2026.09.30 · 开源资料草稿<br>Larry v4 · 8 NFE · R85</div><nav><a href="#catalog">逐项优化 · 30 项</a><a href="#vaequality">VAE 全15段质量</a><a href="#native">新的主对照：原生 FP16 → R85</a><a href="#overview">01 方案总览</a><a href="#operators">02 算子与流水线</a><a href="#direct">03 基础版直接对照</a><a href="#performance">04 性能与分母</a><a href="#quality">05 LoRA与音视频</a><a href="#experiments">06 实验与负结果</a><a href="#reproduce">07 复现与待补测</a><a href="#sources">08 上游与开源拆分</a><a href="#evidence">证据身份</a></nav></aside><main><header><div class="tag">代码路径 · 性能证据 · 质量取舍</div><h1>从原 Kitchen 到当前<br>单卡 5090 D v2 推理方案</h1><p>完整整理已采用的算子融合、INT8 VAE、异步交接和 CPU 成片，保留后续候选与失败实验。所有数字注明基线与计时范围。</p><div class="cards"><div class="card"><strong>−11.59%</strong><span>冻结条件→MP4 总耗时<br>基础 .35＋原生 FP16 VAE → R85＋INT8<br>2片段 · 8正式＋4预热</span></div><div class="card"><strong>+13.11%</strong><span>同等工作量串行容量折算<br>每请求平均节省 30.66 秒<br>尚非稳态队列吞吐</span></div><div class="card"><strong>0.989070</strong><span>INT8 对原生 FP16 成片 SSIM<br>全15片段 · LPIPS 0.007589<br>PCM 15/15 逐字节一致</span></div></div>
+<div class="notice"><strong>高精度基线的实际 dtype 是 FP16。</strong>历史“BF16 满血版”指 BF16 DiT/Qwen，视频 VAE 权重和运行均为 FP16，音频为 FP32。本次不将 FP16 实测改标为 BF16。主对照使用原生 FP16 视频 VAE；原始 RGB PSNR 均值 58.67 dB，画面差异很小，非逐像素无损。</div>
+<p>两端固定 Larry v4、8 次真实前向、相同 condition/latent/PCM；原生 FP16 与 INT8 视频输出单独评估。总时间包含双 VAE 与本地 MP4，排除 Qwen/参考处理、HTTP/上传和首次读权重。30项优化逐项展开，候选收益不并入冻结 R85。</p><p><a href="#catalog">查看30项优化</a> · <a href="#native">逐阶段时间</a> · <a href="#vaequality">全15段质量</a> · <a href="../README.zh-CN.md">仓库 Markdown 入口</a> · <button onclick="window.print()">打印审阅</button></p></header><section class="chapter" id="native"><div class="stage-chart"><h2>相同时间尺度，看每阶段省在哪里</h2><p>两段分别做同卡配对，每臂取2次正式均值。横条使用同一秒数尺度；精确数字与每次范围见下表。</p><div class="stage-legend"><span><i style="background:#17736a"></i>DiT</span><span><i style="background:#cc852e"></i>视频 VAE＋输出</span><span><i style="background:#896aa7"></i>音频 VAE</span><span><i style="background:#537fa5"></i>CPU 成片</span><span><i style="background:#b4c5bd"></i>其他</span></div><div class="stage-case"><h3>Case 1 <small>总耗时减少 11.29%</small></h3><div class="stage-row"><div>基础 FP16 VAE</div><div class="stage-track" role="img" aria-label="Case 1，基础 FP16 VAE，270.679秒"><span style="width:89.18838%;background:#17736a" title="DiT：241.414 秒"></span><span style="width:9.04134%;background:#cc852e" title="视频 VAE＋输出：24.473 秒"></span><span style="width:0.04387%;background:#896aa7" title="音频 VAE：0.119 秒"></span><span style="width:1.67756%;background:#537fa5" title="CPU 成片：4.541 秒"></span><span style="width:0.04885%;background:#b4c5bd" title="其他：0.132 秒"></span></div><strong>270.68s</strong></div><div class="stage-row"><div>R85 INT8 VAE</div><div class="stage-track" role="img" aria-label="Case 1，R85 INT8 VAE，240.114秒"><span style="width:83.34671%;background:#17736a" title="DiT：225.602 秒"></span><span style="width:3.64395%;background:#cc852e" title="视频 VAE＋输出：9.863 秒"></span><span style="width:0.04393%;background:#896aa7" title="音频 VAE：0.119 秒"></span><span style="width:1.65291%;background:#537fa5" title="CPU 成片：4.474 秒"></span><span style="width:0.02061%;background:#b4c5bd" title="其他：0.056 秒"></span></div><strong>240.11s</strong></div></div><div class="stage-case"><h3>Case 8 <small>总耗时减少 11.90%</small></h3><div class="stage-row"><div>基础 FP16 VAE</div><div class="stage-track" role="img" aria-label="Case 8，基础 FP16 VAE，258.323秒"><span style="width:83.67420%;background:#17736a" title="DiT：226.488 秒"></span><span style="width:9.88735%;background:#cc852e" title="视频 VAE＋输出：26.763 秒"></span><span style="width:0.04656%;background:#896aa7" title="音频 VAE：0.126 秒"></span><span style="width:1.77403%;background:#537fa5" title="CPU 成片：4.802 秒"></span><span style="width:0.05310%;background:#b4c5bd" title="其他：0.144 秒"></span></div><strong>258.32s</strong></div><div class="stage-row"><div>R85 INT8 VAE</div><div class="stage-track" role="img" aria-label="Case 8，R85 INT8 VAE，227.571秒"><span style="width:78.32905%;background:#17736a" title="DiT：212.020 秒"></span><span style="width:3.88387%;background:#cc852e" title="视频 VAE＋输出：10.513 秒"></span><span style="width:0.04560%;background:#896aa7" title="音频 VAE：0.123 秒"></span><span style="width:1.79308%;background:#537fa5" title="CPU 成片：4.853 秒"></span><span style="width:0.02242%;background:#b4c5bd" title="其他：0.061 秒"></span></div><strong>227.57s</strong></div></div></div><div class="eyebrow">新的主对照：原生 FP16 → R85</div><h1>原生高精度 VAE 基础版 → 全部 R85 优化：直接实测</h1>
+<p>新同场实测：<strong>Kitchen 0.2.35 基础 Larry v4 8 步＋原生 FP16 视频 VAE → 固定 R85＋INT8 视频 VAE，两个代表片段的总生成耗时减少 11.591%，串行容量折算增加 13.111%</strong>。每请求平均节省 30.66 秒。完整计时从冻结 condition 到本地 MP4，排除 Qwen/参考处理、HTTP/排队/上传与首次读权重。</p>
+<p>历史“BF16 满血版”实际为 BF16 DiT/Qwen＋FP16 视频 VAE＋FP32 音频 VAE。本次读取 safetensors 头和运行 dtype，视频原权重 562 个张量均为 FP16，运行也是 torch.float16。因此主速度基线准确标为“原生 FP16 视频 VAE”；单独 BF16 VAE 尚未测试。</p>
+<h2>1. 两端配置与计时范围</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>A：基础版</th>
+<th>B：当前优化版</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DiT 与 LoRA</td>
+<td>相同 Larry v4 baked INT8 ConvRot</td>
+<td>相同权重 SHA</td>
+</tr>
+<tr>
+<td>采样</td>
+<td>Euler/beta，8 次实际前向，CFG1，shift12/4</td>
+<td>完全相同</td>
+</tr>
+<tr>
+<td>DiT 实现</td>
+<td>Kitchen 0.2.35 stock，不导入项目 DiT 补丁</td>
+<td>冻结 R85 累积精确优化</td>
+</tr>
+<tr>
+<td>视频 VAE</td>
+<td>原生非量化 FP16；原 FP32 CPU 输出</td>
+<td>INT8 ConvRot；最终 RGB8 融合、双 pinned D2H</td>
+</tr>
+<tr>
+<td>音频 VAE</td>
+<td>GPU FP32</td>
+<td>同一 GPU FP32，PCM 完全一致</td>
+</tr>
+<tr>
+<td>输入与输出</td>
+<td>冻结相同 condition，旧 encoder 结果；同 CPU x264/AAC/MP4</td>
+<td>相同</td>
+</tr>
+<tr>
+<td>不计入</td>
+<td>Qwen/参考处理、HTTP/队列/上传、首次读权重</td>
+<td>同左；也不含静态 VAE/R234/R244 候选</td>
+</tr>
+</tbody>
+</table>
+<p>每个片段两臂都在同一张物理卡上测试。Case1 先 A 后 B，Case8 先 B 后 A；每臂独立 Python 进程、1 次预热＋2 次正式，共 4 预热＋8 正式。这个实验的顺序是 AB/BA，不能与之前 r368 的 ABBA/BAAB 混称。模型身份和实际库路径在启动/结束审计；哈希不混入计时。</p>
+<p>两边 VAE 使用同一份 .35 配套上游模型源码（SHA aae581a7…7225f）。源码按 QKV 权重类型分派：原生 FP16 权重走 optimized_attention；INT8 权重走 Kitchen INT8 attention。本次比较的是“固定 .35 实现上的原生 FP16 与 INT8 decoder”；最早版本的整个 VAE 软件栈未在本轮恢复。</p>
+<h2>2. 直接测得的总收益</h2>
+<table>
+<thead>
+<tr>
+<th>Case</th>
+<th>成片长度</th>
+<th style="text-align:right">基础至 MP4 / s</th>
+<th style="text-align:right">R85 至 MP4 / s</th>
+<th style="text-align:right">减少</th>
+<th style="text-align:right">每请求节省 / s</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>10.125 s</td>
+<td style="text-align:right">270.678977</td>
+<td style="text-align:right">240.114236</td>
+<td style="text-align:right">11.292%</td>
+<td style="text-align:right">30.565</td>
+</tr>
+<tr>
+<td>8</td>
+<td>10.833 s</td>
+<td style="text-align:right">258.323139</td>
+<td style="text-align:right">227.570721</td>
+<td style="text-align:right">11.905%</td>
+<td style="text-align:right">30.752</td>
+</tr>
+</tbody>
+</table>
+<p>同等工作量的各片段均值之和 <strong>529.002116 → 467.684957 GPU 秒</strong>。这是各卡内配对后的相同工作量合计，不是两卡并行墙钟。计算：降时=1−B/A；容量折算=A/B−1。</p>
+<h2>3. 每个阶段的均值与范围</h2>
+<table>
+<thead>
+<tr>
+<th>Case</th>
+<th>阶段</th>
+<th style="text-align:right">基础均值 / s</th>
+<th style="text-align:right">R85 均值 / s</th>
+<th>基础 min–max / s</th>
+<th>R85 min–max / s</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>到 MP4 总耗时</td>
+<td style="text-align:right">270.678977</td>
+<td style="text-align:right">240.114236</td>
+<td>270.110465–271.247489</td>
+<td>240.110941–240.117532</td>
+</tr>
+<tr>
+<td>1</td>
+<td>8 步 DiT</td>
+<td style="text-align:right">241.414192</td>
+<td style="text-align:right">225.602021</td>
+<td>241.389369–241.439015</td>
+<td>225.594866–225.609175</td>
+</tr>
+<tr>
+<td>1</td>
+<td>视频 VAE＋RGB/D2H</td>
+<td style="text-align:right">24.473009</td>
+<td style="text-align:right">9.863416</td>
+<td>23.930962–25.015057</td>
+<td>9.857829–9.869002</td>
+</tr>
+<tr>
+<td>1</td>
+<td>GPU 音频 VAE</td>
+<td style="text-align:right">0.118760</td>
+<td style="text-align:right">0.118918</td>
+<td>0.118087–0.119433</td>
+<td>0.118815–0.119021</td>
+</tr>
+<tr>
+<td>1</td>
+<td>CPU 成片与交接</td>
+<td style="text-align:right">4.540802</td>
+<td style="text-align:right">4.474091</td>
+<td>4.495774–4.585830</td>
+<td>4.468103–4.480078</td>
+</tr>
+<tr>
+<td>1</td>
+<td>其他调度/快照</td>
+<td style="text-align:right">0.132214</td>
+<td style="text-align:right">0.055792</td>
+<td>0.126627–0.137801</td>
+<td>0.051430–0.060154</td>
+</tr>
+<tr>
+<td>8</td>
+<td>到 MP4 总耗时</td>
+<td style="text-align:right">258.323139</td>
+<td style="text-align:right">227.570721</td>
+<td>258.278841–258.367437</td>
+<td>227.558998–227.582444</td>
+</tr>
+<tr>
+<td>8</td>
+<td>8 步 DiT</td>
+<td style="text-align:right">226.488469</td>
+<td style="text-align:right">212.020274</td>
+<td>226.480208–226.496731</td>
+<td>212.016274–212.024275</td>
+</tr>
+<tr>
+<td>8</td>
+<td>视频 VAE＋RGB/D2H</td>
+<td style="text-align:right">26.762967</td>
+<td style="text-align:right">10.512821</td>
+<td>26.716233–26.809701</td>
+<td>10.502074–10.523568</td>
+</tr>
+<tr>
+<td>8</td>
+<td>GPU 音频 VAE</td>
+<td style="text-align:right">0.126029</td>
+<td style="text-align:right">0.123436</td>
+<td>0.124227–0.127831</td>
+<td>0.122911–0.123960</td>
+</tr>
+<tr>
+<td>8</td>
+<td>CPU 成片与交接</td>
+<td style="text-align:right">4.801932</td>
+<td style="text-align:right">4.853499</td>
+<td>4.793880–4.809983</td>
+<td>4.848287–4.858712</td>
+</tr>
+<tr>
+<td>8</td>
+<td>其他调度/快照</td>
+<td style="text-align:right">0.143742</td>
+<td style="text-align:right">0.060691</td>
+<td>0.142898–0.144585</td>
+<td>0.059931–0.061450</td>
+</tr>
+</tbody>
+</table>
+<p>相同两片段工作量下，DiT 减少 <strong>6.472%</strong>，视频 VAE＋输出阶段减少 <strong>60.231%</strong>。总比例必须从总时间直接计算，不能把两个阶段百分比相加。</p>
+<h2>4. 对照质量</h2>
+<p>相同 latent 的全部 15 片段，INT8 VAE 对原生 FP16：成片 SSIM 均值 <strong>0.989070</strong>，LPIPS <strong>0.007589</strong>，原始 RGB8 PSNR 均值 <strong>58.67 dB</strong>；音频 PCM <strong>15/15 逐字节一致</strong>。这支持“当前测试中的画面差异很小、音频不变”，不等于逐像素无损，也不是多 seed 人工盲评结论。</p>
+<p>完整生成 A/B 的 video/audio latent、PCM 都与历史黄金相同；A 的 RGB 与本臂预热重复相同，B 的 RGB 仍与 R85 历史黄金相同。两个臂的视频 RGB 由于 VAE 改变而不同。所有 15 个同 latent 解码的 B 也恢复历史 RGB/PCM，Case1/8 解码测评与本次完整生成 RGB SHA 对应。</p>
+<p>后续 R85 精确算子与“视频 VAE 量化”分开验收：前者保留固定 INT8 的四 SHA；后者用同 latent 像素/感知指标描述微小变化。新主表没有使用历史 TRT→INT8 的质量数字。</p>
+<h2>5. 与之前 6.685% 的区别</h2>
+<p>之前 r368 的两端<strong>都使用 INT8 VAE</strong>，测得总降时 6.685%、串行容量 +7.164%，回答固定 INT8 VAE 后纯算子与输出工程的累计收益。本次 A 换回原生 FP16 VAE，因此把 VAE 量化替换一起计入。两场都有各自直接计时，不能相加，也不能把差额归为一项精确消融。</p>
+<p>LoRA 预合并、DynamicVRAM、原分配器和 CPU 编码器已是两端的共同基础。本次未测连续请求队列的 CPU/GPU 重叠收益，容量百分比不等于实测稳态吞吐。全 15 的新增完整 DiT/服务对照、更多 seed 与长队列仍可扩测。</p>
+<h2>6. 证据与复算</h2>
+<p><a href="../evidence/native-fp16-vs-r85.json">完整记录摘要</a> · <a href="../evidence/native-fp16-vae-quality.json">15 段 VAE 质量</a> · <a href="R85-OPTIMIZATION-CATALOG.md">每项优化</a></p>
+<p>运行 <code>python3 tools/verify_native_comparison.py</code> 可从每次正式时间、历史签名与逐段质量重算汇总。内部资料保留原 JSON 字节、runner 与 SHA；业务媒体只放内部审阅页。</p>
+</section><section class="chapter" id="vaequality"><div class="eyebrow">VAE 全15段质量</div><h1>INT8 视频 VAE 与原生 FP16：相同 latent 的全 15 段质量对照</h1>
+<p>历史“BF16 满血版”实际为 BF16 DiT/Qwen＋FP16 视频 VAE＋FP32 音频 VAE。本次读取 safetensors 头和运行 dtype，视频原权重 562 个张量均为 FP16，运行也是 torch.float16。因此主速度基线准确标为“原生 FP16 视频 VAE”；单独 BF16 VAE 尚未测试。</p>
+<p>相同 latent 的全部 15 片段，INT8 VAE 对原生 FP16：成片 SSIM 均值 <strong>0.989070</strong>，LPIPS <strong>0.007589</strong>，原始 RGB8 PSNR 均值 <strong>58.67 dB</strong>；音频 PCM <strong>15/15 逐字节一致</strong>。这支持“当前测试中的画面差异很小、音频不变”，不等于逐像素无损，也不是多 seed 人工盲评结论。</p>
+<h2>方法</h2>
+<p>冻结 Larry8 历史 video/audio latent，每段 A/B 两个 decoder 独立预热，然后按 ABBA 或 BAAB 做每臂 2 次正式 decode，共 30 预热＋60 正式。原始 RGB8 先比较，再用完全相同的 PCM 和 CPU 编码器导出两份 MP4。视频 stage 计时含加载/解码/RGB输出/卸载，像素统计、音频与成片编码在 stage 计时外。</p>
+<p>原始 RGB8 PSNR/MAE/最大误差覆盖全帧全像素；SSIM/成片 PSNR 为原尺寸全帧 YUV All。LPIPS 使用 SqueezeNet v0.1，384×672，每12帧取1帧（24fps输入对应2fps）。主表按15片段等权平均，不能与早期按5个拼接故事等权的LoRA表混用。</p>
+<h2>汇总</h2>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th style="text-align:right">均值</th>
+<th style="text-align:right">最差片段</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>原始 RGB8 PSNR ↑</td>
+<td style="text-align:right">58.670 dB</td>
+<td style="text-align:right">56.517 dB</td>
+<td>压缩前的量化差异</td>
+</tr>
+<tr>
+<td>原始 RGB8 MAE ↓</td>
+<td style="text-align:right">0.088106/255</td>
+<td style="text-align:right">0.137287/255</td>
+<td>单通道灰度误差</td>
+</tr>
+<tr>
+<td>MP4 SSIM ↑</td>
+<td style="text-align:right">0.989070</td>
+<td style="text-align:right">0.986242</td>
+<td>同编码后的结构相似度</td>
+</tr>
+<tr>
+<td>MP4 LPIPS ↓</td>
+<td style="text-align:right">0.007589</td>
+<td style="text-align:right">0.011601</td>
+<td>感知特征距离</td>
+</tr>
+<tr>
+<td>PCM 一致性</td>
+<td style="text-align:right">15/15</td>
+<td style="text-align:right">无变化</td>
+<td>A/B 使用同一已核验历史 PCM</td>
+</tr>
+</tbody>
+</table>
+<p>原始 RGB 单通道最大误差的全局最大值为 <strong>30/255</strong>，不可隐去少数局部误差。高相似度支持“这些样本基本保持原生高精度观感”，并不保证任何分辨率/seed 下都不可察觉；未执行本轮人工盲评。</p>
+<p>每个片段至少 <strong>99%</strong> 的通道像素误差不超过 <strong>1/255</strong>；至少 <strong>99.9%</strong> 不超过 <strong>2/255</strong>。按片段等权，约 <strong>91.26%</strong> 的通道像素完全相同。分位数和最大误差同时保留。</p>
+<p>MP4 相似度低于压缩前 RGB 相似度并不矛盾：微小输入变化经过各自的有损编码，会改变编码决策与残差；所以两套指标分别记录。音频还单独检查PCM与成片音轨：15段的8k频谱cosine均为1.0，nRMSE均为0。</p>
+<h2>每个业务片段</h2>
+<table>
+<thead>
+<tr>
+<th>Case</th>
+<th style="text-align:right">原 RGB PSNR / dB ↑</th>
+<th style="text-align:right">MAE /255 ↓</th>
+<th>P99 / P99.9 误差</th>
+<th style="text-align:right">最大误差</th>
+<th style="text-align:right">MP4 SSIM ↑</th>
+<th style="text-align:right">LPIPS ↓</th>
+<th style="text-align:right">FP16 decode / s</th>
+<th style="text-align:right">INT8 decode / s</th>
+<th>PCM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td style="text-align:right">59.354</td>
+<td style="text-align:right">0.074991</td>
+<td>1 / 1</td>
+<td style="text-align:right">11</td>
+<td style="text-align:right">0.989659</td>
+<td style="text-align:right">0.007423</td>
+<td style="text-align:right">24.480</td>
+<td style="text-align:right">9.686</td>
+<td>相同</td>
+</tr>
+<tr>
+<td>2</td>
+<td style="text-align:right">58.767</td>
+<td style="text-align:right">0.085028</td>
+<td>1 / 1</td>
+<td style="text-align:right">13</td>
+<td style="text-align:right">0.989427</td>
+<td style="text-align:right">0.007203</td>
+<td style="text-align:right">25.893</td>
+<td style="text-align:right">9.757</td>
+<td>相同</td>
+</tr>
+<tr>
+<td>3</td>
+<td style="text-align:right">58.977</td>
+<td style="text-align:right">0.081031</td>
+<td>1 / 1</td>
+<td style="text-align:right">11</td>
+<td style="text-align:right">0.990123</td>
+<td style="text-align:right">0.006243</td>
+<td style="text-align:right">24.566</td>
+<td style="text-align:right">9.676</td>
+<td>相同</td>
+</tr>
+<tr>
+<td>4</td>
+<td style="text-align:right">56.517</td>
+<td style="text-align:right">0.137287</td>
+<td>1 / 2</td>
+<td style="text-align:right">30</td>
+<td style="text-align:right">0.986711</td>
+<td style="text-align:right">0.004911</td>
+<td style="text-align:right">24.547</td>
+<td style="text-align:right">9.705</td>
+<td>相同</td>
+</tr>
+<tr>
+<td>5</td>
+<td style="text-align:right">58.341</td>
+<td style="text-align:right">0.094150</td>
+<td>1 / 1</td>
+<td style="text-align:right">17</td>
+<td style="text-align:right">0.989025</td>
+<td style="text-align:right">0.007194</td>
+<td style="text-align:right">24.720</td>
+<td style="text-align:right">9.840</td>
+<td>相同</td>
+</tr>
+<tr>
+<td>6</td>
+<td style="text-align:right">58.487</td>
+<td style="text-align:right">0.090995</td>
+<td>1 / 1</td>
+<td style="text-align:right">15</td>
+<td style="text-align:right">0.989292</td>
+<td style="text-align:right">0.006162</td>
+<td style="text-align:right">24.728</td>
+<td style="text-align:right">9.849</td>
+<td>相同</td>
+</tr>
+<tr>
+<td>7</td>
+<td style="text-align:right">57.981</td>
+<td style="text-align:right">0.101371</td>
+<td>1 / 1</td>
+<td style="text-align:right">13</td>
+<td style="text-align:right">0.987345</td>
+<td style="text-align:right">0.009968</td>
+<td style="text-align:right">24.588</td>
+<td style="text-align:right">9.757</td>
+<td>相同</td>
+</tr>
+<tr>
+<td>8</td>
+<td style="text-align:right">59.006</td>
+<td style="text-align:right">0.081075</td>
+<td>1 / 1</td>
+<td style="text-align:right">12</td>
+<td style="text-align:right">0.989094</td>
+<td style="text-align:right">0.008363</td>
+<td style="text-align:right">26.528</td>
+<td style="text-align:right">10.565</td>
+<td>相同</td>
+</tr>
+<tr>
+<td>9</td>
+<td style="text-align:right">58.309</td>
+<td style="text-align:right">0.092279</td>
+<td>1 / 2</td>
+<td style="text-align:right">17</td>
+<td style="text-align:right">0.986242</td>
+<td style="text-align:right">0.011601</td>
+<td style="text-align:right">31.221</td>
+<td style="text-align:right">11.887</td>
+<td>相同</td>
+</tr>
+<tr>
+<td>10</td>
+<td style="text-align:right">58.796</td>
+<td style="text-align:right">0.085437</td>
+<td>1 / 1</td>
+<td style="text-align:right">12</td>
+<td style="text-align:right">0.989907</td>
+<td style="text-align:right">0.006044</td>
+<td style="text-align:right">21.540</td>
+<td style="text-align:right">8.567</td>
+<td>相同</td>
+</tr>
+<tr>
+<td>11</td>
+<td style="text-align:right">58.377</td>
+<td style="text-align:right">0.093592</td>
+<td>1 / 1</td>
+<td style="text-align:right">19</td>
+<td style="text-align:right">0.989114</td>
+<td style="text-align:right">0.007159</td>
+<td style="text-align:right">24.744</td>
+<td style="text-align:right">9.857</td>
+<td>相同</td>
+</tr>
+<tr>
+<td>12</td>
+<td style="text-align:right">59.583</td>
+<td style="text-align:right">0.071245</td>
+<td>1 / 1</td>
+<td style="text-align:right">15</td>
+<td style="text-align:right">0.989797</td>
+<td style="text-align:right">0.009974</td>
+<td style="text-align:right">25.022</td>
+<td style="text-align:right">9.890</td>
+<td>相同</td>
+</tr>
+<tr>
+<td>13</td>
+<td style="text-align:right">58.525</td>
+<td style="text-align:right">0.090098</td>
+<td>1 / 1</td>
+<td style="text-align:right">14</td>
+<td style="text-align:right">0.987854</td>
+<td style="text-align:right">0.008039</td>
+<td style="text-align:right">22.064</td>
+<td style="text-align:right">8.850</td>
+<td>相同</td>
+</tr>
+<tr>
+<td>14</td>
+<td style="text-align:right">59.424</td>
+<td style="text-align:right">0.073309</td>
+<td>1 / 1</td>
+<td style="text-align:right">18</td>
+<td style="text-align:right">0.990732</td>
+<td style="text-align:right">0.007366</td>
+<td style="text-align:right">24.786</td>
+<td style="text-align:right">10.035</td>
+<td>相同</td>
+</tr>
+<tr>
+<td>15</td>
+<td style="text-align:right">59.612</td>
+<td style="text-align:right">0.069701</td>
+<td>1 / 1</td>
+<td style="text-align:right">21</td>
+<td style="text-align:right">0.991734</td>
+<td style="text-align:right">0.006191</td>
+<td style="text-align:right">22.109</td>
+<td style="text-align:right">8.894</td>
+<td>相同</td>
+</tr>
+</tbody>
+</table>
+<p>全15同等视频工作量：371.537872 → 146.814014 s，视频阶段减少 <strong>60.485%</strong>。这是解码阶段数据，不能替代上页的完整生成总收益。</p>
+<p>历史 TRT FP16→INT8 测得原 RGB PSNR 57.90 dB、SSIM 0.989917、LPIPS 0.007585；其参考实现是 TRT，并非本次原生 FP16。两组分别保留，不互换标签。</p>
+<p>内部 HTML 另附 Case1/8 同帧原图与 16×差分。16×只用于观察误差位置，不代表正常播放时的差异强度；预览视频缩放至384×672，指标仍按上面的正式协议计算。</p>
+<p><a href="../evidence/native-fp16-vae-quality.json">完整机器可读证据</a></p>
+</section><section id="overview" class="chapter"><div class="eyebrow">方案总览</div><h1>MiniMax-H3 Ref2VA：单卡 RTX 5090 D v2 推理优化总说明</h1>
+<p>整理日期：2026-09-30（测试自9/29晚开始）。新同场实测：<strong>Kitchen 0.2.35 基础 Larry v4 8 步＋原生 FP16 视频 VAE → 固定 R85＋INT8 视频 VAE，两个代表片段的总生成耗时减少 11.591%，串行容量折算增加 13.111%</strong>。每请求平均节省 30.66 秒。完整计时从冻结 condition 到本地 MP4，排除 Qwen/参考处理、HTTP/排队/上传与首次读权重。</p>
+<p>历史“BF16 满血版”实际为 BF16 DiT/Qwen＋FP16 视频 VAE＋FP32 音频 VAE。本次读取 safetensors 头和运行 dtype，视频原权重 562 个张量均为 FP16，运行也是 torch.float16。因此主速度基线准确标为“原生 FP16 视频 VAE”；单独 BF16 VAE 尚未测试。</p>
+<p>相同 latent 的全部 15 片段，INT8 VAE 对原生 FP16：成片 SSIM 均值 <strong>0.989070</strong>，LPIPS <strong>0.007589</strong>，原始 RGB8 PSNR 均值 <strong>58.67 dB</strong>；音频 PCM <strong>15/15 逐字节一致</strong>。这支持“当前测试中的画面差异很小、音频不变”，不等于逐像素无损，也不是多 seed 人工盲评结论。</p>
+<p><strong>推荐复现的固定基线是 Larry v4 pruned / step600 EMA 预合并 INT8 ConvRot DiT，Euler/beta 8 次实际前向，Kitchen 0.2.35，累计精确算子优化 R85，旧参考 encoder，INT8 视频 VAE，GPU FP32 音频 VAE，RGB8 与异步 CPU 成片。</strong> 静态 VAE 加载及 R234v2/R244 已有解码阶段验收，作为后续候选单列，尚未固化进这套完整基线。</p>
+<p>这是一份开源技术说明与测评资料草稿，包含可复算指标和复现协议。它不是已经发布的通用推理库，也不是可直接安装的自包含镜像。业务媒体、提示词、内网地址、凭据和模型权重不随本资料包分发；具体代码位置另在内部索引中保存。</p>
+<h2>阅读入口</h2>
+<ul>
+<li>
+<p><a href="R85-NATIVE-FP16-VS-R85.md">原生 FP16 VAE 基础版到 R85：新的主对照</a></p>
+</li>
+<li>
+<p><a href="R85-NATIVE-VAE-QUALITY.md">INT8 对原生 FP16：15段质量与解码速度</a></p>
+</li>
+<li>
+<p><a href="R85-OPTIMIZATION-CATALOG.md">30项逐项优化：前后路径、实现、边界、收益</a></p>
+</li>
+<li>
+<p><a href="R85-OPTIMIZATIONS.md">全部算子与工程优化：原理、接入、资格与边界</a></p>
+</li>
+<li>
+<p><a href="R85-STOCK-VS-R85.md">基础 Kitchen 到 R85：本次直接同场实测</a></p>
+</li>
+<li>
+<p><a href="R85-PERFORMANCE.md">性能账本：每个加速数字的真实分母</a></p>
+</li>
+<li>
+<p><a href="R85-QUALITY.md">LoRA 与音视频质量：早期选择、后续挑战者、指标定义</a></p>
+</li>
+<li>
+<p><a href="R85-EXPERIMENTS.md">未采用方案及负结果</a></p>
+</li>
+<li>
+<p><a href="R85-REPRODUCE.md">统一补测和开源复现协议</a></p>
+</li>
+<li>
+<p><a href="R85-SOURCES.md">版本、上游来源与代码拆分建议</a></p>
+</li>
+<li>
+<p><a href="../evidence/measurements.json">机器可读测量</a>、<a href="../evidence/lora-quality.json">LoRA 指标</a>、<a href="../evidence/source-identities.json">来源文件 SHA</a></p>
+</li>
+<li>
+<p><a href="r85-review.html">本地审阅网页</a></p>
+</li>
+</ul>
+<h2>1. 到底比原版快多少</h2>
+<p>以下是当前可以引用的实测结果。每一行是一场独立实验；<strong>不能相加，也不能跨实验连乘后声称为最终整机实测。</strong></p>
+<table>
+<thead>
+<tr>
+<th>对照与变化</th>
+<th style="text-align:right">原耗时 → 新耗时</th>
+<th style="text-align:right">耗时减少</th>
+<th>实际测了什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>新主对照：.35 基础 Larry8＋原生 FP16 VAE → R85＋INT8</strong></td>
+<td style="text-align:right"><strong>529.002 → 467.685 GPU s</strong></td>
+<td style="text-align:right"><strong>11.591%</strong></td>
+<td>两片段完整生成8正式＋4预热；另做15段VAE质量/60正式decode</td>
+</tr>
+<tr>
+<td><strong>9/29 .35 基础 Larry8＋INT8 VAE → 冻结 R85</strong></td>
+<td style="text-align:right"><strong>500.736 → 467.259 GPU s</strong></td>
+<td style="text-align:right"><strong>6.685%</strong></td>
+<td>两个片段同卡交叉均值之和，8 正式＋8 预热，至 MP4；质量逐位相同</td>
+</tr>
+<tr>
+<td>早期 v22 原部署 → 当时全部算子＋RGB8，10 秒输入</td>
+<td style="text-align:right">147.480 → 139.501 s</td>
+<td style="text-align:right">5.410%</td>
+<td>每请求真实 condition，至 API 成片成功；24 正式请求中的一组</td>
+</tr>
+<tr>
+<td>同上，15 秒输入</td>
+<td style="text-align:right">266.199 → 254.617 s</td>
+<td style="text-align:right">4.351%</td>
+<td>连续队列成片吞吐另测，分别增加 4.692% / 4.121%</td>
+</tr>
+<tr>
+<td>Kitchen 0.2.35 stock → 迁入原融合</td>
+<td style="text-align:right">30.259366 → 29.392929 s</td>
+<td style="text-align:right">2.863%</td>
+<td>一个真实 DiT 第一步的 forward 回放，36 次含预热，输出完全一致</td>
+</tr>
+<tr>
+<td>原 TRT FP16 → INT8 视频 VAE，9/19 全 15 latent</td>
+<td style="text-align:right">16.576130 → 9.744533 s</td>
+<td style="text-align:right">41.213%</td>
+<td>视频 decode 阶段；输出存在小幅像素差异</td>
+</tr>
+<tr>
+<td>相同替换的 9/26 独立全 15 复核</td>
+<td style="text-align:right">16.559342 → 9.959952 s</td>
+<td style="text-align:right">39.853%</td>
+<td>60 次正式、30 次预热解码；复现双方各自历史 RGB</td>
+</tr>
+<tr>
+<td>9/19 旧 Larry 部署 → .35＋原融合＋INT8 VAE</td>
+<td style="text-align:right">269.378 → 264.741 s；268.189 → 261.997 s</td>
+<td style="text-align:right">1.72% / 2.31%</td>
+<td>同 case、两卡各自配对；含 condition，不含 MP4，正式每臂每卡仅 1 次</td>
+</tr>
+<tr>
+<td>含全部历史优化的累计基线 → R85</td>
+<td style="text-align:right">3295.244819 → 3232.463433 GPU s</td>
+<td style="text-align:right">1.905%</td>
+<td>全 15 片段同卡配对组均值求和；固定工作量容量增加 1.942%</td>
+</tr>
+<tr>
+<td>R85 收益独立复核</td>
+<td style="text-align:right">4042.796039 → 3966.099304 GPU s</td>
+<td style="text-align:right">1.897%</td>
+<td>36 次正式请求，5 个不同片段；不是在 R85 上又省 1.897%</td>
+</tr>
+<tr>
+<td>R85 动态 VAE → 静态＋R207 候选</td>
+<td style="text-align:right">147.427484 → 138.144219 s</td>
+<td style="text-align:right">6.297%</td>
+<td>15 段双 VAE 时间之和；视频单阶段减少约 6.802%</td>
+</tr>
+<tr>
+<td>静态＋R207 → R234v2/R244 候选</td>
+<td style="text-align:right">136.018638 → 135.159510 s</td>
+<td style="text-align:right">0.632%</td>
+<td>15 段视频 VAE 时间之和；60 正式解码，RGB/PCM 一致</td>
+</tr>
+</tbody>
+</table>
+<p>来源：S01–S08、S31、S34，详见<a href="../evidence/source-identities.json">来源身份</a>和<a href="R85-PERFORMANCE.md">完整计量说明</a>。</p>
+<p>最早的 v22 使用旧 Turbo4 LoRA、实际 5 NFE；今天的 R85 使用 Larry v4、8 NFE。升级 LoRA 是为了质量，不能把这两者的总时延差当作算子效率变化。原始 Kitchen 0.2.33、0.2.35 stock、线上 r3/r5、实验 R85 也不是同一个基线。</p>
+<p>新同场实测：<strong>Kitchen 0.2.35 基础 Larry v4 8 步＋原生 FP16 视频 VAE → 固定 R85＋INT8 视频 VAE，两个代表片段的总生成耗时减少 11.591%，串行容量折算增加 13.111%</strong>。每请求平均节省 30.66 秒。完整计时从冻结 condition 到本地 MP4，排除 Qwen/参考处理、HTTP/排队/上传与首次读权重。 相同 latent 的全部 15 片段，INT8 VAE 对原生 FP16：成片 SSIM 均值 <strong>0.989070</strong>，LPIPS <strong>0.007589</strong>，原始 RGB8 PSNR 均值 <strong>58.67 dB</strong>；音频 PCM <strong>15/15 逐字节一致</strong>。这支持“当前测试中的画面差异很小、音频不变”，不等于逐像素无损，也不是多 seed 人工盲评结论。 之前固定 INT8 VAE 的 6.685% 保留为辅助对照；两者不叠加。</p>
+<p>不采用“比原版快 50%”“8 步比 50 步快 6.25 倍”“INT8 VAE 使整机快 41%”等没有同口径测量支持的宣传。</p>
+<h2>2. 场景与约束</h2>
+<p>目标是在一张 <strong>RTX 5090 D v2、约 24 GB 显存、SM120、170 SM</strong> 上生成带音频的 Ref2VA 视频。每个请求只使用一张卡；多卡实验是多个单卡作业，不是单请求张量并行。</p>
+<p>五个约 30 秒业务故事被切为 15 个约 9–12 秒片段，各故事由三个片段拼接。常用尺寸是 768×1344、24 fps；case1 为 243 帧 / 10.125 秒 / 8 张参考图，case8 为 260 帧 / 10.833 秒 / 4 张参考图。不能把单片段延迟写成完整 30 秒故事延迟。</p>
+<p>历史“满血 BF16 50 步”参考使用 BF16 DiT、BF16 Qwen 权重、50 次前向、res_multistep/simple；视频 VAE 为 FP16，音频 VAE 为 FP32。参考来自 A800，用来比较生成结果。它不是 5090 D v2 上的原始 Kitchen 性能对照。</p>
+<p>质量与工程采用两套验收：</p>
+<ol>
+<li><strong>模型方案比较</strong>：更换 LoRA、量化、采样、稀疏率或运行栈会改变轨迹，报告对满血参考的 SSIM、LPIPS、音频指标及业务表现。</li>
+<li><strong>固定方案精确优化</strong>：固定 Larry 权重和全部输入，要求视频 latent、音频 latent、RGB8、PCM 四项 SHA 与冻结历史输出一致。只在已验收输入/布局/运行环境内作此结论。</li>
+</ol>
+<p>“精确”不意味着 Larry8 等于 BF16/50；INT8 VAE 相比 TRT 也不属于逐像素无变化的替换。</p>
+<h2>3. 当前整条链路</h2>
+<pre><code class="language-text">素材准备与真实 condition
+  ├─ 原参考图 FP16 encoder → reference latent
+  └─ Qwen 条件编码 → packed condition
+                    ↓
+Larry v4 已烘焙 INT8 ConvRot DiT
+  8 个采样 step × 50 个 transformer block
+  RMS/调制/残差/量化融合 → QKV 融合 → SM120 INT8 dense
+  → out-proj gate/residual → NormQuant → FC1 → SwiGLU/ConvRot
+  → FC2 gate/residual → 合资格的下一 block 消费
+                    ↓
+生成 video latent / audio latent
+  ├─ INT8 ViT3D 视频 VAE → tile blend → RGB8
+  │                         → 双 pinned buffer D2H
+  └─ GPU FP32 音频 VAE → 原标准化与 PCM
+                    ↓
+CPU x264 / AAC / MP4 → 结果提交
+       与下一请求 GPU 工作重叠
+</code></pre>
+<p>Qwen condition 服务拆分是另一个部署方向；R85 的正式测试使用冻结 condition，因此没有把拆分收益计入 1.9%。若公开完整服务，应同时提供真实 condition 的测试层。</p>
+<h3>固定配置</h3>
+<table>
+<thead>
+<tr>
+<th>组件</th>
+<th>当前采用</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DiT</td>
+<td>Larry v4 pruned step600 EMA，预合并 INT8 ConvRot</td>
+<td>保留 50 blocks；pruned 不等于删去大半 transformer 层</td>
+</tr>
+<tr>
+<td>采样</td>
+<td>Euler / beta，8 NFE，CFG=1，video/audio shift=12/4</td>
+<td>以 forward hook 核实，而非只读 UI 步数</td>
+</tr>
+<tr>
+<td>attention</td>
+<td>完整 dense，SM120 INT8 QK 与 U8×S8 PV</td>
+<td>没有启用 Sol/VSA/跨步 cache</td>
+</tr>
+<tr>
+<td>Kitchen</td>
+<td>实际导入树为 0.2.35</td>
+<td>基础镜像元数据的 0.2.33 不能替代实际路径审计</td>
+</tr>
+<tr>
+<td>运行栈</td>
+<td>Torch 2.12.0+cu130、Triton 3.7、cuDNN 9.20</td>
+<td>新 2.14/3.8 完整测试未产生稳定收益</td>
+</tr>
+<tr>
+<td>reference encoder</td>
+<td>旧代码＋旧 FP16 权重</td>
+<td>不由新 VAE 文件自动替换</td>
+</tr>
+<tr>
+<td>video decoder</td>
+<td>INT8 ConvRot ViT3D VAE</td>
+<td>用户已确认 INT8 decode 部署；R85 使用动态加载</td>
+</tr>
+<tr>
+<td>audio decoder</td>
+<td>GPU FP32</td>
+<td>CPU 路径更慢且 PCM 不同，未采用</td>
+</tr>
+<tr>
+<td>导出</td>
+<td>完成 tile blend 后 RGB8，双 pinned D2H，CPU 成片</td>
+<td>GPU 请求保持串行；CPU 尾部可以跨请求重叠</td>
+</tr>
+<tr>
+<td>新 VAE 候选</td>
+<td>静态加载＋R234v2 RoPE/Q＋R244 cached-Q</td>
+<td>解码阶段验收通过，完整集成与服务压力测试待补</td>
+</tr>
+</tbody>
+</table>
+<p>冻结 ID：<code>H3-5090Dv2-LarryV4-8step-R85-INT8Decode-20260926-v1</code>。身份、模型及代码 SHA 见 <a href="../evidence/baseline-identity.json">baseline-identity.json</a>。本次复核已通过原固定包本地 42 文件与生成入口源码校验；本次每个 GPU 完整 runner 已在开始和结束校验原 42 study＋29 external pins，实际 Kitchen 源码/二进制身份也在两臂逐项一致。</p>
+<h2>4. 相对原 Kitchen 增加了哪些东西</h2>
+<p>优化分成三类，避免把上游功能全部归为本项目创新。</p>
+<table>
+<thead>
+<tr>
+<th>分类</th>
+<th>内容</th>
+<th>状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>上游提供、项目集成</td>
+<td>ConvRot INT8、Kitchen dense、VAE RMS/SwiGLU 输入量化、ViT3D INT8 VAE、tile canvas 改进</td>
+<td>保留来源归属；不是全部从零自研</td>
+</tr>
+<tr>
+<td>项目适配与精确优化</td>
+<td>容器交接/去 clone、BSHD、V 量化、Norm/残差/调制/量化、cross-block 消费、SM120 dense 调度、QKV 与 gate epilogue、K-only anchor、末层死行消除</td>
+<td>已合入各阶段验收线，具体覆盖以 R85 为准</td>
+</tr>
+<tr>
+<td>部署与流水线工程</td>
+<td>预合并 LoRA、权重预取、本地模型缓存、RGB8、锁页双缓冲、CPU 编码与下一请求重叠、背压与收尾协议</td>
+<td>部分早已存在；不重复计算“新增”收益</td>
+</tr>
+</tbody>
+</table>
+<p>关键原则是<strong>减少中间读写、无效行计算与重复加载，同时保留原有量化与浮点舍入边界</strong>。不是一味把更多运算塞进一个 kernel；FC1＋SwiGLU＋完整 ConvRot 的多次大融合因为寄存器压力和 spill，往往比原实现更慢。</p>
+<p>逐项实现、融合前后公式、shape 约束、stream 生命周期和拒绝条件见 <a href="R85-OPTIMIZATIONS.md">OPTIMIZATIONS.md</a>。</p>
+<h2>5. 为什么采用 Larry v4 8 步</h2>
+<p>早期相同五故事的质量测评中，Larry 相比旧 Turbo4 实跑更多步和普通 Ref2VA Turbo8，视频和频谱指标优势明显。</p>
+<table>
+<thead>
+<tr>
+<th>同组方案</th>
+<th style="text-align:right">SSIM↑</th>
+<th style="text-align:right">LPIPS↓</th>
+<th style="text-align:right">8k 音频频谱↑</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>旧 Turbo4，配置 5 步</td>
+<td style="text-align:right">0.682598</td>
+<td style="text-align:right">0.374144</td>
+<td style="text-align:right">0.806390</td>
+</tr>
+<tr>
+<td>旧 Turbo4，配置 8 步</td>
+<td style="text-align:right">0.694995</td>
+<td style="text-align:right">0.362692</td>
+<td style="text-align:right">0.808250</td>
+</tr>
+<tr>
+<td>LightX2V Ref2VA Turbo8，8 NFE</td>
+<td style="text-align:right">0.716099</td>
+<td style="text-align:right">0.340897</td>
+<td style="text-align:right">0.830211</td>
+</tr>
+<tr>
+<td>PDD Ref2VA，8 NFE</td>
+<td style="text-align:right">0.726550</td>
+<td style="text-align:right">0.336008</td>
+<td style="text-align:right">0.836946</td>
+</tr>
+<tr>
+<td>Larry v4 pruned，8 NFE，audio shift 4</td>
+<td style="text-align:right">0.736385</td>
+<td style="text-align:right">0.280848</td>
+<td style="text-align:right">0.868469</td>
+</tr>
+</tbody>
+</table>
+<p>这是早期质量组 Q1，不能把其中 Larry 的绝对数值直接换成后来的 Kitchen/R85 组结果。后续 31 配方、465 片段的测试中，DMD8/.65 的 SSIM/LPIPS 更好，音频略低；DMD8/.85 的音频更高，SSIM略低；DMD12 和无 LoRA16 用更多计算获得更高相似度。Larry 是当前固化的均衡工作点，不是所有实验的所有指标冠军。</p>
+<p>最终采用的 INT8 decoder 在独立 15 段组 Q3 对满血参考的均值为 <strong>SSIM 0.731979、LPIPS 0.283367、8k 音频 0.869178、32k 全频音频 0.695899</strong>。后续 R85 精确优化保留历史输出，因此不会凭空提升这些质量数值。不同评估批次还涉及导出、参考与聚合差异，应以该组原输出与脚本为准。</p>
+<p>完整选型表、更多步数、HyperFlow、VDN、FastH3 VSA、NVFP4 与音频指标解释见 <a href="R85-QUALITY.md">QUALITY.md</a>。</p>
+<h2>6. INT8 VAE 与 CPU 重叠的真实结论</h2>
+<p>视频 VAE 的大幅收益来自 <strong>decoder</strong>：36 层 ViT3D 中 144 个 Linear 使用 INT8 ConvRot，结合输入激活融合、INT8 dense 和输出内存优化。参考 encoder 继续旧 FP16 代码和权重。不能把“INT8 VAE 文件”理解成整个 encoder/decoder 都改成 INT8。</p>
+<p>与 TRT 相比，同 latent RGB8 PSNR 逐段均值 57.90 dB、最差 56.13 dB，最大单通道差 41/255；成片 SSIM 0.989917、LPIPS 0.007585；PCM 15/15 一致。这是很高的相似度，但并非像素完全相同。新 encoder 则会改变 condition 和整个生成轨迹，出现某次效果更好不构成统一升级依据。</p>
+<p>音频 VAE 搬到 CPU 的实际测量为 <strong>4.49–9.44 秒</strong>，原 GPU 约 <strong>0.11–0.14 秒</strong>，且 PCM 有微小差异。没有完成“CPU audio 与 GPU video 并行”的整服务收益验收，不能列为已采用方案。当前 CPU 主要承担素材准备、权重缓存、RGB 消费、x264/AAC/MP4 与任务收尾，这些更适合利用跨请求重叠。</p>
+<p>VAE 解码尚未达到 5 秒以内。进一步的静态加载、RoPE/Q 融合与 cached-Q 有小幅阶段收益，但 FC1/FC2 GEMM 仍是 VAE 主耗时。</p>
+<h2>7. 开源前剩余工作</h2>
+<p>技术文档、历史证据复算及两片段 stock→R85 的新 GPU 交叉实验已完成。开源前建议继续：</p>
+<ol>
+<li>将本次两片段 stock/R85 直接对照扩展到全 15 片段及更多 seed；TRT→INT8 的历史数值变化继续单列。</li>
+<li>在 R85 上完整集成静态 VAE＋R234v2/R244，重新通过全部 15 段四 SHA，再测连续队列。</li>
+<li>加入真实 condition 与 CPU 成片，分别报告冷启动、预热后延迟、固定队列完成间隔和服务长稳态数据。</li>
+<li>将依赖原容器路径、全局 hook 和业务 selector 的实验代码拆成独立模块；未知布局有明确回退，补齐第三方代码及权重来源许可。</li>
+</ol>
+<p>详细测试计划与输出字段已写在 <a href="R85-REPRODUCE.md">REPRODUCE.md</a>。在统一对照完成前，公开结论应保留本页第 1 节的分阶段与分基线口径。</p>
+</section><section class="chapter" id="catalog"><div class="eyebrow">逐项审阅 · 实现、边界、证据</div><h1>30 项优化，逐一展开</h1>
+<p>单项证据与最终整组对照互相补充。上游已有能力、项目增加的改动、服务层能力和候选分开标注；只有累计消融时，不为单项分配一个虚构的独立加速百分比。</p>
+<div class="opt-controls"><label>搜索<input id="opt-search" type="search" placeholder="例如：FC2、D2H、舍入、VAE" autocomplete="off"></label><label>阶段<select id="opt-stage"><option value="">全部阶段</option><option>权重与输入</option><option>DiT</option><option>视频 VAE</option><option>服务工程</option><option>音频</option><option>编译与精度</option></select></label><label>状态<select id="opt-status"><option value="">全部状态</option><option>共同基础</option><option>R85 固定</option><option>服务层已验证</option><option>未采用</option><option>后续候选</option></select></label><button id="opt-expand">全部展开</button><button id="opt-collapse">全部收起</button><span id="opt-count" role="status">30 / 30 项</span></div><details class="opt-card" id="opt-01" data-stage="权重与输入" data-status="共同基础" open>
+      <summary><span class="opt-num">01</span><span><small>权重与输入 · 共同基础</small><b>Larry v4 固定 LoRA 预合并</b></span><span class="opt-toggle" aria-hidden="true">⌄</span></summary>
+      <div class="opt-body"><p class="opt-origin">项目适配与优化</p><div class="opt-pair"><div><h3>原始路径</h3><p>运行期 patch 在权重反量化后叠加低秩增量，再重新旋转和量化；每次加载都可能重复这条路径。</p></div><div><h3>具体改动</h3><p>捕获实际 post-cast 生效的权重，按原旋转空间、alpha 和 scale 规则固化为 baked INT8 ConvRot checkpoint。两臂都直接加载它。</p></div></div><div class="opt-field"><h3>为什么更快 / 选择理由</h3><p>固定 adapter 不再反复计算或保存临时更新张量；模型身份也更容易复现。</p></div><div class="opt-field"><h3>数值与适用边界</h3><p>不得把 LoRA 矩阵直接加到 INT8 字节；不得重复挂 Larry；旧 Turbo 的 alpha/16 规则不能套用。冻结 SHA 为 9eccf52e…71fec12。</p></div><div class="opt-field"><h3>如何验收</h3><p>S04/S05；R85 manifest；当前同场比较两臂权重 SHA 相同。</p></div><div class="opt-field"><h3>实测收益，保留原分母</h3><p>当前基础版已 baked，这一项没有计入本次 A→B 的新增收益。</p></div><div class="opt-field"><h3>代码入口</h3><p>bake_models_remote.py；r130_r85_baseline.py</p></div></div></details><details class="opt-card" id="opt-02" data-stage="权重与输入" data-status="共同基础" open>
+      <summary><span class="opt-num">02</span><span><small>权重与输入 · 共同基础</small><b>原生分配器与 DynamicVRAM 权重预取</b></span><span class="opt-toggle" aria-hidden="true">⌄</span></summary>
+      <div class="opt-body"><p class="opt-origin">上游已有能力，项目沿用</p><div class="opt-pair"><div><h3>原始路径</h3><p>大模型无法把所有组件永久同时驻留显存；按需加载时，串行 H2D 会阻塞计算。</p></div><div><h3>具体改动</h3><p>保留 native allocator（--disable-cuda-malloc）与原 DynamicVRAM；使用 pinned 主机权重和预取流，让下一层搬运与当前层计算重叠。</p></div></div><div class="opt-field"><h3>为什么更快 / 选择理由</h3><p>隐藏权重搬运，控制 24 GB 显存中的组件切换。</p></div><div class="opt-field"><h3>数值与适用边界</h3><p>event、源 tensor 与目标 owner 必须活到消费结束；不能把 allocator 的 max_split_size_mb:512 当成 DynamicVRAM 开关。</p></div><div class="opt-field"><h3>如何验收</h3><p>S15/S19：一次 profile 的 H2D 为 1.593947 s，其中 1.546261 s 与计算重叠。</p></div><div class="opt-field"><h3>实测收益，保留原分母</h3><p>约 97.01% 是该次 H2D 重叠比例；基础版已有此能力，不能再算一遍 R85 新增收益。</p></div><div class="opt-field"><h3>代码入口</h3><p>ComfyUI model_management；R85 driver</p></div></div></details><details class="opt-card" id="opt-03" data-stage="DiT" data-status="R85 固定" open>
+      <summary><span class="opt-num">03</span><span><small>DiT · R85 固定</small><b>QKV 载体、所有权转移与去 V clone</b></span><span class="opt-toggle" aria-hidden="true">⌄</span></summary>
+      <div class="opt-body"><p class="opt-origin">项目适配与优化</p><div class="opt-pair"><div><h3>原始路径</h3><p>Q/K/V 通过普通张量载体反复交接，下游重排或生命周期不明时产生额外 clone 和大张量引用。</p></div><div><h3>具体改动</h3><p>使用 AttentionTensorContainer 显式交接量化载体；消费完成后提前释放原引用，去掉已证明不必保留的 V clone。</p></div></div><div class="opt-field"><h3>为什么更快 / 选择理由</h3><p>减少显存带宽、复制和 Python 载体处理；降低同时存活的大张量数量。</p></div><div class="opt-field"><h3>数值与适用边界</h3><p>只删不再使用的副本；量化 code/scale、layout 和 stream 消费顺序保持。未知 owner/stride 回退。</p></div><div class="opt-field"><h3>如何验收</h3><p>S02/S31：.35 迁移的 container/no-clone/modulation 累计组合 forward 30.259366→29.984625 s；正式完整输出另有四 SHA 验证。</p></div><div class="opt-field"><h3>实测收益，保留原分母</h3><p>组合减少 0.908%，包含调制，未单独拆出 container 或 clone 的完整请求收益。</p></div><div class="opt-field"><h3>代码入口</h3><p>teacher_migrated；runtime_compat035；model_dispatch035</p></div></div></details><details class="opt-card" id="opt-04" data-stage="DiT" data-status="R85 固定" open>
+      <summary><span class="opt-num">04</span><span><small>DiT · R85 固定</small><b>RMSNorm 与 video/audio/text 分段调制融合</b></span><span class="opt-toggle" aria-hidden="true">⌄</span></summary>
+      <div class="opt-body"><p class="opt-origin">项目适配与优化</p><div class="opt-pair"><div><h3>原始路径</h3><p>RMSNorm 写出 BF16，再按 token 区段分别 scale/shift，之后再次写回。</p></div><div><h3>具体改动</h3><p>同一 kernel 完成归一化、对应区段调制和输出，减少中间张量；对合法 stride 单独分派。</p></div></div><div class="opt-field"><h3>为什么更快 / 选择理由</h3><p>少一次或多次全量 BF16 写读，以及小 kernel launch。</p></div><div class="opt-field"><h3>数值与适用边界</h3><p>RMS reduction、epsilon、广播、token 边界和两次 BF16 舍入照旧，不能因融合而用更高精度贯穿。</p></div><div class="opt-field"><h3>如何验收</h3><p>S02/S31 的逐项迁移回放与 S04/S05 全业务历史四 SHA。</p></div><div class="opt-field"><h3>实测收益，保留原分母</h3><p>迁移消融累计到本层 29.459518 s，相对 stock 累计 −2.643%；不是这一项独享 2.643%。</p></div><div class="opt-field"><h3>代码入口</h3><p>model_dispatch035；teacher_migrated；Norm CUDA kernels</p></div></div></details><details class="opt-card" id="opt-05" data-stage="DiT" data-status="R85 固定" open>
+      <summary><span class="opt-num">05</span><span><small>DiT · R85 固定</small><b>Residual、gate、norm2 与调制融合</b></span><span class="opt-toggle" aria-hidden="true">⌄</span></summary>
+      <div class="opt-body"><p class="opt-origin">项目适配与优化</p><div class="opt-pair"><div><h3>原始路径</h3><p>attention/MLP 分支做 gate 和 residual，写出结果后另起 Norm/调制 kernel。</p></div><div><h3>具体改动</h3><p>在合法消费链中合并 residual 与后续 norm2/调制；保留真实浮点落点。</p></div></div><div class="opt-field"><h3>为什么更快 / 选择理由</h3><p>减少 residual 张量读写和 launch；缩短 block 内的串行依赖链。</p></div><div class="opt-field"><h3>数值与适用边界</h3><p>gate 的 BF16 乘法与 residual 的 FP32 FMA/最终 BF16 必须按原顺序；strided 输入不得冒充 contiguous。</p></div><div class="opt-field"><h3>如何验收</h3><p>S02/S31：残差 Norm/strided 累计 forward 29.404285 s；S04/S05 全业务验证。</p></div><div class="opt-field"><h3>实测收益，保留原分母</h3><p>相对 stock 的组合累计 −2.826%，未把相邻消融差异当成独立服务收益。</p></div><div class="opt-field"><h3>代码入口</h3><p>residual/norm CUDA；model_dispatch035</p></div></div></details><details class="opt-card" id="opt-06" data-stage="DiT" data-status="R85 固定" open>
+      <summary><span class="opt-num">06</span><span><small>DiT · R85 固定</small><b>Norm/Residual/调制直接产生 ConvRot INT8 输入</b></span><span class="opt-toggle" aria-hidden="true">⌄</span></summary>
+      <div class="opt-body"><p class="opt-origin">项目适配与优化</p><div class="opt-pair"><div><h3>原始路径</h3><p>融合后的 BF16 仍需写入显存，再由旋转量化 kernel 读取。</p></div><div><h3>具体改动</h3><p>限定业务 shape、stride 和 act 下，Norm/调制或 Residual/Norm/调制直接接 ConvRot、scale 与 INT8 code 生成。</p></div></div><div class="opt-field"><h3>为什么更快 / 选择理由</h3><p>省掉 GEMM 输入前的一次大张量往返。</p></div><div class="opt-field"><h3>数值与适用边界</h3><p>保留 group、旋转顺序、scale、padding、随机量化开关与原 BF16 中间落点；不满足资格时转回上游。</p></div><div class="opt-field"><h3>如何验收</h3><p>S02/S04/S05：早期 Case1 不命中这些开关，后续才逐步覆盖当前 15 片段布局。</p></div><div class="opt-field"><h3>实测收益，保留原分母</h3><p>单纯打开开关不代表加速。该项在最终整组对照中验证，没有独立完整请求百分比。</p></div><div class="opt-field"><h3>代码入口</h3><p>cross_quant.py；quant_shadow；runtime_int8.py</p></div></div></details><details class="opt-card" id="opt-07" data-stage="DiT" data-status="R85 固定" open>
+      <summary><span class="opt-num">07</span><span><small>DiT · R85 固定</small><b>K5376/K7168 ConvRot 寄存器与线程调度</b></span><span class="opt-toggle" aria-hidden="true">⌄</span></summary>
+      <div class="opt-body"><p class="opt-origin">项目适配与优化</p><div class="opt-pair"><div><h3>原始路径</h3><p>通用旋转量化 kernel 对业务宽度使用统一的线程和中间存储策略。</p></div><div><h3>具体改动</h3><p>按 5376/7168 宽度调整 register、shuffle 与线程组织；9/19 迁移配置分别为 768/640 线程。</p></div></div><div class="opt-field"><h3>为什么更快 / 选择理由</h3><p>减少 shared-memory 往返和不合适的线程工作划分。</p></div><div class="opt-field"><h3>数值与适用边界</h3><p>每个宽度独立资格；不得覆盖新版未知 act_weight/act_eps 语义。K14336 SwiGLU 更大融合不在默认路径。</p></div><div class="opt-field"><h3>如何验收</h3><p>S02/S31：逐宽度和真实第一步回放，最终完整输出验证。</p></div><div class="opt-field"><h3>实测收益，保留原分母</h3><p>迁移组合累计到寄存器 ConvRot 为 29.386356 s；不宣传单独 −2.885%。</p></div><div class="opt-field"><h3>代码入口</h3><p>convrot_schedule035；ConvRot CUDA sources</p></div></div></details><details class="opt-card" id="opt-08" data-stage="DiT" data-status="R85 固定" open>
+      <summary><span class="opt-num">08</span><span><small>DiT · R85 固定</small><b>Attention 直接输出 BSHD 与精确 V 量化</b></span><span class="opt-toggle" aria-hidden="true">⌄</span></summary>
+      <div class="opt-body"><p class="opt-origin">项目适配与优化</p><div class="opt-pair"><div><h3>原始路径</h3><p>attention 的输出布局不直接符合 projection 消费者；V 量化也有额外转换和缓冲。</p></div><div><h3>具体改动</h3><p>attention 直接写 BSHD，使用保留原 scale/padding 的 V 量化路径，减少 transpose/copy。</p></div></div><div class="opt-field"><h3>为什么更快 / 选择理由</h3><p>以消费者布局产生结果，避免全量激活搬运。</p></div><div class="opt-field"><h3>数值与适用边界</h3><p>V 的行/组 scale、量化饱和和 padding 与基线相同；仅改地址映射不能改有效元素顺序。</p></div><div class="opt-field"><h3>如何验收</h3><p>S02/S31：加入 BSHD/dense8102 的累计 forward 29.854025 s，再加 V quant 为 29.624339 s。</p></div><div class="opt-field"><h3>实测收益，保留原分母</h3><p>对应相对 stock 累计 −1.340% / −2.099%；这些是有继承关系的组合。</p></div><div class="opt-field"><h3>代码入口</h3><p>selected-dense；runtime_compat035；teacher_migrated</p></div></div></details><details class="opt-card" id="opt-09" data-stage="DiT" data-status="R85 固定" open>
+      <summary><span class="opt-num">09</span><span><small>DiT · R85 固定</small><b>SM120 dense：3 槽 TMA、Q 寄存器缓存、提前释放 K</b></span><span class="opt-toggle" aria-hidden="true">⌄</span></summary>
+      <div class="opt-body"><p class="opt-origin">基于 SageAttention/Kitchen 的硬件适配</p><div class="opt-pair"><div><h3>原始路径</h3><p>基础 dense 分块 QK→online softmax→PV，内核调度存在 shared-memory 读取及搬运等待。</p></div><div><h3>具体改动</h3><p>D128、Q128/K128；3 槽 TMA ring；8 compute warp 加 4 producer warp；240/24 寄存器额度；Q 放寄存器，K 消费后提前交还槽位。</p></div></div><div class="opt-field"><h3>为什么更快 / 选择理由</h3><p>隐藏 K/V 搬运，减少 Q 的重复读取，使整数 MMA 更连续。使用 SM120 能力，不套用 SM100 的 TMEM/tcgen05。</p></div><div class="opt-field"><h3>数值与适用边界</h3><p>66,560 B shared；原 KV 遍历、online softmax、概率 U8/PV S8 量化与累加次序保留；dense 不删 attention block。</p></div><div class="opt-field"><h3>如何验收</h3><p>S15/S17/S27：长 QKV、边界、stream、完整生成；当前 SM120 170 SM，CTA shared 上限按设备查询。</p></div><div class="opt-field"><h3>实测收益，保留原分母</h3><p>纳入整组 R85 对照；历史后续 dense 小改完整周期仅 −0.1245%。不能把 pure-MMA 95.3% 比值写成整机理论利用率。</p></div><div class="opt-field"><h3>代码入口</h3><p>selected-dense；r85_lib.py；SM120 CUDA headers</p></div></div></details><details class="opt-card" id="opt-10" data-stage="DiT" data-status="R85 固定" open>
+      <summary><span class="opt-num">10</span><span><small>DiT · R85 固定</small><b>o_scale 等于 1 的恒等乘法消除</b></span><span class="opt-toggle" aria-hidden="true">⌄</span></summary>
+      <div class="opt-body"><p class="opt-origin">项目适配与优化</p><div class="opt-pair"><div><h3>原始路径</h3><p>online softmax 归一化路径即使 o_scale==1 也执行分母和输出的对应乘法。</p></div><div><h3>具体改动</h3><p>只对精确等于 1 的分支省略恒等乘法；其他 scale 仍用原实现。</p></div></div><div class="opt-field"><h3>为什么更快 / 选择理由</h3><p>减少主循环末端依赖和指令。</p></div><div class="opt-field"><h3>数值与适用边界</h3><p>不是把相近 scale 当作 1；KV 顺序、softmax 和输出舍入保留。</p></div><div class="opt-field"><h3>如何验收</h3><p>S17/S27：与 QKV 调度的正式队列组合，2175.599311→2165.853432 GPU s，历史四 SHA。</p></div><div class="opt-field"><h3>实测收益，保留原分母</h3><p>组合串行容量 +0.450%；没有把恒等乘法单独拆成这一收益。</p></div><div class="opt-field"><h3>代码入口</h3><p>selected-dense skip-scale branch</p></div></div></details><details class="opt-card" id="opt-11" data-stage="DiT" data-status="R85 固定" open>
+      <summary><span class="opt-num">11</span><span><small>DiT · R85 固定</small><b>Packed embedding 复制后释放无消费者的引用</b></span><span class="opt-toggle" aria-hidden="true">⌄</span></summary>
+      <div class="opt-body"><p class="opt-origin">项目适配与优化</p><div class="opt-pair"><div><h3>原始路径</h3><p>text/video/audio embedding 已打包，但原 tensor 仍被 Python 变量或容器持有。</p></div><div><h3>具体改动</h3><p>在 packed copy 完成且没有后续消费者后释放原引用。</p></div></div><div class="opt-field"><h3>为什么更快 / 选择理由</h3><p>减少峰值显存和 allocator 压力，为大业务形状留余量。</p></div><div class="opt-field"><h3>数值与适用边界</h3><p>必须等待 copy 的真实 stream 依赖；不能释放尚被某个消费者读取的 storage。</p></div><div class="opt-field"><h3>如何验收</h3><p>S18/S19：峰值内存与完整输出验证。</p></div><div class="opt-field"><h3>实测收益，保留原分母</h3><p>单独速度收益不稳定，主要作为内存治理；不虚构独立降时百分比。</p></div><div class="opt-field"><h3>代码入口</h3><p>embedding_release.py；business_fusion.py</p></div></div></details><details class="opt-card" id="opt-12" data-stage="DiT" data-status="R85 固定" open>
+      <summary><span class="opt-num">12</span><span><small>DiT · R85 固定</small><b>跨 block FC2 residual→下一层 norm/quant</b></span><span class="opt-toggle" aria-hidden="true">⌄</span></summary>
+      <div class="opt-body"><p class="opt-origin">项目适配与优化</p><div class="opt-pair"><div><h3>原始路径</h3><p>本 block FC2 的 residual 先完整写出，下一 block 再读入 norm1/量化。</p></div><div><h3>具体改动</h3><p>以单消费者载体串联相邻 block，8 steps×49 连接共 392 次跨层消费；8 次末层单独收尾。</p></div></div><div class="opt-field"><h3>为什么更快 / 选择理由</h3><p>消除跨层中间激活写读，减少 launch。</p></div><div class="opt-field"><h3>数值与适用边界</h3><p>状态绑定 request/step/block/generation/owner/pointer；不能用上一 step 的值。同实例并发不满足资格，必须隔离或回退。</p></div><div class="opt-field"><h3>如何验收</h3><p>S04/S05/S16：消费次数、owner 检查与全部业务历史四 SHA。</p></div><div class="opt-field"><h3>实测收益，保留原分母</h3><p>属于当前精确组合收益，尚未单独测整服务贡献。</p></div><div class="opt-field"><h3>代码入口</h3><p>cross_quant.py；combined_gate.py；gate_adapter.py</p></div></div></details><details class="opt-card" id="opt-13" data-stage="DiT" data-status="R85 固定" open>
+      <summary><span class="opt-num">13</span><span><small>DiT · R85 固定</small><b>Out-proj/FC2 INT8 GEMM gate-residual epilogue</b></span><span class="opt-toggle" aria-hidden="true">⌄</span></summary>
+      <div class="opt-body"><p class="opt-origin">项目适配与优化</p><div class="opt-pair"><div><h3>原始路径</h3><p>GEMM 输出反量化 BF16 branch 后，另起 gate/residual kernel 再读写。</p></div><div><h3>具体改动</h3><p>在 epilogue 接上 gate/residual，但显式保留 INT32→FP32 scales→bias→BF16 branch→BF16 gate→FP32 FMA→BF16 的原顺序。</p></div></div><div class="opt-field"><h3>为什么更快 / 选择理由</h3><p>省掉分支结果的额外全量写读和 kernel launch。</p></div><div class="opt-field"><h3>数值与适用边界</h3><p>不能删 BF16 中间舍入或改变 FMA 边界；只作为 owner 元数据保留的 buffer 不得被当成已初始化数据读取。</p></div><div class="opt-field"><h3>如何验收</h3><p>S16：FC2 stage1/config13，真实链 27.393008→26.082304 ms；15 片段、70 次含预热完整请求四 SHA。</p></div><div class="opt-field"><h3>实测收益，保留原分母</h3><p>局部链 −4.783%；out-proj＋FC2 完整组合容量 +0.468%。分母不同。</p></div><div class="opt-field"><h3>代码入口</h3><p>combined_gate.py；gate_adapter.py；runtime_int8.py</p></div></div></details><details class="opt-card" id="opt-14" data-stage="DiT" data-status="R85 固定" open>
+      <summary><span class="opt-num">14</span><span><small>DiT · R85 固定</small><b>FC1 与 QKV 的 tile raster 配置</b></span><span class="opt-toggle" aria-hidden="true">⌄</span></summary>
+      <div class="opt-body"><p class="opt-origin">项目适配与优化</p><div class="opt-pair"><div><h3>原始路径</h3><p>通用 GEMM 的 block 遍历和 swizzle 未必适合 Ref2VA 的长 M。</p></div><div><h3>具体改动</h3><p>FC1 采用 config3/swizzle8，QKV 使用 config5；短 M 和真实长 M 分开验证。</p></div></div><div class="opt-field"><h3>为什么更快 / 选择理由</h3><p>改善 tile 调度与缓存复用；不改变数学运算。</p></div><div class="opt-field"><h3>数值与适用边界</h3><p>尺寸、align、bias、scale 和 epilogue 资格保持；不能按短 microbenchmark 选全业务默认配置。</p></div><div class="opt-field"><h3>如何验收</h3><p>S04/S05/S17：正式完整周期与历史 SHA；已吸收到 R85 固定入口。</p></div><div class="opt-field"><h3>实测收益，保留原分母</h3><p>最终累计对照包含该项，未另报独立百分比。</p></div><div class="opt-field"><h3>代码入口</h3><p>runtime_int8.py；r126_driver.py</p></div></div></details><details class="opt-card" id="opt-15" data-stage="DiT" data-status="R85 固定" open>
+      <summary><span class="opt-num">15</span><span><small>DiT · R85 固定</small><b>QKV projection 后的 RMS/RoPE/Q quant/V partial-max 融合</b></span><span class="opt-toggle" aria-hidden="true">⌄</span></summary>
+      <div class="opt-body"><p class="opt-origin">项目适配与优化</p><div class="opt-pair"><div><h3>原始路径</h3><p>QKV projection 后多次进行拆分、RMS、RoPE、量化与 V 的统计准备。</p></div><div><h3>具体改动</h3><p>连接投影输出和 RMS/RoPE/Q 量化/V partial-max，按原中间舍入生成后继所需数据。</p></div></div><div class="opt-field"><h3>为什么更快 / 选择理由</h3><p>减少高带宽中间张量、独立统计扫描和 launch。</p></div><div class="opt-field"><h3>数值与适用边界</h3><p>K 中心化依赖与 anchor 定义照旧；Q/K/V 各自 scale 与 padding 照旧。</p></div><div class="opt-field"><h3>如何验收</h3><p>S04/S05/S15/S27：实际调用覆盖、400 次完整 block attention 和全业务输出。</p></div><div class="opt-field"><h3>实测收益，保留原分母</h3><p>是 R85 累计 −1.905% 组合的一部分，不能再次叠加到最终 A→B。</p></div><div class="opt-field"><h3>代码入口</h3><p>r71_model.py；r79_lib.py；r82_lib.py</p></div></div></details><details class="opt-card" id="opt-16" data-stage="DiT" data-status="R85 固定" open>
+      <summary><span class="opt-num">16</span><span><small>DiT · R85 固定</small><b>当前输入的 9 行 K-only anchor 与 4-warp K fusion</b></span><span class="opt-toggle" aria-hidden="true">⌄</span></summary>
+      <div class="opt-body"><p class="opt-origin">项目适配与优化</p><div class="opt-pair"><div><h3>原始路径</h3><p>为 anchor 所需的少量行计算完整 Q/K/V，尽管只消费 K。</p></div><div><h3>具体改动</h3><p>每次从当前输入投影 9 行 K-only anchor；使用 4-warp K fusion，省去不被消费的 Q/V。</p></div></div><div class="opt-field"><h3>为什么更快 / 选择理由</h3><p>按真实消费者删除无用工作，减少小路径调度开销。</p></div><div class="opt-field"><h3>数值与适用边界</h3><p>每个 step 重新计算当前 K；不是跨 step cache，也不替换当前 attention 结果。</p></div><div class="opt-field"><h3>如何验收</h3><p>S04/S05：R85 所有 15 片段历史四 SHA；R126 独立重复。</p></div><div class="opt-field"><h3>实测收益，保留原分母</h3><p>与 QKV/末层裁行整组新增 −1.905%，R126 再现 −1.897%；两者是同一收益的验证。</p></div><div class="opt-field"><h3>代码入口</h3><p>r85_model.py；r85_lib.py</p></div></div></details><details class="opt-card" id="opt-17" data-stage="DiT" data-status="R85 固定" open>
+      <summary><span class="opt-num">17</span><span><small>DiT · R85 固定</small><b>末层 reference prefix 无消费者行裁剪</b></span><span class="opt-toggle" aria-hidden="true">⌄</span></summary>
+      <div class="opt-body"><p class="opt-origin">项目适配与优化</p><div class="opt-pair"><div><h3>原始路径</h3><p>最后一层继续为不进入最终导出的 reference prefix 计算 Q、out-proj、FC1/FC2。</p></div><div><h3>具体改动</h3><p>根据消费者关系仅计算 live query 与后续 GEMM 行；其他 query 需要的 K/V 仍完整保留。</p></div></div><div class="opt-field"><h3>为什么更快 / 选择理由</h3><p>消除最终输出不依赖的计算，而不减少有效 token、层数或采样次数。</p></div><div class="opt-field"><h3>数值与适用边界</h3><p>原 prefix residual/填充、对齐和形状语义照旧；未知输入关系不能套用。没有稀疏注意力或早停。</p></div><div class="opt-field"><h3>如何验收</h3><p>S04/S05/S27：15 片段 60 次正式请求，4 SHA 一致。</p></div><div class="opt-field"><h3>实测收益，保留原分母</h3><p>纳入 R85 新增 −1.905% 组合；未单独分配速度数字。</p></div><div class="opt-field"><h3>代码入口</h3><p>r45_model.py；r45_window.py；r54_model.py</p></div></div></details><details class="opt-card" id="opt-18" data-stage="视频 VAE" data-status="R85 固定" open>
+      <summary><span class="opt-num">18</span><span><small>视频 VAE · R85 固定</small><b>INT8 ConvRot ViT3D decoder，保留旧 FP16 encoder</b></span><span class="opt-toggle" aria-hidden="true">⌄</span></summary>
+      <div class="opt-body"><p class="opt-origin">上游量化模型与实现，项目接入验证</p><div class="opt-pair"><div><h3>原始路径</h3><p>历史原生视频 VAE 权重实际为 FP16；更早生产 decode 用 TRT FP16。参考 encoder 也用旧 FP16 路径。</p></div><div><h3>具体改动</h3><p>视频 decode 切换 .35 配套 INT8 ConvRot 权重与新版模型/helper。36 个 ViT3D block 共 144 个量化 Linear；encoder 继续旧类与旧权重。</p></div></div><div class="opt-field"><h3>为什么更快 / 选择理由</h3><p>将 QKV、attention output 和 FFN w1/w2 主要乘法改用量化路径，降低权重带宽与计算成本。</p></div><div class="opt-field"><h3>数值与适用边界</h3><p>量化会改变像素；这项只主张实测差异很小，不能按位无损。模型含 F16/F32 元件；不把历史 FP16 标成 BF16。</p></div><div class="opt-field"><h3>如何验收</h3><p>新同 latent FP16→INT8 15 段比较单列于“VAE全15段质量”。历史 S03/S06 是 TRT FP16→INT8，不能移作原生 FP16 的新质量数字。</p></div><div class="opt-field"><h3>实测收益，保留原分母</h3><p>历史 TRT 阶段 16.559342→9.959952 s，−39.853%；本次原生 FP16 基线的完整收益以新的直接实测为准。</p></div><div class="opt-field"><h3>代码入口</h3><p>latest_vae.py；vae_pr_helpers.py；INT8 ConvRot checkpoint</p></div></div></details><details class="opt-card" id="opt-19" data-stage="视频 VAE" data-status="R85 固定" open>
+      <summary><span class="opt-num">19</span><span><small>视频 VAE · R85 固定</small><b>VAE 内部 RMS/SwiGLU 输入量化与残差 epilogue</b></span><span class="opt-toggle" aria-hidden="true">⌄</span></summary>
+      <div class="opt-body"><p class="opt-origin">上游实现与项目兼容迁移</p><div class="opt-pair"><div><h3>原始路径</h3><p>输入激活处理、旋转量化、Linear、残差分别读写中间张量。</p></div><div><h3>具体改动</h3><p>新版 linear_input_act 把 RMSNorm/SwiGLU 接进 ConvRot 量化；支持的 Linear 使用 residual/residual_scale epilogue，Q/K norm 与 RoPE 融合。</p></div></div><div class="opt-field"><h3>为什么更快 / 选择理由</h3><p>减少 36 层 decoder 内的中间张量和 launch。</p></div><div class="opt-field"><h3>数值与适用边界</h3><p>Kitchen .33 的 8 参数 ABI 变为 .35 的 10 参数，act_weight/act_eps 必须传递；旧 wrapper 只对已验证资格截获。</p></div><div class="opt-field"><h3>如何验收</h3><p>S02/S03/S31；Kitchen #167、ComfyUI #16187/#16332；实际导入源码/二进制 pin。</p></div><div class="opt-field"><h3>实测收益，保留原分母</h3><p>上游 INT8 decoder 的组成部分；没有把它与 INT8 decoder 收益重复相加。</p></div><div class="opt-field"><h3>代码入口</h3><p>vae_pr_helpers.py；runtime_compat035；Kitchen CUDA kernels</p></div></div></details><details class="opt-card" id="opt-20" data-stage="视频 VAE" data-status="R85 固定" open>
+      <summary><span class="opt-num">20</span><span><small>视频 VAE · R85 固定</small><b>Tile 批量、预分配 canvas 与引用释放</b></span><span class="opt-toggle" aria-hidden="true">⌄</span></summary>
+      <div class="opt-body"><p class="opt-origin">上游 canvas/tile 能力与项目输出接入</p><div class="opt-pair"><div><h3>原始路径</h3><p>时空 tile 解码后长期保留引用，或通过重复拼接构建输出，增加显存占用和拷贝。</p></div><div><h3>具体改动</h3><p>按显存限制使用最多 4 个 tile，输出写预分配 canvas；旧 tile 消费后及时释放，保留原时空 overlap。</p></div></div><div class="opt-field"><h3>为什么更快 / 选择理由</h3><p>限制峰值内存、减少拼接和重复分配，为 decoder 算子留工作空间。</p></div><div class="opt-field"><h3>数值与适用边界</h3><p>不改变 tile 边界、blend 权重、叠加顺序；不能在尚需 blend 的 tile 上提前转 uint8。</p></div><div class="opt-field"><h3>如何验收</h3><p>S03/S18/S31：tile 边界、RGB 与同 latent 比较。</p></div><div class="opt-field"><h3>实测收益，保留原分母</h3><p>未单独隔离端到端收益；更大 tile 并未形成默认稳定优化。</p></div><div class="opt-field"><h3>代码入口</h3><p>latest_vae.py；chunk_rgb.py</p></div></div></details><details class="opt-card" id="opt-21" data-stage="视频 VAE" data-status="R85 固定" open>
+      <summary><span class="opt-num">21</span><span><small>视频 VAE · R85 固定</small><b>最终 blend→GPU RGB8 转换融合</b></span><span class="opt-toggle" aria-hidden="true">⌄</span></summary>
+      <div class="opt-body"><p class="opt-origin">项目适配与优化</p><div class="opt-pair"><div><h3>原始路径</h3><p>原视频输出以 FP32 传到 CPU，再 ×255、clamp、转 uint8；每通道传 4 byte。</p></div><div><h3>具体改动</h3><p>仅在原 blend 完成后，GPU 按原 FP32 std/mean、clamp、×255、truncate 顺序产生 RGB8，每通道传 1 byte。</p></div></div><div class="opt-field"><h3>为什么更快 / 选择理由</h3><p>把 D2H 数据量降到四分之一，减少 CPU 转换与主机临时大张量。</p></div><div class="opt-field"><h3>数值与适用边界</h3><p>禁止改变边界结果的 FMA contraction；truncate 不能换 round；未结束的 overlap 区间保持 FP32。</p></div><div class="opt-field"><h3>如何验收</h3><p>S18/S34 与完整 RGB SHA；Case1 传输 3,009,871,872→752,467,968 byte。</p></div><div class="opt-field"><h3>实测收益，保留原分母</h3><p>这项是精确输出工程；传输字节 −75% 不等于完整耗时 −75%。</p></div><div class="opt-field"><h3>代码入口</h3><p>finalize_rgb.py；chunk_rgb.py</p></div></div></details><details class="opt-card" id="opt-22" data-stage="视频 VAE" data-status="R85 固定" open>
+      <summary><span class="opt-num">22</span><span><small>视频 VAE · R85 固定</small><b>双 pinned buffer 与事件驱动 D2H</b></span><span class="opt-toggle" aria-hidden="true">⌄</span></summary>
+      <div class="opt-body"><p class="opt-origin">项目适配与优化</p><div class="opt-pair"><div><h3>原始路径</h3><p>输出转换和 GPU→CPU 拷贝串行；buffer 复用时机如果只依赖 non_blocking=True，容易阻塞或破坏数据。</p></div><div><h3>具体改动</h3><p>compute 记录 ready event，copy stream 等待后异步 D2H；CPU 等 copied event 消费，消费完成才归还 slot。双 slot 有明确上限和背压。</p></div></div><div class="opt-field"><h3>为什么更快 / 选择理由</h3><p>把可重叠的搬运隐藏在后续 GPU 工作中，并约束主机内存。</p></div><div class="opt-field"><h3>数值与适用边界</h3><p>record_stream、强引用、GPU 源与 CPU 目标生命周期必须完整；CPU 仍在读时不能复用锁页 slot。</p></div><div class="opt-field"><h3>如何验收</h3><p>S18/S34；10s 历史帧交接 1.757→0.303 s，15s 2.617→0.465 s；28 次含预热 MP4 黄金验证。</p></div><div class="opt-field"><h3>实测收益，保留原分母</h3><p>历史帧交接包含累计优化，不能全部归因 D2H；本次直接总耗时已包含 R85 输出路径。</p></div><div class="opt-field"><h3>代码入口</h3><p>chunk_rgb.py；export_handoff.py</p></div></div></details><details class="opt-card" id="opt-23" data-stage="服务工程" data-status="服务层已验证" open>
+      <summary><span class="opt-num">23</span><span><small>服务工程 · 服务层已验证</small><b>CPU x264/AAC/MP4 与下一请求 GPU 重叠</b></span><span class="opt-toggle" aria-hidden="true">⌄</span></summary>
+      <div class="opt-body"><p class="opt-origin">原部署已有异步能力，项目保留并约束所有权</p><div class="opt-pair"><div><h3>原始路径</h3><p>若等当前 MP4 编码结束再启动下一请求，CPU 成片期间 GPU 会空闲。</p></div><div><h3>具体改动</h3><p>请求 N 的 RGB/PCM 进入限量 CPU 编码队列，GPU 可以处理 N+1；mmap/帧缓冲由当前 export 独占。</p></div></div><div class="opt-field"><h3>为什么更快 / 选择理由</h3><p>利用 CPU 与 GPU 的不同资源提升连续队列吞吐。</p></div><div class="opt-field"><h3>数值与适用边界</h3><p>以 MP4、上传和结果提交全部完成作为成功；需排空、取消、失败处理和按总字节背压。GPU 完成不等于请求成功。</p></div><div class="opt-field"><h3>如何验收</h3><p>S01/S19/S34：9/13 真队列完成间隔 143.785→137.341 s（10s），261.766→251.404 s（15s）。</p></div><div class="opt-field"><h3>实测收益，保留原分母</h3><p>两臂当时已启用异步 export；这些是历史累计收益。本次单请求 A/B 没有测试跨请求重叠吞吐。</p></div><div class="opt-field"><h3>代码入口</h3><p>export_graph；export_handoff.py；server finalizer</p></div></div></details><details class="opt-card" id="opt-24" data-stage="服务工程" data-status="服务层已验证" open>
+      <summary><span class="opt-num">24</span><span><small>服务工程 · 服务层已验证</small><b>本地不可变模型缓存与 Qwen 保留热页</b></span><span class="opt-toggle" aria-hidden="true">⌄</span></summary>
+      <div class="opt-body"><p class="opt-origin">项目适配与优化</p><div class="opt-pair"><div><h3>原始路径</h3><p>共享文件系统和频繁 mark_cold 可能让相同权重被反复读盘。</p></div><div><h3>具体改动</h3><p>将固定模型放本地不可变缓存，核对版本/SHA；Qwen 使用 mark_cold=False 保留活跃页。</p></div></div><div class="opt-field"><h3>为什么更快 / 选择理由</h3><p>以主机内存换取共享盘读量和加载波动降低。</p></div><div class="opt-field"><h3>数值与适用边界</h3><p>每副本需要内存预算，不能无限复制；已缓存文件仍按身份校验；当前 Qwen 未来拆分不算本次收益。</p></div><div class="opt-field"><h3>如何验收</h3><p>S19：一次 591 次 / 27.12 GB 权重读取后，连续 5 请求没有新增读取；主机内存约 56.49→78.58 GiB。</p></div><div class="opt-field"><h3>实测收益，保留原分母</h3><p>当前计时排除首次读权重与 Qwen，所以不能给本项分配这次总加速中的百分比。</p></div><div class="opt-field"><h3>代码入口</h3><p>H3INT8Release；H3ReleaseOps；local model cache</p></div></div></details><details class="opt-card" id="opt-25" data-stage="服务工程" data-status="服务层已验证" open>
+      <summary><span class="opt-num">25</span><span><small>服务工程 · 服务层已验证</small><b>素材预取、请求隔离与编码排空</b></span><span class="opt-toggle" aria-hidden="true">⌄</span></summary>
+      <div class="opt-body"><p class="opt-origin">项目适配与优化</p><div class="opt-pair"><div><h3>原始路径</h3><p>素材准备、下载、上传、编码若串在 GPU 前后，会扩大服务完成时间；无限异步队列又会耗尽内存。</p></div><div><h3>具体改动</h3><p>在当前 GPU 请求期间准备下一请求素材；当前 CPU 编码/上传可继续；每项以版本、请求 owner 与终态关联。</p></div></div><div class="opt-field"><h3>为什么更快 / 选择理由</h3><p>把不占 GPU 的工作放入可重叠区间，提高持续任务下的资源利用。</p></div><div class="opt-field"><h3>数值与适用边界</h3><p>不得按相似 prompt 直接共享 condition；冻结 condition 只是实验控制变量。失败和取消必须回收对应任务资源。</p></div><div class="opt-field"><h3>如何验收</h3><p>S01/S19/S34：服务完成事件、drain 与业务集成记录。</p></div><div class="opt-field"><h3>实测收益，保留原分母</h3><p>依部署接入而定；本次固定 condition→MP4 比较不覆盖下载/上传和真实 condition。</p></div><div class="opt-field"><h3>代码入口</h3><p>server；export_graph；task finalizer</p></div></div></details><details class="opt-card" id="opt-26" data-stage="音频" data-status="未采用" open>
+      <summary><span class="opt-num">26</span><span><small>音频 · 未采用</small><b>音频 VAE 搬 CPU 的实验与保留 GPU 的原因</b></span><span class="opt-toggle" aria-hidden="true">⌄</span></summary>
+      <div class="opt-body"><p class="opt-origin">项目适配与优化</p><div class="opt-pair"><div><h3>原始路径</h3><p>当前音频 VAE 在 GPU 上以 FP32 解码，约 0.11–0.14 s。</p></div><div><h3>具体改动</h3><p>曾试 4 线程 CPU 以便与 GPU 视频 VAE 并行；耗时 4.49–9.44 s，PCM 也不同，因此当前继续 GPU FP32。</p></div></div><div class="opt-field"><h3>为什么更快 / 选择理由</h3><p>并行只有在关键路径缩短时才有收益；当前音频在总周期中太短。</p></div><div class="opt-field"><h3>数值与适用边界</h3><p>音频权重 917 个 FP32 tensor；不通过隐式半精度改变 PCM。与视频量化比较时使用同一 PCM。</p></div><div class="opt-field"><h3>如何验收</h3><p>S14/S15；CPU/GPU 耗时及 PCM 对照。</p></div><div class="opt-field"><h3>实测收益，保留原分母</h3><p>即使完全隐藏当前 GPU audio，完整周期理论可省约 0.05%；没有实测并行净收益。</p></div><div class="opt-field"><h3>代码入口</h3><p>nodes_audio.vae_decode_audio；FP32 audio VAE</p></div></div></details><details class="opt-card" id="opt-27" data-stage="视频 VAE" data-status="后续候选" open>
+      <summary><span class="opt-num">27</span><span><small>视频 VAE · 后续候选</small><b>VAE 阶段静态 cast/load</b></span><span class="opt-toggle" aria-hidden="true">⌄</span></summary>
+      <div class="opt-body"><p class="opt-origin">项目适配与优化</p><div class="opt-pair"><div><h3>原始路径</h3><p>R85 的视频 VAE 仍采用动态包装，逐层 cast/load 带来重复处理。</p></div><div><h3>具体改动</h3><p>在 VAE 阶段预先按原 dtype/scale cast/load，阶段结束再释放；不是永久同时驻留整个 DiT 与 VAE。</p></div></div><div class="opt-field"><h3>为什么更快 / 选择理由</h3><p>减少动态包装和重复权重处理。</p></div><div class="opt-field"><h3>数值与适用边界</h3><p>必须验证组件切换、下一请求峰值显存和长期生命周期；候选没有并入本次冻结 R85。</p></div><div class="opt-field"><h3>如何验收</h3><p>S07/S20：Case1/8 完整生成各 2 正式/臂；全15同 latent。</p></div><div class="opt-field"><h3>实测收益，保留原分母</h3><p>仅静态完整周期约 −0.20%；静态＋R207 全15视频 −6.802%，分母为 R85 动态 VAE。</p></div><div class="opt-field"><h3>代码入口</h3><p>r197_full_vae.py；r207 VAE overlay</p></div></div></details><details class="opt-card" id="opt-28" data-stage="视频 VAE" data-status="后续候选" open>
+      <summary><span class="opt-num">28</span><span><small>视频 VAE · 后续候选</small><b>R234v2：VAE RMS/RoPE→Q 旋转量化</b></span><span class="opt-toggle" aria-hidden="true">⌄</span></summary>
+      <div class="opt-body"><p class="opt-origin">项目适配与优化</p><div class="opt-pair"><div><h3>原始路径</h3><p>VAE Q 完成 RMS/RoPE 后先写出，再由 ConvRot 量化读取。</p></div><div><h3>具体改动</h3><p>CTA 内处理 32 token，Q 写 shared 后按原 32-row/8 组 scale 旋转量化；K 保留原 FP16 写回和 anchor 检测。</p></div></div><div class="opt-field"><h3>为什么更快 / 选择理由</h3><p>缩短 VAE attention 输入准备，减少 Q 中间往返。</p></div><div class="opt-field"><h3>数值与适用边界</h3><p>首版 FMA/倒数边界不一致被拒绝；仅 v2 保留原数值。hook 只在 VAE D64 作用域使用并可靠恢复。</p></div><div class="opt-field"><h3>如何验收</h3><p>S08/S20：v2 全15 decode 正确性；30 预热＋60 正式。</p></div><div class="opt-field"><h3>实测收益，保留原分母</h3><p>与 R244 组合视频 −0.632%，相对静态＋R207；不能再与 R85 总收益相加。</p></div><div class="opt-field"><h3>代码入口</h3><p>r234v2_vae_ropeq.cu；r245_attention_overlay.py</p></div></div></details><details class="opt-card" id="opt-29" data-stage="视频 VAE" data-status="后续候选" open>
+      <summary><span class="opt-num">29</span><span><small>视频 VAE · 后续候选</small><b>R244：VAE D64 cached-Q 与小 Q tile</b></span><span class="opt-toggle" aria-hidden="true">⌄</span></summary>
+      <div class="opt-body"><p class="opt-origin">项目适配与优化</p><div class="opt-pair"><div><h3>原始路径</h3><p>VAE 真实 [4,32,1797,64] shape 的原核使用较大 Q tile，196 register，约 2 CTA/SM。</p></div><div><h3>具体改动</h3><p>Q 保留寄存器，CTA_Q 128→64、WARP_Q 32→16，K tile=64；约 128 register、4 CTA/SM。</p></div></div><div class="opt-field"><h3>为什么更快 / 选择理由</h3><p>提升该短序列 D64 shape 的并发 CTA 与 Tensor 管线活动。</p></div><div class="opt-field"><h3>数值与适用边界</h3><p>原 128-row 量化 scale 索引、softmax/PV 顺序保留；不能拿 VAE D64 核覆盖 DiT D128。</p></div><div class="opt-field"><h3>如何验收</h3><p>S08/S20：Tensor active 53.42%→63.28%；全15视频14段更快，Case12 微慢约 0.021%。</p></div><div class="opt-field"><h3>实测收益，保留原分母</h3><p>局部 attention 约 −11%，全视频组合仅 −0.632%；完整 VAE &lt;5s 未达到。</p></div><div class="opt-field"><h3>代码入口</h3><p>r244_q64w16.cuh；r245_attention_overlay.py</p></div></div></details><details class="opt-card" id="opt-30" data-stage="编译与精度" data-status="未采用" open>
+      <summary><span class="opt-num">30</span><span><small>编译与精度 · 未采用</small><b>新 PyTorch/Triton、NVFP4 与近似计算候选</b></span><span class="opt-toggle" aria-hidden="true">⌄</span></summary>
+      <div class="opt-body"><p class="opt-origin">项目适配与优化</p><div class="opt-pair"><div><h3>原始路径</h3><p>希望通过升级编译栈、更低比特或 cache/稀疏减少运算。</p></div><div><h3>具体改动</h3><p>Torch 2.14/Triton 3.8 完整 INT8 对照未获得稳定 DiT 提速且轨迹改变；CPU audio、NVFP4、近似跳算等没有进入当前无损算子基线。</p></div></div><div class="opt-field"><h3>为什么更快 / 选择理由</h3><p>保留负结果，避免复用时把试验开关误当推荐配置。</p></div><div class="opt-field"><h3>数值与适用边界</h3><p>新栈并未重编全部自定义 CUDA 核；不能据此排除未来编译收益。NVFP4 不按位等价；近似方案须另做视频/音频评估。</p></div><div class="opt-field"><h3>如何验收</h3><p>S09/S33：Case1 DiT 225.55784→225.56589 s；Case8 212.01914→212.04437 s，完整周期方向不一致。</p></div><div class="opt-field"><h3>实测收益，保留原分母</h3><p>当前没有可纳入默认 R85 的新增收益。详细负结果与 LoRA 质量见原章节。</p></div><div class="opt-field"><h3>代码入口</h3><p>r360_stack_comparison.py；docs/EXPERIMENTS.md</p></div></div></details><p><a href="R85-OPTIMIZATION-CATALOG.md">逐项 Markdown</a> · <a href="../evidence/optimization-catalog.json">逐项 JSON</a></p></section><section id="operators" class="chapter"><div class="eyebrow">算子与流水线</div><h1>算子融合、内存与执行流水线</h1>
+<p>本文解释固定 R85 的实际实现及其来源。模块状态分为：<strong>固定基线</strong>、<strong>服务工程已验证</strong>、<strong>解码候选</strong>、<strong>未采用</strong>。固定基线不是本次核实过的所有线上实例状态。</p>
+<p>来源 ID 可在 <a href="../evidence/source-identities.json">source-identities.json</a> 查到原文件 SHA；内部交接另有对应源码绝对路径。</p>
+<h2>1. 从原始 Kitchen 到最终方案的层次</h2>
+<p>原 Kitchen 已提供 INT8 量化 GEMM、ConvRot、attention 及部分输入激活融合。原部署还已包含 DynamicVRAM、异步导出等功能。因此本项目贡献应写成“在上游之上适配、组合和验证”，逐项区分引入和新增优化。</p>
+<table>
+<thead>
+<tr>
+<th>模块</th>
+<th>优化</th>
+<th>当前状态</th>
+<th>关键验收依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>权重</td>
+<td>捕获运行期有效权重，预合并固定 Larry LoRA</td>
+<td>固定基线</td>
+<td>权重 SHA；不重复挂载 LoRA</td>
+</tr>
+<tr>
+<td>QKV 交接</td>
+<td>container 载体、提前释放所有权、去除冗余 V clone</td>
+<td>固定基线</td>
+<td>真实 forward 回放与最终输出</td>
+</tr>
+<tr>
+<td>Norm</td>
+<td>RMSNorm＋分段 scale/shift</td>
+<td>固定基线</td>
+<td>保留 BF16 落点、stride 资格</td>
+</tr>
+<tr>
+<td>Residual</td>
+<td>gate/residual＋norm2＋调制</td>
+<td>固定基线</td>
+<td>浮点操作顺序和历史四 SHA</td>
+</tr>
+<tr>
+<td>Quant</td>
+<td>Norm/调制→ConvRot INT8；Residual/Norm/调制→INT8</td>
+<td>固定基线，限定布局</td>
+<td>实際调用计数；量化 code、scale 一致</td>
+</tr>
+<tr>
+<td>ConvRot</td>
+<td>K5376/K7168 的线程、寄存器与 shuffle 调度</td>
+<td>固定基线</td>
+<td>分宽度测试；不覆盖新版未知 act 语义</td>
+</tr>
+<tr>
+<td>Dense</td>
+<td>直接 BSHD 输出、精确 V 量化、3 槽 TMA、Q 寄存器缓存、早释放 K</td>
+<td>固定基线</td>
+<td>真实长 QKV、边界、stream、完整生成</td>
+</tr>
+<tr>
+<td>Dense</td>
+<td>o_scale==1 时消去恒等乘法</td>
+<td>固定基线</td>
+<td>原 KV 顺序、量化和累加保留</td>
+</tr>
+<tr>
+<td>Embedding</td>
+<td>packed copy 后释放不再消费的原引用</td>
+<td>固定基线</td>
+<td>内存下降；单独速度收益不稳定</td>
+</tr>
+<tr>
+<td>跨 block</td>
+<td>FC2 residual→下一 block norm1/量化</td>
+<td>固定基线，限定业务</td>
+<td>392 次跨层＋8 次末层；所有权和代际检查</td>
+</tr>
+<tr>
+<td>GEMM</td>
+<td>out-proj/FC2 的 gate/residual epilogue</td>
+<td>固定基线</td>
+<td>15 片段、70 完整请求，历史四 SHA</td>
+</tr>
+<tr>
+<td>GEMM 调度</td>
+<td>FC1 config3/swizzle8；QKV config5</td>
+<td>固定基线</td>
+<td>短/长 M 分离；正式完整周期复测</td>
+</tr>
+<tr>
+<td>QKV 后处理</td>
+<td>RMS/RoPE/Q quant/V partial-max 融合</td>
+<td>固定基线</td>
+<td>原中间舍入与 anchor 逻辑</td>
+</tr>
+<tr>
+<td>有效工作量</td>
+<td>当前输入 9 行 K-only anchor；末层不消费的 Q/GEMM 行裁剪</td>
+<td>固定基线 R85</td>
+<td>不是跨 step cache；全 15 片段四 SHA</td>
+</tr>
+<tr>
+<td>视频 VAE</td>
+<td>.35 INT8 ConvRot ViT3D，旧 encoder 分离加载</td>
+<td>固定基线，INT8 decode 用户确认已部署</td>
+<td>TRT/INT8 同 latent 质量与耗时；像素非完全相同</td>
+</tr>
+<tr>
+<td>VAE 输出</td>
+<td>预分配 canvas、tile 引用释放、原 overlap</td>
+<td>固定基线</td>
+<td>tile 边界和原 RGB</td>
+</tr>
+<tr>
+<td>帧交接</td>
+<td>GPU RGB8、双 pinned buffer、异步 D2H</td>
+<td>固定基线/服务工程已验证</td>
+<td>RGB、event/stream、CPU 生命周期</td>
+</tr>
+<tr>
+<td>CPU</td>
+<td>x264/AAC/MP4 与下一请求 GPU 并行</td>
+<td>服务工程已验证</td>
+<td>真实队列完成事件、排空和成功语义</td>
+</tr>
+<tr>
+<td>权重存储</td>
+<td>本地不可变模型缓存、Qwen 避免反复 mark_cold</td>
+<td>服务工程已验证，需部署层接入</td>
+<td>读盘字节/次数、主机内存、完整请求</td>
+</tr>
+<tr>
+<td>VAE 新候选</td>
+<td>静态加载＋R234v2 RoPE/Q＋R244 cached-Q</td>
+<td>解码候选</td>
+<td>60 正式 decode；尚无整套累计服务计时</td>
+</tr>
+<tr>
+<td>CPU audio / NVFP4 / graph / 更大 tile</td>
+<td>详见负结果</td>
+<td>未采用</td>
+<td>不进入默认配置</td>
+</tr>
+</tbody>
+</table>
+<h2>2. LoRA 预合并：省去每次加载时的重复工作</h2>
+<p>进入本轮算子研发之前，部署已经使用 INT8 ConvRot DiT/Qwen、AdaLN 压缩底模、TRT FP16视频解码、原生 FP16参考编码和FP32音频解码，以及 native allocator（<code>--disable-cuda-malloc</code>）。这些是起点的一部分，不能重复作为R85新增贡献。所谓pruned主要涉及AdaLN时间嵌入/基底压缩，仍保留50个transformer blocks。</p>
+<p>历史另测过 <code>max_split_size_mb:512</code>、显存余量、MLP分块和极端多图/参考视频容量。512是进程级分配器参数，不是图像尺寸，也不是DynamicVRAM开关；它未在所有历史版本默认启用。参考视频/极端长宽比的容量路由和分块可能改变输出，不纳入本15片段R85的无损结论。公开基准须写清allocator及内存余量，不能混用历史压力测试与正常业务的耗时。</p>
+<p>原运行期 LoRA patch 会在基础权重上执行反量化、低秩增量叠加及重新量化。固定业务使用固定 LoRA 时，将<strong>实际 post-cast 生效的权重</strong>封存为 baked checkpoint，避免反复执行同一操作。</p>
+<p>不能简单把低秩矩阵直接加到旋转后的 INT8 字节。转换流程须与原有效权重路径一致：恢复对应浮点/旋转空间 → 加正确缩放的 LoRA 更新 → 按原规则再旋转/量化；AdaLN 等浮点部分按其真实语义保留。原项目旧 Turbo 的特殊 alpha/16 规则不能套给 Larry。</p>
+<p>固定 Larry 权重 SHA 为 <code>9eccf52e4fe6e764f4aac8cdb6045a58bc86d8458c783c35b7035edca71fec12</code>。当前入口已经 baked，不能再挂一次 Larry。这里保留的是选定方案的运行语义，不构成对 BF16 底模的无损量化证明。</p>
+<h2>3. Norm、调制、残差和 ConvRot 融合</h2>
+<p>典型 block 的 unfused 数据流是：</p>
+<pre><code class="language-text">x → RMSNorm → BF16 中间结果
+  → 按 video/audio/text 区段 scale/shift → BF16
+  → ConvRot → 行/组量化 code 与 scale → INT8 GEMM
+
+attention/MLP branch → BF16 gate → residual 加法
+  → 下一次 Norm/调制/量化
+</code></pre>
+<p>融合减少大尺寸 BF16 张量的写回和重读、kernel launch 以及 Python 载体处理，但必须保留旧路径的数值边界：</p>
+<ul>
+<li>RMS reduction 归约树、epsilon、scale/shift 广播和 token 分段不能改变。</li>
+<li>如果旧路径先舍入到 BF16 再参与下游，融合中也需要同样落点，不能以“精度更高”为由取消。</li>
+<li>ConvRot 的分组、旋转顺序、row scale、padding、随机量化开关必须原样保留。</li>
+<li>strided 输入需要单独资格，不把非连续 tensor 当连续内存读写。</li>
+</ul>
+<p>早期 <code>norm_quant/residual_quant</code> 只验收 packed rows 42520/54803/78196/113872；9/19 Case1 回放没有命中它们，不能把开关存在当成获得其收益。后续逐步扩展实际业务覆盖，R85 最终限定 15 个已验收布局。开源版应按真实布局/stride/语义分派，不能只有一个 token 数白名单。</p>
+<p>K5376/K7168 的 register ConvRot 是另一路精确优化。9/19 迁移的线程配置分别为 768/640；收益是否成立须以该版本实际调用为准。K14336 SwiGLU/ConvRot 原本已有输入激活融合，后续多次尝试更大融合未形成稳定完整收益。</p>
+<h2>4. Kitchen .33→.35 的接口迁移</h2>
+<p>低层 <code>quantize_int8_rowwise_convrot64</code> 从 8 参数变为 10 参数：</p>
+<pre><code class="language-text">旧：x, q, scale, group, stochastic, act, seed, stream
+新：x, q, scale, group, stochastic, act, seed, act_weight, act_eps, stream
+</code></pre>
+<p>新增参数承载 RMSNorm 等输入激活语义，不能直接用旧 wrapper 忽略它们。本项目迁移方法：</p>
+<ol>
+<li>固定新版 Python 源码、实际 code object 与 CUDA 二进制 SHA。</li>
+<li>AST 核对唯一目标调用的参数顺序和 tensor owner。</li>
+<li>仅在旧资格满足时进入自定义核，例如特定 BF16 宽度、非随机量化、合法 act/group 等；其余把完整新参数回交 Kitchen。</li>
+<li>保留新版 postquant tail 的 residual/residual_scale、小 M 选择和反量化语义。</li>
+<li>作用域退出在 finally 中恢复入口；入队后异常不能重复执行同一个写操作。</li>
+</ol>
+<p>真实第一步回放 9 组共 36 次含预热输出一致；stock 30.259366 s，迁入原优化 29.392929 s。它证明原融合可迁移，并非证明“升级 .35 本身带来 2.863% 新收益”。来源 S02、S31。</p>
+<h2>5. SM120 INT8 dense 主循环</h2>
+<h3>数据流</h3>
+<p>不显式生成整个 N×N attention 矩阵。Q/K 量化后用整数 MMA 计算分块 QK，执行原在线 softmax，概率量化为 U8，与 S8 V 进行 PV，再按原 scale 累积。量化规则和 online softmax 次序共同决定输出。</p>
+<p>当前 DiT 主形状 D128，Q128/K128 分块，实际示例 <code>[1,56,90461,128]</code>。其主要特征为：</p>
+<ul>
+<li>3 槽 TMA ring 隐藏 K/V 搬运；完成消费后提前释放可复用 K 槽。</li>
+<li>Q 保留寄存器，降低反复 shared-memory 读取。</li>
+<li>8 个 compute warp，另一个 4-warp group 搬运并让渡寄存器；动态额度 240/24。</li>
+<li>动态 shared memory 66,560 B，按设备实际资源检验。</li>
+<li>概率量化和打包留在寄存器；<code>o_scale==1</code> 时去掉对分母和输出的乘 1，其他分支保留。</li>
+<li>直接生成 BSHD 布局，减少下游 transpose/copy；精确 V 量化保留原 scale 和 padding。</li>
+</ul>
+<p>这里的 dense 表示不额外删掉 attention block。INT8 attention 相比高精度 attention 已有量化误差；后续主循环优化的“精确”只相对于固定 INT8 attention。</p>
+<h3>硬件定向而非通用 Blackwell 参数</h3>
+<p>本机为 SM120 / GB202 系列，不是数据中心 B200 / SM100。已查询到 170 SM、48 warp/SM、65,536 个 32-bit register/SM、CTA opt-in shared 101,376 B、L2 96 MiB；运行时报告的每 SM shared 为 102,400 B。资源准入使用设备查询结果。</p>
+<p>使用 TMA、<code>mma.sync</code> 和符合约束的 <code>setmaxnreg</code>；不能原样移植依赖 <code>wgmma</code> 或 <code>tcgen05</code>/TMEM 的实现。<code>setmaxnreg</code> 的 warp-group 约束也是不能随意删掉三个 producer warp 的原因。</p>
+<p>“低 occupancy”不是空闲算力的直接比例。真实长序列已有数万个 CTA 工作项，增加请求并发、拆 K 再合并或增加流水深度不一定更快，还可能改动浮点归约。后续尝试取消 producer group、Q64 多 CTA、概率查表、max3、双行流水和更多缓存提示，多数更慢，详见负结果。</p>
+<p>来源 S15、S17、S27。SageAttention/Kitchen 为基础实现与思想来源；不能将这些全部命名为本项目原创 attention 算法。</p>
+<h2>6. 跨 block 残差消费与 GEMM epilogue</h2>
+<h3>跨 block</h3>
+<p>MLP 的 residual 结果通常紧接下一 block 的 norm1/量化。对已验收的串行上下文，可以把消费链连接起来，省去某些中间写读。8 steps×49 个跨 block 连接形成 <strong>392 次跨层消费</strong>；8 次最后一层保留专门收尾。</p>
+<p>状态必须绑定请求、step、block、generation、owner 与 pointer；禁止使用上一请求或上一 step 的 residual。候选载体是单消费者协议，不可重复消费。未知布局、同实例并发或所有权冲突应拒绝该快路径并安全回退。当前不是一般化的并发服务适配器。</p>
+<h3>Out-proj / FC2 gate-residual</h3>
+<p>将 GEMM 的反量化输出处理与 gate/residual 合并，但保留以下真实顺序：</p>
+<pre><code class="language-text">INT32 accumulator
+  → FP32 × row scale × column scale
+  → 原 bias/加零语义
+  → BF16 branch 舍入
+  → BF16 gate
+  → FP32 FMA 加 residual
+  → BF16 输出
+</code></pre>
+<p>若省去中间 BF16 舍入、改变 gate 精度或 FMA 边界，结果即可能不同。无需再读取的 branch buffer 仅作为合法所有权元数据保留，不能读取未初始化数据。</p>
+<p>9/26 FC2 实测选择 stage1/config13；真实长 capture 算子链 27.393008→26.082304 ms，减少 4.783%。但完整 out-proj＋FC2 组合固定工作量容量仅提高约 0.468%，不能宣传整机快 4.8%。全 15 片段、70 次完整请求（含预热）通过历史四 SHA。来源 S16。</p>
+<h2>7. R85：QKV、当前 anchor 与末层有效行</h2>
+<p>R85 吸收此前 FC1 raster config3/swizzle8、QKV config5 及 QKV 后处理融合；其总收益对照已经包含 gate epilogue 和其他历史优化。</p>
+<p>QKV 融合连接原 INT8 projection、RMS/RoPE、Q 量化与 V partial-max，减少中间量化准备。K 的中心化/anchor 依赖必须保留，不能为少一次读写改变定义。</p>
+<p>R85 的当前输入 <strong>9 行 K-only anchor projection</strong> 只计算 anchor 所需 K，不为这些行生成不会消费的 Q/V；配合 4-warp K fusion。它每次读取当前输入，<strong>不是用前一步 K 替代当前 K</strong>。</p>
+<p>最后一个 transformer block 的部分 reference prefix Q、out-proj、FC1/FC2 行不会影响最终需要导出的输出，因此按已验证消费者关系裁剪。其他 query 所需 K/V 仍保留；原实现需要的 prefix residual/填充和对齐保持。它是死行消除，不是降低分辨率、少算一层、早停或近似稀疏注意力。</p>
+<p>完整 15 片段配对组均值之和 3295.244819→3232.463433 s；四 SHA 一致。R126 另以 36 次正式请求复现约 1.897% 降时。此两项是同一收益的验证，不重复累计。来源 S04、S05、S15、S27。</p>
+<h2>8. INT8 视频 VAE</h2>
+<h3>Encoder 与 decoder 必须拆开理解</h3>
+<p>旧参考 encoder 为 FP16 CNN 路径；生成视频 decoder 为 36 层 ViT3D。新版 INT8 权重中 144 个量化 Linear 对应每层 QKV、attention output、FFN w1/w2；输入输出层、归一化等仍存在浮点运算。</p>
+<p>仅更换 Kitchen wheel 不会自动启用新 decoder；需要配套模型类、权重和 helper。项目以局部 namespace 引入新版 VAE/helper，避免全局替换使 Qwen/DiT 的其他 shape 误进新路径；参考 encoder 继续原类和原 FP16 权重。</p>
+<h3>来自上游的核心能力</h3>
+<ul>
+<li>RMSNorm 或 SwiGLU 通过 <code>linear_input_act</code> 并入 ConvRot/激活量化。</li>
+<li>适用 GEMM 的 residual/residual_scale epilogue。</li>
+<li>Q/K norm 与 RoPE 融合，decoder INT8 完整 attention。</li>
+<li>tile 最大批量 4，显存不足时按规则缩小；原空间和时间 overlap 保留。</li>
+<li>及时释放旧 tile 引用，直接写预分配 canvas，避免重复拼接输出。</li>
+</ul>
+<p>上游来源：Kitchen #167、ComfyUI #16187、#16332；版本与权重记录见 <a href="R85-SOURCES.md">SOURCES.md</a>。量化权重不是本项目重新训练的 decoder。</p>
+<h3>精确输出工程</h3>
+<p>不能对尚未完成 blend 的 tile 先转 uint8，否则叠加顺序与精度改变。项目保留原 tile 权重与 blend，完成可提交区间后再做 terminal RGB8，并维持原 canvas overlap 生命周期。</p>
+<p>INT8 相比 TRT 的像素差异单独验收；在同一 INT8 decoder 上新增融合则要求历史 RGB8/PCM 相同。来源 S03、S06、S18、S31。</p>
+<h3>最新解码候选</h3>
+<p><strong>静态加载</strong>：在 VAE 阶段将需要的 decoder 权重按原 dtype/scale 预先 cast/load，避免逐层 dynamic wrapper 的重复处理；仍需在 DiT 与 VAE 之间控制驻留和释放。它不意味着把完整 DiT＋VAE 永久放入 24 GB，也不能用静态加载的短脚本证明跨请求显存安全。</p>
+<p><strong>R234v2</strong>：CTA 内计算 32 token 的原 RMS/RoPE，Q 写 shared 后按原 32-row/8 组 scale 立即旋转量化；K 保持原 FP16 写回与 anchor 检测。首版因 FMA/倒数边界不一致被拒绝，v2 保留数值语义后通过。</p>
+<p><strong>R244</strong>：VAE D64、真实 shape <code>[4,32,1797,64]</code> 下，Q 放寄存器复用，CTA_Q 从 128 降为 64、WARP_Q 从 32 降为 16，K tile 仍 64；原 128-row 量化 scale 索引、softmax/PV 次序保留。原核 196 register、2 CTA/SM；候选 128 register、4 CTA/SM，Tensor active 约 53.42%→63.28%。局部 attention 快约 11%，全视频 decode 只快约 0.632%。</p>
+<p>这些变化只在 VAE 作用域启用，退出后恢复，不能让 D64 VAE hook 覆盖 DiT D128。来源 S07、S08、S20。</p>
+<h2>9. RGB8、双锁页缓冲与异步 D2H</h2>
+<p>原大输出以 FP32 送 CPU，占 4 byte/通道。GPU 完成原 terminal 转换后以 uint8 传输，每帧数据变为四分之一。例如 case1 的 3,009,871,872 byte 降至 752,467,968 byte。</p>
+<p>转换保留 <code>FP32 × std + mean → clamp → ×255 → truncate</code> 的实际顺序，禁用会改变边界结果的 FMA contraction。GPU/CPU 的 round、truncate 不能混换。</p>
+<p>双 pinned slot 的所有权协议：</p>
+<pre><code class="language-text">compute stream 完成 chunk 的 blend / RGB8
+    → record ready event
+copy stream wait ready → async D2H → record copied event
+CPU 等 copied 后消费 pinned buffer
+    → CPU 消费完成才把 slot 交还下一 chunk
+</code></pre>
+<p>通过 <code>record_stream</code>、event 和强引用确保 GPU 源 tensor、锁页目标和 CPU consumer 生命周期正确。仅使用 <code>non_blocking=True</code> 不足以保证重叠或避免提前复用。buffer 数和总字节有上限，满载时背压，不无限缓存整段 FP32 视频。</p>
+<p>9/13 原部署累计测试中，10 秒帧交接从 1.757→0.303 s，15 秒从 2.617→0.465 s；包含其他累计优化，不能全部算作 D2H 独立收益。28 个含预热成片 MP4 对黄金字节一致。来源 S01、S34。</p>
+<h2>10. CPU 成片与下一请求 GPU 重叠</h2>
+<p>一张卡串行执行生成；请求 N 的 RGB/PCM 交给 CPU 后，CPU 执行 x264/AAC/MP4，而 GPU 可进入请求 N+1。服务端原来已有异步 export，后续优化保留该能力；不能每轮再重复宣传“首次实现异步”。</p>
+<p>要点包括任务独占的 mmap/缓冲、限量 CPU 编码队列、按总字节背压、失败重试和排空。GPU 完成不能立即把业务任务标为成功：MP4、上传（如启用）与结果提交完成后，finalizer 才改变任务状态。取消或异常须释放当前任务资源，不能释放 CPU 仍在读的帧。</p>
+<p>吞吐要测实际成片完成事件。若以 <code>3600/单请求延迟</code> 表示串行容量，应与队列完成间隔分别命名。9/13 的队列实测已经包含 CPU/GPU 重叠，不能把 CPU 编码秒数再减一次。来源 S01、S19、S34。</p>
+<h2>11. 权重预取、CPU 缓存和 condition</h2>
+<p>DynamicVRAM 权重 H2D 预取原来就存在。一次历史 DiT profile 中 H2D 1.593947 s，其中 1.546261 s 与计算重叠（约 97.01%）；R85 另一场 profile 中未被 kernel 覆盖的 copy 仅 0.045101 s。两次采样不同，不能合并成同一测量。</p>
+<p>服务层还可将下一请求的素材预取与当前GPU工作重叠，当前CPU编码/上传与下一请求生成重叠。预取仍要核对素材版本、任务所有权、失败和取消，不把不同业务请求的最终condition按相似prompt直接缓存复用。R85 benchmark冻结condition是用于控制变量，不是线上默认跨请求复用condition。</p>
+<p>模型本地不可变缓存减少远端共享文件系统反复读；Qwen 的 <code>mark_cold=False</code> 防止刚用完的活跃页被驱逐。实测一次 591 次 / 27.12 GB 的权重读取后，连续 5 请求没有新增读取；代价是主机内存从约 56.49→78.58 GiB。它是 GPU 显存外的资源交换，部署需预留主机内存，不能给每个副本无限复制模型。</p>
+<p>Qwen 编码计划拆成独立服务。此路线可以按条件长度批处理和复用模型驻留，但需要计入编码器占用的 CPU/GPU、排队、传输和失败处理；不属于 R85 固定 condition 计时中的已取得收益。</p>
+<p>音频搬 CPU 则并不适合当前瓶颈：4 线程 CPU 4.49–9.44 s 对 GPU 0.11–0.14 s，PCM 也不同。即使完全隐藏 GPU audio，理论上只节省当前完整周期约 0.05%；实际并行收益尚未测试。来源 S14、S15、S19。</p>
+<h2>12. 正确性和移植合同</h2>
+<p>公开代码应保留以下必要契约，而非只交付一组更快的 <code>.so</code>：</p>
+<ol>
+<li>固定源代码、编译器、编译参数、架构、二进制与模型身份；实际导入路径写入运行结果。</li>
+<li>按 dtype、stride、shape、layout、quant group、mask、act、bias 和 residual 语义检查分派。</li>
+<li>对失败/未知 shape 使用原实现；不能吞掉异常继续使用半初始化输出。</li>
+<li>输入不可变校验、poison 输出覆盖、非默认 stream 后继消费、最后一次计时的真实输出检查。</li>
+<li>局部边界与 sanitizer、真实 step/layer capture、全部业务完整输出逐级验证；不能把短输入 sanitizer 当全模型证明。</li>
+<li>四 SHA 比较固定历史黄金，不只让本轮 A/B 彼此相同，防止双方一起改了。</li>
+<li>一实例的 stateful hook 保持串行；生产并发应通过独立实例/隔离上下文实现。</li>
+</ol>
+<p>本项目已经通过的资格具有明确边界；它们不能自动覆盖新分辨率、多参考视频、横屏、不同长度、训练或其他 GPU 架构。</p>
+</section><section id="direct" class="chapter"><div class="eyebrow">基础版直接对照</div><h1>Kitchen 0.2.35 基础实现 vs R85：直接同场实测</h1>
+<p>日期：2026-09-29。交叉测试已完成。</p>
+<p>比较保持 Larry v4 INT8 ConvRot、Euler/beta 8 次实际前向、CFG 1、同一 INT8 视频 VAE 和 GPU FP32 音频 VAE。基础臂不导入任何自定义 DiT 补丁，走上游原生 attention 和 FP32 CPU 视频输出；R85 启用冻结的全部 DiT 精确优化、RGB8 融合及 pinned D2H。两臂使用同一 CPU x264/AAC/MP4 编码器。</p>
+<p>Case 1 在 GPU 0 按 ABBA、Case 8 在 GPU 3 按 BAAB 测试。每个位置独立进程，1 次预热和 1 次正式。每 case 每臂共 2 次正式。Case 8 第一个 B 使用旧审计程序，其 R85 计算与后续相同；因基础臂计数接口不匹配产生的失败/中止任务全部排除，原始记录保留。</p>
+<p><strong>计时从冻结 condition 到 MP4 落盘</strong>，包括 DiT、模型迁移、双 VAE、输出交接与 CPU 成片；不含初始化读权重、Qwen/参考图处理、HTTP/排队/上传。哈希在全部成片完成后验证，未混入正式时间。</p>
+<table>
+<thead>
+<tr>
+<th>Case</th>
+<th style="text-align:right">基础 DiT / s</th>
+<th style="text-align:right">R85 DiT / s</th>
+<th style="text-align:right">基础至 MP4 / s</th>
+<th style="text-align:right">R85 至 MP4 / s</th>
+<th style="text-align:right">总耗时减少</th>
+<th style="text-align:right">每请求节省 / s</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td style="text-align:right">241.417</td>
+<td style="text-align:right">225.556</td>
+<td style="text-align:right">257.364</td>
+<td style="text-align:right">239.824</td>
+<td style="text-align:right">6.815%</td>
+<td style="text-align:right">17.541</td>
+</tr>
+<tr>
+<td>8</td>
+<td style="text-align:right">226.451</td>
+<td style="text-align:right">212.007</td>
+<td style="text-align:right">243.372</td>
+<td style="text-align:right">227.436</td>
+<td style="text-align:right">6.548%</td>
+<td style="text-align:right">15.936</td>
+</tr>
+</tbody>
+</table>
+<p>相同工作量合计：500.735980 → 467.259363 GPU 秒，耗时减少 <strong>6.685%</strong>，串行容量折算 <strong>+7.164%</strong>；DiT 减少 <strong>6.477%</strong>。这是先对各 case 同卡取均值、再相加，不能当成两卡实际墙钟。</p>
+<h2>阶段拆分</h2>
+<table>
+<thead>
+<tr>
+<th>Case</th>
+<th>阶段</th>
+<th style="text-align:right">基础均值 / s</th>
+<th style="text-align:right">R85 均值 / s</th>
+<th>基础范围 / s</th>
+<th>R85 范围 / s</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>到 MP4 总耗时</td>
+<td style="text-align:right">257.364477</td>
+<td style="text-align:right">239.823806</td>
+<td>257.230582–257.498371</td>
+<td>239.821072–239.826539</td>
+</tr>
+<tr>
+<td>1</td>
+<td>DiT 8 步</td>
+<td style="text-align:right">241.416684</td>
+<td style="text-align:right">225.555854</td>
+<td>241.271581–241.561787</td>
+<td>225.539906–225.571801</td>
+</tr>
+<tr>
+<td>1</td>
+<td>视频 VAE＋RGB/D2H</td>
+<td style="text-align:right">11.311686</td>
+<td style="text-align:right">9.756157</td>
+<td>11.253264–11.370108</td>
+<td>9.752587–9.759727</td>
+</tr>
+<tr>
+<td>1</td>
+<td>音频 VAE</td>
+<td style="text-align:right">0.120604</td>
+<td style="text-align:right">0.123400</td>
+<td>0.118649–0.122560</td>
+<td>0.121952–0.124848</td>
+</tr>
+<tr>
+<td>1</td>
+<td>CPU 成片与交接</td>
+<td style="text-align:right">4.376185</td>
+<td style="text-align:right">4.340649</td>
+<td>4.341857–4.410514</td>
+<td>4.326114–4.355183</td>
+</tr>
+<tr>
+<td>1</td>
+<td>其他调度/快照</td>
+<td style="text-align:right">0.139318</td>
+<td style="text-align:right">0.047746</td>
+<td>0.124478–0.154158</td>
+<td>0.046875–0.048618</td>
+</tr>
+<tr>
+<td>8</td>
+<td>到 MP4 总耗时</td>
+<td style="text-align:right">243.371504</td>
+<td style="text-align:right">227.435557</td>
+<td>243.169761–243.573247</td>
+<td>227.409227–227.461887</td>
+</tr>
+<tr>
+<td>8</td>
+<td>DiT 8 步</td>
+<td style="text-align:right">226.450773</td>
+<td style="text-align:right">212.007448</td>
+<td>226.445906–226.455640</td>
+<td>211.987096–212.027801</td>
+</tr>
+<tr>
+<td>8</td>
+<td>视频 VAE＋RGB/D2H</td>
+<td style="text-align:right">11.969952</td>
+<td style="text-align:right">10.418157</td>
+<td>11.861694–12.078209</td>
+<td>10.339315–10.497000</td>
+</tr>
+<tr>
+<td>8</td>
+<td>音频 VAE</td>
+<td style="text-align:right">0.126004</td>
+<td style="text-align:right">0.122942</td>
+<td>0.125049–0.126960</td>
+<td>0.122512–0.123373</td>
+</tr>
+<tr>
+<td>8</td>
+<td>CPU 成片与交接</td>
+<td style="text-align:right">4.691877</td>
+<td style="text-align:right">4.834711</td>
+<td>4.593342–4.790413</td>
+<td>4.800670–4.868751</td>
+</tr>
+<tr>
+<td>8</td>
+<td>其他调度/快照</td>
+<td style="text-align:right">0.132897</td>
+<td style="text-align:right">0.052299</td>
+<td>0.132125–0.133670</td>
+<td>0.050849–0.053748</td>
+</tr>
+</tbody>
+</table>
+<h2>具体优化范围</h2>
+<p>两臂已经共同保留：LoRA 预合并、INT8 ConvRot 权重、旧 encoder 的相同冻结 condition、上游 INT8 视频 VAE 内的 RMS/激活/Linear 融合、DynamicVRAM/权重预取和相同 CPU 编码器。它们不构成本次新增收益。</p>
+<p>R85 相对 stock 新增：AttentionTensorContainer 交接和去 clone、直接 BSHD 输出、V 量化、Norm/调制/残差到 INT8 输入融合、跨 block FC2 消费、5090 D v2 dense 主循环调度与 Q 缓存、INT8 GEMM raster 配置、out-proj/FC2 gate epilogue、QKV/RMS/RoPE/量化融合、K-only anchor、末层无用行计算消除；视频输出启用 finalize/RGB8 融合和双 pinned buffer 异步 D2H。当前没有跨 step 近似 cache 或稀疏跳算。</p>
+<p>这场实验直接验证上述整组改动的累计收益，没有逐个开关重跑消融，因此不能给每个融合分配一个独立百分比。单请求组也没有下一请求可重叠，CPU export 跨请求重叠的吞吐收益没有包含在本次结果中。</p>
+<h2>质量与口径</h2>
+<p>已接受的 8 个正式请求全部通过视频 latent、音频 latent、RGB8、PCM 四 SHA 对同一历史黄金输出验证；同 case 两臂逐位相同。两臂各 8 NFE / 400 次 dense。这里两边已经用 INT8 VAE，<strong>没有计入 TRT→INT8 的约 40% 解码阶段收益</strong>。</p>
+<p>固定 R85 是本次优化臂：动态 VAE，旧参考 encoder；静态 VAE＋R234/R244 尚未并入，因此不能把后续 VAE 阶段百分比追加到本数字。</p>
+<p>这是两个代表性约 10 秒片段的交叉小样本，不是五个 30 秒故事全量重跑。单请求延迟的倒数仅能作串行容量折算，本轮没有测多请求 CPU/GPU 重叠的稳态吞吐。</p>
+<h2>复算与证据</h2>
+<p>源记录保持原始字节，并附 SHA；内部运行 <code>python3 scripts/r368_build_report.py</code>；公开包运行 <code>python3 tools/verify_stock_comparison.py</code> 重算所有正式样本均值、同卡身份、调用覆盖、输出一致性和总比例。结果见 <a href="../evidence/stock035-vs-r85.json">机器可读数据</a>。</p>
+</section><section id="performance" class="chapter"><div class="eyebrow">性能与分母</div><h1>性能账本与累计收益口径</h1>
+<p>新同场实测：<strong>Kitchen 0.2.35 基础 Larry v4 8 步＋原生 FP16 视频 VAE → 固定 R85＋INT8 视频 VAE，两个代表片段的总生成耗时减少 11.591%，串行容量折算增加 13.111%</strong>。每请求平均节省 30.66 秒。完整计时从冻结 condition 到本地 MP4，排除 Qwen/参考处理、HTTP/排队/上传与首次读权重。</p>
+<p>主对照与阶段范围见 <a href="R85-NATIVE-FP16-VS-R85.md">原生FP16基线实测</a>。以下保留各自历史分母，第9节是两边均为INT8 VAE的辅助对照。</p>
+<h2>1. 三种“原版”不能混称</h2>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>模型/采样</th>
+<th>算子与 VAE</th>
+<th>能回答的问题</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>早期部署 v22</td>
+<td>baked 旧 Turbo4，5 次实际 NFE</td>
+<td>Kitchen .33 原路径＋TRT VAE；已有 DynamicVRAM/异步 export</td>
+<td>当时累计工程优化的完整服务收益</td>
+</tr>
+<tr>
+<td>Kitchen .35 stock 回放</td>
+<td>Larry8 的一个真实第一步输入</td>
+<td>新 Kitchen 基础 kernel，关闭项目迁移融合</td>
+<td>迁入原融合能保住多少 forward 收益</td>
+</tr>
+<tr>
+<td>R85 之前的累计实验基线</td>
+<td>Larry v4 / Euler beta8</td>
+<td>已含历史融合、INT8 VAE、gate epilogue 等</td>
+<td>R85 的新增 1.9%</td>
+</tr>
+</tbody>
+</table>
+<p>R85 不是裸 Kitchen；9/24 r3/r5 服务镜像也不是 v22。BF16/50 A800 仅是质量参考，不是以上任一速度分母。</p>
+<h2>2. 计时分类与计算公式</h2>
+<table>
+<thead>
+<tr>
+<th>层级</th>
+<th>起止</th>
+<th>不应冒称</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>kernel / 算子链</td>
+<td>CUDA event 的目标算子范围</td>
+<td>完整请求耗时</td>
+</tr>
+<tr>
+<td>DiT forward 回放</td>
+<td>一个完整 50-block forward</td>
+<td>8-step 推理或服务吞吐</td>
+</tr>
+<tr>
+<td>视频 VAE</td>
+<td>按该实验记录的 load/decode/output/unload</td>
+<td>DiT＋condition 的整体收益</td>
+</tr>
+<tr>
+<td>固定 condition 完整生成</td>
+<td>冻结条件到双 VAE＋本地 MP4</td>
+<td>真实 condition、HTTP 排队与上传时延</td>
+</tr>
+<tr>
+<td>完整 GPU pipeline</td>
+<td>真实 condition＋DiT＋双 VAE</td>
+<td>已包含 CPU 编码的端到端</td>
+</tr>
+<tr>
+<td>worker 完成周期</td>
+<td>出队到最终成片/结果成功</td>
+<td>含外部排队的用户 SLA</td>
+</tr>
+<tr>
+<td>backlog 吞吐</td>
+<td>实际连续成片完成间隔</td>
+<td>单请求秒数倒数或集群 P95</td>
+</tr>
+</tbody>
+</table>
+<p><code>耗时减少 = (TA − TB) / TA</code>；<code>相同工作量串行容量增加 = TA / TB − 1</code>。例如耗时少 40% 对应阶段容量增加约 66.7%，不意味着整机容量增加 66.7%。</p>
+<p>存在 CPU/GPU 重叠时，吞吐应直接按完成事件计算。多卡实验先做各卡 A/B，再按相同工作量 GPU 秒汇总；不能用最快卡 B 减最慢卡 A，也不能把 GPU 秒之和当多卡墙钟时间。</p>
+<h2>3. 最早有真实完整服务对照的累计优化</h2>
+<p>日期 9/13；单张 5090 D v2，原 v22 与当时累计算子＋RGB8，两张参考图，768P/9:16，相同 seed，旧 Turbo4 baked、5 次 forward。每请求真实 condition。共 24 正式＋4 预热，所有慢样本保留；两臂已启用异步 CPU 编码。</p>
+<table>
+<thead>
+<tr>
+<th>输入</th>
+<th style="text-align:right">原完整请求 s</th>
+<th style="text-align:right">累计优化 s</th>
+<th style="text-align:right">降时</th>
+<th style="text-align:right">原完成间隔 s</th>
+<th style="text-align:right">新完成间隔 s</th>
+<th style="text-align:right">原请求/h</th>
+<th style="text-align:right">新请求/h</th>
+<th style="text-align:right">队列吞吐变化</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10 秒</td>
+<td style="text-align:right">147.480</td>
+<td style="text-align:right">139.501</td>
+<td style="text-align:right">5.410%</td>
+<td style="text-align:right">143.785</td>
+<td style="text-align:right">137.341</td>
+<td style="text-align:right">25.037</td>
+<td style="text-align:right">26.212</td>
+<td style="text-align:right">+4.692%</td>
+</tr>
+<tr>
+<td>15 秒</td>
+<td style="text-align:right">266.199</td>
+<td style="text-align:right">254.617</td>
+<td style="text-align:right">4.351%</td>
+<td style="text-align:right">261.766</td>
+<td style="text-align:right">251.404</td>
+<td style="text-align:right">13.753</td>
+<td style="text-align:right">14.320</td>
+<td style="text-align:right">+4.121%</td>
+</tr>
+</tbody>
+</table>
+<p>每输入每臂 6 正式请求，分两个三单组；各臂 4 个组内完成间隔。请求/h 是短队列完成间隔折算，未进行一小时负载测试。</p>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th style="text-align:right">10s 原→新 / s</th>
+<th style="text-align:right">15s 原→新 / s</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Condition</td>
+<td style="text-align:right">4.855 → 4.949</td>
+<td style="text-align:right">4.669 → 4.849</td>
+</tr>
+<tr>
+<td>DiT</td>
+<td style="text-align:right">118.717 → 113.999</td>
+<td style="text-align:right">226.548 → 219.681</td>
+</tr>
+<tr>
+<td>TRT 视频节点</td>
+<td style="text-align:right">17.505 → 16.882</td>
+<td style="text-align:right">26.161 → 25.216</td>
+</tr>
+<tr>
+<td>帧交接</td>
+<td style="text-align:right">1.757 → 0.303</td>
+<td style="text-align:right">2.617 → 0.465</td>
+</tr>
+<tr>
+<td>GPU pipeline</td>
+<td style="text-align:right">143.778 → 137.054</td>
+<td style="text-align:right">260.987 → 251.190</td>
+</tr>
+<tr>
+<td>CPU 编码主体</td>
+<td style="text-align:right">3.136 → 2.054</td>
+<td style="text-align:right">4.387 → 3.037</td>
+</tr>
+</tbody>
+</table>
+<p>TRT 节点包含输出边界，不能将其变化说成改写了 TRT engine。28 个含预热成片对各自黄金 MP4 字节一致。此结果是早期同配置的真实累计收益，不能标成今天 Larry8/R85 的总收益。来源 S01、S34。</p>
+<h2>4. Kitchen 升级、融合回归与 INT8 VAE</h2>
+<h3>原融合在 .35 的回放消融</h3>
+<p>同一 Case1 第一步输入，同卡 9 组各 1 预热＋3 正式，顺序正/反/正。全部 36 输出一致。</p>
+<table>
+<thead>
+<tr>
+<th>累计开启</th>
+<th style="text-align:right">forward 中位 s</th>
+<th style="text-align:right">相对 stock 降时</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>stock</td>
+<td style="text-align:right">30.259366</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>container/no-clone/modulation</td>
+<td style="text-align:right">29.984625</td>
+<td style="text-align:right">0.908%</td>
+</tr>
+<tr>
+<td>＋BSHD/dense8102</td>
+<td style="text-align:right">29.854025</td>
+<td style="text-align:right">1.340%</td>
+</tr>
+<tr>
+<td>＋V quant</td>
+<td style="text-align:right">29.624339</td>
+<td style="text-align:right">2.099%</td>
+</tr>
+<tr>
+<td>＋ConvRot 调度</td>
+<td style="text-align:right">29.616425</td>
+<td style="text-align:right">2.125%</td>
+</tr>
+<tr>
+<td>＋Norm/调制</td>
+<td style="text-align:right">29.459518</td>
+<td style="text-align:right">2.643%</td>
+</tr>
+<tr>
+<td>＋残差 Norm/strided</td>
+<td style="text-align:right">29.404285</td>
+<td style="text-align:right">2.826%</td>
+</tr>
+<tr>
+<td>＋寄存器 ConvRot</td>
+<td style="text-align:right">29.386356</td>
+<td style="text-align:right">2.885%</td>
+</tr>
+<tr>
+<td>＋合资格 NormQuant/ResidualQuant 开关</td>
+<td style="text-align:right">29.392929</td>
+<td style="text-align:right">2.863%</td>
+</tr>
+</tbody>
+</table>
+<p>最后两个量化融合在此 case 未触发，其几毫秒差异是波动。相邻百分比不能相加。来源 S02、S31。</p>
+<h3>VAE 同 latent 双 decoder</h3>
+<table>
+<thead>
+<tr>
+<th>实验</th>
+<th>范围</th>
+<th style="text-align:right">TRT 均值 s</th>
+<th style="text-align:right">INT8 均值 s</th>
+<th style="text-align:right">降时</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9/19</td>
+<td>15 段，同 latent</td>
+<td style="text-align:right">16.576130</td>
+<td style="text-align:right">9.744533</td>
+<td style="text-align:right">41.213%</td>
+</tr>
+<tr>
+<td>9/26 R129</td>
+<td>15 段，30 预热＋60 正式 decode</td>
+<td style="text-align:right">16.559342</td>
+<td style="text-align:right">9.959952</td>
+<td style="text-align:right">39.853%</td>
+</tr>
+</tbody>
+</table>
+<p>两轮说明该阶段约 40% 降时可以复现；数值不同不矛盾，独立时间窗口与预热/重复方法不同。均不能和 R85 的 1.905% 相加。质量见 <a href="R85-QUALITY.md">QUALITY.md</a>。来源 S03、S06。</p>
+<h3>真实 condition 的完整 pipeline</h3>
+<p>9/19 Case1、两卡分别配对，正式每臂每卡 1 次。推荐组合是 <code>decode_only</code>，不是 JSON 中使用新 encoder 的 <code>candidate</code>。</p>
+<table>
+<thead>
+<tr>
+<th>物理卡</th>
+<th>配置</th>
+<th style="text-align:right">Condition s</th>
+<th style="text-align:right">DiT s</th>
+<th style="text-align:right">Video decode s</th>
+<th style="text-align:right">GPU pipeline s</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>.33＋原融合＋旧 encode＋TRT</td>
+<td style="text-align:right">17.156</td>
+<td style="text-align:right">235.291</td>
+<td style="text-align:right">16.812</td>
+<td style="text-align:right">269.378</td>
+</tr>
+<tr>
+<td>A</td>
+<td>.35＋迁移融合＋旧 encode＋INT8</td>
+<td style="text-align:right">17.462</td>
+<td style="text-align:right">236.841</td>
+<td style="text-align:right">10.319</td>
+<td style="text-align:right">264.741</td>
+</tr>
+<tr>
+<td>B</td>
+<td>.33＋原融合＋旧 encode＋TRT</td>
+<td style="text-align:right">16.952</td>
+<td style="text-align:right">234.365</td>
+<td style="text-align:right">16.750</td>
+<td style="text-align:right">268.189</td>
+</tr>
+<tr>
+<td>B</td>
+<td>.35＋迁移融合＋旧 encode＋INT8</td>
+<td style="text-align:right">16.999</td>
+<td style="text-align:right">234.578</td>
+<td style="text-align:right">10.299</td>
+<td style="text-align:right">261.997</td>
+</tr>
+</tbody>
+</table>
+<p>对应 1.721% / 2.309% 降时，不含 CPU MP4、HTTP、上传。仅换 Kitchen＋迁移融合、保留 TRT 时，一卡慢 0.78%，另一卡持平；新版 Kitchen 本身没有测出稳定额外总收益。来源 S02、S31。</p>
+<h2>5. 后续整链路与精确优化阶段</h2>
+<p>以下相互有继承关系，保留各自分母，不合成为一个百分比。</p>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>对照范围</th>
+<th>实测结果</th>
+<th>证据强度/限制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9/20 embedding＋quant＋chunk/finalize</td>
+<td>同 case 完整周期</td>
+<td>249.834→248.428 s，−0.563%</td>
+<td>局部批次；15 decode 9.829404→9.570655 s，−2.632%</td>
+</tr>
+<tr>
+<td>9/21 dense 微调</td>
+<td>四卡各自配对、两 case</td>
+<td>242.634818→242.332791 s，−0.1245%</td>
+<td>20 请求四 SHA；不能用局部核收益代替</td>
+</tr>
+<tr>
+<td>9/24 服务 r3→r5</td>
+<td>5 个混合请求，共约 43 秒成片，真实 condition 与本地 MP4</td>
+<td>997.17→964.53 s，−3.27%，容量 +3.38%</td>
+<td>混合卡/批次；单卡单次对照 271.86→262.86 s；未含外部下载、队列、上传</td>
+</tr>
+<tr>
+<td>9/25 dense 恒等 scale＋QKV 调度</td>
+<td>固定 condition、两卡五片段队列</td>
+<td>2175.599311→2165.853432 GPU s，容量 +0.450%</td>
+<td>相同工作量合并；全 15 片段四 SHA；不是双卡墙钟</td>
+</tr>
+<tr>
+<td>9/26 out-proj＋FC2 epilogue</td>
+<td>5 个同卡正式窗口，14 请求/臂</td>
+<td>3232.330→3217.271 GPU s，容量 +0.468%</td>
+<td>五窗口均约 −0.36%至−0.55%；70 次含预热完整输出</td>
+</tr>
+<tr>
+<td>R85 累计新增</td>
+<td>全 15 片段同卡 A/B 组均值求和</td>
+<td>3295.244819→3232.463433 s，−1.905%</td>
+<td>已含前述历史/epilogue 的基线；60 正式请求的 7 组原始记录已本地复算</td>
+</tr>
+<tr>
+<td>R126 重复验证 R85</td>
+<td>36 正式、5 种片段</td>
+<td>4042.796039→3966.099304 GPU s，−1.897%</td>
+<td>同一 R85 收益的重复验证</td>
+</tr>
+</tbody>
+</table>
+<p>9/24 r3→r5 同 RGB 重复 CPU 编码曾出现不同 MP4 字节/大小；latent/RGB 融合验收和 MP4 文件确定性必须区分。不能仅以 MP4 SHA 不同推断 DiT 算子有变化，也不能隐去这一边界。来源 S04、S05、S16–S19；9/21 独立报告见内部索引。</p>
+<h3>R85 原始配对计算</h3>
+<p>7 个工作组覆盖 <code>[1]、[8]、[2,3,4]、[5,6,7]、[9,10,11]、[12,13]、[14,15]</code>。每组 ABBA/BAAB，先独立预热；各组同卡取 A/B 均值，再求和。不能直接平均每个 case 的百分比。</p>
+<p>资料包附每组正式秒数、请求四 SHA 和源 JSON 的 SHA。执行 <code>python3 tools/verify_metrics.py</code> 会重新得到 3295.244819 / 3232.463433，而不是只检查报告已经算好的百分比。</p>
+<h2>6. 新 VAE 候选的收益和限制</h2>
+<table>
+<thead>
+<tr>
+<th>候选</th>
+<th>对照</th>
+<th>测试范围</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>仅静态 VAE</td>
+<td>R85 动态 VAE</td>
+<td>case1/8 完整生成，各 2 正式/臂</td>
+<td>239.806487→239.333983；227.580350→227.129878 s，约 0.20%</td>
+</tr>
+<tr>
+<td>静态＋R207 RoPE</td>
+<td>R85 动态 VAE</td>
+<td>全 15 保存 latent</td>
+<td>视频 −6.801731%；双 VAE 147.427484→138.144219 s，−6.296834%</td>
+</tr>
+<tr>
+<td>静态＋R234v2/R244</td>
+<td>静态＋R207</td>
+<td>全 15，30 预热＋60 正式 decode</td>
+<td>视频 136.018638→135.159510 s，−0.631625%；双 VAE −0.774287%</td>
+</tr>
+</tbody>
+</table>
+<p>R234/R244 全 15 中 14 段视频更快，case12 微慢约 0.021%。独立 case1/8 各 4 次正式复核，降时 1.129% / 0.889%。这些小样本不支持保证每条线上请求同样提升。</p>
+<p>音频算法在最后一轮未改，其合计变化不能算作“音频优化”。保守报告使用视频的 0.632%。静态加载＋最新 VAE 融合尚无合并到固定 R85 后的全 15 完整 DiT/服务队列结果。来源 S07、S08、S20。</p>
+<h2>7. GPU 利用率怎样解释</h2>
+<h3>R85 DiT：活动覆盖接近连续，主要时间在 dense</h3>
+<p>一次完整 profile 的 DiT GPU window 为 225.815693 s；kernel union 225.147438 s，约 99.70%。dense 170.891387 s，占 75.68%；其他 GEMM 34.253688 s，融合 QKV 15.103506 s。未被 kernel 隐藏的 copy 0.045101 s；无记录活动间隙 0.621164 s，约 0.275%。</p>
+<p>这说明靠消除 CPU 空隙最多只能回收很小部分，并不代表 Tensor Core 达到 99.7% 理论峰值。dense 与同卡 pure-MMA 微基准之比约 95.3% 也只是参考实验比值，不是全 DiT 的厂商理论利用率。来源 S15、S27。</p>
+<h3>VAE：GEMM 是主要成本，5 秒未达到</h3>
+<p>R234/R244 的 case1 profile：kernel span 8.347711 s，kernel union 8.217999 s（98.45%）；其中 INT8 GEMM 5.341502 s（约 65%）、attention 0.834016 s、量化/ConvRot/RoPE 1.802490 s。</p>
+<p>全 15 按 <code>170 SM × 2048 dense INT8 ops/SM/cycle × 实测时钟积分</code> 作普通 GB202 架构参照，工作量加权效率约 49.27%→50.87%。这不是 NVIDIA 保证的 D v2 SKU 峰值，混合精度、softmax、量化、同步、加载和输出均不可能免费。</p>
+<p>FC1/FC2 NCU Tensor 管线约 83%/88%；与 pure-MMA 实验比值约 95.57%/91.97%。这些与整 VAE 的 50.87% 分母不同。不能说“还闲置一半算力，所以应能再快一倍”。仅 GEMM 已约 5.34 s，即使 attention 免费，当前仍无法实现完整 VAE&lt;5 s。来源 S20–S23。</p>
+<h2>8. 新库升级的完整反证</h2>
+<p>9/29 完成 Torch 2.12/Triton 3.7/cuDNN 9.20 与 Torch 2.14/Triton 3.8/cuDNN 9.24 比较，保持 R85 INT8 权重和自定义 CUDA 主核；每 case 每栈 1 预热＋2 正式。</p>
+<table>
+<thead>
+<tr>
+<th>case</th>
+<th style="text-align:right">原 DiT s</th>
+<th style="text-align:right">新 DiT s</th>
+<th style="text-align:right">原至 MP4 s</th>
+<th style="text-align:right">新至 MP4 s</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td style="text-align:right">225.55784</td>
+<td style="text-align:right">225.56589</td>
+<td style="text-align:right">239.80405</td>
+<td style="text-align:right">240.16032</td>
+</tr>
+<tr>
+<td>8</td>
+<td style="text-align:right">212.01914</td>
+<td style="text-align:right">212.04437</td>
+<td style="text-align:right">227.54088</td>
+<td style="text-align:right">227.39600</td>
+</tr>
+</tbody>
+</table>
+<p>DiT 持平，完整周期方向不一致；新栈改变生成轨迹，音视频指标有升有降，未采用。此测试没有重新编译所有自定义核，也没有开启新的完整 block <code>torch.compile</code>；不能解释成已排除未来编译边界重构的收益。来源 S09、S33。</p>
+<h2>9. 新增直接同场比较：stock Kitchen 0.2.35 → R85</h2>
+<p>9/29 新 GPU 同场实测：相同 Larry v4 8 步、同一 INT8 VAE，Kitchen 0.2.35 基础实现到固定 R85，两个代表性片段的总生成耗时减少 <strong>6.685%</strong>，串行容量折算 <strong>+7.164%</strong>。共 8 正式＋8 预热，所有正式请求的 video latent、audio latent、RGB8、PCM 与历史黄金逐位一致。</p>
+<p>相同工作量合计 500.735980→467.259363 GPU 秒，总耗时减少 6.685%；DiT 减少 6.477%；每请求平均节省 16.738 秒。先对每个 case 的同卡正式记录取均值，再合并等量工作量，不能把 GPU 秒之和写成多卡墙钟。</p>
+<table>
+<thead>
+<tr>
+<th>Case</th>
+<th style="text-align:right">基础至 MP4 / s</th>
+<th style="text-align:right">R85 至 MP4 / s</th>
+<th style="text-align:right">总耗时减少</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td style="text-align:right">257.364477</td>
+<td style="text-align:right">239.823806</td>
+<td style="text-align:right">6.815%</td>
+</tr>
+<tr>
+<td>8</td>
+<td style="text-align:right">243.371504</td>
+<td style="text-align:right">227.435557</td>
+<td style="text-align:right">6.548%</td>
+</tr>
+</tbody>
+</table>
+<p>这场对照使用独立进程，stock 不导入任何项目 DiT 补丁。两臂共享已经预合并的权重、INT8 VAE、DynamicVRAM 与 CPU 编码器；stock 走原生 FP32 CPU 视频输出，R85 启用 RGB8/pinned D2H。完整计时包含本地 MP4，排除 Qwen/参考处理、HTTP/上传及首次读权重。</p>
+<p>每片段每臂仅 2 次正式，此结果不等于全 15 片段或线上 P95；没有测连续队列的异步吞吐。历史 TRT→INT8 的约 40% 解码降时没有包含在此分母中，后续静态 VAE/R234/R244 也没有纳入。当前可以用这个直接实测替代“总收益未知”，同时保留这些范围限制。</p>
+<p>详见 <a href="R85-STOCK-VS-R85.md">逐阶段时间和复算证据</a>；公开复算命令：<code>python3 tools/verify_stock_comparison.py</code>。</p>
+</section><section id="quality" class="chapter"><div class="eyebrow">LoRA与音视频</div><h1>LoRA 选择与音视频质量证据</h1>
+<p>本轮新增：<a href="R85-NATIVE-VAE-QUALITY.md">原生FP16对INT8的全15段同latent比较</a>。相同 latent 的全部 15 片段，INT8 VAE 对原生 FP16：成片 SSIM 均值 <strong>0.989070</strong>，LPIPS <strong>0.007589</strong>，原始 RGB8 PSNR 均值 <strong>58.67 dB</strong>；音频 PCM <strong>15/15 逐字节一致</strong>。这支持“当前测试中的画面差异很小、音频不变”，不等于逐像素无损，也不是多 seed 人工盲评结论。</p>
+<p>当前保留 Larry v4 8 NFE，是在本业务、现有 INT8 部署和速度预算下选择可复现的均衡方案。没有证据支持“Larry 在全部已测试配置上同时具有最高 SSIM 和最好音频”。本页按原测评组分表，不跨组拼出一个冠军。</p>
+<h2>1. 模型身份与配方</h2>
+<ul>
+<li>原发布：<a href="https://huggingface.co/larryvrh/MiniMax-H3-Turbo-Lora">https://huggingface.co/larryvrh/MiniMax-H3-Turbo-Lora</a>，v4 step600 EMA。</li>
+<li>剪枝 ComfyUI 转换：<a href="https://huggingface.co/drbaph/MiniMax-H3-Turbo-Lora-ComfyUI">https://huggingface.co/drbaph/MiniMax-H3-Turbo-Lora-ComfyUI</a>。</li>
+<li>实测 adapter：<code>minimax_h3_turbo_v4_step600_ema_pruned_comfyui.safetensors</code>，本地历史别名 <code>larry_v4_pruned.safetensors</code>，620,285,592 byte，SHA <code>7098acf3ee75028fd9fcd948f50fcc8d995057fabb76f86bd3ca2c0ffc58e409</code>。</li>
+<li>固定 baked DiT SHA：<code>9eccf52e4fe6e764f4aac8cdb6045a58bc86d8458c783c35b7035edca71fec12</code>。</li>
+<li>配方：Euler / beta、8 次实际 DiT forward、CFG1、video/audio shift 12/4，完整 dense。</li>
+</ul>
+<p>LoRA 名称、UI steps、scheduler 的 sigma 区间和真实 forward 数必须分别记录。早期旧 Turbo 的 5/6/8 组没有真实 forward hook，旧 runner 曾把配置步数填到 actual_nfe；本页对其只称“配置步数”。Larry 等后续扩展组已有 forward hook。</p>
+<h2>2. Q1：最初为什么从旧 Turbo 选择 Larry</h2>
+<p>相同 5 个完整业务故事、共 15 片段，候选在 5090 D v2，参考为 A800 BF16/50 成片。每个故事先按原三段拼接、评分，再 5 故事等权平均。该组采用早期模型/attention/导出路径，不等同后期 Kitchen/R85。</p>
+<table>
+<thead>
+<tr>
+<th>配方</th>
+<th style="text-align:right">SSIM↑</th>
+<th style="text-align:right">LPIPS↓</th>
+<th style="text-align:right">8k 频谱 cosine↑</th>
+<th style="text-align:right">波形相关↑</th>
+<th style="text-align:right">nRMSE↓</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>旧 Turbo4，配置 5 步</td>
+<td style="text-align:right">0.682598</td>
+<td style="text-align:right">0.374144</td>
+<td style="text-align:right">0.806390</td>
+<td style="text-align:right">0.182059</td>
+<td style="text-align:right">1.723544</td>
+</tr>
+<tr>
+<td>旧 Turbo4，配置 6 步</td>
+<td style="text-align:right">0.690038</td>
+<td style="text-align:right">0.366391</td>
+<td style="text-align:right">0.806011</td>
+<td style="text-align:right">0.213936</td>
+<td style="text-align:right">1.476009</td>
+</tr>
+<tr>
+<td>旧 Turbo4，配置 8 步</td>
+<td style="text-align:right">0.694995</td>
+<td style="text-align:right">0.362692</td>
+<td style="text-align:right">0.808250</td>
+<td style="text-align:right">0.192602</td>
+<td style="text-align:right">1.362040</td>
+</tr>
+<tr>
+<td>同一 Turbo4，9 NFE</td>
+<td style="text-align:right">0.696767</td>
+<td style="text-align:right">0.360188</td>
+<td style="text-align:right">0.807761</td>
+<td style="text-align:right">0.209925</td>
+<td style="text-align:right">1.333374</td>
+</tr>
+<tr>
+<td>LightX2V Ref2VA Turbo8，8 NFE</td>
+<td style="text-align:right">0.716099</td>
+<td style="text-align:right">0.340897</td>
+<td style="text-align:right">0.830211</td>
+<td style="text-align:right">0.303322</td>
+<td style="text-align:right">1.130638</td>
+</tr>
+<tr>
+<td>PulpCut baked Turbo8，8 NFE</td>
+<td style="text-align:right">0.686091</td>
+<td style="text-align:right">0.366303</td>
+<td style="text-align:right">0.823809</td>
+<td style="text-align:right">0.233350</td>
+<td style="text-align:right">1.511163</td>
+</tr>
+<tr>
+<td>PDD Ref2VA，4 NFE</td>
+<td style="text-align:right">0.734201</td>
+<td style="text-align:right">0.344255</td>
+<td style="text-align:right">0.787378</td>
+<td style="text-align:right">0.172610</td>
+<td style="text-align:right">1.147630</td>
+</tr>
+<tr>
+<td>PDD Ref2VA，6 NFE</td>
+<td style="text-align:right">0.732034</td>
+<td style="text-align:right">0.342588</td>
+<td style="text-align:right">0.813289</td>
+<td style="text-align:right">0.193194</td>
+<td style="text-align:right">1.130800</td>
+</tr>
+<tr>
+<td>PDD Ref2VA，8 NFE</td>
+<td style="text-align:right">0.726550</td>
+<td style="text-align:right">0.336008</td>
+<td style="text-align:right">0.836946</td>
+<td style="text-align:right">0.275255</td>
+<td style="text-align:right">1.124000</td>
+</tr>
+<tr>
+<td>Larry v4 pruned，8 NFE，audio shift4</td>
+<td style="text-align:right"><strong>0.736385</strong></td>
+<td style="text-align:right"><strong>0.280848</strong></td>
+<td style="text-align:right"><strong>0.868469</strong></td>
+<td style="text-align:right"><strong>0.351626</strong></td>
+<td style="text-align:right">1.274233</td>
+</tr>
+<tr>
+<td>Turbo5＋AudioRefine4，denoise .5</td>
+<td style="text-align:right">0.682588</td>
+<td style="text-align:right">0.374199</td>
+<td style="text-align:right">0.809340</td>
+<td style="text-align:right">0.191866</td>
+<td style="text-align:right">1.645761</td>
+</tr>
+</tbody>
+</table>
+<p>Larry 相比旧 Turbo4 配置 8 步，SSIM 增加约 0.041391，LPIPS 降低约 22.57%，频谱 cosine 增加约 0.060219。频谱与波形改善支持当初选择，但 nRMSE 不如 PDD8/Ref2VA Turbo8，不能称全部音频指标最优。早期候选未完成统一重复速度对照，本表不附混口径速度排名。</p>
+<p>来源 S10、S11、S32。原 <code>extended-results.json</code> 全局 completed=false 包含尚未完成的其他候选；本表仅收录实际 15 片段与 5 故事均齐全的单元。本资料包带逐故事标量，可独立复算均值。</p>
+<h2>3. Q2：Kitchen 路径下，更多步数与 DMD/cache</h2>
+<p>31 配方全部完成，465 片段、155 个完整故事。相同五故事，INT8 ConvRot DiT/Qwen，768×1344、24 fps；参考仍为既有 BF16/50。秒/故事为三段单卡请求时间之和，跨卡筛选用途，不是稳态服务或同卡重复时延结论。</p>
+<table>
+<thead>
+<tr>
+<th>配方</th>
+<th style="text-align:right">秒/故事↓</th>
+<th style="text-align:right">相对 Larry 耗时</th>
+<th style="text-align:right">SSIM↑</th>
+<th style="text-align:right">LPIPS↓</th>
+<th style="text-align:right">8k 频谱↑</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Larry8，Euler/beta</td>
+<td style="text-align:right">784.58</td>
+<td style="text-align:right">1.000×</td>
+<td style="text-align:right">0.736525</td>
+<td style="text-align:right">0.280303</td>
+<td style="text-align:right">0.869221</td>
+</tr>
+<tr>
+<td>DMD8，强度 .65，Euler/beta</td>
+<td style="text-align:right">785.78</td>
+<td style="text-align:right">1.002×</td>
+<td style="text-align:right">0.744334</td>
+<td style="text-align:right">0.272869</td>
+<td style="text-align:right">0.868760</td>
+</tr>
+<tr>
+<td>DMD8，强度 .85，Euler/beta</td>
+<td style="text-align:right">783.92</td>
+<td style="text-align:right">0.999×</td>
+<td style="text-align:right">0.733579</td>
+<td style="text-align:right">0.278975</td>
+<td style="text-align:right">0.875586</td>
+</tr>
+<tr>
+<td>Larry12，Euler/beta</td>
+<td style="text-align:right">1121.03</td>
+<td style="text-align:right">1.429×</td>
+<td style="text-align:right">0.737772</td>
+<td style="text-align:right">0.274395</td>
+<td style="text-align:right">0.874511</td>
+</tr>
+<tr>
+<td>DMD12，强度 .65</td>
+<td style="text-align:right">1116.97</td>
+<td style="text-align:right">1.424×</td>
+<td style="text-align:right">0.756730</td>
+<td style="text-align:right">0.244671</td>
+<td style="text-align:right">0.892321</td>
+</tr>
+<tr>
+<td>无 LoRA12，Euler/beta</td>
+<td style="text-align:right">1104.87</td>
+<td style="text-align:right">1.408×</td>
+<td style="text-align:right">0.767527</td>
+<td style="text-align:right">0.247016</td>
+<td style="text-align:right">0.865520</td>
+</tr>
+<tr>
+<td>无 LoRA16，Euler/beta</td>
+<td style="text-align:right">1431.07</td>
+<td style="text-align:right">1.824×</td>
+<td style="text-align:right">0.792964</td>
+<td style="text-align:right">0.210804</td>
+<td style="text-align:right">0.895965</td>
+</tr>
+<tr>
+<td>无 LoRA20，Euler/beta</td>
+<td style="text-align:right">1763.64</td>
+<td style="text-align:right">2.248×</td>
+<td style="text-align:right">0.800750</td>
+<td style="text-align:right">0.192670</td>
+<td style="text-align:right">0.905287</td>
+</tr>
+<tr>
+<td>Spectrum16，cap4</td>
+<td style="text-align:right">1135.05</td>
+<td style="text-align:right">1.447×</td>
+<td style="text-align:right">0.781953</td>
+<td style="text-align:right">0.228155</td>
+<td style="text-align:right">0.884310</td>
+</tr>
+<tr>
+<td>Adaptive16，cap4</td>
+<td style="text-align:right">1301.91</td>
+<td style="text-align:right">1.659×</td>
+<td style="text-align:right">0.793220</td>
+<td style="text-align:right">0.211442</td>
+<td style="text-align:right">0.889856</td>
+</tr>
+<tr>
+<td>Larry8，res_multistep/simple</td>
+<td style="text-align:right">785.32</td>
+<td style="text-align:right">1.001×</td>
+<td style="text-align:right">0.718295</td>
+<td style="text-align:right">0.324520</td>
+<td style="text-align:right">0.848686</td>
+</tr>
+</tbody>
+</table>
+<p>在本组中，DMD8 两个强度各有取舍；DMD12 三项参考相似度更高，但多约 42.4% 时间。无 LoRA16 三项更高、时间约多 82.4%。因此默认采用 Larry 并不代表否定这些质量档，而是它们未满足“比 Larry 更快且音视频均不下降”的目标。</p>
+<p>同一 LoRA 换 sampler/scheduler 也显著改变结果。<code>res_multistep</code> 是采样算法，<code>simple</code> 是时间步/噪声调度；它们不是模型版本。不能用加步或随意换 scheduler 保证单调改善音频。</p>
+<p>AudioRefine 的 2/4 步、冻结视频和不同 denoise 配方均完成；本组视频保持原指标，但频谱多降至 .808–.855 且增加成本。cache 的 reference 保守档几乎没有实际命中；Spectrum/Adaptive 有命中但改变生成结果，不能算精确算子优化。完整 31 行保存在 <a href="../evidence/lora-quality.json">lora-quality.json</a>。来源 S12。</p>
+<h2>4. Q3：INT8 VAE、新 encoder 与 HyperFlow</h2>
+<p>本组 <strong>15 个片段等权</strong>，与 Q1/Q2 的 5 故事等权不同；采用本组固定输出/评估路径。32k 全频指标不能和 8k 指标互换。</p>
+<table>
+<thead>
+<tr>
+<th>配方</th>
+<th style="text-align:right">SSIM↑</th>
+<th style="text-align:right">LPIPS↓</th>
+<th style="text-align:right">8k 频谱↑</th>
+<th style="text-align:right">32k 全频 STFT↑</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Larry8＋旧 encoder＋TRT</td>
+<td style="text-align:right">0.732109</td>
+<td style="text-align:right">0.283350</td>
+<td style="text-align:right">0.869178</td>
+<td style="text-align:right">0.695899</td>
+</tr>
+<tr>
+<td>Larry8＋旧 encoder＋INT8 decode</td>
+<td style="text-align:right">0.731979</td>
+<td style="text-align:right">0.283367</td>
+<td style="text-align:right">0.869178</td>
+<td style="text-align:right">0.695899</td>
+</tr>
+<tr>
+<td>Larry8＋新 encoder＋INT8 decode</td>
+<td style="text-align:right">0.733470</td>
+<td style="text-align:right">0.285101</td>
+<td style="text-align:right">0.875993</td>
+<td style="text-align:right">0.690134</td>
+</tr>
+<tr>
+<td>HyperFlow dense，8 NFE</td>
+<td style="text-align:right">0.731019</td>
+<td style="text-align:right">0.299494</td>
+<td style="text-align:right">0.864006</td>
+<td style="text-align:right">0.674781</td>
+</tr>
+<tr>
+<td>HyperFlow τ=1，8 NFE</td>
+<td style="text-align:right">0.728583</td>
+<td style="text-align:right">0.305696</td>
+<td style="text-align:right">0.845746</td>
+<td style="text-align:right">0.631528</td>
+</tr>
+</tbody>
+</table>
+<p>新 encoder 会改变参考 latent 和整个联合生成；SSIM/8k 上升，但 LPIPS 与 32k 下降，不支持统一改善。保留旧 encoder。</p>
+<p>HyperFlow τ=1 相比自身 dense DiT 约快 20.2%，但全频音频与视频 LPIPS 均退化；不能把其自身 dense 的速度分母换为 Larry。τ=.25/.5 仅覆盖部分片段，原汇总中 n/cases 单独保留，没有并入全 15 排名。</p>
+<p>历史两张 HyperFlow 表若聚合方式不同，可能出现不同均值；本资料所有 Q3 数字仅引用 S03/S13 的固定组，不用另一个组的速度搭配此组质量。</p>
+<h3>TRT→INT8 的直接误差</h3>
+<p>相同 video latent、15 段：原始 RGB8 PSNR 均值 <strong>57.902766 dB</strong>，最差 <strong>56.129441 dB</strong>；最大单通道差 <strong>41/255</strong>，非零差异通道约 <strong>10.42%</strong>。最终成片对原生产 SSIM <strong>0.989917</strong>、LPIPS <strong>0.007585</strong>；原始 PCM 15/15 字节相同。</p>
+<p>这是量化 decoder 相比 TRT 的微小输出变化，不能称逐像素无损。此后在 INT8 decoder 上的 R85/R234/R244 工程优化，才以各自历史 RGB/PCM 一致验收。来源 S03、S06、S13、S31。</p>
+<h3>台词识别的补充诊断</h3>
+<p>HyperFlow 同组已有 Whisper 对照，而非只做频谱。对相同有效脚本集合，中文 142 字符、英文 101 词：</p>
+<table>
+<thead>
+<tr>
+<th>配方</th>
+<th style="text-align:right">中文 CER↓</th>
+<th style="text-align:right">英文 WER↓</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Larry8 INT8 decode</td>
+<td style="text-align:right">2.82%</td>
+<td style="text-align:right">10.89%</td>
+</tr>
+<tr>
+<td>HyperFlow dense</td>
+<td style="text-align:right">12.68%</td>
+<td style="text-align:right">12.87%</td>
+</tr>
+<tr>
+<td>HyperFlow τ=1</td>
+<td style="text-align:right">9.86%</td>
+<td style="text-align:right">11.88%</td>
+</tr>
+</tbody>
+</table>
+<p>这是特定识别器、字幕脚本和时间戳过滤规则下的诊断，不是人工听写或 MOS。无 VAD 复核还遇到识别器幻觉/越界时间戳；不能据此把所有音频错误直接归因于生成模型。来源 S13 的 <code>asr_matched.full</code>。</p>
+<h2>5. 其他加速模型和稀疏路径</h2>
+<p>以下覆盖不相同，因此分别说明，不放进一个统一排名。</p>
+<table>
+<thead>
+<tr>
+<th>方案</th>
+<th>完成的测试范围</th>
+<th>结果与取舍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lightx2v_hybrid-4to8step-Turbo_r48</td>
+<td>6 配方、各 5 故事</td>
+<td>最佳 pruned Euler8/.75 约 784.00 s/故事，LPIPS .328183、8k .834494；未优于同研究 Larry；属于 TenStrip 混合/转换模型，不能把新上传当原生 Ref2VA 新训练</td>
+</tr>
+<tr>
+<td>Silver pruned v1</td>
+<td>case1/8/15，强度及 AdaLN 消融</td>
+<td>Larry .727742/.341294/.831419；Silver8/.6 .738379/.321023/.820558（SSIM/LPIPS/8k），画面指标改善、音频下降</td>
+</tr>
+<tr>
+<td>VDN/OpenVDN hybrid</td>
+<td>完整 50 层混合分支，原生 Ref2VA 布局，单业务长片段</td>
+<td>BF16 noise-aligned DiT 447.26 s＋decode 34.25 s，.651273/.398748/.765823；同段 Larry 完整 290.18 s，.717630/.335592/.802620，未胜出</td>
+</tr>
+<tr>
+<td>VDN FP8</td>
+<td>同上</td>
+<td>DiT 355.64 s＋decode34.72 s，.615792/.451776/.680720；接近24GB，不适合直接替换</td>
+</tr>
+<tr>
+<td>Larry＋VSA50/70/85</td>
+<td>全5故事，多步扩展</td>
+<td>初版 coarse 路径严重退化；去 coarse 后速度改善仍伴随质量变化；增加12/16步未证明三项全面不降</td>
+</tr>
+<tr>
+<td>Draft50＋无 LoRA16</td>
+<td>完整5故事</td>
+<td>SSIM均值略增，LPIPS略差，频谱略增；三项均不劣仅1/5故事，不列精确方案</td>
+</tr>
+<tr>
+<td>DMD12＋Sol</td>
+<td>完整5故事</td>
+<td>筛选时间约缩短10%，SSIM均值略升，LPIPS与频谱变差，未采用</td>
+</tr>
+<tr>
+<td>FastH3 V2＋训练 VSA</td>
+<td>5代表片段，12/16步扩展2段</td>
+<td>原生训练范围偏T2VA；本Ref2VA三项显著退化，更多步未修复</td>
+</tr>
+<tr>
+<td>Tao3 / Speech V1、V2</td>
+<td>各自历史测试</td>
+<td>Tao3牺牲参考接近度；Speech属质量LoRA、不是少步加速器，未形成通用替代</td>
+</tr>
+</tbody>
+</table>
+<p>来源 S28–S30、S35。VDN 不是往 Larry 上再挂一个普通 DMD LoRA；必须记录其完整 trunk、hybrid 分支和任务布局。</p>
+<h3>Q4：9/25 五代表片段，FastH3/NVFP4</h3>
+<p>case1/4/8/12/15 各一个片段，不是五个完整故事。均保持旧 encoder、INT8 video VAE、FP32 audio；候选按其配方采样。</p>
+<table>
+<thead>
+<tr>
+<th>8步方案</th>
+<th style="text-align:right">描述性均值 s/片段</th>
+<th style="text-align:right">SSIM↑</th>
+<th style="text-align:right">LPIPS↓</th>
+<th style="text-align:right">32k 音频↑</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Larry v4</td>
+<td style="text-align:right">221.361</td>
+<td style="text-align:right">0.715888</td>
+<td style="text-align:right">0.317968</td>
+<td style="text-align:right">0.709905</td>
+</tr>
+<tr>
+<td>Larry＋局部 NVFP4</td>
+<td style="text-align:right">209.345</td>
+<td style="text-align:right">0.695955</td>
+<td style="text-align:right">0.359594</td>
+<td style="text-align:right">0.533766</td>
+</tr>
+<tr>
+<td>FastH3 V2＋VSA</td>
+<td style="text-align:right">181.087</td>
+<td style="text-align:right">0.574142</td>
+<td style="text-align:right">0.489447</td>
+<td style="text-align:right">0.470343</td>
+</tr>
+</tbody>
+</table>
+<p>时间是混合暖机/进程状态的描述统计；同卡 case1 ABBA 单独验证 NVFP4 完整生成 −4.73%，但质量下降。12/16步只扩展 case1/12，未成为比 Larry8 更快且不降质的方案。来源 S28。</p>
+<h2>6. Q5：9/29 新运行库完整结果</h2>
+<p>相同 R85 INT8 权重、8步、condition，旧2.12/3.7与新2.14/3.8运行栈各自生成，2个片段。对满血参考：</p>
+<table>
+<thead>
+<tr>
+<th>case</th>
+<th>运行栈</th>
+<th style="text-align:right">SSIM↑</th>
+<th style="text-align:right">LPIPS↓</th>
+<th style="text-align:right">8k音频↑</th>
+<th style="text-align:right">32k音频↑</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>旧2.12</td>
+<td style="text-align:right">.720753</td>
+<td style="text-align:right">.336985</td>
+<td style="text-align:right">.794964</td>
+<td style="text-align:right">.586887</td>
+</tr>
+<tr>
+<td>1</td>
+<td>新2.14</td>
+<td style="text-align:right">.723081</td>
+<td style="text-align:right">.333051</td>
+<td style="text-align:right">.798217</td>
+<td style="text-align:right">.575641</td>
+</tr>
+<tr>
+<td>8</td>
+<td>旧2.12</td>
+<td style="text-align:right">.729235</td>
+<td style="text-align:right">.346093</td>
+<td style="text-align:right">.838799</td>
+<td style="text-align:right">.681683</td>
+</tr>
+<tr>
+<td>8</td>
+<td>新2.14</td>
+<td style="text-align:right">.729774</td>
+<td style="text-align:right">.348451</td>
+<td style="text-align:right">.832188</td>
+<td style="text-align:right">.686216</td>
+</tr>
+</tbody>
+</table>
+<p>两条 SSIM 略升不代表全面质量提升；DiT速度基本不变。把新latent交旧视频VAE，RGB与新栈视频VAE完全一致，说明本轮画面变化来自DiT/采样；音频换回旧VAE也未恢复原R85的参考指标。</p>
+<p>Q5 不与 Q3 的15段均值直接比较；原始PCM/WAV或AAC、评估导出与参考身份需随组保留。来源 S09、S33。</p>
+<h2>7. 指标定义与公开时应保留的限制</h2>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>本项目常用定义</th>
+<th>能说明/不能说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SSIM/PSNR</td>
+<td>原尺寸、全帧、ffmpeg YUV All；VAE另有RGB8原始误差</td>
+<td>对参考结构/像素接近度，不是人物自然度评分</td>
+</tr>
+<tr>
+<td>LPIPS</td>
+<td>SqueezeNet v0.1，384×672，2fps</td>
+<td>感知特征距离；不能与AlexNet版本数值混用</td>
+</tr>
+<tr>
+<td>8k频谱</td>
+<td>mono8k，非重叠1秒Hann，log1p FFT magnitude cosine，完整窗均值</td>
+<td>丢弃4kHz以上信息，也改变声道与时间聚合</td>
+</tr>
+<tr>
+<td>32k全频</td>
+<td>stereo32k，STFT1024/hop256/Hann/center=False，log1p幅度cosine，t0对齐</td>
+<td>0–16kHz；不做择优平移或响度归一化；须记录PCM还是AAC来源</td>
+</tr>
+<tr>
+<td>波形corr/nRMSE</td>
+<td>corr去直流；nRMSE分母为reference raw RMS</td>
+<td>对时序和响度敏感，不可单独判断语音清晰度</td>
+</tr>
+<tr>
+<td>四SHA</td>
+<td>video latent、audio latent、RGB8、PCM</td>
+<td>固定样本/环境输出逐字节复现；不代表等于BF16/50</td>
+</tr>
+<tr>
+<td>CER/WER</td>
+<td>固定脚本、识别器、有效时间戳集合</td>
+<td>识别器诊断，有幻觉/过滤边界，不能代替盲听</td>
+</tr>
+</tbody>
+</table>
+<p>若要对外宣称“音质更好”，应在固定多seed业务集上增加盲听、台词准确率、口型/时序与人物一致性评价，事前约定可接受变化；不能在看到结果后只挑更好的一个指标。</p>
+<p>原参考本身是生成视频，不是唯一真值。某个候选相似度下降可能包含合理的镜头/语音时序变化；此处拒绝的是“已证明更快且不降质”的结论，并非断言该技术在所有场景无效。</p>
+</section><section id="experiments" class="chapter"><div class="eyebrow">实验与负结果</div><h1>实验索引：保留和未采用的方向</h1>
+<p>这里按技术方向归档，避免把 R 编号数量说成独立创新算法数量。部分 R 是构建修复、审计、复测或打包；失败构建、未运行计划不计性能实验。每项保留其最深验证层级。</p>
+<h2>1. 已保留的主线</h2>
+<table>
+<thead>
+<tr>
+<th>主线</th>
+<th>有效证据</th>
+<th>归属</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.33 旧融合＋RGB8</td>
+<td>24正式服务请求，28含预热MP4黄金一致，完整延迟−4.35%至−5.41%</td>
+<td>历史累计，Turbo5</td>
+</tr>
+<tr>
+<td>.35 原融合迁移</td>
+<td>36次真实第一步forward一致，约−2.863%</td>
+<td>保住已有融合收益</td>
+</tr>
+<tr>
+<td>INT8 VAE</td>
+<td>全15同latent，独立两轮约−40%；高相似度、非像素全同</td>
+<td>已选择的量化替换</td>
+</tr>
+<tr>
+<td>dense/QKV/epilogue/cross等</td>
+<td>每阶段真实capture＋完整业务四SHA，收益小而可复现</td>
+<td>逐步吸收到R85</td>
+</tr>
+<tr>
+<td>R85</td>
+<td>全15完整生成，约−1.905%；另36正式复核约−1.897%</td>
+<td>固定实验基线</td>
+</tr>
+<tr>
+<td>静态VAE＋R234v2/R244</td>
+<td>全15保存latent、60正式decode，RGB/PCM一致</td>
+<td>解码阶段候选，待完整集成</td>
+</tr>
+</tbody>
+</table>
+<h2>2. LoRA、稀疏与跨步缓存</h2>
+<table>
+<thead>
+<tr>
+<th>方向</th>
+<th>实际测试</th>
+<th>结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>旧Turbo4更多步、Ref2VA Turbo8、PDD、Larry</td>
+<td>早期各完整5故事；旧5/6/8只有配置步数证据</td>
+<td>Larry视频/频谱均衡更好；不是全部指标最优</td>
+</tr>
+<tr>
+<td>DMD8/12、无LoRA8/12/16/20、Spectrum/Adaptive、AudioRefine</td>
+<td>31配方×15片段</td>
+<td>更高质量档多更慢；缓存与音频refine无全面不降质升级</td>
+</tr>
+<tr>
+<td>VSA50/70/85与去coarse</td>
+<td>完整5故事，多步扩展</td>
+<td>初版明显退化；去coarse改善但仍改变结果</td>
+</tr>
+<tr>
+<td>Draft50＋无LoRA16</td>
+<td>完整5故事</td>
+<td>均值有升有降，三项不劣仅1/5故事，未采用</td>
+</tr>
+<tr>
+<td>DMD12＋Sol</td>
+<td>完整5故事</td>
+<td>筛选约快10%，LPIPS/频谱退化，未采用</td>
+</tr>
+<tr>
+<td>HyperFlow dense/τ</td>
+<td>dense与τ1全15；τ.25/.5部分case</td>
+<td>τ1更快但音视频退化，未替换Larry</td>
+</tr>
+<tr>
+<td>VDN/OpenVDN Ref2VA</td>
+<td>原生布局的完整50层hybrid，BF16/FP8单case</td>
+<td>跑通但更慢、参考相似度更低、显存逼近24GB</td>
+</tr>
+<tr>
+<td>FastH3 V2训练VSA</td>
+<td>5代表片段，12/16步扩2片段</td>
+<td>T2VA训练不能保证Ref2VA质量，三项均退化</td>
+</tr>
+<tr>
+<td>低分辨率无LoRA12/16→latent upscale→高分辨率2/4</td>
+<td>R191，14候选输出，2case</td>
+<td>无全面胜出；最快205.70s是阶段相加，不是真实完整周期</td>
+</tr>
+</tbody>
+</table>
+<h3>DPCache #1557 已经真正测试过</h3>
+<p>移植的是上游 DP 选步和二阶 Taylor hidden 外推，在“计算步”完整跑50层，“预测步”外推最后hidden后仍执行当前final layer/sampler；不是KV cache，也不是有精确校验器的推测解码。</p>
+<p>为避免多份FP32 hidden占显存，factor放CPU，分2048行传输；计算和搬运开销计入DiT。每个新任务若先完整采样校准一次再生成，不能忽略校准成本。Larry K7/K6完整计算步已做同卡ABBA：</p>
+<table>
+<thead>
+<tr>
+<th>方案</th>
+<th style="text-align:right">完整请求 A→B / s</th>
+<th style="text-align:right">降时</th>
+<th style="text-align:right">5代表片段SSIM</th>
+<th style="text-align:right">LPIPS</th>
+<th style="text-align:right">32k音频</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Larry对照</td>
+<td style="text-align:right">—</td>
+<td style="text-align:right">—</td>
+<td style="text-align:right">.715888</td>
+<td style="text-align:right">.317968</td>
+<td style="text-align:right">.709905</td>
+</tr>
+<tr>
+<td>DPCache K7</td>
+<td style="text-align:right">247.859→230.437</td>
+<td style="text-align:right">7.03%</td>
+<td style="text-align:right">.708504</td>
+<td style="text-align:right">.335680</td>
+<td style="text-align:right">.661782</td>
+</tr>
+<tr>
+<td>DPCache K6</td>
+<td style="text-align:right">249.578→200.878</td>
+<td style="text-align:right">19.51%</td>
+<td style="text-align:right">.712565</td>
+<td style="text-align:right">.335519</td>
+<td style="text-align:right">.656803</td>
+</tr>
+</tbody>
+</table>
+<p>LPIPS五例均退化；K6音频五例均下降。无LoRA16只做case1预算筛选，K10更接近参考但更慢；K8完整263.14s、32k音频.466790，未胜过Larry。来源S37。</p>
+<h2>3. FP8、BF16 attention 和 NVFP4</h2>
+<table>
+<thead>
+<tr>
+<th>方向</th>
+<th>结果</th>
+<th>为什么没采用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FP8权重＋Kitchen dense，9/12</td>
+<td>5故事FP8 821.4s/故事 vs INT8 786.7，LPIPS .286572 vs .280303</td>
+<td>没有比INT8更快/更好</td>
+</tr>
+<tr>
+<td>FlashInfer #5493 FP8 QKV大融合</td>
+<td>5代表片段20正式；完整均值222.172→225.000s，慢1.273%</td>
+<td>上游相对分散FP8的3.35×不能套到优化INT8；新QKV误差更大</td>
+</tr>
+<tr>
+<td>#5472 SM120 BF16 dense</td>
+<td>5代表片段；均值质量略升，DiT约翻倍</td>
+<td>局部误差小，但不是速度升级，且有单例退化</td>
+</tr>
+<tr>
+<td>DiT局部NVFP4</td>
+<td>5代表片段；case1同卡完整−4.73%</td>
+<td>32k均值.709905→.533766，更多step未恢复速度质量双赢</td>
+</tr>
+<tr>
+<td>FP8/NVFP4 attention新核</td>
+<td>R157/R160/R173，真实长QKV、oracle</td>
+<td>部分阈值/FP4局部快，但误差显著上升；未完成此新attention的业务成片，不借旧NVFP4媒体代表</td>
+</tr>
+<tr>
+<td>NVFP4 VAE decoder</td>
+<td>R326系列，真实原FP16源量化，2case</td>
+<td>速度更慢，RGB质量下降；不采用</td>
+</tr>
+</tbody>
+</table>
+<p>#5493 实际从原BF16＋同一Larry合并后量化FP8，没把INT8再转FP8；其余Linear保留INT8，attention也仍INT8。真实长QKV链43.725952→48.403696ms，慢10.698%；五片段SSIM .715888→.711492，LPIPS .317968→.333412，32k音频 .709905→.649937。其接入与R85不同，不能说是R85原样替换实验。来源S38。</p>
+<p>NVFP4 VAE的同一FP16 decoder参考、原始RGB SSIM如下；它与成片对BF16/50的SSIM不是一个指标。</p>
+<table>
+<thead>
+<tr>
+<th>case</th>
+<th>当前INT8 s / SSIM</th>
+<th>NVFP4 FFN s / SSIM</th>
+<th>NVFP4 all s / SSIM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>9.305763 / .999213</td>
+<td>9.782639 / .981177</td>
+<td>9.520128 / .974303</td>
+</tr>
+<tr>
+<td>8</td>
+<td>9.825153 / .999219</td>
+<td>10.36823 / .985150</td>
+<td>10.07533 / .979089</td>
+</tr>
+</tbody>
+</table>
+<p>NVFP4 all视频阶段allocated峰值约少25%，不代表完整请求峰值少25%，也没有证明增加并发后净吞吐更高。来源S25。</p>
+<h2>4. DiT INT8 主循环和 epilogue 的负结果</h2>
+<table>
+<thead>
+<tr>
+<th>家族</th>
+<th>典型实验</th>
+<th>最深结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>更大/更小tile、pipeline、寄存器限制</td>
+<td>R08/R14/R30/R32/R34/R35等</td>
+<td>FC1 config3/swizzle8、QKV config5保留；其他多数局部增益未传递到完整周期</td>
+</tr>
+<tr>
+<td>CUTLASS4.5→4.8、cuBLASLt</td>
+<td>同源同调度比较；真实长FC1</td>
+<td>换版本本身无稳定收益；不能用不同调度归因版本</td>
+</tr>
+<tr>
+<td>无饱和MMA、直接store、warp shuffle epilogue</td>
+<td>R20/R51/R52等</td>
+<td>精确但多持平/更慢</td>
+</tr>
+<tr>
+<td>FC1＋SwiGLU/ConvRot大融合</td>
+<td>R23、R65、R162–171等</td>
+<td>长90461行无稳定正收益；完整H256融合255regs并有spill，约慢15–16.5%</td>
+</tr>
+<tr>
+<td>利用原权重天然2:4/S4/E4M3可表示性</td>
+<td>R40/R50等</td>
+<td>完整可用tile为0；没有靠元素比例获得精确稀疏/低比特GEMM</td>
+</tr>
+<tr>
+<td>producer warp/寄存器重排、ping-pong</td>
+<td>R119/R124/R131/R132/R134–152</td>
+<td>资源受限、spill或barrier成本；多个变体0/30胜，未采用</td>
+</tr>
+<tr>
+<td>max3、行内/跨行softmax/pack重排</td>
+<td>R115–125/R155/R158/R179–180</td>
+<td>输出可一致但无速度收益；有的最终SASS相同</td>
+</tr>
+<tr>
+<td>精确exp2查表</td>
+<td>R122</td>
+<td>constant/shared大幅更慢，停止扩大</td>
+</tr>
+<tr>
+<td>复用scratch、紧凑V</td>
+<td>R113/R114</td>
+<td>完整case1/8收益不一致或慢，不采用</td>
+</tr>
+<tr>
+<td>query-window→outproj双缓冲/高优先级</td>
+<td>R181–185</td>
+<td>780组配对；普通32K双缓冲仍慢约.455–.483%；没有完整业务新收益</td>
+</tr>
+<tr>
+<td>新Kitchen N8 PV思路移植</td>
+<td>R186–189</td>
+<td>384边界、320长配对精确，慢约.20–.33%；3个源配置编译出同一SASS</td>
+</tr>
+</tbody>
+</table>
+<p>R126以前“112性能候选”包含变体/复测，不是112种独立新算法；R171/R178/R185等审计归档不作为新加速轮次。曾出现设备/工具停滞的组合，保留“未完成该项验收”，不自动算sanitizer通过。来源S15、S17、S27。</p>
+<h2>5. VAE FC1/FC2 主循环、融合与graph</h2>
+<table>
+<thead>
+<tr>
+<th>实验组</th>
+<th>实际范围</th>
+<th>正式结果/决策</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R193–200输出锁页、static、tile8/16</td>
+<td>decode＋部分完整DiT</td>
+<td>static有小收益；tile8/16更慢3.76%/6.20%，拒绝</td>
+</tr>
+<tr>
+<td>R203–229 RoPE、量化、双stream、FC2、direct epilogue</td>
+<td>全15latent及多轮局部/2case</td>
+<td>static＋R207保留；双stream/FC2更慢，V quant整体持平</td>
+</tr>
+<tr>
+<td>R233–253 FC1大融合、RoPE/Q、cached-Q</td>
+<td>多种核与60正式decode</td>
+<td>R234v2/R244保留；FC1大融合慢25–32%；临时buffer复用慢.221%</td>
+</tr>
+<tr>
+<td>R257–274 TMA/tile/EVT/StreamK/store/固定shape</td>
+<td>7类74配置148shape，64正式decode</td>
+<td>StreamK反序一张卡+.10–.14%，另一张−.46–.67%；不固化</td>
+</tr>
+<tr>
+<td>R277–294 2CTA/flatten/更多epilogue</td>
+<td>9方向、48正式decode</td>
+<td>未达到95%理论利用率，无可靠新赢家</td>
+</tr>
+<tr>
+<td>R295–313向量quant/FFN分块/C++批量提交</td>
+<td>1530记录3060poison、48正式decode</td>
+<td>micro最好+6.41%；真实FFN分块慢1.8–2.5%，拒绝</td>
+</tr>
+<tr>
+<td>R314–323完整FFN graph/权重轮换/精简建图</td>
+<td>真实decode，反序复核</td>
+<td>建图181–185ms→5–6ms，整行仍慢.4–.6%，分块慢3–4%，拒绝</td>
+</tr>
+<tr>
+<td>R335等mmh3 TMA FC1/固定shape</td>
+<td>48正式decode，实际新核覆盖</td>
+<td>反序约.12%差异，未形成稳定采用依据</td>
+</tr>
+</tbody>
+</table>
+<p>热micro重复相同权重/张量，真实VAE切换36层权重并穿插attention、quant和输出。减少scratch或launch数量不自动转化为整段加速。R266初筛“8–10%”曾被公平graph回放推翻，缩为约.6%，再经真实decode否决；开源描述不应保留最乐观初筛数字。来源S20–S25。</p>
+<h2>6. CPU、导出和新运行库</h2>
+<table>
+<thead>
+<tr>
+<th>方向</th>
+<th>证据</th>
+<th>决策</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPU FP32音频VAE，4线程</td>
+<td>3保存latent，4.49–9.44s，PCM不等于GPU；GPU约.12s</td>
+<td>不迁移；未获得CPU/GPU并行服务收益</td>
+</tr>
+<tr>
+<td>CPU视频封装常驻/缓冲直传</td>
+<td>R159，3段每段14次含预热导出</td>
+<td>原export已有serve模式；新from_numpy_buffer收益方向不一致，不重计常驻收益</td>
+</tr>
+<tr>
+<td>Torch2.14/Triton3.8完整R85</td>
+<td>4预热＋8正式生成，2case</td>
+<td>DiT持平，输出变化且质量升降混合；保留旧栈</td>
+</tr>
+<tr>
+<td>新ptxas13.4编译同源dense</td>
+<td>固定capture筛选</td>
+<td>比旧编译约慢.53–.54%，未采用</td>
+</tr>
+</tbody>
+</table>
+<p>所有负结果只限制本次实现、shape、权重、配方和硬件。它们可为后续开发节省重复试错，但不证明该技术在其他模型和GPU上无用。</p>
+</section><section id="reproduce" class="chapter"><div class="eyebrow">复现与待补测</div><h1>复现协议与统一累计补测</h1>
+<p>本页包含可执行的证据校验、已完成的新GPU直接对照与仍待扩展的服务测试。原生FP16视频VAE基础版→R85的两片段完整对照已完成；全15同latent VAE质量另完成。原R85与新对照runner保留在内部原环境资料中，不是通用安装包。</p>
+<h2>1. 无GPU复算现有结果</h2>
+<p>解压本资料包，在包根目录执行：</p>
+<pre><code class="language-bash">python3 tools/verify_metrics.py
+python3 tools/verify_stock_comparison.py
+python3 tools/verify_native_comparison.py
+python3 tools/check_repository.py
+</code></pre>
+<p>第一个命令从附带标量/逐组数据重新计算早期完整服务收益、Kitchen回归、INT8 VAE、R85、VAE候选、新运行库计时和旧LoRA逐故事指标。它检查R85 15个case的各重复四SHA一致、每请求400次dense。</p>
+<p>第二个命令核对包中各文件SHA、相对链接和资料完整性。SHA验证表示文件与归档相同，不等同重新生成视频或复核权重正确性。</p>
+<p>公共包只提供经字段筛选的指标，不含业务prompt、参考图、视频、latent或内部连接方式。由源文件SHA追溯完整证据，需内部资料或使用获授权的公开输入重新测量。Q2的31配方表来自原报告的舍入数字，不能当高精度raw timing。</p>
+<h2>2. 固定基线身份</h2>
+<table>
+<thead>
+<tr>
+<th>项</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ID</td>
+<td>H3-5090Dv2-LarryV4-8step-R85-INT8Decode-20260926-v1</td>
+</tr>
+<tr>
+<td>原manifest SHA</td>
+<td>903aa049d5a68442ed90d1d6f570300f814ceb6d46ef9ec0021a642b0586993c</td>
+</tr>
+<tr>
+<td>普通runner展开源码SHA</td>
+<td>1fcc6c165a749a4b4695402e167e8a91bc3ad33344fa2a4057a627059fb5e963</td>
+</tr>
+<tr>
+<td>镜像身份</td>
+<td>sha256:1ecd3c0d53eacdbed1dfe66b7eb8b8005364748d23bee09b0e4eb6d227ff1f15</td>
+</tr>
+<tr>
+<td>DiT baked权重SHA</td>
+<td>9eccf52e4fe6e764f4aac8cdb6045a58bc86d8458c783c35b7035edca71fec12</td>
+</tr>
+<tr>
+<td>INT8视频VAE SHA</td>
+<td>52a2c8c73583c86e4f41cdcce3a6ad0ea562987bc0bf3d60a0cef5f5c8e60c0e</td>
+</tr>
+<tr>
+<td>旧FP16 VAE SHA</td>
+<td>7c1f131492e7eddacaac9069a61b81bdd39de5cc96561e677c5eab1cdce5e522</td>
+</tr>
+<tr>
+<td>旧TRT engine SHA</td>
+<td>c22469eef744367e1ba253811b894ed37983ad12dc81b9cd779b4b2a31815cc8</td>
+</tr>
+</tbody>
+</table>
+<p>原固定包包括42个study文件、29个外部pin，另有53个实际Kitchen文件及输入身份。包名/镜像tag不能替代实际导入源码和二进制SHA。旧脚本某些protocol文案曾继承旧实验，判断采用实际参数、展开代码、调用计数和输出签名。</p>
+<p>在原固定包中 <code>python3 -B verify.py</code> 已于本次本地复核通过。<code>--external</code> 需要真实挂载环境；本次 GPU runner 已通过 42 study＋29 external pins 的启动/收尾校验；公开摘要的 <code>baseline-identity.json</code> 是脱离私有路径的索引，不是原manifest的字节副本。</p>
+<h2>3. 统一测试需要分清两个问题</h2>
+<p><strong>问题A：在同一Larry8配方上，所有工程改动累计快多少？</strong> 这是新的主基准，用同一权重、condition、step、seed、分辨率和CPU预算，比较stock与R85。</p>
+<p><strong>问题B：从最早实际部署到今天，延迟和质量如何变化？</strong> 最早旧Turbo5与Larry8不是相同模型方案，需作为产品档位对照，同时报告质量收益与计算增加。不能用问题B数据归因内核改造。</p>
+<p>如果真正的原版是Kitchen .33，应恢复该版本的源码、VAE和原部署入口。若只能完成.35 stock回放，名称必须写“.35 stock”，不得冒充.33部署复现。</p>
+<h2>4. 推荐测试臂</h2>
+<table>
+<thead>
+<tr>
+<th>臂</th>
+<th>配置</th>
+<th>用途</th>
+<th>状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A0</td>
+<td>Kitchen .33原部署，旧Turbo5</td>
+<td>历史产品配置复现</td>
+<td>历史已有数据；新统一测试待执行</td>
+</tr>
+<tr>
+<td>A-FP16</td>
+<td>Kitchen .35 stock，Larry8 baked，原生 FP16 视频 VAE，旧encoder，FP32 CPU输出</td>
+<td>用户要求的历史高精度VAE主基准；实际精度已核验</td>
+<td>两片段8正式＋4预热；全15同latent质量/60正式decode已完成</td>
+</tr>
+<tr>
+<td>A1</td>
+<td>Kitchen .35 stock，Larry8 baked，TRT，旧encoder，统一导出</td>
+<td>隔离相同模型的工程对照</td>
+<td>待实现并验证没有泄漏项目补丁</td>
+</tr>
+<tr>
+<td>A2</td>
+<td>Kitchen .35 stock，Larry8 baked，INT8 VAE，旧encoder，原生 FP32 CPU 输出</td>
+<td>固定 INT8 VAE 的整体工程对照</td>
+<td>9/29 两片段、每臂每 case 2 正式已完成</td>
+</tr>
+<tr>
+<td>B</td>
+<td>冻结R85，动态INT8 VAE，旧encoder</td>
+<td>当前固定基线</td>
+<td>已有完整固定runner和历史验收</td>
+</tr>
+<tr>
+<td>C</td>
+<td>R85＋静态VAE＋R234v2/R244，旧encoder</td>
+<td>最新完整集成候选</td>
+<td>仅VAE阶段已验收，完整driver待实现</td>
+</tr>
+</tbody>
+</table>
+<p>A1与B的比较同时含TRT→INT8，应报告其微小像素变化；A2与B可在固定INT8 VAE上评估工程输出是否一致。若关闭项目kernel本身会改变输出，也应单独报告，不强行用“无损”概括全部差异。</p>
+<p>统一导出是为了公平隔离GPU计算；要测RGB8/异步工程本身，需要另加原FP32交接/原服务导出臂。每种消融明确包含和排除什么，最终主数字必须来自两端整套方案直接比较。</p>
+<h2>5. 实施顺序</h2>
+<h3>阶段一：身份与数值门槛</h3>
+<ol>
+<li>只使用实时检查通过的授权实验GPU，隔离目录和环境，不覆盖固定代码/二进制/权重。</li>
+<li>对每臂记录GPU型号/SM/UUID、driver、runtime、实际库路径、编译器和flags、权重/source/binary SHA。</li>
+<li>分别独立预热；核对输入/参考顺序/condition/seed、NFE、每层实际kernel调用和fallback计数。</li>
+<li>B要恢复历史四SHA；C要先通过两个代表case，再扩全15个保存latent和完整DiT输出。</li>
+<li>A1 stock入口必须核实旧monkey-patch未残留：不能只设一个enabled=false，就假定其他后装wrapper也关闭。</li>
+<li>对C在VAE前后严格启用/恢复D64 hook；验证下一请求DiT未受影响，检查静态权重释放和峰值显存。</li>
+</ol>
+<h3>阶段二：同卡性能</h3>
+<p>先做case1/8，各臂独立1次预热、至少4次正式，ABBA与反序BAAB跨两个时间块。所有候选使用同一GPU、同一功耗/频率策略，保留全部样本；不以profile计时作为正式成绩。</p>
+<p>确认无明显回退后，扩全15段，同卡配对，每臂每case至少2次正式；若亚百分比收益且波动大，追加独立时间块再判断。保存所有失败、重试和未完成记录，不用挑最短值代替分布。</p>
+<p>输出每case median/mean/min/max、配对差值；合计用各同卡工作组的等量秒数之和。批内时间相关，不能把数百帧当作数百个独立性能或质量样本。</p>
+<h3>阶段三：完整服务和吞吐</h3>
+<p>用真实参考encoder/Qwen condition，并按固定输入顺序提交backlog。单卡GPU串行，CPU成片与下一请求重叠。至少跑完整5故事/15段的固定队列，双向顺序，所有任务排空到MP4/结果成功。</p>
+<p>计时分别记录：素材获取、condition、DiT、video/audio VAE、RGB/D2H、CPU编码、上传、结果提交、queue wait。condition内部reference encode不重复相加。没有上传服务的实验明确排除上传。</p>
+<p>稳态吞吐用实际完成间隔或固定工作量总完成时间；冷启动/模型读盘/JIT单列。长时间测试报告成功率、失败/重试、P50/P95、主机内存/锁页/本地盘/显存水位和GPU功耗，不从两次正式样本推断P95。</p>
+<h2>6. 质量指标协议</h2>
+<p>精确工程比较输出四SHA，且对照历史黄金而非只有新A/B彼此一致。换VAE/LoRA/运行栈时另外报告原始RGB误差与成片指标，统一视频色彩空间、fps、帧数与音频容器。</p>
+<p>BF16/50参考必须保持原文件SHA；原始PCM不存在时明确说明参考来自AAC。使用全帧SSIM/PSNR、2fps SqueezeNet LPIPS、8k频谱和32k立体声STFT；从t0直接对齐。若另做最优时间对齐，只能作为额外诊断，不覆盖主表。</p>
+<p>预先约定质量门槛。新模型增加多seed，人工盲听/盲看与台词/口型评分单列；不因一次SSIM上升就宣传质量提升。</p>
+<h2>7. 结果记录格式</h2>
+<p>每个请求至少记录以下信息；这是接口示意，不是已生成的实验数据：</p>
+<pre><code class="language-json">{
+  &quot;experiment_id&quot;: &quot;unique-new-id&quot;,
+  &quot;baseline_id&quot;: &quot;frozen-id&quot;,
+  &quot;arm&quot;: &quot;B&quot;,
+  &quot;case_id&quot;: 1,
+  &quot;phase&quot;: &quot;formal&quot;,
+  &quot;repeat&quot;: 0,
+  &quot;hardware_identity&quot;: &quot;verified-device-record&quot;,
+  &quot;input_sha256&quot;: &quot;computed-not-placeholder-in-real-run&quot;,
+  &quot;weights_manifest_sha256&quot;: &quot;computed&quot;,
+  &quot;runtime_manifest_sha256&quot;: &quot;computed&quot;,
+  &quot;actual_nfe&quot;: 8,
+  &quot;dense_calls&quot;: 400,
+  &quot;timing_scope&quot;: &quot;frozen condition to local MP4&quot;,
+  &quot;condition_seconds&quot;: null,
+  &quot;dit_seconds&quot;: null,
+  &quot;video_vae_seconds&quot;: null,
+  &quot;audio_vae_seconds&quot;: null,
+  &quot;cpu_export_seconds&quot;: null,
+  &quot;worker_done_monotonic&quot;: null,
+  &quot;video_latent_sha256&quot;: &quot;computed&quot;,
+  &quot;audio_latent_sha256&quot;: &quot;computed&quot;,
+  &quot;rgb8_sha256&quot;: &quot;computed&quot;,
+  &quot;pcm_sha256&quot;: &quot;computed&quot;,
+  &quot;fallback_count&quot;: 0,
+  &quot;status&quot;: &quot;pending&quot;
+}
+</code></pre>
+<p>正式结果不能把null/placeholder当0或成功。图回放、sanitizer、profile与正式计时用不同phase，避免误混统计。</p>
+<h2>8. 本次进展与当前缺口</h2>
+<p>9/29 新 GPU 同场实测：相同 Larry v4 8 步、同一 INT8 VAE，Kitchen 0.2.35 基础实现到固定 R85，两个代表性片段的总生成耗时减少 <strong>6.685%</strong>，串行容量折算 <strong>+7.164%</strong>。共 8 正式＋8 预热，所有正式请求的 video latent、audio latent、RGB8、PCM 与历史黄金逐位一致。 详细记录见 <a href="R85-STOCK-VS-R85.md">STOCK-VS-R85.md</a>。</p>
+<p>GPU 0/3 各自同卡交叉，其他服务核查未变。基础臂直接不导入 teacher/attention/量化/epilogue 等项目适配器，避免只关闭一个开关却遗留融合；两臂 8 NFE/400 次 dense 的入口和输出全部审计。原生整体 attention 入口与分拆入口不同，首次审计误选导致的基础预热失败已保留并排除。</p>
+<p>当前完成的是相同 INT8 VAE 下的两片段直接比较，每臂每 case 2 正式，少于上文推荐的强化验证 4 次。尚未完成全 15 新对照、TRT 基础臂、最新静态 VAE 的完整集成、真实 condition 与长时间服务队列；不得将小样本串行容量折算称为稳态吞吐。</p>
+<h2>9. 原生FP16基线新增完成项</h2>
+<p>新同场实测：<strong>Kitchen 0.2.35 基础 Larry v4 8 步＋原生 FP16 视频 VAE → 固定 R85＋INT8 视频 VAE，两个代表片段的总生成耗时减少 11.591%，串行容量折算增加 13.111%</strong>。每请求平均节省 30.66 秒。完整计时从冻结 condition 到本地 MP4，排除 Qwen/参考处理、HTTP/排队/上传与首次读权重。</p>
+<p>相同 latent 的全部 15 片段，INT8 VAE 对原生 FP16：成片 SSIM 均值 <strong>0.989070</strong>，LPIPS <strong>0.007589</strong>，原始 RGB8 PSNR 均值 <strong>58.67 dB</strong>；音频 PCM <strong>15/15 逐字节一致</strong>。这支持“当前测试中的画面差异很小、音频不变”，不等于逐像素无损，也不是多 seed 人工盲评结论。</p>
+<p>历史“BF16 满血版”实际为 BF16 DiT/Qwen＋FP16 视频 VAE＋FP32 音频 VAE。本次读取 safetensors 头和运行 dtype，视频原权重 562 个张量均为 FP16，运行也是 torch.float16。因此主速度基线准确标为“原生 FP16 视频 VAE”；单独 BF16 VAE 尚未测试。</p>
+<p>全15的“同latent解码测试”不等于全15“完整DiT请求对照”。本次保留动态VAE；静态R234/R244尚未计入。</p>
+</section><section id="sources" class="chapter"><div class="eyebrow">上游与开源拆分</div><h1>上游来源、版本与开源代码拆分</h1>
+<p>本文不进行新的“全网最新版本”排名。版本和PR状态按各已完成实验的固定快照记录；主分支后来更新，不自动改变本项目的验收结果。</p>
+<h2>1. 采用与测试版本</h2>
+<table>
+<thead>
+<tr>
+<th>组件</th>
+<th>固定/测试身份</th>
+<th>取舍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Comfy Kitchen</td>
+<td>实际运行0.2.35；旧基础镜像metadata另有0.2.33</td>
+<td>固定已验证源码树，不按pip list误判</td>
+</tr>
+<tr>
+<td>PyTorch/Triton</td>
+<td>2.12.0+cu130 / 3.7.0</td>
+<td>默认</td>
+</tr>
+<tr>
+<td>新运行栈</td>
+<td>2.14.0+cu130 / 3.8.0 / cuDNN9.24</td>
+<td>完整测试无稳定加速、输出改变，未采用</td>
+</tr>
+<tr>
+<td>cuDNN</td>
+<td>默认9.20</td>
+<td>新库不自动重写自定义INT8 CUDA核</td>
+</tr>
+<tr>
+<td>CUTLASS</td>
+<td>自定义核依赖冻结构建；4.5/4.8同源同调度比较</td>
+<td>升级本身无可靠收益，不逐包强升</td>
+</tr>
+<tr>
+<td>CUDA编译器</td>
+<td>固定CUDA13.0构建；另筛选ptxas13.4.59</td>
+<td>新编译结果更慢，未整体替换</td>
+</tr>
+<tr>
+<td>FlashInfer</td>
+<td>各PR固定head、0.7.0基座等分别留档</td>
+<td>#5493/#5472等属候选测试，不是R85自动依赖升级</td>
+</tr>
+<tr>
+<td>H3-Optimizations</td>
+<td>0.2.45 FastH3 VSA候选</td>
+<td>需要训练权重；不直接给Larry开启</td>
+</tr>
+<tr>
+<td>CPU导出</td>
+<td>原PyAV/FFmpeg/x264/AAC链路，历史镜像PyAV18.1.0</td>
+<td>实际发布应补录完整二进制/编译选项，不只记Python包</td>
+</tr>
+</tbody>
+</table>
+<p>原镜像127个Python分发包的盘点是某时间点静态快照，不等于所有生产实例实时状态。移植首先固定实际import路径、commit、source SHA与.so，不能用“最新”取代可复现版本。</p>
+<h2>2. 核心上游来源与归属</h2>
+<table>
+<thead>
+<tr>
+<th>来源</th>
+<th>本项目关系</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/Comfy-Org/comfy-kitchen">Comfy Kitchen</a></td>
+<td>ConvRot INT8、GEMM、dense/VAE融合基础；项目做适配、调度与验证</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Comfy-Org/ComfyUI">ComfyUI</a></td>
+<td>H3模型/采样/模型管理/VAE接入及动态显存等基础</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Comfy-Org/comfy-kitchen/pull/167">Kitchen #167</a></td>
+<td>H3 VAE输入激活、量化和融合路径</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Comfy-Org/ComfyUI/pull/16187">ComfyUI #16187</a></td>
+<td>新VAE接入</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Comfy-Org/ComfyUI/pull/16332">ComfyUI #16332</a></td>
+<td>tile引用释放和canvas内存优化</td>
+</tr>
+<tr>
+<td><a href="https://github.com/thu-ml/SageAttention">SageAttention</a></td>
+<td>INT8注意力/在线softmax等基础路径与思想；自定义SM120实现需保留来源</td>
+</tr>
+<tr>
+<td><a href="https://github.com/NVIDIA/cutlass">CUTLASS</a></td>
+<td>GEMM模板、MMA/epilogue基础</td>
+</tr>
+<tr>
+<td><a href="https://github.com/flashinfer-ai/flashinfer/pull/5493">FlashInfer #5493</a></td>
+<td>FP8 QKV大融合实测；head 2c5fe4dc323c8c5ebcfe30344d0b0ed51f134983；未替换INT8</td>
+</tr>
+<tr>
+<td><a href="https://github.com/flashinfer-ai/flashinfer/pull/5472">FlashInfer #5472</a></td>
+<td>SM120 BF16 dense实测；测试head 2653034125b095a78ce15ff3adbabd5fe75a96db；慢于当前INT8</td>
+</tr>
+<tr>
+<td><a href="https://github.com/ModelTC/LightX2V/pull/1557">LightX2V #1557</a></td>
+<td>DPCache DP/Taylor代码移植，head 99dabd7e4010261403294cd82a282e0b37445233；近似分支未采用</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Dao-AILab/flash-attention/pull/2599">FlashAttention #2599</a></td>
+<td>SM120 TMA/warp分工的研究参考；不将作者BF16收益归为本项目</td>
+</tr>
+<tr>
+<td><a href="https://github.com/niw/mmh3">niw/mmh3</a></td>
+<td>commit 67763f64的TMA GEMM实验参考；48真实VAE解码未稳定胜出</td>
+</tr>
+<tr>
+<td><a href="https://github.com/gau-nernst/learn-cuda/tree/8c4d1b887a25727b320bc3ace19b63e2db6f8b44/02_matmul_sm120">learn-cuda SM120</a></td>
+<td>TMA/producer实验参考；历史LICENSE读取未取得，不能自动声明可按MIT再分发</td>
+</tr>
+<tr>
+<td><a href="https://docs.nvidia.com/cuda/blackwell-tuning-guide/index.html">NVIDIA Blackwell tuning guide</a></td>
+<td>硬件资料；最终资源限制使用5090 D v2设备查询与实测</td>
+</tr>
+</tbody>
+</table>
+<p>vLLM/SGLang在本项目主要提供批处理、权重驻留、请求调度、缓存分层与生命周期的研究借鉴，以及独立Qwen编码服务实验。R85不是部署在vLLM/SGLang上的整套H3模型；不能将它们其他模型的PR benchmark算成本项目收益。</p>
+<h2>3. 权重来源</h2>
+<table>
+<thead>
+<tr>
+<th>权重</th>
+<th>来源/身份</th>
+<th>发布注意</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>H3基础/量化模型</td>
+<td>原项目固定模型manifest</td>
+<td>本资料仅记录SHA，未重新分发</td>
+</tr>
+<tr>
+<td>Larry v4</td>
+<td><a href="https://huggingface.co/larryvrh/MiniMax-H3-Turbo-Lora">larryvrh</a></td>
+<td>保留作者、训练版本和许可证</td>
+</tr>
+<tr>
+<td>Larry pruned ComfyUI转换</td>
+<td><a href="https://huggingface.co/drbaph/MiniMax-H3-Turbo-Lora-ComfyUI">drbaph</a></td>
+<td>保留转换来源与精确文件SHA</td>
+</tr>
+<tr>
+<td>INT8 VAE</td>
+<td><a href="https://huggingface.co/Comfy-Org/MiniMax-H3/blob/7e75982b97cd5a41d2dcfa1904ee88d0686d6fd1/vae/minimax_h3_video_vae_int8_convrot.safetensors">Comfy-Org固定revision</a></td>
+<td>文件SHA 52a2c8c73583c86e4f41cdcce3a6ad0ea562987bc0bf3d60a0cef5f5c8e60c0e</td>
+</tr>
+<tr>
+<td>HyperFlow</td>
+<td><a href="https://huggingface.co/videorebirth/hyperflow">videorebirth/hyperflow</a></td>
+<td>已测候选，非默认依赖</td>
+</tr>
+<tr>
+<td>LightX2V Turbo</td>
+<td><a href="https://huggingface.co/lightx2v/Minimax-h3-Turbo">lightx2v/Minimax-h3-Turbo</a></td>
+<td>旧4-step、Ref2VA8、FL2VA8需按具体文件区分</td>
+</tr>
+</tbody>
+</table>
+<p>模型权重、LoRA、第三方源文件、CUDA二进制和本项目新代码可能具有不同许可。准备开源应按文件保留NOTICE/LICENSE和修改记录；不能给整个历史研究目录套一个宽泛许可证。本次没有替用户选择项目许可证，也没有向外发布。</p>
+<h2>4. 从研究代码拆成可复用库</h2>
+<p>下面是建议结构，尚未声称已实现成独立安装包：</p>
+<pre><code class="language-text">h3_sm120/
+  config.py                 # 模型与数值模式，默认固定dense INT8
+  identities.py             # source/binary/weights/runtime身份
+  dispatch.py               # dtype/shape/stride/layout/quant资格与回退
+  kernels/
+    dense_sm120/            # INT8 attention，不带服务全局变量
+    norm_convrot/           # norm/mod/residual/quant融合
+    gemm_epilogue/          # outproj/FC2与QKV接入
+    vae_d64/                # 可选R234v2/R244后端
+  runtime/
+    ownership.py            # carrier单消费者、stream与generation
+    vae_loading.py          # dynamic默认，static候选显式选择
+    rgb8_transfer.py        # blend后转换、双pinned队列
+    cpu_export.py           # 有界x264/AAC/MP4任务与排空
+  integration/comfyui.py    # 模型结构适配，不硬编码业务case
+benchmarks/
+  operator.py               # 真实capture和边界/poison/stream
+  full_pipeline.py          # 各臂独立预热、配对完整生成
+  service_queue.py          # 真实condition与完成事件
+  metrics.py                # 固定评估版本和分母
+tests/
+  numerical_contracts/      # 舍入/量化/所有权/回退语义
+third_party/                # 来源与许可证，按需下载
+</code></pre>
+<p>现有研究runner依赖多套历史目录挂载和动态源码替换；公开版本应把实验choice整理为明确的后端接口。未知shape回退原Kernel；stateful跨block carrier不能共用到多请求并发。新VAE D64只作用于decoder，不污染DiT或condition。</p>
+<p>权重建议提供转换/下载清单及SHA校验，而不是附带私有baked产物。首次转换要对选定输入验证与旧post-cast有效权重一致。CPU导出应有独立可替换接口，不带内部任务队列或对象存储凭据。</p>
+<h2>5. 本次可公开资料与内部复用材料</h2>
+<p>公开草稿包含技术说明、匿名case指标、源文件SHA、精简基线身份、本地复算脚本与审阅网页；没有第三方大段源码或权重再分发。</p>
+<p>内部目录另存原文件路径索引、代码入口清单与未改动R85固定包副本，供后续接手者快速定位。内部包仍有原环境路径，不能直接推到公开仓库。需要公开实际实现时，按上节拆分代码并完成干净环境构建与统一全链路对照，才可称为可安装开源推理方案。</p>
+</section><section class="chapter" id="evidence"><div class="eyebrow">56份核心来源</div><h1>证据身份索引</h1><p>完整源路径留在内部交接中。这里提供来源标题与源文件SHA，标量摘录可由包内脚本复算。</p><table><thead><tr><th>ID</th><th>来源</th><th>SHA256</th></tr></thead><tbody><tr><td>S01</td><td>CUMULATIVE_SUMMARY.json</td><td><code>21213f0d0905591c875b52e6c95337f7f4af80912efdc9827cc9ae9903792b75</code></td></tr><tr><td>S02</td><td>summary.json</td><td><code>b4dafccdcfd1c30ba063a3f1de0c620c75a7f20c985d19215f2daa4f73ced09b</code></td></tr><tr><td>S03</td><td>final-analysis.json</td><td><code>9f5fcea146e0cc7a406fdd0e09a9746e563358bd6e749cc4e53050105c8ae7a4</code></td></tr><tr><td>S04</td><td>r85-total-all15-aggregate.json</td><td><code>64d12620cb99dbc8c2aff384423647aea021c0191809c5aca384a841e6f1b712</code></td></tr><tr><td>S05</td><td>r126-summary.json</td><td><code>f3c445b5506fffe518751133e05462b6c8796bae1f5731e53183d908e8c9da62</code></td></tr><tr><td>S06</td><td>r129-analysis.json</td><td><code>943a0719306dffab9c1e137111c8971eb9af49ab9f5a315b9a1fde995d0d36ee</code></td></tr><tr><td>S07</td><td>all15-derived.json</td><td><code>16bfad61349871427bab2ed994bb9c8132426a3dad252763c95e6b7117fb895c</code></td></tr><tr><td>S08</td><td>measured.json</td><td><code>a3f53082f463fee458058dc8e8eb414db1903c1768db6729a14aba339cff7d87</code></td></tr><tr><td>S09</td><td>summary.json</td><td><code>cb5f91f9f74fa5c730ab32183c15da3eec5a805e68949e614a96ab54d9fb5ffd</code></td></tr><tr><td>S10</td><td>results.json</td><td><code>5cd554dff8a4fa549fa85dad3c3787ba38fd19996eddc7977b5161932c457fa3</code></td></tr><tr><td>S11</td><td>extended-results.json</td><td><code>4f3d6beb4a5e34936df5dfb47fec1f67e31b7d4c68696873507c17d5050612ac</code></td></tr><tr><td>S12</td><td>H3 单卡 5090 D v2 量化实测</td><td><code>da592141263bc706a65f0694726bb8c3303427b281850329202aee62ad755378</code></td></tr><tr><td>S13</td><td>final-analysis.json</td><td><code>3563b3edddf5893e5468fe76e926237f3a60f3d5b067c99ed3a9c03a6848bfd7</code></td></tr><tr><td>S14</td><td>audio-cpu-results.json</td><td><code>66c9b69e1fa5e5451069a1f6d7370243304f50bb9357a9401f5061e6a7867a7f</code></td></tr><tr><td>S15</td><td>R85 固化、最新库更新与 5090 D v2 专用 attention</td><td><code>b7ff61fdaa3ac66cb9edbc5e23ac7a52e97fa1b10514c7d178f20408df0d02f4</code></td></tr><tr><td>S16</td><td>H3 / RTX 5090 D v2：Out-proj＋FC2 精确融合实测</td><td><code>3325e2b5edd5783eaa074a683164ce43d3c1a632ab4db3f464daf538256d0656</code></td></tr><tr><td>S17</td><td>H3 Larry v4 8 步：5090 D v2 进一步算子优化实测</td><td><code>479df5f5e07e7478424011cd76bf0c29bc4273e50cf2444a95a27ccccff505a1</code></td></tr><tr><td>S18</td><td>H3 单卡 5090 D v2：非 Qwen 算子实测报告</td><td><code>b90112961d7bab735dedb1fc83519e87f368cbe41ec053a34dd2e64ef95707db</code></td></tr><tr><td>S19</td><td>MiniMax-H3 · 5090D v2 累计优化发布</td><td><code>433890ba10d6141f0c12068276f92cdd9681b47fb9ab6852cfdfb8a2bf087921</code></td></tr><tr><td>S20</td><td>H3 VAE INT8算力优化实测：R233–R253</td><td><code>15ff7ea920db8003b8d23d0576142c2e8c6baf211fecfad97a5dad1e4d98d77c</code></td></tr><tr><td>S21</td><td>H3 VAE FC1/FC2 INT8 GEMM：SM120 主循环专项实验</td><td><code>a530834b9a130badfca030865898bca94ffdcde6cd21ca3c5d7cf84b88664adc</code></td></tr><tr><td>S22</td><td>H3 VAE FC1/FC2：95%利用率专项复核与优化实验</td><td><code>b2c2abd92b0be7ce018df4ebfcf66a1d0a30bd9347bb05414dddbc7b76e4f1dc</code></td></tr><tr><td>S23</td><td>H3 VAE数据流专项 R295–R313 · 2026-09-28</td><td><code>2e9b58011e94a92ec54b779d28f8517a4073f795255693cbd5a1a5f552bb986e</code></td></tr><tr><td>S24</td><td>H3 VAE FFN 局部 CUDA Graph：5090 D v2 真实实验</td><td><code>a84298b3c4fef64dc107f3fdc12f76e0f0a3a12a398566595987cb6dee2d9743</code></td></tr><tr><td>S25</td><td>H3 R85：PyTorch 2.14、SM120 无损算子与 NVFP4 VAE 实测</td><td><code>c1a385c06a70a4d0bb413b3f006c48cf5933ebcb27e0ee8f339d906a42779260</code></td></tr><tr><td>S26</td><td>H3 低分辨率多步＋latent 放大＋高分辨率精修：R191 实测交接</td><td><code>83367a0f9456539ba0145b69e487aba32b3b5aebda2a18cd5e6530adab880dd6</code></td></tr><tr><td>S27</td><td>H3 单卡5090 D v2：9月26日持续无损优化实测</td><td><code>d248fd8deed4769126531c0d4588871c0eff8753dbd13941d75b62b5c956a2cb</code></td></tr><tr><td>S28</td><td>H3 / RTX 5090 D v2：FastH3 VSA、NVFP4 与 INT8 内核实测</td><td><code>44a98ecf82c6c408fb1563bd27c1a09664ae0c2907499a1921f7a143b4b8c70e</code></td></tr><tr><td>S29</td><td>CONCLUSION.md</td><td><code>c35bbcee759a5ee1b8d18354d5a7ce958a5682e0d43b06de673be5fda928ba54</code></td></tr><tr><td>S30</td><td>RESULT.md</td><td><code>b301a2594b31f79d981a9a9ab8ac7c276e8fb0152e0d0e375fc35cd489bda286</code></td></tr><tr><td>S31</td><td>Larry v4 8步＋Kitchen 0.2.35＋原融合迁移＋INT8 Decode：Codex复用交接</td><td><code>801e14a6c3bf04b18fdc3dd52ba58e26c8e55a4da9b6d449713927550fa86e25</code></td></tr><tr><td>S32</td><td>MiniMax-H3 / Larry v4 pruned 8 步 / v13 关 SLA / TRT VAE / RunningHub Lightning：完整 Codex 交接</td><td><code>6e72bbd7fe7b0ab5c976a8e356a2c4141e8523c366edda292b1aa3e8566863fd</code></td></tr><tr><td>S33</td><td>R360：PyTorch 2.14＋Triton 3.8，保留 INT8 的完整推理复测</td><td><code>48b9e04e32358ae7b4535019334d2a3963363720b49db7063faaddc11e96b37e</code></td></tr><tr><td>S34</td><td>原 v22 → 累计算子优化＋RGB8：同场实测</td><td><code>2fb8b18e905c1933d63ceddf8b033af7f279860bf4556b15ae871efb9088812c</code></td></tr><tr><td>S35</td><td>VSA / FP8 业务视频实验指标</td><td><code>ee08e422ab8cceb722335d42987ce1e96f412d6cd233d6bd79e1a83da8f33650</code></td></tr><tr><td>S36</td><td>r130_baseline_manifest.json</td><td><code>903aa049d5a68442ed90d1d6f570300f814ceb6d46ef9ec0021a642b0586993c</code></td></tr><tr><td>S37</td><td>H3 DPCache #1557 与 BF16 dense #5472：5090 D v2 实测交接</td><td><code>d5641f4c334e0b0b860cda0cc3ad55cad1963d9fd2590e66e04ed8d0a775336a</code></td></tr><tr><td>S38</td><td>5493 FP8 QKV 大融合：5090 D v2 实测</td><td><code>46181000dd5edc029643a7b1367033a69e9b185d539787ffe50a8d597cf94f49</code></td></tr><tr><td>S39</td><td>5090 D v2 Dense Attention 无损优化实测</td><td><code>f22d636e9d14191bb2cf84cbc11ee977e04049a32e122397dbfff77df0498f1c</code></td></tr><tr><td>S40</td><td>MiniMax H3：RTX 5090 D v2 / Kitchen Dense 无损加速交接</td><td><code>e6503db5736e0de74466c33858fe4e5f10593d0df674cfd279d49b6dd45ea0dd</code></td></tr><tr><td>S41</td><td>9/29 stock035/R85 direct GPU r368v2-c1-abba-0-stock</td><td><code>b121ed85cb1bdd6a1b8fc16dafa59b3614fc92e1d1cce1956fd873b12e52e094</code></td></tr><tr><td>S42</td><td>9/29 stock035/R85 direct GPU r368v2-c1-abba-1-r85</td><td><code>bd2a379cbf344b03a709b05d6fd497fc707082c0a7f6e534ccbd0354d4454cd3</code></td></tr><tr><td>S43</td><td>9/29 stock035/R85 direct GPU r368v2-c1-abba-2-r85</td><td><code>df748ce12df2ebbb86bb08f02f9b602134267805e3b9a75fe8f5919b3e35e86e</code></td></tr><tr><td>S44</td><td>9/29 stock035/R85 direct GPU r368v2-c1-abba-3-stock</td><td><code>0aa81a503ce8f9cbdae9477c68dcb1dbc31a17c328e170fc88a1919d465da418</code></td></tr><tr><td>S45</td><td>9/29 stock035/R85 direct GPU r368-c8-baab-0-r85</td><td><code>1677633abc27e0cd8dfd9d8c2ce61fb8cf7c306478a502c122bf9a624581f8a3</code></td></tr><tr><td>S46</td><td>9/29 stock035/R85 direct GPU r368v2-c8-aab-0-stock</td><td><code>e4e807df643b49dc6a0e99bdbbe116e7e90ae6ac777f5e05516b64e056fb7184</code></td></tr><tr><td>S47</td><td>9/29 stock035/R85 direct GPU r368v2-c8-aab-1-stock</td><td><code>79d4492556b7bfe7f866c8f5e42ee13598380a9e036f5afb48b8b2375e97ae2d</code></td></tr><tr><td>S48</td><td>9/29 stock035/R85 direct GPU r368v2-c8-aab-2-r85</td><td><code>28436503642da0e82d10f5a42f9fa2e9887f56ba63498a59ada7339bab3fa42c</code></td></tr><tr><td>S49</td><td>原生 FP16 基线新 GPU 测试：r369-c1-ab-0-stock</td><td><code>9f497111764e3d7426d4ee8416ca88881b5337b5767e5c1fa4a9d1f569d35b53</code></td></tr><tr><td>S50</td><td>原生 FP16 基线新 GPU 测试：r369-c1-ab-1-r85</td><td><code>bb4df11d3633ae1a8ad72c340f4d0bae55d103d3ae588068ece92498f8a9ab4f</code></td></tr><tr><td>S51</td><td>原生 FP16 基线新 GPU 测试：r369-c8-ba-0-r85</td><td><code>19d6fd0f374206202c67e2701226940fe7449af6ed86a6a11acdab9a5d57c64a</code></td></tr><tr><td>S52</td><td>原生 FP16 基线新 GPU 测试：r369-c8-ba-1-stock</td><td><code>1b4416e39cf48a868335ce36fa7875bf72d650c65da05ef188c9e2c9d9d6799c</code></td></tr><tr><td>S53</td><td>原生 FP16 基线新 GPU 测试：r370-c1to7-abba</td><td><code>b12bbeb9ad0d5a2439cf577b27afd8e26f2db0074f49f607b90c4e6f8c01357f</code></td></tr><tr><td>S54</td><td>原生 FP16 基线新 GPU 测试：r370-c8to15-baab</td><td><code>31f69db784634fa904f5ab4d17029f6ce2701c3bb3e7d3b43c402864a07fd559</code></td></tr><tr><td>S55</td><td>原生 FP16 基线新 GPU 测试：r371-c1to7</td><td><code>d6836d9e9ece976e33b99e6b1d77438c2763b64c611e74aa9857cafef5902dce</code></td></tr><tr><td>S56</td><td>原生 FP16 基线新 GPU 测试：r371-c8to15</td><td><code>7fad557288a83fcbf808b85d9a479eb273407d303092a4dd789fd0196693ddab</code></td></tr></tbody></table></section><footer>本地审阅资料。56份核心来源，历史与新实验均附可复算数据；新增同卡 GPU 完整生成对照。未向外发布。</footer><script>document.querySelectorAll('table').forEach(t=>{const w=document.createElement('div');w.className='table-wrap';t.before(w);w.appendChild(t)});const ob=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){document.querySelectorAll('nav a').forEach(a=>a.classList.toggle('active',a.hash==='#'+e.target.id))}})},{rootMargin:'-10% 0px -75% 0px'});document.querySelectorAll('section').forEach(s=>ob.observe(s));
+const optCards=[...document.querySelectorAll('.opt-card')];
+function filterOpts(){const q=document.getElementById('opt-search').value.trim().toLowerCase(),s=document.getElementById('opt-stage').value,t=document.getElementById('opt-status').value;let n=0;optCards.forEach(c=>{c.hidden=!!((q&&!c.textContent.toLowerCase().includes(q))||(s&&c.dataset.stage!==s)||(t&&c.dataset.status!==t));if(!c.hidden)n++});document.getElementById('opt-count').textContent=n+' / '+optCards.length+' 项'}
+['opt-search','opt-stage','opt-status'].forEach(id=>document.getElementById(id).addEventListener('input',filterOpts));
+document.getElementById('opt-expand').onclick=()=>optCards.forEach(c=>{if(!c.hidden)c.open=true});
+document.getElementById('opt-collapse').onclick=()=>optCards.forEach(c=>{if(!c.hidden)c.open=false});
+window.addEventListener('beforeprint',()=>optCards.forEach(c=>c.open=true));
+</script></main></body></html>

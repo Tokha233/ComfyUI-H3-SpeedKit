@@ -1,0 +1,96 @@
+{
+  "status": "success",
+  "cases": [
+    {
+      "case": 1,
+      "seconds": 9.709958532010205,
+      "rgb_sha256": "fa0a22a4cb29b4bd4f606824d86be60500e55b838fdcdb17c810f751b143cbe2",
+      "equal": true
+    },
+    {
+      "case": 2,
+      "seconds": 8.674757041968405,
+      "rgb_sha256": "e77084f9ebb95bca8abdc5306a3121473131d0f0017797af0b6b7b19e232ed09",
+      "equal": true
+    },
+    {
+      "case": 3,
+      "seconds": 8.697631050017662,
+      "rgb_sha256": "da7c1c1011cb30e611dd6568d8e7cf6c7737bc033658459fbf37299f742dd66c",
+      "equal": true
+    },
+    {
+      "case": 4,
+      "seconds": 8.714276757906191,
+      "rgb_sha256": "7e730586ddae3c64cf0e5e03af29d82c2cffeff09c41ba8a24e1ced587edeba5",
+      "equal": true
+    },
+    {
+      "case": 5,
+      "seconds": 8.735097981058061,
+      "rgb_sha256": "89549a2bb2d3923b3292e40ff811fa4cb5685c6de812d99e006bb3af0e0557e7",
+      "equal": true
+    },
+    {
+      "case": 6,
+      "seconds": 8.744267223984934,
+      "rgb_sha256": "eb4fc05a0d0be3e54e1aff2c3919a7258624ae214ce24178be0a67491c386e19",
+      "equal": true
+    },
+    {
+      "case": 7,
+      "seconds": 8.758134395000525,
+      "rgb_sha256": "daaff4164238843888ddc5a5e8e38072e3577003d0dcf0d9a26fc14e34ba4b45",
+      "equal": true
+    },
+    {
+      "case": 8,
+      "seconds": 9.384159340057522,
+      "rgb_sha256": "86113c37439276adc259ad00f0d33fe25c2295c6a85e6ee775a1b750eca56aab",
+      "equal": true
+    },
+    {
+      "case": 9,
+      "seconds": 10.64720409491565,
+      "rgb_sha256": "8a43bbadf26a4a580bcc70a4210c4a726b60cb316eb072c02c9a8e5cd112334c",
+      "equal": true
+    },
+    {
+      "case": 10,
+      "seconds": 7.5219264989718795,
+      "rgb_sha256": "8c6da97759dc589936d78a9becf147e4296abe6b85ffff159bc34f26f84f7f42",
+      "equal": true
+    },
+    {
+      "case": 11,
+      "seconds": 8.778918678988703,
+      "rgb_sha256": "318069fe7028be94d27ff52c731dd6144790c22708d6b571aff246f581b8f729",
+      "equal": true
+    },
+    {
+      "case": 12,
+      "seconds": 8.782499917899258,
+      "rgb_sha256": "aac4d36068a312eb9a1dd5715138db33152b680d7db0b691446d0fea989960cd",
+      "equal": true
+    },
+    {
+      "case": 13,
+      "seconds": 7.526825050008483,
+      "rgb_sha256": "a6d24460ce08c3ea1fa4bacf17ee02cb7d5d6008c4f7741d446428fa8af47d39",
+      "equal": true
+    },
+    {
+      "case": 14,
+      "seconds": 8.782587798079476,
+      "rgb_sha256": "3c1b029c82882ae14bee4e82036f65df223f5d75a54f22d4c58f047c3fb60b1a",
+      "equal": true
+    },
+    {
+      "case": 15,
+      "seconds": 7.523580812034197,
+      "rgb_sha256": "29cd3166a6772d5c3e74a646ea41a6b17d78203fa9a084a1f3a5f7ccc3a72ae1",
+      "equal": true
+    }
+  ],
+  "scope": "One pass per historical saved latent through the packaged Kitchen .36 INT8 VAE and RGB8 output. All 15 RGB hashes equal R85. Seconds are observations, not repeated comparative timings."
+}

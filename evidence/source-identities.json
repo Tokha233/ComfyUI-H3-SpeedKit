@@ -1,0 +1,378 @@
+[
+  {
+    "id": "S01",
+    "file_name": "CUMULATIVE_SUMMARY.json",
+    "title": "CUMULATIVE_SUMMARY.json",
+    "sha256": "21213f0d0905591c875b52e6c95337f7f4af80912efdc9827cc9ae9903792b75",
+    "bytes": 15659
+  },
+  {
+    "id": "S02",
+    "file_name": "summary.json",
+    "title": "summary.json",
+    "sha256": "b4dafccdcfd1c30ba063a3f1de0c620c75a7f20c985d19215f2daa4f73ced09b",
+    "bytes": 52988
+  },
+  {
+    "id": "S03",
+    "file_name": "final-analysis.json",
+    "title": "final-analysis.json",
+    "sha256": "9f5fcea146e0cc7a406fdd0e09a9746e563358bd6e749cc4e53050105c8ae7a4",
+    "bytes": 414407
+  },
+  {
+    "id": "S04",
+    "file_name": "r85-total-all15-aggregate.json",
+    "title": "r85-total-all15-aggregate.json",
+    "sha256": "64d12620cb99dbc8c2aff384423647aea021c0191809c5aca384a841e6f1b712",
+    "bytes": 1471
+  },
+  {
+    "id": "S05",
+    "file_name": "r126-summary.json",
+    "title": "r126-summary.json",
+    "sha256": "f3c445b5506fffe518751133e05462b6c8796bae1f5731e53183d908e8c9da62",
+    "bytes": 10323
+  },
+  {
+    "id": "S06",
+    "file_name": "r129-analysis.json",
+    "title": "r129-analysis.json",
+    "sha256": "943a0719306dffab9c1e137111c8971eb9af49ab9f5a315b9a1fde995d0d36ee",
+    "bytes": 13374
+  },
+  {
+    "id": "S07",
+    "file_name": "all15-derived.json",
+    "title": "all15-derived.json",
+    "sha256": "16bfad61349871427bab2ed994bb9c8132426a3dad252763c95e6b7117fb895c",
+    "bytes": 7210
+  },
+  {
+    "id": "S08",
+    "file_name": "measured.json",
+    "title": "measured.json",
+    "sha256": "a3f53082f463fee458058dc8e8eb414db1903c1768db6729a14aba339cff7d87",
+    "bytes": 28843
+  },
+  {
+    "id": "S09",
+    "file_name": "summary.json",
+    "title": "summary.json",
+    "sha256": "cb5f91f9f74fa5c730ab32183c15da3eec5a805e68949e614a96ab54d9fb5ffd",
+    "bytes": 7395
+  },
+  {
+    "id": "S10",
+    "file_name": "results.json",
+    "title": "results.json",
+    "sha256": "5cd554dff8a4fa549fa85dad3c3787ba38fd19996eddc7977b5161932c457fa3",
+    "bytes": 235172
+  },
+  {
+    "id": "S11",
+    "file_name": "extended-results.json",
+    "title": "extended-results.json",
+    "sha256": "4f3d6beb4a5e34936df5dfb47fec1f67e31b7d4c68696873507c17d5050612ac",
+    "bytes": 655454
+  },
+  {
+    "id": "S12",
+    "file_name": "QUANTITATIVE_RESULTS.md",
+    "title": "H3 单卡 5090 D v2 量化实测",
+    "sha256": "da592141263bc706a65f0694726bb8c3303427b281850329202aee62ad755378",
+    "bytes": 15052
+  },
+  {
+    "id": "S13",
+    "file_name": "final-analysis.json",
+    "title": "final-analysis.json",
+    "sha256": "3563b3edddf5893e5468fe76e926237f3a60f3d5b067c99ed3a9c03a6848bfd7",
+    "bytes": 575296
+  },
+  {
+    "id": "S14",
+    "file_name": "audio-cpu-results.json",
+    "title": "audio-cpu-results.json",
+    "sha256": "66c9b69e1fa5e5451069a1f6d7370243304f50bb9357a9401f5061e6a7867a7f",
+    "bytes": 2521
+  },
+  {
+    "id": "S15",
+    "file_name": "BASELINE-R85-AND-SM120.md",
+    "title": "R85 固化、最新库更新与 5090 D v2 专用 attention",
+    "sha256": "b7ff61fdaa3ac66cb9edbc5e23ac7a52e97fa1b10514c7d178f20408df0d02f4",
+    "bytes": 26422
+  },
+  {
+    "id": "S16",
+    "file_name": "NIGHT_RESULTS.md",
+    "title": "H3 / RTX 5090 D v2：Out-proj＋FC2 精确融合实测",
+    "sha256": "3325e2b5edd5783eaa074a683164ce43d3c1a632ab4db3f464daf538256d0656",
+    "bytes": 12407
+  },
+  {
+    "id": "S17",
+    "file_name": "REPORT.md",
+    "title": "H3 Larry v4 8 步：5090 D v2 进一步算子优化实测",
+    "sha256": "479df5f5e07e7478424011cd76bf0c29bc4273e50cf2444a95a27ccccff505a1",
+    "bytes": 12864
+  },
+  {
+    "id": "S18",
+    "file_name": "REPORT.md",
+    "title": "H3 单卡 5090 D v2：非 Qwen 算子实测报告",
+    "sha256": "b90112961d7bab735dedb1fc83519e87f368cbe41ec053a34dd2e64ef95707db",
+    "bytes": 17600
+  },
+  {
+    "id": "S19",
+    "file_name": "REPORT.md",
+    "title": "MiniMax-H3 · 5090D v2 累计优化发布",
+    "sha256": "433890ba10d6141f0c12068276f92cdd9681b47fb9ab6852cfdfb8a2bf087921",
+    "bytes": 16336
+  },
+  {
+    "id": "S20",
+    "file_name": "README.md",
+    "title": "H3 VAE INT8算力优化实测：R233–R253",
+    "sha256": "15ff7ea920db8003b8d23d0576142c2e8c6baf211fecfad97a5dad1e4d98d77c",
+    "bytes": 11202
+  },
+  {
+    "id": "S21",
+    "file_name": "README.md",
+    "title": "H3 VAE FC1/FC2 INT8 GEMM：SM120 主循环专项实验",
+    "sha256": "a530834b9a130badfca030865898bca94ffdcde6cd21ca3c5d7cf84b88664adc",
+    "bytes": 11867
+  },
+  {
+    "id": "S22",
+    "file_name": "README.md",
+    "title": "H3 VAE FC1/FC2：95%利用率专项复核与优化实验",
+    "sha256": "b2c2abd92b0be7ce018df4ebfcf66a1d0a30bd9347bb05414dddbc7b76e4f1dc",
+    "bytes": 13361
+  },
+  {
+    "id": "S23",
+    "file_name": "README.md",
+    "title": "H3 VAE数据流专项 R295–R313 · 2026-09-28",
+    "sha256": "2e9b58011e94a92ec54b779d28f8517a4073f795255693cbd5a1a5f552bb986e",
+    "bytes": 7753
+  },
+  {
+    "id": "S24",
+    "file_name": "README.md",
+    "title": "H3 VAE FFN 局部 CUDA Graph：5090 D v2 真实实验",
+    "sha256": "a84298b3c4fef64dc107f3fdc12f76e0f0a3a12a398566595987cb6dee2d9743",
+    "bytes": 9487
+  },
+  {
+    "id": "S25",
+    "file_name": "README.md",
+    "title": "H3 R85：PyTorch 2.14、SM120 无损算子与 NVFP4 VAE 实测",
+    "sha256": "c1a385c06a70a4d0bb413b3f006c48cf5933ebcb27e0ee8f339d906a42779260",
+    "bytes": 19943
+  },
+  {
+    "id": "S26",
+    "file_name": "README.md",
+    "title": "H3 低分辨率多步＋latent 放大＋高分辨率精修：R191 实测交接",
+    "sha256": "83367a0f9456539ba0145b69e487aba32b3b5aebda2a18cd5e6530adab880dd6",
+    "bytes": 8996
+  },
+  {
+    "id": "S27",
+    "file_name": "RESULTS.md",
+    "title": "H3 单卡5090 D v2：9月26日持续无损优化实测",
+    "sha256": "d248fd8deed4769126531c0d4588871c0eff8753dbd13941d75b62b5c956a2cb",
+    "bytes": 113895
+  },
+  {
+    "id": "S28",
+    "file_name": "REPORT.md",
+    "title": "H3 / RTX 5090 D v2：FastH3 VSA、NVFP4 与 INT8 内核实测",
+    "sha256": "44a98ecf82c6c408fb1563bd27c1a09664ae0c2907499a1921f7a143b4b8c70e",
+    "bytes": 28497
+  },
+  {
+    "id": "S29",
+    "file_name": "CONCLUSION.md",
+    "title": "CONCLUSION.md",
+    "sha256": "c35bbcee759a5ee1b8d18354d5a7ce958a5682e0d43b06de673be5fda928ba54",
+    "bytes": 3982
+  },
+  {
+    "id": "S30",
+    "file_name": "RESULT.md",
+    "title": "RESULT.md",
+    "sha256": "b301a2594b31f79d981a9a9ab8ac7c276e8fb0152e0d0e375fc35cd489bda286",
+    "bytes": 12501
+  },
+  {
+    "id": "S31",
+    "file_name": "HANDOFF-Larry8-Kitchen035-INT8Decode.md",
+    "title": "Larry v4 8步＋Kitchen 0.2.35＋原融合迁移＋INT8 Decode：Codex复用交接",
+    "sha256": "801e14a6c3bf04b18fdc3dd52ba58e26c8e55a4da9b6d449713927550fa86e25",
+    "bytes": 43124
+  },
+  {
+    "id": "S32",
+    "file_name": "HANDOFF_FULL_20260911.md",
+    "title": "MiniMax-H3 / Larry v4 pruned 8 步 / v13 关 SLA / TRT VAE / RunningHub Lightning：完整 Codex 交接",
+    "sha256": "6e72bbd7fe7b0ab5c976a8e356a2c4141e8523c366edda292b1aa3e8566863fd",
+    "bytes": 73695
+  },
+  {
+    "id": "S33",
+    "file_name": "README.md",
+    "title": "R360：PyTorch 2.14＋Triton 3.8，保留 INT8 的完整推理复测",
+    "sha256": "48b9e04e32358ae7b4535019334d2a3963363720b49db7063faaddc11e96b37e",
+    "bytes": 9789
+  },
+  {
+    "id": "S34",
+    "file_name": "CUMULATIVE_REPORT.md",
+    "title": "原 v22 → 累计算子优化＋RGB8：同场实测",
+    "sha256": "2fb8b18e905c1933d63ceddf8b033af7f279860bf4556b15ae871efb9088812c",
+    "bytes": 7383
+  },
+  {
+    "id": "S35",
+    "file_name": "METRICS.md",
+    "title": "VSA / FP8 业务视频实验指标",
+    "sha256": "ee08e422ab8cceb722335d42987ce1e96f412d6cd233d6bd79e1a83da8f33650",
+    "bytes": 13142
+  },
+  {
+    "id": "S36",
+    "file_name": "r130_baseline_manifest.json",
+    "title": "r130_baseline_manifest.json",
+    "sha256": "903aa049d5a68442ed90d1d6f570300f814ceb6d46ef9ec0021a642b0586993c",
+    "bytes": 17461
+  },
+  {
+    "id": "S37",
+    "file_name": "REPORT.md",
+    "title": "H3 DPCache #1557 与 BF16 dense #5472：5090 D v2 实测交接",
+    "sha256": "d5641f4c334e0b0b860cda0cc3ad55cad1963d9fd2590e66e04ed8d0a775336a",
+    "bytes": 10908
+  },
+  {
+    "id": "S38",
+    "file_name": "REPORT.md",
+    "title": "5493 FP8 QKV 大融合：5090 D v2 实测",
+    "sha256": "46181000dd5edc029643a7b1367033a69e9b185d539787ffe50a8d597cf94f49",
+    "bytes": 15207
+  },
+  {
+    "id": "S39",
+    "file_name": "REPORT.md",
+    "title": "5090 D v2 Dense Attention 无损优化实测",
+    "sha256": "f22d636e9d14191bb2cf84cbc11ee977e04049a32e122397dbfff77df0498f1c",
+    "bytes": 11728
+  },
+  {
+    "id": "S40",
+    "file_name": "HANDOFF.md",
+    "title": "MiniMax H3：RTX 5090 D v2 / Kitchen Dense 无损加速交接",
+    "sha256": "e6503db5736e0de74466c33858fe4e5f10593d0df674cfd279d49b6dd45ea0dd",
+    "bytes": 108203
+  },
+  {
+    "id": "S41",
+    "title": "9/29 stock035/R85 direct GPU r368v2-c1-abba-0-stock",
+    "sha256": "b121ed85cb1bdd6a1b8fc16dafa59b3614fc92e1d1cce1956fd873b12e52e094",
+    "bytes": 14635
+  },
+  {
+    "id": "S42",
+    "title": "9/29 stock035/R85 direct GPU r368v2-c1-abba-1-r85",
+    "sha256": "bd2a379cbf344b03a709b05d6fd497fc707082c0a7f6e534ccbd0354d4454cd3",
+    "bytes": 22059
+  },
+  {
+    "id": "S43",
+    "title": "9/29 stock035/R85 direct GPU r368v2-c1-abba-2-r85",
+    "sha256": "df748ce12df2ebbb86bb08f02f9b602134267805e3b9a75fe8f5919b3e35e86e",
+    "bytes": 22061
+  },
+  {
+    "id": "S44",
+    "title": "9/29 stock035/R85 direct GPU r368v2-c1-abba-3-stock",
+    "sha256": "0aa81a503ce8f9cbdae9477c68dcb1dbc31a17c328e170fc88a1919d465da418",
+    "bytes": 14630
+  },
+  {
+    "id": "S45",
+    "title": "9/29 stock035/R85 direct GPU r368-c8-baab-0-r85",
+    "sha256": "1677633abc27e0cd8dfd9d8c2ce61fb8cf7c306478a502c122bf9a624581f8a3",
+    "bytes": 22089
+  },
+  {
+    "id": "S46",
+    "title": "9/29 stock035/R85 direct GPU r368v2-c8-aab-0-stock",
+    "sha256": "e4e807df643b49dc6a0e99bdbbe116e7e90ae6ac777f5e05516b64e056fb7184",
+    "bytes": 14629
+  },
+  {
+    "id": "S47",
+    "title": "9/29 stock035/R85 direct GPU r368v2-c8-aab-1-stock",
+    "sha256": "79d4492556b7bfe7f866c8f5e42ee13598380a9e036f5afb48b8b2375e97ae2d",
+    "bytes": 14630
+  },
+  {
+    "id": "S48",
+    "title": "9/29 stock035/R85 direct GPU r368v2-c8-aab-2-r85",
+    "sha256": "28436503642da0e82d10f5a42f9fa2e9887f56ba63498a59ada7339bab3fa42c",
+    "bytes": 22089
+  },
+  {
+    "id": "S49",
+    "title": "原生 FP16 基线新 GPU 测试：r369-c1-ab-0-stock",
+    "sha256": "9f497111764e3d7426d4ee8416ca88881b5337b5767e5c1fa4a9d1f569d35b53",
+    "bytes": 18163
+  },
+  {
+    "id": "S50",
+    "title": "原生 FP16 基线新 GPU 测试：r369-c1-ab-1-r85",
+    "sha256": "bb4df11d3633ae1a8ad72c340f4d0bae55d103d3ae588068ece92498f8a9ab4f",
+    "bytes": 29351
+  },
+  {
+    "id": "S51",
+    "title": "原生 FP16 基线新 GPU 测试：r369-c8-ba-0-r85",
+    "sha256": "19d6fd0f374206202c67e2701226940fe7449af6ed86a6a11acdab9a5d57c64a",
+    "bytes": 29406
+  },
+  {
+    "id": "S52",
+    "title": "原生 FP16 基线新 GPU 测试：r369-c8-ba-1-stock",
+    "sha256": "1b4416e39cf48a868335ce36fa7875bf72d650c65da05ef188c9e2c9d9d6799c",
+    "bytes": 18152
+  },
+  {
+    "id": "S53",
+    "title": "原生 FP16 基线新 GPU 测试：r370-c1to7-abba",
+    "sha256": "b12bbeb9ad0d5a2439cf577b27afd8e26f2db0074f49f607b90c4e6f8c01357f",
+    "bytes": 21894
+  },
+  {
+    "id": "S54",
+    "title": "原生 FP16 基线新 GPU 测试：r370-c8to15-baab",
+    "sha256": "31f69db784634fa904f5ab4d17029f6ce2701c3bb3e7d3b43c402864a07fd559",
+    "bytes": 24882
+  },
+  {
+    "id": "S55",
+    "title": "原生 FP16 基线新 GPU 测试：r371-c1to7",
+    "sha256": "d6836d9e9ece976e33b99e6b1d77438c2763b64c611e74aa9857cafef5902dce",
+    "bytes": 24391
+  },
+  {
+    "id": "S56",
+    "title": "原生 FP16 基线新 GPU 测试：r371-c8to15",
+    "sha256": "7fad557288a83fcbf808b85d9a479eb273407d303092a4dd789fd0196693ddab",
+    "bytes": 27615
+  }
+]

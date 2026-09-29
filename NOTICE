@@ -1,0 +1,15 @@
+H3 SpeedKit — Copyright 2026 Tokha233 and contributors.
+
+The combined ComfyUI plugin is distributed under GPL-3.0-or-later.
+ComfyUI-derived runtime.py, video.py and vendor/ retain that license.
+Original CUDA kernels, Python bindings, tools and documentation are Apache-2.0
+where identified in docs/LICENSING.md; dependency notices remain applicable.
+
+Based on ComfyUI (Comfy-Org), Comfy Kitchen (Comfy-Org), SageAttention
+(thu-ml), CUTLASS C++ (NVIDIA), PyTorch and SGLang. Original copyright and
+license headers are retained in imported source. See third_party/ and
+evidence/kernel-provenance.json for source identities and changes.
+
+Larry v4 LoRA, MiniMax H3 model weights and INT8 VAE weights are upstream work.
+Weights and private business inputs are not included. The software license
+confers no license to model weights. Obtain those under their upstream terms.

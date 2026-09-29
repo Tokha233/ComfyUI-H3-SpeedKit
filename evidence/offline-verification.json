@@ -1,0 +1,555 @@
+{
+  "status": "passed",
+  "arithmetic_checks": 109,
+  "r85_unique_cases": 15,
+  "r85_formal_requests": 60,
+  "r207_video_reduction_pct": 6.801731017104585,
+  "scope": "Offline evidence recomputation; not new GPU inference, independent media re-evaluation, or a current production audit.",
+  "checks": [
+    {
+      "name": "original_10_latency",
+      "actual": 5.409961347989068,
+      "expected": 5.409961347989068
+    },
+    {
+      "name": "original_10_queue_rate",
+      "actual": 4.691962588087306,
+      "expected": 4.691962588087306
+    },
+    {
+      "name": "original_15_latency",
+      "actual": 4.350762699875266,
+      "expected": 4.350762699875266
+    },
+    {
+      "name": "original_15_queue_rate",
+      "actual": 4.121453900249339,
+      "expected": 4.121453900249339
+    },
+    {
+      "name": "kitchen_full_5",
+      "actual": 1.7213667985151448,
+      "expected": 1.7213667985151448
+    },
+    {
+      "name": "kitchen_full_6",
+      "actual": 2.308871788967526,
+      "expected": 2.308871788967526
+    },
+    {
+      "name": "int8_0919_mean_a",
+      "actual": 16.576129833205293,
+      "expected": 16.576129833205293
+    },
+    {
+      "name": "int8_0919_mean_b",
+      "actual": 9.74453265600217,
+      "expected": 9.74453265600217
+    },
+    {
+      "name": "int8_0919_reduction",
+      "actual": 41.213463250740666,
+      "expected": 41.213463250740666
+    },
+    {
+      "name": "int8_0926_mean_a",
+      "actual": 16.559342240939927,
+      "expected": 16.559342240939927
+    },
+    {
+      "name": "int8_0926_mean_b",
+      "actual": 9.959952322630366,
+      "expected": 9.959952322630366
+    },
+    {
+      "name": "int8_0926_reduction",
+      "actual": 39.852971345647916,
+      "expected": 39.8529713456479
+    },
+    {
+      "name": "r85_raw_group_sum_a",
+      "actual": 3295.244818956475,
+      "expected": 3295.244818956475
+    },
+    {
+      "name": "r85_raw_group_sum_b",
+      "actual": 3232.463432585966,
+      "expected": 3232.463432585966
+    },
+    {
+      "name": "r85_reduction",
+      "actual": 1.9052115948820503,
+      "expected": 1.9052115948820503
+    },
+    {
+      "name": "r85_capacity_gain",
+      "actual": 1.942214898322403,
+      "expected": 1.942214898322403
+    },
+    {
+      "name": "r126_reduction",
+      "actual": 1.8971210579058262,
+      "expected": 1.8971210579058262
+    },
+    {
+      "name": "r207_dual_a",
+      "actual": 147.42748363301507,
+      "expected": 147.42748363301507
+    },
+    {
+      "name": "r207_dual_b",
+      "actual": 138.14421910059173,
+      "expected": 138.14421910059173
+    },
+    {
+      "name": "r207_dual_reduction",
+      "actual": 6.296834418968844,
+      "expected": 6.296834418968844
+    },
+    {
+      "name": "r207_video_rounded",
+      "actual": 6.801731017104585,
+      "expected": 6.802
+    },
+    {
+      "name": "r244_seconds_a",
+      "actual": 136.0186379654915,
+      "expected": 136.0186379654915
+    },
+    {
+      "name": "r244_seconds_b",
+      "actual": 135.15950978943147,
+      "expected": 135.15950978943147
+    },
+    {
+      "name": "r244_seconds_reduction",
+      "actual": 0.6316253337855127,
+      "expected": 0.6316253337855127
+    },
+    {
+      "name": "r244_dual_vae_seconds_a",
+      "actual": 138.28551797600812,
+      "expected": 138.28551797600812
+    },
+    {
+      "name": "r244_dual_vae_seconds_b",
+      "actual": 137.21479130111402,
+      "expected": 137.21479130111402
+    },
+    {
+      "name": "r244_dual_vae_seconds_reduction",
+      "actual": 0.7742869177955969,
+      "expected": 0.7742869177955969
+    },
+    {
+      "name": "torch_1_old_dit_seconds",
+      "actual": 225.55783854593756,
+      "expected": 225.55783854593756
+    },
+    {
+      "name": "torch_1_old_video_seconds",
+      "actual": 9.623243232024834,
+      "expected": 9.623243232024834
+    },
+    {
+      "name": "torch_1_old_audio_seconds",
+      "actual": 0.11715119646396488,
+      "expected": 0.11715119646396488
+    },
+    {
+      "name": "torch_1_old_service_seconds",
+      "actual": 239.80405229894677,
+      "expected": 239.80405229894677
+    },
+    {
+      "name": "torch_1_new_dit_seconds",
+      "actual": 225.56588638399262,
+      "expected": 225.56588638399262
+    },
+    {
+      "name": "torch_1_new_video_seconds",
+      "actual": 9.847254136926495,
+      "expected": 9.847254136926495
+    },
+    {
+      "name": "torch_1_new_audio_seconds",
+      "actual": 0.12576051702490076,
+      "expected": 0.12576051702490076
+    },
+    {
+      "name": "torch_1_new_service_seconds",
+      "actual": 240.16032401501434,
+      "expected": 240.16032401501434
+    },
+    {
+      "name": "torch_8_old_dit_seconds",
+      "actual": 212.01914198551094,
+      "expected": 212.01914198551094
+    },
+    {
+      "name": "torch_8_old_video_seconds",
+      "actual": 10.572962265519891,
+      "expected": 10.572962265519891
+    },
+    {
+      "name": "torch_8_old_audio_seconds",
+      "actual": 0.12283525842940435,
+      "expected": 0.12283525842940435
+    },
+    {
+      "name": "torch_8_old_service_seconds",
+      "actual": 227.5408789064968,
+      "expected": 227.5408789064968
+    },
+    {
+      "name": "torch_8_new_dit_seconds",
+      "actual": 212.04436504351906,
+      "expected": 212.04436504351906
+    },
+    {
+      "name": "torch_8_new_video_seconds",
+      "actual": 10.485843310016207,
+      "expected": 10.485843310016207
+    },
+    {
+      "name": "torch_8_new_audio_seconds",
+      "actual": 0.12423919694265351,
+      "expected": 0.12423919694265351
+    },
+    {
+      "name": "torch_8_new_service_seconds",
+      "actual": 227.3959959075437,
+      "expected": 227.3959959075437
+    },
+    {
+      "name": "Q1_e1_d2_l5_ssim",
+      "actual": 0.6825983999999999,
+      "expected": 0.6825984
+    },
+    {
+      "name": "Q1_e1_d2_l5_psnr_db",
+      "actual": 17.5924806,
+      "expected": 17.5924806
+    },
+    {
+      "name": "Q1_e1_d2_l5_lpips",
+      "actual": 0.3741436584548031,
+      "expected": 0.37414365845480313
+    },
+    {
+      "name": "Q1_e1_d2_l5_waveform_corr",
+      "actual": 0.18205929364883522,
+      "expected": 0.18205929364883522
+    },
+    {
+      "name": "Q1_e1_d2_l5_spectral_cosine",
+      "actual": 0.8063900988260206,
+      "expected": 0.8063900988260206
+    },
+    {
+      "name": "Q1_e1_d2_l5_normalized_rmse",
+      "actual": 1.723543990120318,
+      "expected": 1.723543990120318
+    },
+    {
+      "name": "Q1_e1_d2_l6_ssim",
+      "actual": 0.6900382,
+      "expected": 0.6900382
+    },
+    {
+      "name": "Q1_e1_d2_l6_psnr_db",
+      "actual": 17.8000112,
+      "expected": 17.8000112
+    },
+    {
+      "name": "Q1_e1_d2_l6_lpips",
+      "actual": 0.3663907840009953,
+      "expected": 0.36639078400099523
+    },
+    {
+      "name": "Q1_e1_d2_l6_waveform_corr",
+      "actual": 0.2139355012294965,
+      "expected": 0.2139355012294965
+    },
+    {
+      "name": "Q1_e1_d2_l6_spectral_cosine",
+      "actual": 0.8060113992451564,
+      "expected": 0.8060113992451564
+    },
+    {
+      "name": "Q1_e1_d2_l6_normalized_rmse",
+      "actual": 1.4760094426079715,
+      "expected": 1.4760094426079715
+    },
+    {
+      "name": "Q1_e1_d2_l8_ssim",
+      "actual": 0.6949946,
+      "expected": 0.6949946
+    },
+    {
+      "name": "Q1_e1_d2_l8_psnr_db",
+      "actual": 17.933632199999998,
+      "expected": 17.933632199999998
+    },
+    {
+      "name": "Q1_e1_d2_l8_lpips",
+      "actual": 0.36269169879438273,
+      "expected": 0.36269169879438273
+    },
+    {
+      "name": "Q1_e1_d2_l8_waveform_corr",
+      "actual": 0.1926017487900341,
+      "expected": 0.1926017487900341
+    },
+    {
+      "name": "Q1_e1_d2_l8_spectral_cosine",
+      "actual": 0.8082502421914105,
+      "expected": 0.8082502421914104
+    },
+    {
+      "name": "Q1_e1_d2_l8_normalized_rmse",
+      "actual": 1.3620399523529507,
+      "expected": 1.3620399523529507
+    },
+    {
+      "name": "Q1_turbo4_same_n9_ssim",
+      "actual": 0.6967668,
+      "expected": 0.6967668
+    },
+    {
+      "name": "Q1_turbo4_same_n9_psnr_db",
+      "actual": 18.019296,
+      "expected": 18.019296
+    },
+    {
+      "name": "Q1_turbo4_same_n9_lpips",
+      "actual": 0.3601882796084979,
+      "expected": 0.3601882796084979
+    },
+    {
+      "name": "Q1_turbo4_same_n9_waveform_corr",
+      "actual": 0.20992480092327276,
+      "expected": 0.20992480092327276
+    },
+    {
+      "name": "Q1_turbo4_same_n9_spectral_cosine",
+      "actual": 0.807760626157561,
+      "expected": 0.8077606261575608
+    },
+    {
+      "name": "Q1_turbo4_same_n9_normalized_rmse",
+      "actual": 1.3333735099683461,
+      "expected": 1.3333735099683461
+    },
+    {
+      "name": "Q1_ref2va_turbo8_euler_ssim",
+      "actual": 0.7160988,
+      "expected": 0.7160988
+    },
+    {
+      "name": "Q1_ref2va_turbo8_euler_psnr_db",
+      "actual": 18.4169704,
+      "expected": 18.4169704
+    },
+    {
+      "name": "Q1_ref2va_turbo8_euler_lpips",
+      "actual": 0.34089698092085735,
+      "expected": 0.3408969809208574
+    },
+    {
+      "name": "Q1_ref2va_turbo8_euler_waveform_corr",
+      "actual": 0.3033224107759487,
+      "expected": 0.3033224107759486
+    },
+    {
+      "name": "Q1_ref2va_turbo8_euler_spectral_cosine",
+      "actual": 0.8302106166693284,
+      "expected": 0.8302106166693284
+    },
+    {
+      "name": "Q1_ref2va_turbo8_euler_normalized_rmse",
+      "actual": 1.130637902183807,
+      "expected": 1.130637902183807
+    },
+    {
+      "name": "Q1_pulpcut_turbo8_euler_ssim",
+      "actual": 0.6860914,
+      "expected": 0.6860914
+    },
+    {
+      "name": "Q1_pulpcut_turbo8_euler_psnr_db",
+      "actual": 17.7127726,
+      "expected": 17.7127726
+    },
+    {
+      "name": "Q1_pulpcut_turbo8_euler_lpips",
+      "actual": 0.3663032019403212,
+      "expected": 0.3663032019403212
+    },
+    {
+      "name": "Q1_pulpcut_turbo8_euler_waveform_corr",
+      "actual": 0.23334965452086362,
+      "expected": 0.23334965452086362
+    },
+    {
+      "name": "Q1_pulpcut_turbo8_euler_spectral_cosine",
+      "actual": 0.8238093347458585,
+      "expected": 0.8238093347458586
+    },
+    {
+      "name": "Q1_pulpcut_turbo8_euler_normalized_rmse",
+      "actual": 1.5111632839359441,
+      "expected": 1.5111632839359441
+    },
+    {
+      "name": "Q1_pdd_ref2va_n4_ssim",
+      "actual": 0.734201,
+      "expected": 0.734201
+    },
+    {
+      "name": "Q1_pdd_ref2va_n4_psnr_db",
+      "actual": 18.556032599999998,
+      "expected": 18.5560326
+    },
+    {
+      "name": "Q1_pdd_ref2va_n4_lpips",
+      "actual": 0.3442548335260935,
+      "expected": 0.3442548335260935
+    },
+    {
+      "name": "Q1_pdd_ref2va_n4_waveform_corr",
+      "actual": 0.1726097598933026,
+      "expected": 0.17260975989330257
+    },
+    {
+      "name": "Q1_pdd_ref2va_n4_spectral_cosine",
+      "actual": 0.7873783583817406,
+      "expected": 0.7873783583817406
+    },
+    {
+      "name": "Q1_pdd_ref2va_n4_normalized_rmse",
+      "actual": 1.1476303310314453,
+      "expected": 1.1476303310314453
+    },
+    {
+      "name": "Q1_pdd_ref2va_n6_ssim",
+      "actual": 0.732034,
+      "expected": 0.732034
+    },
+    {
+      "name": "Q1_pdd_ref2va_n6_psnr_db",
+      "actual": 18.5023416,
+      "expected": 18.5023416
+    },
+    {
+      "name": "Q1_pdd_ref2va_n6_lpips",
+      "actual": 0.34258814953250855,
+      "expected": 0.34258814953250855
+    },
+    {
+      "name": "Q1_pdd_ref2va_n6_waveform_corr",
+      "actual": 0.19319395524376975,
+      "expected": 0.19319395524376975
+    },
+    {
+      "name": "Q1_pdd_ref2va_n6_spectral_cosine",
+      "actual": 0.8132886957560747,
+      "expected": 0.8132886957560747
+    },
+    {
+      "name": "Q1_pdd_ref2va_n6_normalized_rmse",
+      "actual": 1.130800312408435,
+      "expected": 1.1308003124084347
+    },
+    {
+      "name": "Q1_pdd_ref2va_n8_ssim",
+      "actual": 0.72655,
+      "expected": 0.72655
+    },
+    {
+      "name": "Q1_pdd_ref2va_n8_psnr_db",
+      "actual": 18.381543,
+      "expected": 18.381543
+    },
+    {
+      "name": "Q1_pdd_ref2va_n8_lpips",
+      "actual": 0.3360083791807082,
+      "expected": 0.3360083791807082
+    },
+    {
+      "name": "Q1_pdd_ref2va_n8_waveform_corr",
+      "actual": 0.2752547631684846,
+      "expected": 0.2752547631684846
+    },
+    {
+      "name": "Q1_pdd_ref2va_n8_spectral_cosine",
+      "actual": 0.8369463813285015,
+      "expected": 0.8369463813285016
+    },
+    {
+      "name": "Q1_pdd_ref2va_n8_normalized_rmse",
+      "actual": 1.1239996140590518,
+      "expected": 1.1239996140590518
+    },
+    {
+      "name": "Q1_larry_v4_pruned_n8_a4_ssim",
+      "actual": 0.7363854,
+      "expected": 0.7363854
+    },
+    {
+      "name": "Q1_larry_v4_pruned_n8_a4_psnr_db",
+      "actual": 19.3249974,
+      "expected": 19.3249974
+    },
+    {
+      "name": "Q1_larry_v4_pruned_n8_a4_lpips",
+      "actual": 0.28084830588721166,
+      "expected": 0.28084830588721166
+    },
+    {
+      "name": "Q1_larry_v4_pruned_n8_a4_waveform_corr",
+      "actual": 0.35162636348977716,
+      "expected": 0.35162636348977716
+    },
+    {
+      "name": "Q1_larry_v4_pruned_n8_a4_spectral_cosine",
+      "actual": 0.8684689098403693,
+      "expected": 0.8684689098403693
+    },
+    {
+      "name": "Q1_larry_v4_pruned_n8_a4_normalized_rmse",
+      "actual": 1.2742331180503526,
+      "expected": 1.2742331180503526
+    },
+    {
+      "name": "Q1_audio_refine_l5_a4_d50_ssim",
+      "actual": 0.6825878,
+      "expected": 0.6825878000000001
+    },
+    {
+      "name": "Q1_audio_refine_l5_a4_d50_psnr_db",
+      "actual": 17.5925322,
+      "expected": 17.5925322
+    },
+    {
+      "name": "Q1_audio_refine_l5_a4_d50_lpips",
+      "actual": 0.3741987305780883,
+      "expected": 0.3741987305780882
+    },
+    {
+      "name": "Q1_audio_refine_l5_a4_d50_waveform_corr",
+      "actual": 0.19186587495419508,
+      "expected": 0.1918658749541951
+    },
+    {
+      "name": "Q1_audio_refine_l5_a4_d50_spectral_cosine",
+      "actual": 0.8093399533356518,
+      "expected": 0.8093399533356518
+    },
+    {
+      "name": "Q1_audio_refine_l5_a4_d50_normalized_rmse",
+      "actual": 1.6457613597501948,
+      "expected": 1.6457613597501948
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "h3-speedkit"
+version = "0.1.0"
+description = "Measured MiniMax H3 INT8 acceleration for ComfyUI on SM120"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+dependencies = []
+
+[project.urls]
+Repository = "https://github.com/Tokha233/ComfyUI-H3-SpeedKit"
+Issues = "https://github.com/Tokha233/ComfyUI-H3-SpeedKit/issues"
+
+[project.optional-dependencies]
+export = ["av>=16", "numpy"]
+
+[project.scripts]
+h3-speedkit = "h3_speedkit.diagnostics:main"
+
+[tool.setuptools.packages.find]
+include = ["h3_speedkit*"]
+
+[tool.setuptools.exclude-package-data]
+h3_speedkit = ["_native/*"]
+# GPU artifacts are built in a source checkout. Generic Python wheels never
+# claim a platform-independent binary runtime.
