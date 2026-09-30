@@ -25,6 +25,7 @@ INT8 VAE 差异很小，但不是像素完全相同。DiT 融合保留的是**�
 **上游贡献：** 已提交[三个独立 Kitchen PR](docs/KITCHEN-UPSTREAM-PRS-20260930.zh-CN.md)，
 附源码、回归测试和原始实测。新增的 [Indexed Gate 实验节点](docs/INDEXED-GATE.md)
 可以单独验证 #219 的完整 H3 收益；需源码编译尚未合并的 PR，与完整 Optimize DiT 节点二选一。
+三个 PR 仅覆盖部分优化；[整套 6.49% DiT 方案的上游拆分与剩余工作](docs/FULL-UPSTREAM-PLAN.zh-CN.md)。
 
 ## 安装与接入
 

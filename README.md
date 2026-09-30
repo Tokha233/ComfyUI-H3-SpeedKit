@@ -66,6 +66,8 @@ Need regular IMAGE nodes for grading or upscaling? Keep standard VAE Decode and 
 with kernel tests and raw measurements. An optional [Indexed Gate node](docs/INDEXED-GATE.md)
 isolates PR #219 in a real H3 workflow. It requires a source build of the unmerged
 PR and is independent of the complete Optimize DiT node.
+[Full upstream scope and the 6.49% DiT comparison (中文)](docs/FULL-UPSTREAM-PLAN.zh-CN.md)
+distinguish submitted kernels, remaining model integration and newer ComfyUI changes.
 
 ## Validate before comparing
 

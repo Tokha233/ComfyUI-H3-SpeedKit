@@ -20,13 +20,22 @@ for case in (1, 8):
         if r['arm'] != 'stock_fp16':
             assert r['sha256'] == ref
         if r['arm'] == 'speedkit_int8':
-            assert r['backend']['counts']['attention'] == 50
+            assert r['backend']['counts'] == {
+                'qkv': 50, 'attention': 50, 'norm_quant': 100,
+                'fc1': 50, 'gate': 100, 'last_block_window': 1,
+            }
         checks += 1
 s = data['summary']; b = s['stock_fp16']['seconds']; i = s['stock_int8']['seconds']; o = s['speedkit_int8']['seconds']
-for k, value in [('latency_reduction_vs_fp16', 1-o/b), ('capacity_equivalent_vs_fp16', b/o-1), ('latency_reduction_vs_int8', 1-o/i)]:
+dit_baseline = s['stock_int8']['dit_seconds']
+dit_optimized = s['speedkit_int8']['dit_seconds']
+for k, value in [('latency_reduction_vs_fp16', 1-o/b), ('capacity_equivalent_vs_fp16', b/o-1),
+                 ('latency_reduction_vs_int8', 1-o/i), ('dit_reduction', 1-dit_optimized/dit_baseline)]:
     assert abs(s[k] - value) < 1e-12
     checks += 1
-print(json.dumps({'status': 'passed', 'checks': checks, 'latency_reduction_percent': (1-o/b)*100}))
+print(json.dumps({'status': 'passed', 'checks': checks, 'latency_reduction_percent': (1-o/b)*100,
+                  'dit_baseline_seconds': dit_baseline, 'dit_optimized_seconds': dit_optimized,
+                  'dit_seconds_saved': dit_baseline-dit_optimized,
+                  'dit_time_reduction_percent': (1-dit_optimized/dit_baseline)*100}))
 
 for name in ('public-input-small.json', 'public-input-medium.json'):
     public = json.loads((root / 'evidence' / name).read_text())

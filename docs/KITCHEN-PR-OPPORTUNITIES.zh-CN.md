@@ -1,5 +1,9 @@
 # Kitchen 上游贡献机会：2026-09-30
 
+> 本文保留首批 PR 提交前的审计。三个 PR 后续已提交，见
+> [提交与实测状态](KITCHEN-UPSTREAM-PRS-20260930.zh-CN.md)。整套 DiT 的
+> 6.49% 口径、未提交的融合和当前 ComfyUI 差分见 [完整上游计划](FULL-UPSTREAM-PLAN.zh-CN.md)。
+
 本次核对 GitHub 主仓库源码、全部 44 个开放 PR、最近更新的 30 个关闭 PR，以及候选 PR 的 diff。结论：**有适合贡献的内容。建议第一个 PR 做 CUDA 寄存器 ConvRot256；SM120 dense attention 做第二个独立 PR。先对比 #215，再决定 GEMM 调度是否还有增量。** 本文是代码审查和实施建议，没有新增 GPU 性能测量，也没有向 Kitchen 提交 PR。
 
 ## 当前上游状态
