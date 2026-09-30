@@ -308,7 +308,17 @@
         }
       ],
       "followup_head": "20db23b",
-      "followup": "Extract _embed_and_pack per kijai; 25 CPU tests and 24 tiny forward A/Bs; GPU retest pending"
+      "followup": "Extract _embed_and_pack per kijai; 25 CPU tests and 24 tiny forward A/Bs; GPU retest pending",
+      "followup_review": {
+        "state": "APPROVED",
+        "author": "coderabbitai[bot]",
+        "head": "20db23b",
+        "source": "Chrome PR timeline, after follow-up comment",
+        "required_remaining": [
+          "code owner review",
+          "six workflows awaiting maintainer approval"
+        ]
+      }
     },
     {
       "number": 16678,

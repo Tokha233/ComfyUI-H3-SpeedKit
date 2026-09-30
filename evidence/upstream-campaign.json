@@ -56,7 +56,7 @@
       "destination": "ComfyUI",
       "status": "submitted",
       "pr": 16677,
-      "notes": "kijai accepted direction and requested helper; 20db23b pushed with _embed_and_pack. 25 CPU tests and 24 tiny model old/new forward cases pass. GPU 161.47 MiB measurement belongs to prior a983f80; new GPU validation pending."
+      "notes": "kijai accepted direction and requested helper; 20db23b pushed with _embed_and_pack. 25 CPU tests and 24 tiny model old/new forward cases pass. GPU 161.47 MiB measurement belongs to prior a983f80; new GPU validation pending. CodeRabbit approved updated20db23b; code-owner/CI approval pending."
     },
     {
       "id": "attention-consumer",

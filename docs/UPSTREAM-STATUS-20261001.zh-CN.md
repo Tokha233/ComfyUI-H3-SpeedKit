@@ -18,7 +18,8 @@
   FP32/BF16、参考图音频、keyframe、原始/预编码文本、梯度及原有H3/混合精度回归。
 - 缩小的真实H3模型：**24组新旧`_forward`对照全部视频/音频输出逐值相等**，
   包含遮罩和不整除patch的空间输入。
-- Ruff、`git diff --check`通过；已回复kijai。
+- Ruff、`git diff --check`通过；已回复kijai。新版`20db23b`随后再次获得
+  CodeRabbit APPROVED，无新增可操作意见；仍需代码所有者复核与CI批准。
 - 历史5090 D v2减少161.47 MiB的显存数据对应`a983f80d`；新版helper的GPU复测待连接恢复。
   CPU弱引用与输出检查不代替GPU峰值测量。
 
@@ -42,7 +43,7 @@ Kitchen #223发布、依赖pin和GPU复测。现有20项CPU测试记录保持不
 | [Kitchen #221](https://github.com/Comfy-Org/comfy-kitchen/pull/221) | Draft；既有三项意见已处理；正式消费者/组合验收待完成 |
 | [Kitchen #222](https://github.com/Comfy-Org/comfy-kitchen/pull/222) | Draft；冷却后重试成功启动，页面显示Review in progress |
 | [Kitchen #223](https://github.com/Comfy-Org/comfy-kitchen/pull/223) | Draft；依赖#219；冷却后重试，页面仍显示审查限流 |
-| [ComfyUI #16677](https://github.com/Comfy-Org/ComfyUI/pull/16677) | Open；已按kijai意见推送helper和测试，等复核 |
+| [ComfyUI #16677](https://github.com/Comfy-Org/ComfyUI/pull/16677) | Open；已按kijai意见修复；新head获CodeRabbit批准，等代码所有者/CI |
 | [ComfyUI #16678](https://github.com/Comfy-Org/ComfyUI/pull/16678) | Draft；依赖Kitchen #220正式发布；pin意见保留未解决 |
 | [ComfyUI #16681](https://github.com/Comfy-Org/ComfyUI/pull/16681) | Draft；显存finding已确认解决；依赖发布/GPU复测仍待完成 |
 
