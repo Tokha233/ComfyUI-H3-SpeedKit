@@ -1,0 +1,83 @@
+{
+  "video_vae": "minimax_h3_video_vae_fp16.safetensors",
+  "audio_vae": "minimax_h3_audio_vae_fp32.safetensors",
+  "records": [
+    {
+      "arm": "base",
+      "video_seconds": 7.017649068962783,
+      "audio_seconds": 0.3772757680853829,
+      "shapes": [
+        [
+          1,
+          24,
+          37,
+          32,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          207
+        ],
+        [
+          1,
+          124,
+          512,
+          768,
+          3
+        ],
+        [
+          1,
+          2,
+          165600
+        ]
+      ],
+      "sha256": [
+        "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+        "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb",
+        "1e6be78c89d28ed601d29365ae0fbb658ec4eea06a978c4a57b17babcf6155d5",
+        "24d2fce7641d923c17e8ba07fac3701d0c43ff094110f37a56c97116cbfc3e25"
+      ]
+    },
+    {
+      "arm": "combined",
+      "video_seconds": 4.95973275299184,
+      "audio_seconds": 0.3522977940738201,
+      "shapes": [
+        [
+          1,
+          24,
+          37,
+          32,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          207
+        ],
+        [
+          1,
+          124,
+          512,
+          768,
+          3
+        ],
+        [
+          1,
+          2,
+          165600
+        ]
+      ],
+      "sha256": [
+        "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+        "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb",
+        "1e6be78c89d28ed601d29365ae0fbb658ec4eea06a978c4a57b17babcf6155d5",
+        "24d2fce7641d923c17e8ba07fac3701d0c43ff094110f37a56c97116cbfc3e25"
+      ]
+    }
+  ],
+  "status": "passed"
+}

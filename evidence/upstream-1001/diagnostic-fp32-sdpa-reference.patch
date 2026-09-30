@@ -1,0 +1,29 @@
+diff --git a/tests/test_int8_attention.py b/tests/test_int8_attention.py
+index 51e502b..37515ae 100644
+--- a/tests/test_int8_attention.py
++++ b/tests/test_int8_attention.py
+@@ -5,6 +5,7 @@ import weakref
+ 
+ import pytest
+ import torch
++from torch.nn.attention import SDPBackend, sdpa_kernel
+ 
+ import comfy_kitchen as ck
+ import comfy_kitchen.sage_attention as sage_attention_module
+@@ -460,9 +461,15 @@ def test_int8_attention_long_sequence_and_partial_tile(scale):
+     torch.manual_seed(31)
+     q, k, v = _qkv(1, 4, 4, 129, 8193, 128)
+     actual = ck.int8_attention(q, k, v, scale=scale)
+-    expected = torch.nn.functional.scaled_dot_product_attention(q, k, v, scale=scale)
++    # Some optimized BF16 SDPA backends return NaNs for nonpositive scales.
++    # Keep the accuracy oracle independent of those dispatch choices.
++    with sdpa_kernel(SDPBackend.MATH):
++        expected = torch.nn.functional.scaled_dot_product_attention(
++            q.float(), k.float(), v.float(), scale=scale
++        )
+ 
+     assert torch.isfinite(actual).all()
++    assert torch.isfinite(expected).all()
+     assert _nrmse(actual, expected) < 0.03
+ 
+ 

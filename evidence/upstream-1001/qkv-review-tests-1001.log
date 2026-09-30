@@ -1,0 +1,23 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.1.1, pluggy-1.6.0
+benchmark: 5.3.0 (defaults: timer=time.perf_counter disable_gc=False min_rounds=5 min_time=0.000005 max_time=1.0 calibration_precision=10 warmup=False warmup_iterations=100000)
+rootdir: /tmp/h3-kitchen-prs-0930/qkv-quant
+configfile: pytest.ini
+plugins: benchmark-5.3.0, anyio-4.14.2
+collected 25 items
+
+tests/test_h3_qkv.py ........................s                           [100%]
+
+=============================== warnings summary ===============================
+tests/test_h3_qkv.py::test_preparation_matches_native[37]
+tests/test_h3_qkv.py::test_preparation_matches_native[257]
+tests/test_h3_qkv.py::test_preparation_matches_native[1025]
+tests/test_h3_qkv.py::test_preparation_matches_native[4097]
+tests/test_h3_qkv.py::test_preparation_matches_native[8192]
+tests/test_h3_qkv.py::test_preparation_matches_native[14850]
+  tests/test_h3_qkv.py:25: PytestWarning: record_property is incompatible with junit_family 'xunit2' (use 'legacy' or 'xunit1')
+    @pytest.mark.parametrize("m", [37, 257, 1025, 4097, 8192, 14850])
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+---- generated xml file: /tmp/h3-kitchen-prs-0930/qkv-review-tests-1001.xml ----
+================== 24 passed, 1 skipped, 6 warnings in 1.76s ===================

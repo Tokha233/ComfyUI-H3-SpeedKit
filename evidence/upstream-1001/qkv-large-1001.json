@@ -1,0 +1,18 @@
+[
+  {
+    "m": 87142,
+    "seconds": 0.043140519061125815,
+    "peak_extra_bytes": 6115881472,
+    "peak_total_bytes": 9082889728,
+    "all_equal": true,
+    "input_unchanged": true
+  },
+  {
+    "m": 200000,
+    "seconds": 0.09945603797677904,
+    "peak_extra_bytes": 14036892672,
+    "peak_total_bytes": 20698642432,
+    "all_equal": true,
+    "input_unchanged": true
+  }
+]

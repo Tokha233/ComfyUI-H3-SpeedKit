@@ -1,0 +1,55 @@
+........................................................................ [  4%]
+................................................s...................s... [  9%]
+...............s..................s..............ss..................... [ 14%]
+............................................................F........... [ 19%]
+........................................................................ [ 23%]
+........................................................................ [ 28%]
+........................................................................ [ 33%]
+........................................................................ [ 38%]
+................................ssssssssssssssssssssssssssssssssssssssss [ 43%]
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 47%]
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 52%]
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 57%]
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 62%]
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 67%]
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 71%]
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 76%]
+ssssssssssssssssssssssssssssssssssssssssssssssss........................ [ 81%]
+........................................................................ [ 86%]
+........................................................................ [ 91%]
+........................................................................ [ 95%]
+.............................................................            [100%]
+=================================== FAILURES ===================================
+___ test_int8_attention_long_sequence_and_partial_tile[-0.08838834764831845] ___
+
+scale = -0.08838834764831845
+
+    @requires_int8_attention
+    @pytest.mark.parametrize("scale", [None, 0.0, -(128**-0.5)])
+    def test_int8_attention_long_sequence_and_partial_tile(scale):
+        torch.manual_seed(31)
+        q, k, v = _qkv(1, 4, 4, 129, 8193, 128)
+        actual = ck.int8_attention(q, k, v, scale=scale)
+        # Some optimized BF16 SDPA backends return NaNs for nonpositive scales.
+        # Keep the accuracy oracle independent of those dispatch choices.
+        with sdpa_kernel(SDPBackend.MATH):
+            expected = torch.nn.functional.scaled_dot_product_attention(
+                q.float(), k.float(), v.float(), scale=scale
+            )
+    
+        assert torch.isfinite(actual).all()
+        assert torch.isfinite(expected).all()
+>       assert _nrmse(actual, expected) < 0.03
+E       AssertionError: assert 1.0 < 0.03
+E        +  where 1.0 = _nrmse(tensor([[[[0., 0., -0.,  ..., -0., -0., -0.],\n          [0., 0., -0.,  ..., -0., -0., -0.],\n          [0., 0., -0.,  ....., -0.,  ..., 0., -0., 0.],\n          [0., 0., 0.,  ..., 0., -0., 0.]]]], device='cuda:0',\n       dtype=torch.bfloat16), tensor([[[[ 0.0144,  0.0433, -0.0030,  ..., -0.0317,  0.0038, -0.0118],\n          [ 0.0093,  0.0240, -0.0029,  ..., -0..., -0.0278, -0.0034],\n          [-0.0112,  0.0305,  0.0406,  ...,  0.0279, -0.0139,  0.0096]]]],\n       device='cuda:0'))
+
+tests/test_int8_attention.py:473: AssertionError
+=============================== warnings summary ===============================
+tests/test_rms_rope.py::TestRMSRope::test_rms_rope_ops[FLUX-freqs_fp32-bf16-eager-rms_rope]
+  /usr/local/lib/python3.12/site-packages/torch/nn/functional.py:2958: UserWarning: Mismatch dtype between input and weight: input dtype = c10::BFloat16, weight dtype = float, Cannot dispatch to fused implementation. (Triggered internally at /pytorch/aten/src/ATen/native/layer_norm.cpp:346.)
+    return torch.rms_norm(input, normalized_shape, weight, eps)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_int8_attention.py::test_int8_attention_long_sequence_and_partial_tile[-0.08838834764831845]
+1 failed, 902 passed, 598 skipped, 1 warning in 7.63s

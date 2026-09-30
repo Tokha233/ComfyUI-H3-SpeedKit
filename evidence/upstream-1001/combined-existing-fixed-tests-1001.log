@@ -1,0 +1,50 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.1.1, pluggy-1.6.0
+benchmark: 5.3.0 (defaults: timer=time.perf_counter disable_gc=False min_rounds=5 min_time=0.000005 max_time=1.0 calibration_precision=10 warmup=False warmup_iterations=100000)
+rootdir: /tmp/h3-kitchen-prs-0930/combined
+configfile: pytest.ini
+plugins: benchmark-5.3.0, anyio-4.14.2
+collected 1501 items
+
+tests/test_int8.py ..................................................... [  3%]
+........................................................                 [  7%]
+tests/test_int8_residual.py ...........s....                             [  8%]
+tests/test_int8_input_act.py ...............s..................s........ [ 11%]
+..........s......                                                        [ 12%]
+tests/test_int8_attention.py ........ss................................. [ 15%]
+................................................F....................... [ 19%]
+........................................................................ [ 24%]
+........................................................................ [ 29%]
+........................................................................ [ 34%]
+........................................................................ [ 39%]
+....................ssssssssssssssssssssssssssssssssssssssssssssssssssss [ 43%]
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 48%]
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 53%]
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 58%]
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 63%]
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 67%]
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 72%]
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 77%]
+ssssssssssssssssssssssssssssssssssss                                     [ 79%]
+tests/test_rms_rope.py ................................................. [ 83%]
+........................................................................ [ 88%]
+........................................................................ [ 92%]
+........................................................................ [ 97%]
+...........................                                              [ 99%]
+tests/test_gemm_bias_contract.py .........                               [100%]
+
+=================================== FAILURES ===================================
+___ test_int8_attention_long_sequence_and_partial_tile[-0.08838834764831845] ___
+tests/test_int8_attention.py:473: in test_int8_attention_long_sequence_and_partial_tile
+    assert _nrmse(actual, expected) < 0.03
+E   AssertionError: assert 1.0 < 0.03
+E    +  where 1.0 = _nrmse(tensor([[[[0., 0., -0.,  ..., -0., -0., -0.],\n          [0., 0., -0.,  ..., -0., -0., -0.],\n          [0., 0., -0.,  ....., -0.,  ..., 0., -0., 0.],\n          [0., 0., 0.,  ..., 0., -0., 0.]]]], device='cuda:0',\n       dtype=torch.bfloat16), tensor([[[[ 0.0144,  0.0433, -0.0030,  ..., -0.0317,  0.0038, -0.0118],\n          [ 0.0093,  0.0240, -0.0029,  ..., -0..., -0.0278, -0.0034],\n          [-0.0112,  0.0305,  0.0406,  ...,  0.0279, -0.0139,  0.0096]]]],\n       device='cuda:0'))
+=============================== warnings summary ===============================
+tests/test_rms_rope.py::TestRMSRope::test_rms_rope_ops[FLUX-freqs_fp32-bf16-eager-rms_rope]
+  /usr/local/lib/python3.12/site-packages/torch/nn/functional.py:2958: UserWarning: Mismatch dtype between input and weight: input dtype = c10::BFloat16, weight dtype = float, Cannot dispatch to fused implementation. (Triggered internally at /pytorch/aten/src/ATen/native/layer_norm.cpp:346.)
+    return torch.rms_norm(input, normalized_shape, weight, eps)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_int8_attention.py::test_int8_attention_long_sequence_and_partial_tile[-0.08838834764831845]
+============ 1 failed, 902 passed, 598 skipped, 1 warning in 7.58s =============

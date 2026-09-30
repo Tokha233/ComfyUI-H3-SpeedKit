@@ -1,0 +1,58 @@
+{
+  "arm": "combined",
+  "pair": 3,
+  "torch": "2.12.0+cu130",
+  "gpu": "NVIDIA GeForce RTX 5090 D v2",
+  "kitchen": "/tmp/h3-kitchen-prs-0930/combined/comfy_kitchen/__init__.py",
+  "cuda_extension": "/tmp/h3-kitchen-prs-0930/combined/comfy_kitchen/backends/cuda/_C.abi3.so",
+  "comfy": "8cfe5e1ecb97512dea8deaac15e1228d7e6feeb1",
+  "counts": {},
+  "records": [
+    {
+      "repeat": -1,
+      "warmup": true,
+      "dit_seconds": 21.56950259907171,
+      "sha256": [
+        "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+        "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb"
+      ],
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "peak_allocated_bytes": 1664301568
+    },
+    {
+      "repeat": 0,
+      "warmup": false,
+      "dit_seconds": 14.202981290989555,
+      "sha256": [
+        "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+        "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb"
+      ],
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "peak_allocated_bytes": 1664301568
+    },
+    {
+      "repeat": 1,
+      "warmup": false,
+      "dit_seconds": 14.19000204501208,
+      "sha256": [
+        "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+        "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb"
+      ],
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "peak_allocated_bytes": 1664301568
+    }
+  ],
+  "status": "passed"
+}

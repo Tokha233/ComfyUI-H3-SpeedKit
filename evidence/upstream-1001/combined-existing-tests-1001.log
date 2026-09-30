@@ -1,0 +1,56 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.1.1, pluggy-1.6.0
+benchmark: 5.3.0 (defaults: timer=time.perf_counter disable_gc=False min_rounds=5 min_time=0.000005 max_time=1.0 calibration_precision=10 warmup=False warmup_iterations=100000)
+rootdir: /tmp/h3-kitchen-prs-0930/combined
+configfile: pytest.ini
+plugins: benchmark-5.3.0, anyio-4.14.2
+collected 1501 items
+
+tests/test_int8.py ..................................................... [  3%]
+........................................................                 [  7%]
+tests/test_int8_residual.py ...........s....                             [  8%]
+tests/test_int8_input_act.py ...............s..................s........ [ 11%]
+..........s......                                                        [ 12%]
+tests/test_int8_attention.py ........ss................................. [ 15%]
+...............................................FF....................... [ 19%]
+........................................................................ [ 24%]
+........................................................................ [ 29%]
+........................................................................ [ 34%]
+........................................................................ [ 39%]
+....................ssssssssssssssssssssssssssssssssssssssssssssssssssss [ 43%]
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 48%]
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 53%]
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 58%]
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 63%]
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 67%]
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 72%]
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 77%]
+ssssssssssssssssssssssssssssssssssss                                     [ 79%]
+tests/test_rms_rope.py ................................................. [ 83%]
+........................................................................ [ 88%]
+........................................................................ [ 92%]
+........................................................................ [ 97%]
+...........................                                              [ 99%]
+tests/test_gemm_bias_contract.py .........                               [100%]
+
+=================================== FAILURES ===================================
+___________ test_int8_attention_long_sequence_and_partial_tile[0.0] ____________
+tests/test_int8_attention.py:466: in test_int8_attention_long_sequence_and_partial_tile
+    assert _nrmse(actual, expected) < 0.03
+E   AssertionError: assert nan < 0.03
+E    +  where nan = _nrmse(tensor([[[[ 0.0126,  0.0172, -0.0139,  ..., -0.0292, -0.0032, -0.0029],\n          [ 0.0126,  0.0172, -0.0139,  ..., -0...         [ 0.0065,  0.0002,  0.0023,  ...,  0.0123, -0.0156,  0.0031]]]],\n       device='cuda:0', dtype=torch.bfloat16), tensor([[[[nan, nan, nan,  ..., nan, nan, nan],\n          [nan, nan, nan,  ..., nan, nan, nan],\n          [nan, nan, n...  ..., nan, nan, nan],\n          [nan, nan, nan,  ..., nan, nan, nan]]]], device='cuda:0',\n       dtype=torch.bfloat16))
+___ test_int8_attention_long_sequence_and_partial_tile[-0.08838834764831845] ___
+tests/test_int8_attention.py:466: in test_int8_attention_long_sequence_and_partial_tile
+    assert _nrmse(actual, expected) < 0.03
+E   AssertionError: assert nan < 0.03
+E    +  where nan = _nrmse(tensor([[[[0., 0., -0.,  ..., -0., -0., -0.],\n          [0., 0., -0.,  ..., -0., -0., -0.],\n          [0., 0., -0.,  ....., -0.,  ..., 0., -0., 0.],\n          [0., 0., 0.,  ..., 0., -0., 0.]]]], device='cuda:0',\n       dtype=torch.bfloat16), tensor([[[[nan, nan, nan,  ..., nan, nan, nan],\n          [nan, nan, nan,  ..., nan, nan, nan],\n          [nan, nan, n...  ..., nan, nan, nan],\n          [nan, nan, nan,  ..., nan, nan, nan]]]], device='cuda:0',\n       dtype=torch.bfloat16))
+=============================== warnings summary ===============================
+tests/test_rms_rope.py::TestRMSRope::test_rms_rope_ops[FLUX-freqs_fp32-bf16-eager-rms_rope]
+  /usr/local/lib/python3.12/site-packages/torch/nn/functional.py:2958: UserWarning: Mismatch dtype between input and weight: input dtype = c10::BFloat16, weight dtype = float, Cannot dispatch to fused implementation. (Triggered internally at /pytorch/aten/src/ATen/native/layer_norm.cpp:346.)
+    return torch.rms_norm(input, normalized_shape, weight, eps)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_int8_attention.py::test_int8_attention_long_sequence_and_partial_tile[0.0]
+FAILED tests/test_int8_attention.py::test_int8_attention_long_sequence_and_partial_tile[-0.08838834764831845]
+============ 2 failed, 901 passed, 598 skipped, 1 warning in 12.02s ============

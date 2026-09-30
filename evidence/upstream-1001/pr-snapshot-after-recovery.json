@@ -1,0 +1,194 @@
+{
+  "checked_at": "2026-09-30T18:21:03.078968+00:00",
+  "prs": [
+    {
+      "repo": "comfy-kitchen",
+      "pr": 217,
+      "state": "open",
+      "draft": false,
+      "head": "6e2006d4a715939847ff553cb46949d18c5f7171",
+      "mergeable": true,
+      "reviews": [],
+      "comments": 0
+    },
+    {
+      "repo": "comfy-kitchen",
+      "pr": 218,
+      "state": "open",
+      "draft": false,
+      "head": "2eb97e0948180e568d722dab65ca8c2db1fa0790",
+      "mergeable": true,
+      "reviews": [
+        [
+          "coderabbitai[bot]",
+          "COMMENTED",
+          "2026-09-30T11:19:37Z"
+        ],
+        [
+          "Tokha233",
+          "COMMENTED",
+          "2026-09-30T12:03:39Z"
+        ],
+        [
+          "coderabbitai[bot]",
+          "COMMENTED",
+          "2026-09-30T12:04:21Z"
+        ]
+      ],
+      "comments": 3
+    },
+    {
+      "repo": "comfy-kitchen",
+      "pr": 219,
+      "state": "open",
+      "draft": false,
+      "head": "5f7290d1301e6bc7e2109c7c3d35a3d14f7f3de9",
+      "mergeable": true,
+      "reviews": [
+        [
+          "coderabbitai[bot]",
+          "COMMENTED",
+          "2026-09-30T12:57:01Z"
+        ]
+      ],
+      "comments": 2
+    },
+    {
+      "repo": "comfy-kitchen",
+      "pr": 220,
+      "state": "open",
+      "draft": true,
+      "head": "13bbea660c11c20718336ff3bc791667b235b105",
+      "mergeable": true,
+      "reviews": [
+        [
+          "coderabbitai[bot]",
+          "COMMENTED",
+          "2026-09-30T14:17:04Z"
+        ]
+      ],
+      "comments": 2
+    },
+    {
+      "repo": "comfy-kitchen",
+      "pr": 221,
+      "state": "open",
+      "draft": true,
+      "head": "f66dda592a0796a12a96b3adbf8d61e51113e58d",
+      "mergeable": true,
+      "reviews": [
+        [
+          "coderabbitai[bot]",
+          "COMMENTED",
+          "2026-09-30T14:17:25Z"
+        ]
+      ],
+      "comments": 3
+    },
+    {
+      "repo": "comfy-kitchen",
+      "pr": 222,
+      "state": "open",
+      "draft": true,
+      "head": "240e76a5a21a2f726fe93e20b981138d86341c40",
+      "mergeable": true,
+      "reviews": [
+        [
+          "coderabbitai[bot]",
+          "COMMENTED",
+          "2026-09-30T17:33:28Z"
+        ]
+      ],
+      "comments": 6
+    },
+    {
+      "repo": "comfy-kitchen",
+      "pr": 223,
+      "state": "open",
+      "draft": true,
+      "head": "ba876f2950810a6f9fb5f2b15f8db8243c1d4bb6",
+      "mergeable": true,
+      "reviews": [
+        [
+          "coderabbitai[bot]",
+          "COMMENTED",
+          "2026-09-30T17:34:05Z"
+        ]
+      ],
+      "comments": 1
+    },
+    {
+      "repo": "ComfyUI",
+      "pr": 16677,
+      "state": "open",
+      "draft": false,
+      "head": "20db23bf27795f2191dbeecce79be3c675838361",
+      "mergeable": true,
+      "reviews": [
+        [
+          "coderabbitai[bot]",
+          "DISMISSED",
+          "2026-09-30T13:52:00Z"
+        ],
+        [
+          "coderabbitai[bot]",
+          "APPROVED",
+          "2026-09-30T17:28:28Z"
+        ]
+      ],
+      "comments": 0
+    },
+    {
+      "repo": "ComfyUI",
+      "pr": 16678,
+      "state": "open",
+      "draft": true,
+      "head": "c0ac30db4b40e5f455bf27fdb0b00ec9eab07df1",
+      "mergeable": true,
+      "reviews": [
+        [
+          "coderabbitai[bot]",
+          "CHANGES_REQUESTED",
+          "2026-09-30T14:42:32Z"
+        ]
+      ],
+      "comments": 1
+    },
+    {
+      "repo": "ComfyUI",
+      "pr": 16681,
+      "state": "open",
+      "draft": true,
+      "head": "251f911bcb80ac279d1172e43d8c0e9c83fd724a",
+      "mergeable": true,
+      "reviews": [
+        [
+          "coderabbitai[bot]",
+          "CHANGES_REQUESTED",
+          "2026-09-30T14:44:51Z"
+        ],
+        [
+          "Tokha233",
+          "COMMENTED",
+          "2026-09-30T15:05:17Z"
+        ],
+        [
+          "coderabbitai[bot]",
+          "COMMENTED",
+          "2026-09-30T15:06:04Z"
+        ]
+      ],
+      "comments": 3
+    }
+  ],
+  "post_snapshot_updates": {
+    "222": {
+      "head": "bbfee43",
+      "change": "QKV fallback memory/device/image checks and sdist packaging; pushed and replied"
+    },
+    "223": {
+      "head": "6bf0cb0",
+      "change": "ConvRot K/shared-memory fallback; pushed and replied"
+    }
+  }
+}

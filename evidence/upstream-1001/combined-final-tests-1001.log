@@ -1,0 +1,17 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.1.1, pluggy-1.6.0
+benchmark: 5.3.0 (defaults: timer=time.perf_counter disable_gc=False min_rounds=5 min_time=0.000005 max_time=1.0 calibration_precision=10 warmup=False warmup_iterations=100000)
+rootdir: /tmp/h3-kitchen-prs-0930/combined
+configfile: pytest.ini
+plugins: benchmark-5.3.0, anyio-4.14.2
+collected 154 items
+
+tests/test_convrot_register.py .......................                   [ 14%]
+tests/test_int8_attention_tma.py ..................                      [ 26%]
+tests/test_int8_attention_layout.py ...................                  [ 38%]
+tests/test_int8_indexed_gate.py .......................                  [ 53%]
+tests/test_indexed_norm.py ..................................            [ 75%]
+tests/test_indexed_linear.py ............                                [ 83%]
+tests/test_h3_qkv.py ........................s                           [100%]
+
+======================= 153 passed, 1 skipped in 11.29s ========================

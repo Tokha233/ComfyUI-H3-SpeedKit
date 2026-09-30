@@ -64,6 +64,7 @@ Need regular IMAGE nodes for grading or upscaling? Keep standard VAE Decode and 
 
 **Upstream work:** [10 Kitchen/ComfyUI PRs with tests, measurements and review status](docs/UPSTREAM-BATCH2.zh-CN.md)
 are open; some remain drafts pending API releases and integration qualification.
+[October 1 integration test](docs/UPSTREAM-RECOVERY-TESTS-20261001.zh-CN.md): **15.737 → 14.201 s (−9.76% sampler time)** on a newer fixed Kitchen/ComfyUI baseline, with identical video/audio latent, RGB8 and PCM hashes. This experimental integration is separate from the released plugin benchmarks above.
 An optional [Indexed Gate node](docs/INDEXED-GATE.md)
 isolates PR #219 in a real H3 workflow. It requires a source build of the unmerged
 PR and is independent of the complete Optimize DiT node.
