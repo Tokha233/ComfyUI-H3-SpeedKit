@@ -74,6 +74,8 @@ python benchmarks/run.py --help
 
 CPU checks verify tooling and evidence, not GPU performance. `benchmarks/run.py` takes your own reference, public models and prompt, then compares stock/optimized outputs and complete local-file timing. First-use shape verification is intentionally slower. Other GPUs, Windows, newer Torch/ComfyUI and arbitrary model patches require separate qualification. No precompiled wheel or model weights are bundled.
 
+[Hugging Face overview](https://huggingface.co/StellarVoyager/MiniMax-H3-SpeedKit-RTX5090Dv2) · [Kitchen upstream contribution analysis (中文)](docs/KITCHEN-PR-OPPORTUNITIES.zh-CN.md)
+
 ## Credits and license
 
 Built on [ComfyUI](https://github.com/Comfy-Org/ComfyUI), [Comfy Kitchen](https://github.com/Comfy-Org/comfy-kitchen), [SageAttention](https://github.com/thu-ml/SageAttention), [CUTLASS](https://github.com/NVIDIA/cutlass), PyTorch and SGLang. [Larry v4](https://huggingface.co/larryvrh/MiniMax-H3-Turbo-Lora) and the INT8 VAE are upstream work. This project contributes hardware-specific adaptations, integration, output engineering and measured validation.

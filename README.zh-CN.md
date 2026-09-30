@@ -76,3 +76,5 @@ python benchmarks/run.py --help
 感谢 ComfyUI、Comfy Kitchen、SageAttention、CUTLASS、PyTorch、SGLang；Larry v4 LoRA 和 INT8 VAE 均为上游成果。本项目公开硬件专项适配、融合、工程接入与验证，不将上游模型/算子宣称为原创。
 
 组合插件按 [GPL-3.0-or-later](LICENSE) 发布；内核和其他文件的原有 Apache/BSD 许可保留，见 [NOTICE](NOTICE)、[来源索引](evidence/kernel-provenance.json)。H3 模型权重另受社区许可证的地域与商业条件约束。业务素材、私有提示词和合并权重不公开。
+
+[Hugging Face 项目页](https://huggingface.co/StellarVoyager/MiniMax-H3-SpeedKit-RTX5090Dv2) · [Kitchen 上游 PR 机会分析](docs/KITCHEN-PR-OPPORTUNITIES.zh-CN.md)

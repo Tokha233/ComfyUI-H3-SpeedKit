@@ -1,0 +1,318 @@
+{
+  "retrieved_at": "2026-09-30T10:11:43.696301+00:00",
+  "main": "19ea55b9ebdaf77942dab36223e1222009d3ce11",
+  "version": "0.2.36",
+  "open_pull_requests": [
+    {
+      "number": 215,
+      "title": "Further optimize int8 GEMM (CORE-520)",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/215",
+      "draft": true,
+      "head": "92e9aa602e494dcea0fe1eccf985c9badc2a630a"
+    },
+    {
+      "number": 213,
+      "title": "ci: update checkout to v7",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/213",
+      "draft": false,
+      "head": "4b1852b49b69da82f7246af17350ec69edbed388"
+    },
+    {
+      "number": 212,
+      "title": "[Perf][Ascend] Reuse unpacked W4A4 weights within an explicit scope",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/212",
+      "draft": false,
+      "head": "0f2fbf9ef2e5ac88bd1690f56df6a3b637b9b248"
+    },
+    {
+      "number": 206,
+      "title": "[HIP] Integrate iGPU Optimizations (gfx1035 + gfx1103)",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/206",
+      "draft": false,
+      "head": "45844e3016ea44101fdd1cb91d87b8883e5fdedc"
+    },
+    {
+      "number": 205,
+      "title": "Fall back to eager when a one-element INT8 scale adds leading dims",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/205",
+      "draft": false,
+      "head": "03847be96e57fb2c676ef3e3b3a728199c87d48f"
+    },
+    {
+      "number": 201,
+      "title": "[Perf][Ascend] Avoid activation pack/unpack in ConvRot W4A4",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/201",
+      "draft": false,
+      "head": "a40a0dbadba1f8b91f46ed035953b631f73837c3"
+    },
+    {
+      "number": 200,
+      "title": "[HIP] Add software tiled GEMM support to older HIP architectures (RDNA1 and Vega)",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/200",
+      "draft": false,
+      "head": "b744c42de47947e23fb860e30f53576d0afe4bbf"
+    },
+    {
+      "number": 199,
+      "title": "[BugFix][Ascend] Gate RoPE tests on operator capabilities and clarify support",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/199",
+      "draft": false,
+      "head": "28b7f850cbc4edc0e3e0605e026252c5bd3a53c1"
+    },
+    {
+      "number": 197,
+      "title": "Add Triton INT8 dtype dequantization",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/197",
+      "draft": false,
+      "head": "3e66dca4a34873b0dc0472b3462edf9c32a9ba1c"
+    },
+    {
+      "number": 195,
+      "title": "[HIP] Speed up RMS+RoPE for 64-wide heads on wave32",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/195",
+      "draft": false,
+      "head": "a91df93e59fcecc0be15211233e9c94aee8e328d"
+    },
+    {
+      "number": 189,
+      "title": "Add CUDA MXFP8 dequantization",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/189",
+      "draft": false,
+      "head": "a31543755b9df3bcfb5609ed0a1cc904cfda5b86"
+    },
+    {
+      "number": 187,
+      "title": "Fix triton rms_rope grid overflow for sequences of 65536 or more",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/187",
+      "draft": false,
+      "head": "f9f11c8e3d1274d742541995080de3bb442394aa"
+    },
+    {
+      "number": 184,
+      "title": "Optimize HIP Sol exact attention with paired query blocks",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/184",
+      "draft": false,
+      "head": "53e545b87ddac48cf7bb0f3e6b4d8a2c0f616022"
+    },
+    {
+      "number": 183,
+      "title": "Optimize HIP ConvRot register transpose and block geometry",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/183",
+      "draft": false,
+      "head": "cdae8350846228dba848c33645fb93b08af64a61"
+    },
+    {
+      "number": 181,
+      "title": "docs: add AGENTS.md and CLAUDE.md shim",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/181",
+      "draft": false,
+      "head": "7865da4a2a7dc0db7ed9bc258457ae8611373f73"
+    },
+    {
+      "number": 180,
+      "title": "Bound VSA coarse score memory on HIP",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/180",
+      "draft": false,
+      "head": "88569c762f27d8de6473f9dc0d372ebe84515fa6"
+    },
+    {
+      "number": 179,
+      "title": "Add draft_attention for block-sparse video attention",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/179",
+      "draft": false,
+      "head": "b489f253678c3e2adbd1c2f51e31a28098f961b5"
+    },
+    {
+      "number": 174,
+      "title": "Optimize HIP WMMA INT8 GEMM staging, epilogue, and deep-K tiling",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/174",
+      "draft": false,
+      "head": "98d783ccfa7f4439afab303c33bdeb20566abe2d"
+    },
+    {
+      "number": 172,
+      "title": "Use int64 offsets in the Triton INT8 GEMM kernels",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/172",
+      "draft": false,
+      "head": "525c1ff1ed397543295024400aa4d7f59bd5c3b9"
+    },
+    {
+      "number": 168,
+      "title": "sol_attn: optional blk_cnt out-parameter for the routed-block count",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/168",
+      "draft": false,
+      "head": "956fc582873080ff19f4ef763844e200c8d22e24"
+    },
+    {
+      "number": 160,
+      "title": "Remove the torch._dynamo import, dead since #3 removed its only user",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/160",
+      "draft": false,
+      "head": "c7adcc88193ca15afc74fec6e8cd38cbedba4247"
+    },
+    {
+      "number": 157,
+      "title": "Add stochastic FP8 rounding to Triton backend",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/157",
+      "draft": false,
+      "head": "73ed759ac02d07ed2a091d834e86f8e8aa8eb89d"
+    },
+    {
+      "number": 146,
+      "title": "Reuse Sage INT8 kernel for Sol exact attention",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/146",
+      "draft": false,
+      "head": "f94e2b1619a66261dce76b4540763a0e6051576a"
+    },
+    {
+      "number": 145,
+      "title": "Add a float-GEMM fallback for int8_linear on devices without aten::_int_mm",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/145",
+      "draft": false,
+      "head": "668cad7807d06474f8ac65a422fd36bd91a4ab6a"
+    },
+    {
+      "number": 142,
+      "title": "sm86 INT8 GEMM tuning: measured tile heuristic, per-shape cfg cache, and path logging",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/142",
+      "draft": false,
+      "head": "43c31a3ec1f9e826acbffe8535e218e71836e439"
+    },
+    {
+      "number": 141,
+      "title": "Enable gfx1170/gfx1171 HIP backend support",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/141",
+      "draft": false,
+      "head": "adabe0dfaef060f3435f164ae5f615b7796ef41e"
+    },
+    {
+      "number": 139,
+      "title": "[ROCm] Add gfx12 INT8 WMMA GEMM schedule and fused INT8 ops for Z-Image",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/139",
+      "draft": false,
+      "head": "9d2a787caced0f8bb1bd4eb4113df1f07c86e81d"
+    },
+    {
+      "number": 135,
+      "title": "fix: use typing.List in na3d signature for PyTorch custom_op compatib…",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/135",
+      "draft": false,
+      "head": "dc9bd5df482640f0367343c3d77f5dad45fbc3c2"
+    },
+    {
+      "number": 134,
+      "title": "HIP: accelerate AWQ W4A16 with WMMA",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/134",
+      "draft": false,
+      "head": "a50e24175609410477fcd99f8f8d1099e029b625"
+    },
+    {
+      "number": 133,
+      "title": "fix(eager): fallback int8 matmul on ROCm/HIP to prevent access violation on RDNA2",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/133",
+      "draft": false,
+      "head": "19c9aad6381aa95254a48ebc4eb8f2832f40c831"
+    },
+    {
+      "number": 130,
+      "title": "Tune gfx1151 INT8 deep-K tile selection",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/130",
+      "draft": false,
+      "head": "0a2b1f49951648f887f0b1ac597ec36ae0d93b25"
+    },
+    {
+      "number": 129,
+      "title": "HIP: optimize SVDQuant INT4 activation quantization",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/129",
+      "draft": false,
+      "head": "71fd9edb197eda150fd288d6a45c12a6944b0b97"
+    },
+    {
+      "number": 127,
+      "title": "HIP: vectorize rowwise INT8 quantization with 16-byte loads",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/127",
+      "draft": false,
+      "head": "6b38b04d8c3e6bb9c6b6a7462a7afd5eef5fbc28"
+    },
+    {
+      "number": 126,
+      "title": "Add minimal TensorArg abstraction for strided RoPE kernels",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/126",
+      "draft": true,
+      "head": "1f0a06b99e2befdf0533573e6bbcf6521440404d"
+    },
+    {
+      "number": 124,
+      "title": "Round fused SwiGLU to the storage dtype before ConvRot.",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/124",
+      "draft": false,
+      "head": "860255d24e3711115f4f44c6dae70fc9faa7f95d"
+    },
+    {
+      "number": 107,
+      "title": "Add MPS fallback for INT8 linear",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/107",
+      "draft": true,
+      "head": "ae14ebb2dbc9d2ecf062286031eda73d02ba9e91"
+    },
+    {
+      "number": 69,
+      "title": "RDNA-aware autotune configs for the INT8 matmul kernels",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/69",
+      "draft": false,
+      "head": "a78990909a19a8e56841270711e0ab03d2c60924"
+    },
+    {
+      "number": 63,
+      "title": "int4_tensorwise: W4A4 layout (+ConvRot) with fused CUDA kernels",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/63",
+      "draft": false,
+      "head": "be4a39e86897a8b98ce3fef636dfb5123b6214f0"
+    },
+    {
+      "number": 54,
+      "title": "Change rounding method in quantization process (triton backend fix for amd gpus)",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/54",
+      "draft": false,
+      "head": "3cb5be6faeee2b0410e599fbcf9cb2b1cb2ad8e7"
+    },
+    {
+      "number": 52,
+      "title": "Fix crash when running quantized models through torch.compile",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/52",
+      "draft": false,
+      "head": "1f3910a1e26bd321cb5d3e01995bc324494ce773"
+    },
+    {
+      "number": 50,
+      "title": "Try to optimize sdvquant implementation a bit.",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/50",
+      "draft": false,
+      "head": "cfcfd0c9d0e5af3c3398ed508233e208e29ba010"
+    },
+    {
+      "number": 47,
+      "title": "[ROCm] triton: skip `dequantize_nvfp4`",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/47",
+      "draft": false,
+      "head": "54ae117c5492b55ddf0bc269abaebb60f736e39d"
+    },
+    {
+      "number": 43,
+      "title": "[docs] Fix QuantizedTensor.from_float examples to use layout name strings",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/43",
+      "draft": false,
+      "head": "9fd89816bcc674efa809afc461163dc7735acbc8"
+    },
+    {
+      "number": 30,
+      "title": "Fix __version__ to read from package metadata instead of hardcoded string",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/30",
+      "draft": false,
+      "head": "1ce26583d5349829aa590622a420557371cc5c45"
+    }
+  ],
+  "assessment": "docs/KITCHEN-PR-OPPORTUNITIES.zh-CN.md",
+  "new_gpu_benchmark": false,
+  "submitted_upstream_pr": false
+}
