@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-30T22:40:00+08:00",
+  "updated_at": "2026-09-30T15:04:26.417015+00:00",
   "items": [
     {
       "id": "convrot",
@@ -56,21 +56,21 @@
       "destination": "ComfyUI",
       "status": "submitted",
       "pr": 16677,
-      "notes": "4 full sampler pairs; -161.47 MiB peak; video/audio latent SHA equal"
+      "notes": "4 full sampler pairs; -161.47 MiB peak; latent SHA equal; CodeRabbit APPROVED. Maintainer/CI approval still pending."
     },
     {
       "id": "attention-consumer",
       "destination": "ComfyUI",
       "status": "draft-submitted",
       "pr": 16678,
-      "notes": "Requires Kitchen #220 release; 4 full sampler pairs -0.410%"
+      "notes": "Draft depends on unreleased Kitchen #220; CodeRabbit requests dependency pin update. Finding acknowledged and left unresolved until actual release. Four prior full sampler pairs -0.410%."
     },
     {
       "id": "gate-consumer",
       "destination": "ComfyUI",
       "status": "draft-submitted",
       "pr": 16681,
-      "notes": "FC2-only via Kitchen #223; 15 ComfyUI tests; four pairs -1.384%; equal latent SHA; outproj remains"
+      "notes": "FC2-only via #223; 251f911 fixes compact segmented fallback, preserves hook output, 20 actual ComfyUI CPU tests. Previous GPU sampler -1.384% applies to 3d134bd; follow-up GPU retest pending. Reviewer approval pending."
     },
     {
       "id": "last-layer-live-rows",
@@ -122,5 +122,23 @@
       "notes": "Depends #219; 27 tests; no new native kernel"
     }
   ],
-  "gpu_connection": "h31 disconnected by maximum session duration; full combination not measured"
+  "gpu_connection": "h31 disconnected by maximum session duration; full combination not measured",
+  "combined_validation": {
+    "head": "d6cafade890d96c88f15ba14c4c917a0d120afa3",
+    "passed": 34,
+    "skipped": 90,
+    "seconds": 4.41,
+    "scope": "six changed Kitchen test modules; CUDA cases skipped; one real CPU Inductor case included",
+    "gpu_build": "pending",
+    "environment": {
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "TORCHINDUCTOR_CACHE_DIR": "isolated fresh directory"
+    },
+    "prior_attempts": [
+      "default shared Inductor cache hung in OpenMP barrier; terminated",
+      "single-thread with shared cache exited 139",
+      "isolated cache single Inductor test passed; all six modules rerun successfully"
+    ]
+  }
 }

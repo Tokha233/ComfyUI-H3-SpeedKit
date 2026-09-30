@@ -1,0 +1,350 @@
+{
+  "checked_at": "2026-09-30T15:04:26.417015+00:00",
+  "note": "Review states remain associated with their reviewed commit; a pushed fix is not an approval.",
+  "reviews": [
+    {
+      "repo": "comfy-kitchen",
+      "number": 218,
+      "author": "coderabbitai[bot]",
+      "state": "COMMENTED",
+      "commit": "e931351942d2ed2f2eecec653ff2e2621a9dd22a",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/218#pullrequestreview-5365455606"
+    },
+    {
+      "repo": "comfy-kitchen",
+      "number": 218,
+      "author": "Tokha233",
+      "state": "COMMENTED",
+      "commit": "e931351942d2ed2f2eecec653ff2e2621a9dd22a",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/218#pullrequestreview-5365908048"
+    },
+    {
+      "repo": "comfy-kitchen",
+      "number": 218,
+      "author": "coderabbitai[bot]",
+      "state": "COMMENTED",
+      "commit": "2eb97e0948180e568d722dab65ca8c2db1fa0790",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/218#pullrequestreview-5365914486"
+    },
+    {
+      "repo": "comfy-kitchen",
+      "number": 219,
+      "author": "coderabbitai[bot]",
+      "state": "COMMENTED",
+      "commit": "dc7c739fe5fc7502b50206e81fbe26c6fe3930a1",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/219#pullrequestreview-5366459484"
+    },
+    {
+      "repo": "comfy-kitchen",
+      "number": 220,
+      "author": "coderabbitai[bot]",
+      "state": "COMMENTED",
+      "commit": "9f70304669543c7f691f46234519d9b06fbaad39",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/220#pullrequestreview-5367448381"
+    },
+    {
+      "repo": "comfy-kitchen",
+      "number": 221,
+      "author": "coderabbitai[bot]",
+      "state": "COMMENTED",
+      "commit": "c058e49cb68397b5f30be2cdca51900d20c67a16",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/221#pullrequestreview-5367452882"
+    },
+    {
+      "repo": "ComfyUI",
+      "number": 16677,
+      "author": "coderabbitai[bot]",
+      "state": "APPROVED",
+      "commit": "a983f80d52104d1536d72eb1acd2903ac8afd98e",
+      "url": "https://github.com/Comfy-Org/ComfyUI/pull/16677#pullrequestreview-5367124421"
+    },
+    {
+      "repo": "ComfyUI",
+      "number": 16678,
+      "author": "coderabbitai[bot]",
+      "state": "CHANGES_REQUESTED",
+      "commit": "c0ac30db4b40e5f455bf27fdb0b00ec9eab07df1",
+      "url": "https://github.com/Comfy-Org/ComfyUI/pull/16678#pullrequestreview-5367803352"
+    },
+    {
+      "repo": "ComfyUI",
+      "number": 16681,
+      "author": "coderabbitai[bot]",
+      "state": "CHANGES_REQUESTED",
+      "commit": "3d134bd764a665d6ce521892d00503004f5cedc3",
+      "url": "https://github.com/Comfy-Org/ComfyUI/pull/16681#pullrequestreview-5367831746"
+    }
+  ],
+  "checks": [
+    {
+      "repo": "comfy-kitchen",
+      "number": 217,
+      "head": "6e2006d4a715939847ff553cb46949d18c5f7171",
+      "name": "cla-assistant",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/actions/runs/36707363222/job/109883077689"
+    },
+    {
+      "repo": "comfy-kitchen",
+      "number": 217,
+      "head": "6e2006d4a715939847ff553cb46949d18c5f7171",
+      "name": "Socket Security: Pull Request Alerts",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/runs/109860750232"
+    },
+    {
+      "repo": "comfy-kitchen",
+      "number": 217,
+      "head": "6e2006d4a715939847ff553cb46949d18c5f7171",
+      "name": "Socket Security: Project Report",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/runs/109860693492"
+    },
+    {
+      "repo": "comfy-kitchen",
+      "number": 218,
+      "head": "2eb97e0948180e568d722dab65ca8c2db1fa0790",
+      "name": "cla-assistant",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/actions/runs/36711698437/job/109881184866"
+    },
+    {
+      "repo": "comfy-kitchen",
+      "number": 218,
+      "head": "2eb97e0948180e568d722dab65ca8c2db1fa0790",
+      "name": "Socket Security: Pull Request Alerts",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/runs/109874856076"
+    },
+    {
+      "repo": "comfy-kitchen",
+      "number": 218,
+      "head": "2eb97e0948180e568d722dab65ca8c2db1fa0790",
+      "name": "Socket Security: Project Report",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/runs/109874785913"
+    },
+    {
+      "repo": "comfy-kitchen",
+      "number": 219,
+      "head": "5f7290d1301e6bc7e2109c7c3d35a3d14f7f3de9",
+      "name": "Socket Security: Pull Request Alerts",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/runs/109910601845"
+    },
+    {
+      "repo": "comfy-kitchen",
+      "number": 219,
+      "head": "5f7290d1301e6bc7e2109c7c3d35a3d14f7f3de9",
+      "name": "Socket Security: Project Report",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/runs/109910509262"
+    },
+    {
+      "repo": "comfy-kitchen",
+      "number": 219,
+      "head": "5f7290d1301e6bc7e2109c7c3d35a3d14f7f3de9",
+      "name": "cla-assistant",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/actions/runs/36722373386/job/109910485106"
+    },
+    {
+      "repo": "comfy-kitchen",
+      "number": 220,
+      "head": "13bbea660c11c20718336ff3bc791667b235b105",
+      "name": "Socket Security: Pull Request Alerts",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/runs/109935026950"
+    },
+    {
+      "repo": "comfy-kitchen",
+      "number": 220,
+      "head": "13bbea660c11c20718336ff3bc791667b235b105",
+      "name": "Socket Security: Project Report",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/runs/109934894265"
+    },
+    {
+      "repo": "comfy-kitchen",
+      "number": 220,
+      "head": "13bbea660c11c20718336ff3bc791667b235b105",
+      "name": "cla-assistant",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/actions/runs/36729460212/job/109934885380"
+    },
+    {
+      "repo": "comfy-kitchen",
+      "number": 221,
+      "head": "f66dda592a0796a12a96b3adbf8d61e51113e58d",
+      "name": "Socket Security: Pull Request Alerts",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/runs/109935026169"
+    },
+    {
+      "repo": "comfy-kitchen",
+      "number": 221,
+      "head": "f66dda592a0796a12a96b3adbf8d61e51113e58d",
+      "name": "Socket Security: Project Report",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/runs/109934883985"
+    },
+    {
+      "repo": "comfy-kitchen",
+      "number": 221,
+      "head": "f66dda592a0796a12a96b3adbf8d61e51113e58d",
+      "name": "cla-assistant",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/actions/runs/36729457251/job/109934874862"
+    },
+    {
+      "repo": "comfy-kitchen",
+      "number": 222,
+      "head": "240e76a5a21a2f726fe93e20b981138d86341c40",
+      "name": "Socket Security: Pull Request Alerts",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/runs/109937813007"
+    },
+    {
+      "repo": "comfy-kitchen",
+      "number": 222,
+      "head": "240e76a5a21a2f726fe93e20b981138d86341c40",
+      "name": "Socket Security: Project Report",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/runs/109937723904"
+    },
+    {
+      "repo": "comfy-kitchen",
+      "number": 222,
+      "head": "240e76a5a21a2f726fe93e20b981138d86341c40",
+      "name": "cla-assistant",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/actions/runs/36730273140/job/109937704272"
+    },
+    {
+      "repo": "comfy-kitchen",
+      "number": 223,
+      "head": "ba876f2950810a6f9fb5f2b15f8db8243c1d4bb6",
+      "name": "Socket Security: Pull Request Alerts",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/runs/109934281262"
+    },
+    {
+      "repo": "comfy-kitchen",
+      "number": 223,
+      "head": "ba876f2950810a6f9fb5f2b15f8db8243c1d4bb6",
+      "name": "Socket Security: Project Report",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/runs/109934196472"
+    },
+    {
+      "repo": "comfy-kitchen",
+      "number": 223,
+      "head": "ba876f2950810a6f9fb5f2b15f8db8243c1d4bb6",
+      "name": "cla-assistant",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/actions/runs/36729260425/job/109934186932"
+    },
+    {
+      "repo": "ComfyUI",
+      "number": 16677,
+      "head": "a983f80d52104d1536d72eb1acd2903ac8afd98e",
+      "name": "Socket Security: Pull Request Alerts",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Comfy-Org/ComfyUI/runs/109917677704"
+    },
+    {
+      "repo": "ComfyUI",
+      "number": 16677,
+      "head": "a983f80d52104d1536d72eb1acd2903ac8afd98e",
+      "name": "Socket Security: Project Report",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Comfy-Org/ComfyUI/runs/109917585410"
+    },
+    {
+      "repo": "ComfyUI",
+      "number": 16677,
+      "head": "a983f80d52104d1536d72eb1acd2903ac8afd98e",
+      "name": "cla-assistant",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36724441212/job/109917560415"
+    },
+    {
+      "repo": "ComfyUI",
+      "number": 16678,
+      "head": "c0ac30db4b40e5f455bf27fdb0b00ec9eab07df1",
+      "name": "Socket Security: Pull Request Alerts",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Comfy-Org/ComfyUI/runs/109920329638"
+    },
+    {
+      "repo": "ComfyUI",
+      "number": 16678,
+      "head": "c0ac30db4b40e5f455bf27fdb0b00ec9eab07df1",
+      "name": "Socket Security: Project Report",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Comfy-Org/ComfyUI/runs/109920240728"
+    },
+    {
+      "repo": "ComfyUI",
+      "number": 16678,
+      "head": "c0ac30db4b40e5f455bf27fdb0b00ec9eab07df1",
+      "name": "cla-assistant",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36725206517/job/109920201634"
+    },
+    {
+      "repo": "ComfyUI",
+      "number": 16681,
+      "head": "251f911bcb80ac279d1172e43d8c0e9c83fd724a",
+      "name": "Socket Security: Pull Request Alerts",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Comfy-Org/ComfyUI/runs/109950309302"
+    },
+    {
+      "repo": "ComfyUI",
+      "number": 16681,
+      "head": "251f911bcb80ac279d1172e43d8c0e9c83fd724a",
+      "name": "Socket Security: Project Report",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Comfy-Org/ComfyUI/runs/109950227642"
+    },
+    {
+      "repo": "ComfyUI",
+      "number": 16681,
+      "head": "251f911bcb80ac279d1172e43d8c0e9c83fd724a",
+      "name": "cla-assistant",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36733837792/job/109950216736"
+    }
+  ]
+}

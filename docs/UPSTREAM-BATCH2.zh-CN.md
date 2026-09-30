@@ -12,8 +12,8 @@ DiT 6.4922% 的记录保留，不把本批单项百分比与它相加。
 | RMSNorm＋indexed 调制＋ConvRot INT8 | [Kitchen #221](https://github.com/Comfy-Org/comfy-kitchen/pull/221) | Draft | 34 tests；六分段准备链 −65.14%～80.50% |
 | H3 QKV/RMS/RoPE/量化融合 | [Kitchen #222](https://github.com/Comfy-Org/comfy-kitchen/pull/222) | Draft | 20 tests；完整采样 −2.769% |
 | float-input indexed gate 包装 | [Kitchen #223](https://github.com/Comfy-Org/comfy-kitchen/pull/223) | Draft，依赖#219 | 27 operator tests |
-| H3 FC2 gate消费者 | [ComfyUI #16681](https://github.com/Comfy-Org/ComfyUI/pull/16681) | Draft，依赖#223发布 | 15 ComfyUI tests；完整采样−1.384% |
-| 提前释放打包 embedding 临时引用 | [ComfyUI #16677](https://github.com/Comfy-Org/ComfyUI/pull/16677) | 已提交 | 峰值 Torch 显存减少 161.47 MiB |
+| H3 FC2 gate消费者 | [ComfyUI #16681](https://github.com/Comfy-Org/ComfyUI/pull/16681) | Draft，依赖#223发布；审查修复已推送 | 原GPU版15 tests、完整采样−1.384%；修订版20 CPU tests，待GPU重验 |
+| 提前释放打包 embedding 临时引用 | [ComfyUI #16677](https://github.com/Comfy-Org/ComfyUI/pull/16677) | Open；CodeRabbit APPROVED | 峰值 Torch 显存减少 161.47 MiB |
 | 消费 BSHD attention 接口 | [ComfyUI #16678](https://github.com/Comfy-Org/ComfyUI/pull/16678) | Draft，等 Kitchen 发布 | 完整采样 −0.410% |
 
 目前共10个相关PR：Kitchen #217～#223，以及ComfyUI #16677/#16678/#16681。均未合并。
@@ -46,6 +46,8 @@ embedding 的峰值 1833455616→1664144896 bytes，不包含 aimdo 外部分配
 
 - [本批5组sampler重算汇总](../evidence/upstream-0930/summary.json)
 - [PR状态快照](../evidence/upstream-0930/pr-status.json)
+- [审查及checks快照](../evidence/upstream-0930/review-status.json)
+- [本地修订与组合验证记录](../evidence/upstream-0930/local-validation.json)
 
 - [机器可读优化清单](../evidence/upstream-campaign.json)
 - [embedding 正式记录](../evidence/upstream-0930/current-embedding-result.json)
@@ -84,3 +86,26 @@ VAE权重和基础INT8解码已经来自上游，不重复提交为原创；RGB8
 #222显示CLA/Socket成功、1项工作流等待批准，手动CodeRabbit请求因“Review rate limited”尚未完成，
 不能标为已经审查通过。GitHub公共API随后达到速率限制，后续状态通过Chrome页面查看。
 本地额外验证：macOS/Torch2.10的Norm CPU组10项通过、Gate wrapper CPU组3项通过。
+
+## 23:08 前后的审查跟进
+
+- **#16677 已获 CodeRabbit APPROVED**，仍不是维护者合并或GPU CI通过。
+- **#16678 收到 CHANGES_REQUESTED**：当前 Kitchen 0.2.36 不接受新的
+  `output_layout` 参数。已回复确认，保持 Draft，并将此意见保留为未解决的
+  合入条件；等待 #220 的真实发布版本后再改 pin，不填虚构版本号。
+- **#16681 收到 CHANGES_REQUESTED**：普通浮点/完整精度回退展开整张gate，
+  会增加显存。已推送 `5552653` 修正：保留原分段，只在INT8分支生成行索引；
+  普通推理回退复用新生成的linear输出，避免完整gate和额外完整结果分配。
+  hooks仍能看到未加gate的linear输出，梯度路径保留可微计算。
+  `251f911` 补充INT8行映射与cast/uncast测试，**真实ComfyUI CPU测试20项通过**，
+  Ruff通过；这是本地回归，不是新增GPU质量/性能测量。旧−1.384%对应`3d134bd`。
+  修复已回复审查线程，仍等待复核，不能标为审查通过。
+- **Kitchen组合分支**已纳入#217～#223，保留每项来源与许可证，当前
+  `d6cafade890d96c88f15ba14c4c917a0d120afa3`。六个相关测试模块在
+  macOS/Torch2.10 CPU上 **34 passed / 90 skipped**；跳过项需要CUDA。
+  默认Inductor缓存下曾发生OpenMP等待/进程异常，使用独立缓存和单线程后，
+  真实Inductor用例及整组测试通过，故环境与失败尝试均保留在记录中。
+
+组合CUDA完整重编译脚本和源码包已准备，**尚未在5090 D v2执行**；不以CPU
+回归代替GPU正确性、组合加速或RGB/PCM验收。检查结果为时间点快照，未配置
+无限期后台监控；后续推送、维护者反馈和CI执行后需要再次检查。

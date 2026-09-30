@@ -1,0 +1,31 @@
+{
+  "checked_at": "2026-09-30T15:04:26.417015+00:00",
+  "platform": "macOS arm64",
+  "python": "3.12.7",
+  "torch": "2.10.0",
+  "comfy_consumer": {
+    "head": "251f911",
+    "passed": 20,
+    "seconds": 1.62,
+    "scope": "actual ComfyUI checkout: segmented residual, H3 model and mixed precision tests; CPU only",
+    "gpu_retest": "pending"
+  },
+  "combined": {
+    "head": "d6cafade890d96c88f15ba14c4c917a0d120afa3",
+    "passed": 34,
+    "skipped": 90,
+    "seconds": 4.41,
+    "scope": "six changed Kitchen test modules; CUDA cases skipped; one real CPU Inductor case included",
+    "gpu_build": "pending",
+    "environment": {
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "TORCHINDUCTOR_CACHE_DIR": "isolated fresh directory"
+    },
+    "prior_attempts": [
+      "default shared Inductor cache hung in OpenMP barrier; terminated",
+      "single-thread with shared cache exited 139",
+      "isolated cache single Inductor test passed; all six modules rerun successfully"
+    ]
+  }
+}
