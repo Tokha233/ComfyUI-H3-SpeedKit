@@ -194,3 +194,12 @@ PyTorch allocator 记录的峰值增加约 152 MiB；该计数不包含外部分
 segment、fallback 和异常清理测试；CPU 10 项通过，真实 Comfy V3 schema 与
 disabled 分支通过，完整模型走正常采样器完成输出。新节点尚未单独通过前端
 画布导入或完整 PromptExecutor 工作流验收，不把旧节点的验收结果套用到它。
+
+
+消费者实现与完整证据已提交到 SpeedKit main：`088a1fd`。已在
+[#219 补充评论](https://github.com/Comfy-Org/comfy-kitchen/pull/219#issuecomment-5911651684)
+提交全部实测、复现入口和限制，并在额度等待时间已过后请求一次机器人复审。
+发布后回读确认评论正文完整。实验结束 GPU0/3 均为空闲，其他服务显存保持原状。
+
+#218 已在[当前 head 复审请求](https://github.com/Comfy-Org/comfy-kitchen/pull/218#issuecomment-5911666240)
+补充 CLA 通过和验证摘要。两条复审请求都只发一次；发出请求不代表机器人已完成复审。
