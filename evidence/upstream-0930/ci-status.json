@@ -1,0 +1,31 @@
+{
+  "note": "Public workflow snapshots; action_required needs upstream maintainer approval",
+  "kitchen222": [
+    {
+      "name": "Build Wheels",
+      "head": "240e76a5a21a2f726fe93e20b981138d86341c40",
+      "conclusion": "action_required",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/actions/runs/36730275929"
+    },
+    {
+      "name": "CLA Assistant",
+      "head": "240e76a5a21a2f726fe93e20b981138d86341c40",
+      "conclusion": "success",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/actions/runs/36730273140"
+    }
+  ],
+  "kitchen223": [
+    {
+      "name": "Build Wheels",
+      "head": "ba876f2950810a6f9fb5f2b15f8db8243c1d4bb6",
+      "conclusion": "action_required",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/actions/runs/36729265795"
+    },
+    {
+      "name": "CLA Assistant",
+      "head": "ba876f2950810a6f9fb5f2b15f8db8243c1d4bb6",
+      "conclusion": "success",
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/actions/runs/36729260425"
+    }
+  ]
+}

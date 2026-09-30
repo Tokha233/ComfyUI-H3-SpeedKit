@@ -1,0 +1,57 @@
+[
+  {
+    "evidence": "current-embedding-result.json",
+    "means": {
+      "release": 15.736244886706118,
+      "stock": 15.798279146722052
+    },
+    "reduction_percent": 0.3926646658146016,
+    "formal_requests": 8,
+    "all_latent_hashes_equal": true,
+    "timing": "full sampler, excludes conditioning/VAE/output"
+  },
+  {
+    "evidence": "current-layout-result.json",
+    "means": {
+      "bshd": 15.713747081463225,
+      "stock": 15.778403556527337
+    },
+    "reduction_percent": 0.40977830762456424,
+    "formal_requests": 8,
+    "all_latent_hashes_equal": true,
+    "timing": "full sampler, excludes conditioning/VAE/output"
+  },
+  {
+    "evidence": "current-norm-final-result.json",
+    "means": {
+      "norm": 15.087787704484072,
+      "stock": 15.801076114235912
+    },
+    "reduction_percent": 4.51417615227615,
+    "formal_requests": 8,
+    "all_latent_hashes_equal": true,
+    "timing": "full sampler, excludes conditioning/VAE/output"
+  },
+  {
+    "evidence": "current-qkv-result.json",
+    "means": {
+      "qkv": 15.366206939768745,
+      "stock": 15.803847071249038
+    },
+    "reduction_percent": 2.769199989769988,
+    "formal_requests": 8,
+    "all_latent_hashes_equal": true,
+    "timing": "full sampler, excludes conditioning/VAE/output"
+  },
+  {
+    "evidence": "current-gate-fc2-result.json",
+    "means": {
+      "gate": 15.583500710024964,
+      "stock": 15.802265819278546
+    },
+    "reduction_percent": 1.3843907687383084,
+    "formal_requests": 8,
+    "all_latent_hashes_equal": true,
+    "timing": "full sampler, excludes conditioning/VAE/output"
+  }
+]

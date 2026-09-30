@@ -1,0 +1,103 @@
+[
+  {
+    "repo": "comfy-kitchen",
+    "number": 217,
+    "state": "open",
+    "draft": false,
+    "merged": false,
+    "head": "6e2006d4a715939847ff553cb46949d18c5f7171",
+    "mergeable_state": "unstable",
+    "updated": "2026-09-30T12:22:07Z"
+  },
+  {
+    "repo": "comfy-kitchen",
+    "number": 218,
+    "state": "open",
+    "draft": false,
+    "merged": false,
+    "head": "2eb97e0948180e568d722dab65ca8c2db1fa0790",
+    "mergeable_state": "unstable",
+    "updated": "2026-09-30T12:59:24Z"
+  },
+  {
+    "repo": "comfy-kitchen",
+    "number": 219,
+    "state": "open",
+    "draft": false,
+    "merged": false,
+    "head": "5f7290d1301e6bc7e2109c7c3d35a3d14f7f3de9",
+    "mergeable_state": "unstable",
+    "updated": "2026-09-30T13:34:26Z"
+  },
+  {
+    "repo": "comfy-kitchen",
+    "number": 220,
+    "state": "open",
+    "draft": true,
+    "merged": false,
+    "head": "13bbea660c11c20718336ff3bc791667b235b105",
+    "mergeable_state": "unstable",
+    "updated": "2026-09-30T14:33:09Z"
+  },
+  {
+    "repo": "comfy-kitchen",
+    "number": 221,
+    "state": "open",
+    "draft": true,
+    "merged": false,
+    "head": "f66dda592a0796a12a96b3adbf8d61e51113e58d",
+    "mergeable_state": "unstable",
+    "updated": "2026-09-30T14:31:28Z"
+  },
+  {
+    "repo": "comfy-kitchen",
+    "number": 222,
+    "state": "open",
+    "draft": true,
+    "merged": false,
+    "head": "240e76a5a21a2f726fe93e20b981138d86341c40",
+    "mergeable_state": "unstable",
+    "updated": "2026-09-30T14:31:06Z",
+    "head_verification": "SSH push; original API state snapshot before documentation successor"
+  },
+  {
+    "repo": "comfy-kitchen",
+    "number": 223,
+    "state": "open",
+    "draft": true,
+    "merged": false,
+    "head": "ba876f2950810a6f9fb5f2b15f8db8243c1d4bb6",
+    "mergeable_state": "unstable",
+    "updated": "2026-09-30T14:27:35Z"
+  },
+  {
+    "repo": "ComfyUI",
+    "number": 16677,
+    "state": "open",
+    "draft": false,
+    "merged": false,
+    "head": "a983f80d52104d1536d72eb1acd2903ac8afd98e",
+    "mergeable_state": "unstable",
+    "updated": "2026-09-30T14:19:02Z"
+  },
+  {
+    "repo": "ComfyUI",
+    "number": 16678,
+    "state": "open",
+    "draft": true,
+    "merged": false,
+    "head": "c0ac30db4b40e5f455bf27fdb0b00ec9eab07df1",
+    "mergeable_state": "unstable",
+    "updated": "2026-09-30T13:55:21Z"
+  },
+  {
+    "repo": "ComfyUI",
+    "number": 16681,
+    "state": "open",
+    "draft": true,
+    "merged": false,
+    "head": "3d134bd764a665d6ce521892d00503004f5cedc3",
+    "mergeable_state": "unstable",
+    "updated": "2026-09-30T14:29:23Z"
+  }
+]

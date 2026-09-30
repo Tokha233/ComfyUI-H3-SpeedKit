@@ -1,0 +1,148 @@
+{
+  "torch": "2.12.0+cu130",
+  "gpu": "NVIDIA GeForce RTX 5090 D v2",
+  "baseline_comfy": "8cfe5e1ecb97512dea8deaac15e1228d7e6feeb1",
+  "records": [
+    {
+      "arm": "stock",
+      "repeat": -1,
+      "warmup": true,
+      "dit_seconds": 24.110742527991533,
+      "sha256": [
+        "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+        "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb"
+      ],
+      "counts": {
+        "norm": 0
+      },
+      "peak_allocated_bytes": 1833455616
+    },
+    {
+      "arm": "norm",
+      "repeat": -1,
+      "warmup": true,
+      "dit_seconds": 15.086563147022389,
+      "sha256": [
+        "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+        "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb"
+      ],
+      "counts": {
+        "norm": 800
+      },
+      "peak_allocated_bytes": 2474106880
+    },
+    {
+      "arm": "norm",
+      "repeat": 0,
+      "warmup": false,
+      "dit_seconds": 15.087524465052411,
+      "sha256": [
+        "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+        "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb"
+      ],
+      "counts": {
+        "norm": 800
+      },
+      "peak_allocated_bytes": 2474106880
+    },
+    {
+      "arm": "stock",
+      "repeat": 0,
+      "warmup": false,
+      "dit_seconds": 15.736428018077277,
+      "sha256": [
+        "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+        "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb"
+      ],
+      "counts": {
+        "norm": 0
+      },
+      "peak_allocated_bytes": 1833455616
+    },
+    {
+      "arm": "stock",
+      "repeat": 1,
+      "warmup": false,
+      "dit_seconds": 15.981784168980084,
+      "sha256": [
+        "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+        "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb"
+      ],
+      "counts": {
+        "norm": 0
+      },
+      "peak_allocated_bytes": 1833455616
+    },
+    {
+      "arm": "norm",
+      "repeat": 1,
+      "warmup": false,
+      "dit_seconds": 15.086345012066886,
+      "sha256": [
+        "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+        "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb"
+      ],
+      "counts": {
+        "norm": 800
+      },
+      "peak_allocated_bytes": 2474106880
+    },
+    {
+      "arm": "norm",
+      "repeat": 2,
+      "warmup": false,
+      "dit_seconds": 15.084088282077573,
+      "sha256": [
+        "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+        "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb"
+      ],
+      "counts": {
+        "norm": 800
+      },
+      "peak_allocated_bytes": 2474106880
+    },
+    {
+      "arm": "stock",
+      "repeat": 2,
+      "warmup": false,
+      "dit_seconds": 15.735009687952697,
+      "sha256": [
+        "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+        "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb"
+      ],
+      "counts": {
+        "norm": 0
+      },
+      "peak_allocated_bytes": 1833455616
+    },
+    {
+      "arm": "stock",
+      "repeat": 3,
+      "warmup": false,
+      "dit_seconds": 15.735149075044319,
+      "sha256": [
+        "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+        "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb"
+      ],
+      "counts": {
+        "norm": 0
+      },
+      "peak_allocated_bytes": 1833455616
+    },
+    {
+      "arm": "norm",
+      "repeat": 3,
+      "warmup": false,
+      "dit_seconds": 15.071871971013024,
+      "sha256": [
+        "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+        "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb"
+      ],
+      "counts": {
+        "norm": 800
+      },
+      "peak_allocated_bytes": 2474106880
+    }
+  ],
+  "status": "passed"
+}

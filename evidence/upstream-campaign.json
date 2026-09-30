@@ -1,0 +1,126 @@
+{
+  "schema": 1,
+  "updated_at": "2026-09-30T22:40:00+08:00",
+  "items": [
+    {
+      "id": "convrot",
+      "destination": "Kitchen",
+      "status": "submitted",
+      "pr": 217,
+      "notes": "原寄存器 ConvRot PR，等待维护者批准 GPU CI"
+    },
+    {
+      "id": "dense-tma",
+      "destination": "Kitchen",
+      "status": "submitted",
+      "pr": 218,
+      "notes": "非正尺度审查修复已提交，独立 math SDPA 测试通过"
+    },
+    {
+      "id": "indexed-gate",
+      "destination": "Kitchen",
+      "status": "updated",
+      "pr": 219,
+      "notes": "5f7290d 修复回退布局和 wheel 许可证；38 passed / 1 skipped"
+    },
+    {
+      "id": "bshd-output",
+      "destination": "Kitchen",
+      "status": "draft-submitted",
+      "pr": 220,
+      "notes": "37 GPU tests after review fixes; four-pair sampler -0.410%; latent SHA equal"
+    },
+    {
+      "id": "indexed-norm-convrot",
+      "destination": "Kitchen",
+      "status": "draft-submitted",
+      "pr": 221,
+      "notes": "34 operator tests; final experimental consumer 4.514% sampler reduction; -152.27 MiB peak; all 8 formal latent pairs equal; clean prequantized-linear integration remains"
+    },
+    {
+      "id": "qkv-rms-rope-quant",
+      "destination": "Kitchen",
+      "status": "draft-submitted",
+      "pr": 222,
+      "notes": "20 tests; microchain up to 16.82%; four-pair sampler -2.769%; equal latent SHA; generic consumer dispatch remains"
+    },
+    {
+      "id": "fc1-raster",
+      "destination": "Kitchen",
+      "status": "compare-existing-pr",
+      "pr": 215,
+      "notes": "#215 source audited and isolated build started; completion/performance not retrieved after bastion disconnect; no duplicate PR"
+    },
+    {
+      "id": "embedding-lifetime",
+      "destination": "ComfyUI",
+      "status": "submitted",
+      "pr": 16677,
+      "notes": "4 full sampler pairs; -161.47 MiB peak; video/audio latent SHA equal"
+    },
+    {
+      "id": "attention-consumer",
+      "destination": "ComfyUI",
+      "status": "draft-submitted",
+      "pr": 16678,
+      "notes": "Requires Kitchen #220 release; 4 full sampler pairs -0.410%"
+    },
+    {
+      "id": "gate-consumer",
+      "destination": "ComfyUI",
+      "status": "draft-submitted",
+      "pr": 16681,
+      "notes": "FC2-only via Kitchen #223; 15 ComfyUI tests; four pairs -1.384%; equal latent SHA; outproj remains"
+    },
+    {
+      "id": "last-layer-live-rows",
+      "destination": "ComfyUI",
+      "status": "audit",
+      "pr": null,
+      "notes": "全 KV 保留；query 量化 tile 对齐与 hook 契约需验证"
+    },
+    {
+      "id": "vae-int8",
+      "destination": "upstream",
+      "status": "already-upstream",
+      "pr": null,
+      "notes": "上游权重与 decoder，不重复声明贡献"
+    },
+    {
+      "id": "vae-rgb8-d2h",
+      "destination": "SpeedKit",
+      "status": "published-plugin",
+      "pr": null,
+      "notes": "改变输出类型，不宜静默替换通用 IMAGE 输出"
+    },
+    {
+      "id": "async-cpu-export",
+      "destination": "SpeedKit/service",
+      "status": "published-plugin",
+      "pr": null,
+      "notes": "队列背压、所有权、异常传播属于输出/服务层"
+    },
+    {
+      "id": "cpu-audio",
+      "destination": "none",
+      "status": "rejected",
+      "pr": null,
+      "notes": "历史实验更慢且 PCM 改变，不提交为无损优化"
+    },
+    {
+      "id": "lora-selection",
+      "destination": "SpeedKit docs",
+      "status": "published-evidence",
+      "pr": null,
+      "notes": "Larry 选择与量化证据已公开，不是新上游模型实现"
+    },
+    {
+      "id": "indexed-linear-wrapper",
+      "destination": "Kitchen",
+      "status": "draft-submitted",
+      "pr": 223,
+      "notes": "Depends #219; 27 tests; no new native kernel"
+    }
+  ],
+  "gpu_connection": "h31 disconnected by maximum session duration; full combination not measured"
+}

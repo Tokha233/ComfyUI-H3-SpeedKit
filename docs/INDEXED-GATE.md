@@ -13,13 +13,13 @@ An ordinary `pip install comfy-kitchen==0.2.36` does not contain the API.
 ## Build and connect
 
 Use a separate environment with the [qualified ComfyUI/Torch versions](../configs/compatibility.json),
-Linux, an SM120 GPU and CUDA 13 nvcc. Build the exact tested PR head:
+Linux, an SM120 GPU and CUDA 13 nvcc. Build the reviewed PR head below. The original sampler benchmark used `dc7c739`; the subsequent `5f7290d` changes fix fallback contiguity and wheel license packaging, with 38 passing tests and one skip:
 
 ```bash
 git clone https://github.com/Comfy-Org/comfy-kitchen.git kitchen-pr219
 cd kitchen-pr219
 git fetch origin pull/219/head
-git checkout dc7c739fe5fc7502b50206e81fbe26c6fe3930a1
+git checkout 5f7290d1301e6bc7e2109c7c3d35a3d14f7f3de9
 git submodule update --init --recursive
 COMFY_CUDA_ARCHS=120 COMFY_KITCHEN_BUILD_NO_HIP=1 python -m pip install .
 python -c 'import comfy_kitchen as ck; print(ck.int8_gemm_indexed_gate)'
