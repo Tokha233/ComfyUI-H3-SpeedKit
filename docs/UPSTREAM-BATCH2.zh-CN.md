@@ -81,6 +81,6 @@ VAE权重和基础INT8解码已经来自上游，不重复提交为原创；RGB8
 在可用插件中，通用ComfyUI IMAGE契约仍返回浮点数据。
 
 最后检查：#16681 页面显示6项工作流等待维护者批准，并要求code-owner review；
-#222显示CLA/Socket成功、1项工作流等待批准，手动CodeRabbit请求尚未完成，
+#222显示CLA/Socket成功、1项工作流等待批准，手动CodeRabbit请求因“Review rate limited”尚未完成，
 不能标为已经审查通过。GitHub公共API随后达到速率限制，后续状态通过Chrome页面查看。
 本地额外验证：macOS/Torch2.10的Norm CPU组10项通过、Gate wrapper CPU组3项通过。
