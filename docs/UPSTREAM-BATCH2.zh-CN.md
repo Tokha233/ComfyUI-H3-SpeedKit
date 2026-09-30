@@ -57,7 +57,7 @@ embedding 的峰值 1833455616→1664144896 bytes，不包含 aimdo 外部分配
 
 此前#217～#221已检查的CLA/Socket通过；新#222/#223最新head的CLA已通过，Build Wheels为action_required。外部贡献的 Build Wheels/ComfyUI CI
 需要维护者批准执行（action_required），不能标成测试失败或已通过。
-Draft 不会自动发起 CodeRabbit 审查。已手动请求#220/#221/#222/#223/#16681审查；#220两条、#221三条意见已确认修复，其他回复以PR状态为准。
+Draft 不会自动发起 CodeRabbit 审查。已手动请求#220/#221/#222/#223/#16678/#16681审查；#220两条、#221三条意见已确认修复，其他回复以PR状态为准。
 
 ## 审查修复
 
@@ -79,3 +79,8 @@ h31 在最后上传后提示“会话超过最大连接时间，断开连接”�
 最后一层 live-query（量化块对齐与patch契约）、#215调度与现有raster的重叠。
 VAE权重和基础INT8解码已经来自上游，不重复提交为原创；RGB8/D2H/异步CPU导出保留
 在可用插件中，通用ComfyUI IMAGE契约仍返回浮点数据。
+
+最后检查：#16681 页面显示6项工作流等待维护者批准，并要求code-owner review；
+#222显示CLA/Socket成功、1项工作流等待批准，手动CodeRabbit请求尚未完成，
+不能标为已经审查通过。GitHub公共API随后达到速率限制，后续状态通过Chrome页面查看。
+本地额外验证：macOS/Torch2.10的Norm CPU组10项通过、Gate wrapper CPU组3项通过。
