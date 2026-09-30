@@ -11,3 +11,8 @@
 The benchmark CLI accepts your own image and models and reports timing and hashes. Do not expect a new input size to reproduce private-business timings; first-use exact layout verification also adds overhead.
 
 `reference.png` is a newly drawn, original toy-robot fixture (Apache-2.0), used by the public-input benchmark. Copy it to your ComfyUI input directory.
+
+For a focused upstream experiment, use the [Kitchen #219 Indexed Gate node](../docs/INDEXED-GATE.md)
+instead of Optimize DiT. It requires the unmerged Kitchen source build. The
+dedicated `benchmarks/indexed_gate.py` compares both arms with identical stock
+decode/export so other SpeedKit optimizations do not enter its result.

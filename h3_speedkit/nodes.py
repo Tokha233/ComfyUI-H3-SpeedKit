@@ -55,6 +55,23 @@ class H3SpeedKitVideoVAELoader(io.ComfyNode):
         return io.NodeOutput(load_video_vae(folder_paths.get_full_path_or_raise("vae", vae_name)))
 
 
+class H3SpeedKitIndexedGate(io.ComfyNode):
+    @classmethod
+    def define_schema(cls):
+        return io.Schema(
+            node_id="H3SpeedKitIndexedGate", display_name="H3 SpeedKit · Indexed Gate (Kitchen PR 219)",
+            category="H3 SpeedKit/Experimental", inputs=[io.Model.Input("model"),
+                io.Boolean.Input("enabled", default=True)], outputs=[io.Model.Output(), io.String.Output("report")])
+
+    @classmethod
+    def execute(cls, model, enabled=True):
+        if not enabled:
+            return io.NodeOutput(model.clone(), "Indexed gate disabled")
+        from .indexed_gate import patch_model
+        return io.NodeOutput(patch_model(model),
+            "PR #219 outproj/FC2 consumer. First-use exact verification enabled; logs report fallbacks.")
+
+
 class H3SpeedKitDecode(io.ComfyNode):
     @classmethod
     def define_schema(cls):

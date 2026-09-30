@@ -1,0 +1,601 @@
+{
+  "schema": 1,
+  "date": "2026-09-30",
+  "kitchen_pr": 219,
+  "kitchen_head": "dc7c739fe5fc7502b50206e81fbe26c6fe3930a1",
+  "base": "19ea55b9ebdaf77942dab36223e1222009d3ce11",
+  "comfy_commit": "2504e68d4d9dedb514e172692f13436623f25aed",
+  "model_sha256": "9eccf52e4fe6e764f4aac8cdb6045a58bc86d8458c783c35b7035edca71fec12",
+  "runs": [
+    {
+      "schema": 1,
+      "status": "success",
+      "records": [
+        {
+          "arm": "stock",
+          "repeat": -1,
+          "warmup": true,
+          "seconds": 29.3417351039825,
+          "dit_seconds": 24.461197454016656,
+          "video_seconds": 3.7806005590828136,
+          "audio_seconds": 0.3223692619940266,
+          "export_seconds": 0.777559999958612,
+          "peak_allocated_bytes": 1831559168,
+          "sha256": [
+            "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+            "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb",
+            "127f05afbea9f7d6a77c8b24e633aceeb2a718d65f12c1ee9d7dae6dfd2af3d6",
+            "24d2fce7641d923c17e8ba07fac3701d0c43ff094110f37a56c97116cbfc3e25"
+          ],
+          "four_sha_equal_stock": true
+        },
+        {
+          "arm": "indexed_gate",
+          "repeat": -1,
+          "warmup": true,
+          "seconds": 22.840068878955208,
+          "dit_seconds": 19.576910706004128,
+          "video_seconds": 2.374780362006277,
+          "audio_seconds": 0.10466082603670657,
+          "export_seconds": 0.7837119339965284,
+          "peak_allocated_bytes": 1996000768,
+          "sha256": [
+            "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+            "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb",
+            "127f05afbea9f7d6a77c8b24e633aceeb2a718d65f12c1ee9d7dae6dfd2af3d6",
+            "24d2fce7641d923c17e8ba07fac3701d0c43ff094110f37a56c97116cbfc3e25"
+          ],
+          "backend": {
+            "counts": {
+              "blocks": 50,
+              "outproj": 50,
+              "fc2": 50
+            },
+            "verified_layouts": 2,
+            "verification_blocks": 0
+          },
+          "four_sha_equal_stock": true
+        },
+        {
+          "arm": "indexed_gate",
+          "repeat": 0,
+          "warmup": false,
+          "seconds": 18.808465384994633,
+          "dit_seconds": 15.547549573937431,
+          "video_seconds": 2.3841491859639063,
+          "audio_seconds": 0.10429111402481794,
+          "export_seconds": 0.7724721919512376,
+          "peak_allocated_bytes": 1996000768,
+          "sha256": [
+            "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+            "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb",
+            "127f05afbea9f7d6a77c8b24e633aceeb2a718d65f12c1ee9d7dae6dfd2af3d6",
+            "24d2fce7641d923c17e8ba07fac3701d0c43ff094110f37a56c97116cbfc3e25"
+          ],
+          "backend": {
+            "counts": {
+              "blocks": 50,
+              "outproj": 50,
+              "fc2": 50
+            },
+            "verified_layouts": 2,
+            "verification_blocks": 0
+          },
+          "four_sha_equal_stock": true
+        },
+        {
+          "arm": "stock",
+          "repeat": 0,
+          "warmup": false,
+          "seconds": 19.167376844095998,
+          "dit_seconds": 15.9034575590631,
+          "video_seconds": 2.3903184700757265,
+          "audio_seconds": 0.1084403219865635,
+          "export_seconds": 0.7651559730293229,
+          "peak_allocated_bytes": 1836176896,
+          "sha256": [
+            "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+            "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb",
+            "127f05afbea9f7d6a77c8b24e633aceeb2a718d65f12c1ee9d7dae6dfd2af3d6",
+            "24d2fce7641d923c17e8ba07fac3701d0c43ff094110f37a56c97116cbfc3e25"
+          ],
+          "four_sha_equal_stock": true
+        },
+        {
+          "arm": "stock",
+          "repeat": 1,
+          "warmup": false,
+          "seconds": 19.19808905699756,
+          "dit_seconds": 15.903691352927126,
+          "video_seconds": 2.428505779011175,
+          "audio_seconds": 0.10681275802198797,
+          "export_seconds": 0.7590746169444174,
+          "peak_allocated_bytes": 1836176896,
+          "sha256": [
+            "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+            "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb",
+            "127f05afbea9f7d6a77c8b24e633aceeb2a718d65f12c1ee9d7dae6dfd2af3d6",
+            "24d2fce7641d923c17e8ba07fac3701d0c43ff094110f37a56c97116cbfc3e25"
+          ],
+          "four_sha_equal_stock": true
+        },
+        {
+          "arm": "indexed_gate",
+          "repeat": 1,
+          "warmup": false,
+          "seconds": 19.214882108033635,
+          "dit_seconds": 15.947444631019607,
+          "video_seconds": 2.396301069064066,
+          "audio_seconds": 0.10492640896700323,
+          "export_seconds": 0.766205259016715,
+          "peak_allocated_bytes": 1996000768,
+          "sha256": [
+            "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+            "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb",
+            "127f05afbea9f7d6a77c8b24e633aceeb2a718d65f12c1ee9d7dae6dfd2af3d6",
+            "24d2fce7641d923c17e8ba07fac3701d0c43ff094110f37a56c97116cbfc3e25"
+          ],
+          "backend": {
+            "counts": {
+              "blocks": 50,
+              "outproj": 50,
+              "fc2": 50
+            },
+            "verified_layouts": 2,
+            "verification_blocks": 0
+          },
+          "four_sha_equal_stock": true
+        },
+        {
+          "arm": "indexed_gate",
+          "repeat": 2,
+          "warmup": false,
+          "seconds": 18.793521955027245,
+          "dit_seconds": 15.541121175978333,
+          "video_seconds": 2.3857697199564427,
+          "audio_seconds": 0.10571430204436183,
+          "export_seconds": 0.7609124060254544,
+          "peak_allocated_bytes": 1996000768,
+          "sha256": [
+            "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+            "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb",
+            "127f05afbea9f7d6a77c8b24e633aceeb2a718d65f12c1ee9d7dae6dfd2af3d6",
+            "24d2fce7641d923c17e8ba07fac3701d0c43ff094110f37a56c97116cbfc3e25"
+          ],
+          "backend": {
+            "counts": {
+              "blocks": 50,
+              "outproj": 50,
+              "fc2": 50
+            },
+            "verified_layouts": 2,
+            "verification_blocks": 0
+          },
+          "four_sha_equal_stock": true
+        },
+        {
+          "arm": "stock",
+          "repeat": 2,
+          "warmup": false,
+          "seconds": 19.221734866965562,
+          "dit_seconds": 15.903936458053067,
+          "video_seconds": 2.4322174669941887,
+          "audio_seconds": 0.11055089498404413,
+          "export_seconds": 0.77502561500296,
+          "peak_allocated_bytes": 1836176896,
+          "sha256": [
+            "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+            "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb",
+            "127f05afbea9f7d6a77c8b24e633aceeb2a718d65f12c1ee9d7dae6dfd2af3d6",
+            "24d2fce7641d923c17e8ba07fac3701d0c43ff094110f37a56c97116cbfc3e25"
+          ],
+          "four_sha_equal_stock": true
+        },
+        {
+          "arm": "stock",
+          "repeat": 3,
+          "warmup": false,
+          "seconds": 19.23976326000411,
+          "dit_seconds": 15.899866238003597,
+          "video_seconds": 2.460640801000409,
+          "audio_seconds": 0.10871329705696553,
+          "export_seconds": 0.7705379140097648,
+          "peak_allocated_bytes": 1836176896,
+          "sha256": [
+            "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+            "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb",
+            "127f05afbea9f7d6a77c8b24e633aceeb2a718d65f12c1ee9d7dae6dfd2af3d6",
+            "24d2fce7641d923c17e8ba07fac3701d0c43ff094110f37a56c97116cbfc3e25"
+          ],
+          "four_sha_equal_stock": true
+        },
+        {
+          "arm": "indexed_gate",
+          "repeat": 3,
+          "warmup": false,
+          "seconds": 19.26512809097767,
+          "dit_seconds": 15.541770330979489,
+          "video_seconds": 2.4042771420208737,
+          "audio_seconds": 0.5373147890204564,
+          "export_seconds": 0.7817599980626255,
+          "peak_allocated_bytes": 1996000768,
+          "sha256": [
+            "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+            "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb",
+            "127f05afbea9f7d6a77c8b24e633aceeb2a718d65f12c1ee9d7dae6dfd2af3d6",
+            "24d2fce7641d923c17e8ba07fac3701d0c43ff094110f37a56c97116cbfc3e25"
+          ],
+          "backend": {
+            "counts": {
+              "blocks": 50,
+              "outproj": 50,
+              "fc2": 50
+            },
+            "verified_layouts": 2,
+            "verification_blocks": 0
+          },
+          "four_sha_equal_stock": true
+        }
+      ],
+      "optimization": "Kitchen PR #219 only: outproj + FC2 indexed gate epilogues",
+      "timing": "frozen condition to completed local MP4; hashes/conditioning/cold load excluded",
+      "input": {
+        "width": 768,
+        "height": 512,
+        "requested_frames": 124,
+        "steps": 8,
+        "seed": 42,
+        "frozen_condition": true
+      },
+      "environment": {
+        "torch": "2.12.0+cu130",
+        "torch_git": "7661cd9c6b841b62b7f411aa52ec51f05457263b",
+        "gpu": "NVIDIA GeForce RTX 5090 D v2",
+        "kitchen_version": "0.2.36"
+      },
+      "summary": {
+        "means": {
+          "stock": {
+            "dit_seconds": 15.902737902011722,
+            "seconds": 19.206741007015808
+          },
+          "indexed_gate": {
+            "dit_seconds": 15.644471427978715,
+            "seconds": 19.020499384758295
+          }
+        },
+        "time_reduction_percent": {
+          "dit_seconds": 1.624037795405886,
+          "seconds": 0.9696680045275907
+        }
+      }
+    },
+    {
+      "schema": 1,
+      "status": "success",
+      "records": [
+        {
+          "arm": "stock",
+          "repeat": -1,
+          "warmup": true,
+          "seconds": 28.492915314040147,
+          "dit_seconds": 23.721335105015896,
+          "video_seconds": 3.628610465908423,
+          "audio_seconds": 0.3277825521072373,
+          "export_seconds": 0.815179981989786,
+          "peak_allocated_bytes": 1831559168,
+          "sha256": [
+            "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+            "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb",
+            "127f05afbea9f7d6a77c8b24e633aceeb2a718d65f12c1ee9d7dae6dfd2af3d6",
+            "24d2fce7641d923c17e8ba07fac3701d0c43ff094110f37a56c97116cbfc3e25"
+          ],
+          "four_sha_equal_stock": true
+        },
+        {
+          "arm": "indexed_gate",
+          "repeat": -1,
+          "warmup": true,
+          "seconds": 22.804544880986214,
+          "dit_seconds": 19.573759916005656,
+          "video_seconds": 2.3367355200462043,
+          "audio_seconds": 0.10725809808354825,
+          "export_seconds": 0.7867865770822391,
+          "peak_allocated_bytes": 1996000768,
+          "sha256": [
+            "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+            "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb",
+            "127f05afbea9f7d6a77c8b24e633aceeb2a718d65f12c1ee9d7dae6dfd2af3d6",
+            "24d2fce7641d923c17e8ba07fac3701d0c43ff094110f37a56c97116cbfc3e25"
+          ],
+          "backend": {
+            "counts": {
+              "blocks": 50,
+              "outproj": 50,
+              "fc2": 50
+            },
+            "verified_layouts": 2,
+            "verification_blocks": 0
+          },
+          "forward_counts": {
+            "blocks": 400,
+            "outproj": 400,
+            "fc2": 400,
+            "forwards": 8,
+            "verification_blocks": 100
+          },
+          "four_sha_equal_stock": true
+        },
+        {
+          "arm": "indexed_gate",
+          "repeat": 0,
+          "warmup": false,
+          "seconds": 18.786337662953883,
+          "dit_seconds": 15.545540118939243,
+          "video_seconds": 2.3425023619784042,
+          "audio_seconds": 0.1037830839632079,
+          "export_seconds": 0.7945080370409414,
+          "peak_allocated_bytes": 1996000768,
+          "sha256": [
+            "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+            "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb",
+            "127f05afbea9f7d6a77c8b24e633aceeb2a718d65f12c1ee9d7dae6dfd2af3d6",
+            "24d2fce7641d923c17e8ba07fac3701d0c43ff094110f37a56c97116cbfc3e25"
+          ],
+          "backend": {
+            "counts": {
+              "blocks": 50,
+              "outproj": 50,
+              "fc2": 50
+            },
+            "verified_layouts": 2,
+            "verification_blocks": 0
+          },
+          "forward_counts": {
+            "blocks": 400,
+            "outproj": 400,
+            "fc2": 400,
+            "forwards": 8
+          },
+          "four_sha_equal_stock": true
+        },
+        {
+          "arm": "stock",
+          "repeat": 0,
+          "warmup": false,
+          "seconds": 19.23685339302756,
+          "dit_seconds": 15.902009960031137,
+          "video_seconds": 2.4247116720071062,
+          "audio_seconds": 0.10118362202774733,
+          "export_seconds": 0.8089444680372253,
+          "peak_allocated_bytes": 1836176896,
+          "sha256": [
+            "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+            "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb",
+            "127f05afbea9f7d6a77c8b24e633aceeb2a718d65f12c1ee9d7dae6dfd2af3d6",
+            "24d2fce7641d923c17e8ba07fac3701d0c43ff094110f37a56c97116cbfc3e25"
+          ],
+          "four_sha_equal_stock": true
+        },
+        {
+          "arm": "stock",
+          "repeat": 1,
+          "warmup": false,
+          "seconds": 19.14477871195413,
+          "dit_seconds": 15.898152434965596,
+          "video_seconds": 2.345763462013565,
+          "audio_seconds": 0.1018458679318428,
+          "export_seconds": 0.7990125770447776,
+          "peak_allocated_bytes": 1836176896,
+          "sha256": [
+            "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+            "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb",
+            "127f05afbea9f7d6a77c8b24e633aceeb2a718d65f12c1ee9d7dae6dfd2af3d6",
+            "24d2fce7641d923c17e8ba07fac3701d0c43ff094110f37a56c97116cbfc3e25"
+          ],
+          "four_sha_equal_stock": true
+        },
+        {
+          "arm": "indexed_gate",
+          "repeat": 1,
+          "warmup": false,
+          "seconds": 19.124975817045197,
+          "dit_seconds": 15.852790154051036,
+          "video_seconds": 2.365344040095806,
+          "audio_seconds": 0.10170098999515176,
+          "export_seconds": 0.8051366729196161,
+          "peak_allocated_bytes": 1996000768,
+          "sha256": [
+            "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+            "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb",
+            "127f05afbea9f7d6a77c8b24e633aceeb2a718d65f12c1ee9d7dae6dfd2af3d6",
+            "24d2fce7641d923c17e8ba07fac3701d0c43ff094110f37a56c97116cbfc3e25"
+          ],
+          "backend": {
+            "counts": {
+              "blocks": 50,
+              "outproj": 50,
+              "fc2": 50
+            },
+            "verified_layouts": 2,
+            "verification_blocks": 0
+          },
+          "forward_counts": {
+            "blocks": 400,
+            "outproj": 400,
+            "fc2": 400,
+            "forwards": 8
+          },
+          "four_sha_equal_stock": true
+        },
+        {
+          "arm": "indexed_gate",
+          "repeat": 2,
+          "warmup": false,
+          "seconds": 18.822491726954468,
+          "dit_seconds": 15.537642591982149,
+          "video_seconds": 2.359007879975252,
+          "audio_seconds": 0.10401811904739588,
+          "export_seconds": 0.8218187460443005,
+          "peak_allocated_bytes": 1996000768,
+          "sha256": [
+            "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+            "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb",
+            "127f05afbea9f7d6a77c8b24e633aceeb2a718d65f12c1ee9d7dae6dfd2af3d6",
+            "24d2fce7641d923c17e8ba07fac3701d0c43ff094110f37a56c97116cbfc3e25"
+          ],
+          "backend": {
+            "counts": {
+              "blocks": 50,
+              "outproj": 50,
+              "fc2": 50
+            },
+            "verified_layouts": 2,
+            "verification_blocks": 0
+          },
+          "forward_counts": {
+            "blocks": 400,
+            "outproj": 400,
+            "fc2": 400,
+            "forwards": 8
+          },
+          "four_sha_equal_stock": true
+        },
+        {
+          "arm": "stock",
+          "repeat": 2,
+          "warmup": false,
+          "seconds": 19.123133888002485,
+          "dit_seconds": 15.901473841979168,
+          "video_seconds": 2.3206358440220356,
+          "audio_seconds": 0.1028256859863177,
+          "export_seconds": 0.7981959260068834,
+          "peak_allocated_bytes": 1836176896,
+          "sha256": [
+            "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+            "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb",
+            "127f05afbea9f7d6a77c8b24e633aceeb2a718d65f12c1ee9d7dae6dfd2af3d6",
+            "24d2fce7641d923c17e8ba07fac3701d0c43ff094110f37a56c97116cbfc3e25"
+          ],
+          "four_sha_equal_stock": true
+        },
+        {
+          "arm": "stock",
+          "repeat": 3,
+          "warmup": false,
+          "seconds": 19.13323845504783,
+          "dit_seconds": 15.8984373989515,
+          "video_seconds": 2.322138531017117,
+          "audio_seconds": 0.1040508090518415,
+          "export_seconds": 0.8086081070359796,
+          "peak_allocated_bytes": 1836176896,
+          "sha256": [
+            "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+            "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb",
+            "127f05afbea9f7d6a77c8b24e633aceeb2a718d65f12c1ee9d7dae6dfd2af3d6",
+            "24d2fce7641d923c17e8ba07fac3701d0c43ff094110f37a56c97116cbfc3e25"
+          ],
+          "four_sha_equal_stock": true
+        },
+        {
+          "arm": "indexed_gate",
+          "repeat": 3,
+          "warmup": false,
+          "seconds": 19.108356841956265,
+          "dit_seconds": 15.55066419497598,
+          "video_seconds": 2.3222899170359597,
+          "audio_seconds": 0.42477235791739076,
+          "export_seconds": 0.8106256710598245,
+          "peak_allocated_bytes": 1996000768,
+          "sha256": [
+            "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+            "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb",
+            "127f05afbea9f7d6a77c8b24e633aceeb2a718d65f12c1ee9d7dae6dfd2af3d6",
+            "24d2fce7641d923c17e8ba07fac3701d0c43ff094110f37a56c97116cbfc3e25"
+          ],
+          "backend": {
+            "counts": {
+              "blocks": 50,
+              "outproj": 50,
+              "fc2": 50
+            },
+            "verified_layouts": 2,
+            "verification_blocks": 0
+          },
+          "forward_counts": {
+            "blocks": 400,
+            "outproj": 400,
+            "fc2": 400,
+            "forwards": 8
+          },
+          "four_sha_equal_stock": true
+        }
+      ],
+      "optimization": "Kitchen PR #219 only: outproj + FC2 indexed gate epilogues",
+      "timing": "frozen condition to completed local MP4; hashes/conditioning/cold load excluded",
+      "input": {
+        "width": 768,
+        "height": 512,
+        "requested_frames": 124,
+        "steps": 8,
+        "seed": 42,
+        "frozen_condition": true
+      },
+      "environment": {
+        "torch": "2.12.0+cu130",
+        "torch_git": "7661cd9c6b841b62b7f411aa52ec51f05457263b",
+        "gpu": "NVIDIA GeForce RTX 5090 D v2",
+        "kitchen_version": "0.2.36"
+      },
+      "summary": {
+        "means": {
+          "stock": {
+            "dit_seconds": 15.90001840898185,
+            "seconds": 19.159501112008
+          },
+          "indexed_gate": {
+            "dit_seconds": 15.621659264987102,
+            "seconds": 18.960540512227453
+          }
+        },
+        "time_reduction_percent": {
+          "dit_seconds": 1.7506844132803345,
+          "seconds": 1.0384435305356265
+        }
+      }
+    }
+  ],
+  "notes": [
+    "Two separately loaded processes, each one warmup pair plus four alternating formal pairs.",
+    "Second process adds per-request execution totals; first process records final-forward counters only. Arithmetic identical.",
+    "Peak torch allocator bytes exclude external aimdo allocations and are not total device memory.",
+    "No source or GPU clock modification during a timed process. Other services stayed on their existing GPUs."
+  ],
+  "source_sha256": {
+    "h3_speedkit/indexed_gate.py": "6bafe25e7ed8ed8112245733b308833b0ea33a527e4871d2f822b0bd8ea86cce",
+    "benchmarks/indexed_gate.py": "1d1f366215c22c4df89c2489f2a9662dcaa760d51b8a72e964cb907dd57c509c",
+    "tests/test_indexed_gate.py": "3c2273672ac422597df59ee7f3ef643bb1743f9d865722197ab93295332f1b9d"
+  },
+  "combined": {
+    "means": {
+      "stock": {
+        "seconds": 19.183121059511905,
+        "dit_seconds": 15.901378155496786,
+        "video_seconds": 2.3906165032676654,
+        "audio_seconds": 0.10555290713091381,
+        "export_seconds": 0.7855693996389164
+      },
+      "indexed_gate": {
+        "seconds": 18.990519948492874,
+        "dit_seconds": 15.633065346482908,
+        "video_seconds": 2.369955164511339,
+        "audio_seconds": 0.1983151456224732,
+        "export_seconds": 0.7891798727650894
+      }
+    },
+    "reduction_percent": {
+      "seconds": 1.00401342629034,
+      "dit_seconds": 1.6873556894886343
+    }
+  }
+}

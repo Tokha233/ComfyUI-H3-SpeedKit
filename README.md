@@ -62,6 +62,11 @@ Need regular IMAGE nodes for grading or upscaling? Keep standard VAE Decode and 
 
 [Every optimization and its numerical contract →](docs/MIGRATION-036.md) · [Historical experiments, including rejected approaches →](docs/R85-EXPERIMENTS.md)
 
+**Upstream work:** [three focused Kitchen PRs](docs/KITCHEN-UPSTREAM-PRS-20260930.zh-CN.md)
+with kernel tests and raw measurements. An optional [Indexed Gate node](docs/INDEXED-GATE.md)
+isolates PR #219 in a real H3 workflow. It requires a source build of the unmerged
+PR and is independent of the complete Optimize DiT node.
+
 ## Validate before comparing
 
 ```bash

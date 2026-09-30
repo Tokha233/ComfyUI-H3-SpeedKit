@@ -22,6 +22,10 @@ INT8 VAE 差异很小，但不是像素完全相同。DiT 融合保留的是**�
 
 **公开输入复验：** 768×512、124 帧、公开 Larry 合并权重，**19.31 → 16.76 秒（−13.19%）**，四项输出 SHA 一致。首次逐层验证不计入正式时间，见[单独数据](evidence/public-input-medium.json)。
 
+**上游贡献：** 已提交[三个独立 Kitchen PR](docs/KITCHEN-UPSTREAM-PRS-20260930.zh-CN.md)，
+附源码、回归测试和原始实测。新增的 [Indexed Gate 实验节点](docs/INDEXED-GATE.md)
+可以单独验证 #219 的完整 H3 收益；需源码编译尚未合并的 PR，与完整 Optimize DiT 节点二选一。
+
 ## 安装与接入
 
 首版支持 **Linux / 5090 D v2 / Torch 2.12.0+cu130 / Triton 3.7.0 / Kitchen 0.2.36 / 固定 ComfyUI H3 源码版本**。[完整版本表](configs/compatibility.json)。建议单独建环境，插件不会自动替换 PyTorch。
