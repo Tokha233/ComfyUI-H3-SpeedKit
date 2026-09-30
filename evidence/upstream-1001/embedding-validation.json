@@ -1,0 +1,14 @@
+{
+  "head": "20db23b",
+  "platform": "macOS arm64 CPU",
+  "torch": "2.10.0",
+  "tests_passed": 25,
+  "test_seconds": 1.88,
+  "scope": [
+    "test_minimax_h3_model.py",
+    "test_mixed_precision.py"
+  ],
+  "ruff": "passed",
+  "git_diff_check": "passed",
+  "gpu_retest": "pending bastion reconnection"
+}

@@ -1,0 +1,178 @@
+{
+  "cases": 24,
+  "results": [
+    {
+      "dtype": "torch.float32",
+      "scenario": "plain",
+      "raw_text": true,
+      "masked": false,
+      "equal": true
+    },
+    {
+      "dtype": "torch.float32",
+      "scenario": "plain",
+      "raw_text": true,
+      "masked": true,
+      "equal": true
+    },
+    {
+      "dtype": "torch.float32",
+      "scenario": "plain",
+      "raw_text": false,
+      "masked": false,
+      "equal": true
+    },
+    {
+      "dtype": "torch.float32",
+      "scenario": "plain",
+      "raw_text": false,
+      "masked": true,
+      "equal": true
+    },
+    {
+      "dtype": "torch.float32",
+      "scenario": "refs",
+      "raw_text": true,
+      "masked": false,
+      "equal": true
+    },
+    {
+      "dtype": "torch.float32",
+      "scenario": "refs",
+      "raw_text": true,
+      "masked": true,
+      "equal": true
+    },
+    {
+      "dtype": "torch.float32",
+      "scenario": "refs",
+      "raw_text": false,
+      "masked": false,
+      "equal": true
+    },
+    {
+      "dtype": "torch.float32",
+      "scenario": "refs",
+      "raw_text": false,
+      "masked": true,
+      "equal": true
+    },
+    {
+      "dtype": "torch.float32",
+      "scenario": "keyframes",
+      "raw_text": true,
+      "masked": false,
+      "equal": true
+    },
+    {
+      "dtype": "torch.float32",
+      "scenario": "keyframes",
+      "raw_text": true,
+      "masked": true,
+      "equal": true
+    },
+    {
+      "dtype": "torch.float32",
+      "scenario": "keyframes",
+      "raw_text": false,
+      "masked": false,
+      "equal": true
+    },
+    {
+      "dtype": "torch.float32",
+      "scenario": "keyframes",
+      "raw_text": false,
+      "masked": true,
+      "equal": true
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "scenario": "plain",
+      "raw_text": true,
+      "masked": false,
+      "equal": true
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "scenario": "plain",
+      "raw_text": true,
+      "masked": true,
+      "equal": true
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "scenario": "plain",
+      "raw_text": false,
+      "masked": false,
+      "equal": true
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "scenario": "plain",
+      "raw_text": false,
+      "masked": true,
+      "equal": true
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "scenario": "refs",
+      "raw_text": true,
+      "masked": false,
+      "equal": true
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "scenario": "refs",
+      "raw_text": true,
+      "masked": true,
+      "equal": true
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "scenario": "refs",
+      "raw_text": false,
+      "masked": false,
+      "equal": true
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "scenario": "refs",
+      "raw_text": false,
+      "masked": true,
+      "equal": true
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "scenario": "keyframes",
+      "raw_text": true,
+      "masked": false,
+      "equal": true
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "scenario": "keyframes",
+      "raw_text": true,
+      "masked": true,
+      "equal": true
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "scenario": "keyframes",
+      "raw_text": false,
+      "masked": false,
+      "equal": true
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "scenario": "keyframes",
+      "raw_text": false,
+      "masked": true,
+      "equal": true
+    }
+  ],
+  "platform": "macOS arm64 CPU",
+  "torch": "2.10.0",
+  "baseline": "a983f80d",
+  "revised": "20db23b",
+  "note": "Tiny real H3 _forward, not the production model or GPU timing"
+}

@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-30T15:04:26.417015+00:00",
+  "updated_at": "2026-10-01T01:30:00+08:00",
   "items": [
     {
       "id": "convrot",
@@ -56,7 +56,7 @@
       "destination": "ComfyUI",
       "status": "submitted",
       "pr": 16677,
-      "notes": "4 full sampler pairs; -161.47 MiB peak; latent SHA equal; CodeRabbit APPROVED. Maintainer/CI approval still pending."
+      "notes": "kijai accepted direction and requested helper; 20db23b pushed with _embed_and_pack. 25 CPU tests and 24 tiny model old/new forward cases pass. GPU 161.47 MiB measurement belongs to prior a983f80; new GPU validation pending."
     },
     {
       "id": "attention-consumer",
@@ -70,7 +70,7 @@
       "destination": "ComfyUI",
       "status": "draft-submitted",
       "pr": 16681,
-      "notes": "FC2-only via #223; 251f911 fixes compact segmented fallback, preserves hook output, 20 actual ComfyUI CPU tests. Previous GPU sampler -1.384% applies to 3d134bd; follow-up GPU retest pending. Reviewer approval pending."
+      "notes": "251f911: CodeRabbit explicitly confirmed fallback fix and resolved review thread. 20 CPU tests; existing -1.384% GPU sample belongs to 3d134bd. Draft still requires Kitchen release and revised GPU validation."
     },
     {
       "id": "last-layer-live-rows",

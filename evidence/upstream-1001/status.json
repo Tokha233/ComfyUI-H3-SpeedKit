@@ -1,0 +1,474 @@
+{
+  "checked_at": "2026-09-30T17:26:03.855570+00:00",
+  "prs": [
+    {
+      "number": 217,
+      "repo": "comfy-kitchen",
+      "state": "open",
+      "draft": false,
+      "merged": false,
+      "head_at_fetch": "6e2006d4a715939847ff553cb46949d18c5f7171",
+      "checked_at": "2026-09-30T17:26:03.855570+00:00",
+      "reviews": [],
+      "new_human_feedback": [
+        {
+          "author": "github-actions[bot]",
+          "body": "✅ All contributors have signed the CLA. Thank you! This PR is ready to be merged.<br/><sub>Posted by the ****CLA Assistant Lite bot****.</sub>",
+          "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/217#issuecomment-5910043519"
+        }
+      ],
+      "workflow_runs": [
+        {
+          "name": "Build Wheels",
+          "head_sha": "6e2006d4a715939847ff553cb46949d18c5f7171",
+          "status": "completed",
+          "conclusion": "action_required",
+          "html_url": "https://github.com/Comfy-Org/comfy-kitchen/actions/runs/36707365607"
+        },
+        {
+          "name": "CLA Assistant",
+          "head_sha": "6e2006d4a715939847ff553cb46949d18c5f7171",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/Comfy-Org/comfy-kitchen/actions/runs/36707363222"
+        }
+      ]
+    },
+    {
+      "number": 218,
+      "repo": "comfy-kitchen",
+      "state": "open",
+      "draft": false,
+      "merged": false,
+      "head_at_fetch": "2eb97e0948180e568d722dab65ca8c2db1fa0790",
+      "checked_at": "2026-09-30T17:26:03.855570+00:00",
+      "reviews": [
+        {
+          "author": "coderabbitai[bot]",
+          "state": "COMMENTED",
+          "commit": "e931351942d2ed2f2eecec653ff2e2621a9dd22a",
+          "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/218#pullrequestreview-5365455606"
+        },
+        {
+          "author": "Tokha233",
+          "state": "COMMENTED",
+          "commit": "e931351942d2ed2f2eecec653ff2e2621a9dd22a",
+          "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/218#pullrequestreview-5365908048"
+        },
+        {
+          "author": "coderabbitai[bot]",
+          "state": "COMMENTED",
+          "commit": "2eb97e0948180e568d722dab65ca8c2db1fa0790",
+          "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/218#pullrequestreview-5365914486"
+        }
+      ],
+      "new_human_feedback": [
+        {
+          "author": "github-actions[bot]",
+          "body": "✅ All contributors have signed the CLA. Thank you! This PR is ready to be merged.<br/><sub>Posted by the ****CLA Assistant Lite bot****.</sub>",
+          "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/218#issuecomment-5910055182"
+        }
+      ],
+      "workflow_runs": [
+        {
+          "name": "Build Wheels",
+          "head_sha": "2eb97e0948180e568d722dab65ca8c2db1fa0790",
+          "status": "completed",
+          "conclusion": "action_required",
+          "html_url": "https://github.com/Comfy-Org/comfy-kitchen/actions/runs/36711701464"
+        },
+        {
+          "name": "CLA Assistant",
+          "head_sha": "2eb97e0948180e568d722dab65ca8c2db1fa0790",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/Comfy-Org/comfy-kitchen/actions/runs/36711698437"
+        }
+      ]
+    },
+    {
+      "number": 219,
+      "repo": "comfy-kitchen",
+      "state": "open",
+      "draft": false,
+      "merged": false,
+      "head_at_fetch": "5f7290d1301e6bc7e2109c7c3d35a3d14f7f3de9",
+      "checked_at": "2026-09-30T17:26:03.855570+00:00",
+      "reviews": [
+        {
+          "author": "coderabbitai[bot]",
+          "state": "COMMENTED",
+          "commit": "dc7c739fe5fc7502b50206e81fbe26c6fe3930a1",
+          "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/219#pullrequestreview-5366459484"
+        }
+      ],
+      "new_human_feedback": [
+        {
+          "author": "github-actions[bot]",
+          "body": "✅ All contributors have signed the CLA. Thank you! This PR is ready to be merged.<br/><sub>Posted by the ****CLA Assistant Lite bot****.</sub>",
+          "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/219#issuecomment-5910068095"
+        }
+      ],
+      "workflow_runs": [
+        {
+          "name": "CLA Assistant",
+          "head_sha": "5f7290d1301e6bc7e2109c7c3d35a3d14f7f3de9",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/Comfy-Org/comfy-kitchen/actions/runs/36722373386"
+        },
+        {
+          "name": "Build Wheels",
+          "head_sha": "5f7290d1301e6bc7e2109c7c3d35a3d14f7f3de9",
+          "status": "completed",
+          "conclusion": "action_required",
+          "html_url": "https://github.com/Comfy-Org/comfy-kitchen/actions/runs/36722373641"
+        }
+      ]
+    },
+    {
+      "number": 220,
+      "repo": "comfy-kitchen",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_at_fetch": "13bbea660c11c20718336ff3bc791667b235b105",
+      "checked_at": "2026-09-30T17:26:03.855570+00:00",
+      "reviews": [
+        {
+          "author": "coderabbitai[bot]",
+          "state": "COMMENTED",
+          "commit": "9f70304669543c7f691f46234519d9b06fbaad39",
+          "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/220#pullrequestreview-5367448381"
+        }
+      ],
+      "new_human_feedback": [],
+      "workflow_runs": null
+    },
+    {
+      "number": 221,
+      "repo": "comfy-kitchen",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_at_fetch": "f66dda592a0796a12a96b3adbf8d61e51113e58d",
+      "checked_at": "2026-09-30T17:26:03.855570+00:00",
+      "reviews": [
+        {
+          "author": "coderabbitai[bot]",
+          "state": "COMMENTED",
+          "commit": "c058e49cb68397b5f30be2cdca51900d20c67a16",
+          "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/221#pullrequestreview-5367452882"
+        }
+      ],
+      "new_human_feedback": [],
+      "workflow_runs": [
+        {
+          "name": "Build Wheels",
+          "head_sha": "f66dda592a0796a12a96b3adbf8d61e51113e58d",
+          "status": "completed",
+          "conclusion": "action_required",
+          "html_url": "https://github.com/Comfy-Org/comfy-kitchen/actions/runs/36729462136"
+        },
+        {
+          "name": "CLA Assistant",
+          "head_sha": "f66dda592a0796a12a96b3adbf8d61e51113e58d",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/Comfy-Org/comfy-kitchen/actions/runs/36729457251"
+        }
+      ]
+    },
+    {
+      "number": 222,
+      "repo": "comfy-kitchen",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_at_fetch": "240e76a5a21a2f726fe93e20b981138d86341c40",
+      "checked_at": "2026-09-30T17:26:03.855570+00:00",
+      "reviews": [],
+      "new_human_feedback": [],
+      "workflow_runs": [
+        {
+          "name": "Build Wheels",
+          "head_sha": "240e76a5a21a2f726fe93e20b981138d86341c40",
+          "status": "completed",
+          "conclusion": "action_required",
+          "html_url": "https://github.com/Comfy-Org/comfy-kitchen/actions/runs/36730275929"
+        },
+        {
+          "name": "CLA Assistant",
+          "head_sha": "240e76a5a21a2f726fe93e20b981138d86341c40",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/Comfy-Org/comfy-kitchen/actions/runs/36730273140"
+        }
+      ]
+    },
+    {
+      "number": 223,
+      "repo": "comfy-kitchen",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_at_fetch": "ba876f2950810a6f9fb5f2b15f8db8243c1d4bb6",
+      "checked_at": "2026-09-30T17:26:03.855570+00:00",
+      "reviews": [],
+      "new_human_feedback": [],
+      "workflow_runs": [
+        {
+          "name": "Build Wheels",
+          "head_sha": "ba876f2950810a6f9fb5f2b15f8db8243c1d4bb6",
+          "status": "completed",
+          "conclusion": "action_required",
+          "html_url": "https://github.com/Comfy-Org/comfy-kitchen/actions/runs/36729265795"
+        },
+        {
+          "name": "CLA Assistant",
+          "head_sha": "ba876f2950810a6f9fb5f2b15f8db8243c1d4bb6",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/Comfy-Org/comfy-kitchen/actions/runs/36729260425"
+        }
+      ]
+    },
+    {
+      "number": 16677,
+      "repo": "ComfyUI",
+      "state": "open",
+      "draft": false,
+      "merged": false,
+      "head_at_fetch": "a983f80d52104d1536d72eb1acd2903ac8afd98e",
+      "checked_at": "2026-09-30T17:26:03.855570+00:00",
+      "reviews": [
+        {
+          "author": "coderabbitai[bot]",
+          "state": "APPROVED",
+          "commit": "a983f80d52104d1536d72eb1acd2903ac8afd98e",
+          "url": "https://github.com/Comfy-Org/ComfyUI/pull/16677#pullrequestreview-5367124421"
+        }
+      ],
+      "new_human_feedback": [
+        {
+          "author": "kijai",
+          "body": "This makes sense, but multiple dels like that is a bit ugly, instead we could move the embed-and-pack into a helper function and it would then naturally clear the intermediates.",
+          "url": "https://github.com/Comfy-Org/ComfyUI/pull/16677#issuecomment-5914007087"
+        }
+      ],
+      "workflow_runs": [
+        {
+          "name": "Check AI Co-Authors",
+          "head_sha": "a983f80d52104d1536d72eb1acd2903ac8afd98e",
+          "status": "completed",
+          "conclusion": "action_required",
+          "html_url": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36724446070"
+        },
+        {
+          "name": "Check for Windows Line Endings",
+          "head_sha": "a983f80d52104d1536d72eb1acd2903ac8afd98e",
+          "status": "completed",
+          "conclusion": "action_required",
+          "html_url": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36724445883"
+        },
+        {
+          "name": "Test server launches without errors",
+          "head_sha": "a983f80d52104d1536d72eb1acd2903ac8afd98e",
+          "status": "completed",
+          "conclusion": "action_required",
+          "html_url": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36724445646"
+        },
+        {
+          "name": "Execution Tests",
+          "head_sha": "a983f80d52104d1536d72eb1acd2903ac8afd98e",
+          "status": "completed",
+          "conclusion": "action_required",
+          "html_url": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36724445706"
+        },
+        {
+          "name": "Python Linting",
+          "head_sha": "a983f80d52104d1536d72eb1acd2903ac8afd98e",
+          "status": "completed",
+          "conclusion": "action_required",
+          "html_url": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36724445365"
+        },
+        {
+          "name": "Unit Tests",
+          "head_sha": "a983f80d52104d1536d72eb1acd2903ac8afd98e",
+          "status": "completed",
+          "conclusion": "action_required",
+          "html_url": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36724445475"
+        },
+        {
+          "name": "CLA Assistant",
+          "head_sha": "a983f80d52104d1536d72eb1acd2903ac8afd98e",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36724441212"
+        }
+      ],
+      "followup_head": "20db23b",
+      "followup": "Extract _embed_and_pack per kijai; 25 CPU tests and 24 tiny forward A/Bs; GPU retest pending"
+    },
+    {
+      "number": 16678,
+      "repo": "ComfyUI",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_at_fetch": "c0ac30db4b40e5f455bf27fdb0b00ec9eab07df1",
+      "checked_at": "2026-09-30T17:26:03.855570+00:00",
+      "reviews": [
+        {
+          "author": "coderabbitai[bot]",
+          "state": "CHANGES_REQUESTED",
+          "commit": "c0ac30db4b40e5f455bf27fdb0b00ec9eab07df1",
+          "url": "https://github.com/Comfy-Org/ComfyUI/pull/16678#pullrequestreview-5367803352"
+        }
+      ],
+      "new_human_feedback": [],
+      "workflow_runs": [
+        {
+          "name": "Unit Tests",
+          "head_sha": "c0ac30db4b40e5f455bf27fdb0b00ec9eab07df1",
+          "status": "completed",
+          "conclusion": "action_required",
+          "html_url": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36725211687"
+        },
+        {
+          "name": "Python Linting",
+          "head_sha": "c0ac30db4b40e5f455bf27fdb0b00ec9eab07df1",
+          "status": "completed",
+          "conclusion": "action_required",
+          "html_url": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36725211734"
+        },
+        {
+          "name": "Check AI Co-Authors",
+          "head_sha": "c0ac30db4b40e5f455bf27fdb0b00ec9eab07df1",
+          "status": "completed",
+          "conclusion": "action_required",
+          "html_url": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36725211719"
+        },
+        {
+          "name": "Check for Windows Line Endings",
+          "head_sha": "c0ac30db4b40e5f455bf27fdb0b00ec9eab07df1",
+          "status": "completed",
+          "conclusion": "action_required",
+          "html_url": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36725211728"
+        },
+        {
+          "name": "Test server launches without errors",
+          "head_sha": "c0ac30db4b40e5f455bf27fdb0b00ec9eab07df1",
+          "status": "completed",
+          "conclusion": "action_required",
+          "html_url": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36725211742"
+        },
+        {
+          "name": "Execution Tests",
+          "head_sha": "c0ac30db4b40e5f455bf27fdb0b00ec9eab07df1",
+          "status": "completed",
+          "conclusion": "action_required",
+          "html_url": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36725211864"
+        },
+        {
+          "name": "CLA Assistant",
+          "head_sha": "c0ac30db4b40e5f455bf27fdb0b00ec9eab07df1",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36725206517"
+        }
+      ]
+    },
+    {
+      "number": 16681,
+      "repo": "ComfyUI",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_at_fetch": "251f911bcb80ac279d1172e43d8c0e9c83fd724a",
+      "checked_at": "2026-09-30T17:26:03.855570+00:00",
+      "reviews": [
+        {
+          "author": "coderabbitai[bot]",
+          "state": "CHANGES_REQUESTED",
+          "commit": "3d134bd764a665d6ce521892d00503004f5cedc3",
+          "url": "https://github.com/Comfy-Org/ComfyUI/pull/16681#pullrequestreview-5367831746"
+        },
+        {
+          "author": "Tokha233",
+          "state": "COMMENTED",
+          "commit": "3d134bd764a665d6ce521892d00503004f5cedc3",
+          "url": "https://github.com/Comfy-Org/ComfyUI/pull/16681#pullrequestreview-5368123617"
+        },
+        {
+          "author": "coderabbitai[bot]",
+          "state": "COMMENTED",
+          "commit": "251f911bcb80ac279d1172e43d8c0e9c83fd724a",
+          "url": "https://github.com/Comfy-Org/ComfyUI/pull/16681#pullrequestreview-5368135133"
+        }
+      ],
+      "new_human_feedback": [],
+      "workflow_runs": [
+        {
+          "name": "Test server launches without errors",
+          "head_sha": "251f911bcb80ac279d1172e43d8c0e9c83fd724a",
+          "status": "completed",
+          "conclusion": "action_required",
+          "html_url": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36733841030"
+        },
+        {
+          "name": "Python Linting",
+          "head_sha": "251f911bcb80ac279d1172e43d8c0e9c83fd724a",
+          "status": "completed",
+          "conclusion": "action_required",
+          "html_url": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36733841094"
+        },
+        {
+          "name": "Check AI Co-Authors",
+          "head_sha": "251f911bcb80ac279d1172e43d8c0e9c83fd724a",
+          "status": "completed",
+          "conclusion": "action_required",
+          "html_url": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36733840984"
+        },
+        {
+          "name": "Check for Windows Line Endings",
+          "head_sha": "251f911bcb80ac279d1172e43d8c0e9c83fd724a",
+          "status": "completed",
+          "conclusion": "action_required",
+          "html_url": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36733841164"
+        },
+        {
+          "name": "Execution Tests",
+          "head_sha": "251f911bcb80ac279d1172e43d8c0e9c83fd724a",
+          "status": "completed",
+          "conclusion": "action_required",
+          "html_url": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36733841161"
+        },
+        {
+          "name": "Unit Tests",
+          "head_sha": "251f911bcb80ac279d1172e43d8c0e9c83fd724a",
+          "status": "completed",
+          "conclusion": "action_required",
+          "html_url": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36733840906"
+        },
+        {
+          "name": "CLA Assistant",
+          "head_sha": "251f911bcb80ac279d1172e43d8c0e9c83fd724a",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36733837792"
+        }
+      ],
+      "finding_resolution": {
+        "status": "addressed and thread resolved",
+        "reviewer": "coderabbitai[bot]",
+        "head": "251f911",
+        "url": "https://github.com/Comfy-Org/ComfyUI/pull/16681#discussion_r4146131688"
+      }
+    }
+  ],
+  "review_retry": {
+    "222": "retry acknowledged; browser shows Review in progress",
+    "223": "retry submitted; page still reports Review rate limited"
+  }
+}
