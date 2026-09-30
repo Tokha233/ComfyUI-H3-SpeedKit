@@ -1,0 +1,50 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.1.1, pluggy-1.6.0
+benchmark: 5.3.0 (defaults: timer=time.perf_counter disable_gc=False min_rounds=5 min_time=0.000005 max_time=1.0 calibration_precision=10 warmup=False warmup_iterations=100000)
+rootdir: /tmp/h3-kitchen-prs-0930/combined
+configfile: pytest.ini
+plugins: benchmark-5.3.0, anyio-4.14.2
+collected 1751 items
+
+tests/test_int8.py ..................................................... [  3%]
+........................................................                 [  6%]
+tests/test_int8_residual.py ...........s....                             [  7%]
+tests/test_int8_input_act.py ...............s..................s........ [  9%]
+..........s......                                                        [ 10%]
+tests/test_int8_attention.py ........ss................................. [ 13%]
+........................................................................ [ 17%]
+........................................................................ [ 21%]
+........................................................................ [ 25%]
+........................................................................ [ 29%]
+........................................................................ [ 33%]
+........................................................................ [ 37%]
+............................................ssssssssssssssssssssssssssss [ 41%]
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 45%]
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 50%]
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 54%]
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 58%]
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 62%]
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 66%]
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 70%]
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss             [ 74%]
+tests/test_rms_rope.py ................................................. [ 76%]
+........................................................................ [ 80%]
+........................................................................ [ 85%]
+........................................................................ [ 89%]
+...........................                                              [ 90%]
+tests/test_gemm_bias_contract.py .........                               [ 91%]
+tests/test_convrot_register.py .......................                   [ 92%]
+tests/test_int8_attention_tma.py ..................                      [ 93%]
+tests/test_int8_attention_layout.py ...................                  [ 94%]
+tests/test_int8_indexed_gate.py .......................                  [ 95%]
+tests/test_indexed_norm.py ..................................            [ 97%]
+tests/test_indexed_linear.py ............                                [ 98%]
+tests/test_h3_qkv.py ........................s                           [100%]
+
+=============================== warnings summary ===============================
+tests/test_rms_rope.py::TestRMSRope::test_rms_rope_ops[FLUX-freqs_fp32-bf16-eager-rms_rope]
+  /usr/local/lib/python3.12/site-packages/torch/nn/functional.py:2958: UserWarning: Mismatch dtype between input and weight: input dtype = c10::BFloat16, weight dtype = float, Cannot dispatch to fused implementation. (Triggered internally at /pytorch/aten/src/ATen/native/layer_norm.cpp:346.)
+    return torch.rms_norm(input, normalized_shape, weight, eps)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+================ 1152 passed, 599 skipped, 1 warning in 18.41s =================

@@ -1,0 +1,37 @@
+-- Found CUDA version: 13.0.88
+-- CUDA toolkit root: /legacy/toolchain/cuda
+-- CUDA architectures: 120-real
+-- CUTLASS found: /tmp/h3-kitchen-prs-0930/combined/comfy_kitchen/backends/cuda/../../../third_party/cutlass/include
+-- Python 3.12.14 detected - enabling stable ABI (abi3)
+-- Configuring done (0.3s)
+-- Generating done (0.0s)
+-- Build files have been written to: /tmp/h3-kitchen-prs-0930/build-combined-clean
+[1/3] Building CUDA object CMakeFiles/comfy_kitchen_sm120_tma.dir/sage_attention/dense_tma_sm120.cu.o
+/tmp/h3-kitchen-prs-0930/combined/comfy_kitchen/backends/cuda/sage_attention/dense_tma_sm120.cuh(32): warning #177-D: variable "DTypeQK" was declared but never referenced
+    constexpr auto DTypeQK = DataType::kInt8;
+                   ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+/tmp/h3-kitchen-prs-0930/combined/comfy_kitchen/backends/cuda/sage_attention/dense_tma_sm120.cuh(35): warning #177-D: variable "Q_GRAN" was declared but never referenced
+    constexpr auto Q_GRAN = QuantGranularity::kPerThread,
+                   ^
+
+/tmp/h3-kitchen-prs-0930/combined/comfy_kitchen/backends/cuda/sage_attention/dense_tma_sm120.cuh(36): warning #177-D: variable "K_GRAN" was declared but never referenced
+                   K_GRAN = QuantGranularity::kPerThread;
+                   ^
+
+/tmp/h3-kitchen-prs-0930/combined/comfy_kitchen/backends/cuda/sage_attention/dense_tma_sm120.cuh(152): warning #177-D: variable "K_smem_iters_col" was declared but never referenced
+    constexpr uint32_t K_smem_iters_col =
+                       ^
+
+/tmp/h3-kitchen-prs-0930/combined/comfy_kitchen/backends/cuda/sage_attention/dense_tma_sm120.cuh(154): warning #177-D: variable "V_smem_iters_row" was declared but never referenced
+    constexpr uint32_t V_smem_iters_row =
+                       ^
+
+/tmp/h3-kitchen-prs-0930/combined/comfy_kitchen/backends/cuda/sage_attention/dense_tma_sm120.cuh(156): warning #177-D: variable "V_smem_iters_col" was declared but never referenced
+    constexpr uint32_t V_smem_iters_col =
+                       ^
+
+[2/3] Building CUDA object CMakeFiles/comfy_kitchen_cuda_kernels.dir/sage_attention/sage_attn_launcher.cu.o
+[3/3] Linking CXX shared module _C.abi3.so

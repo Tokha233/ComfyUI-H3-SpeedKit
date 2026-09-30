@@ -1,0 +1,3 @@
+COMPILE negative-scale sage_attention/sage_attn_launcher.cu
+LINK negative-scale
+BUILT negative-scale

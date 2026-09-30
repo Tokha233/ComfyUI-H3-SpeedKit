@@ -1,0 +1,406 @@
+{
+  "arm": "base",
+  "pair": 0,
+  "gpu": "NVIDIA GeForce RTX 5090 D v2",
+  "torch": "2.12.0+cu130",
+  "source": "/tmp/h3-kitchen-prs-0930/base/comfy_kitchen/__init__.py",
+  "extension": "/tmp/h3-kitchen-prs-0930/base/comfy_kitchen/backends/cuda/_C.abi3.so",
+  "positive": [
+    {
+      "head_dim": 64,
+      "kv_length": 1,
+      "dtype": "torch.float16",
+      "sha256": "71cc886fb8f291f73fa98ac0e2f9c395ce5fd25356a21c40541b83c72792fd3d"
+    },
+    {
+      "head_dim": 64,
+      "kv_length": 64,
+      "dtype": "torch.float16",
+      "sha256": "2f8c1f6d467cc571335477990840a99b58ea53051d1968ab8fed3ee416fd8d0c"
+    },
+    {
+      "head_dim": 64,
+      "kv_length": 65,
+      "dtype": "torch.float16",
+      "sha256": "35d530a50183dc4a69d3f974da4a72e0157bb72d7f438c3dd89dd5fa8ec18e9e"
+    },
+    {
+      "head_dim": 64,
+      "kv_length": 512,
+      "dtype": "torch.float16",
+      "sha256": "2ceff0f1655ea9bedf0f4d0f7141dcde4d10f7d7b8ce94487a71b1230ab21ff9"
+    },
+    {
+      "head_dim": 64,
+      "kv_length": 513,
+      "dtype": "torch.float16",
+      "sha256": "61a08eee81e1bb20fd1d53ec3a244fa7b2584f6539d87fa035b659b08acc1340"
+    },
+    {
+      "head_dim": 64,
+      "kv_length": 1024,
+      "dtype": "torch.float16",
+      "sha256": "b530dc3fcf831da4cc13036cd3e89558f1bf5c78177415c614d03031b7bd998e"
+    },
+    {
+      "head_dim": 64,
+      "kv_length": 1025,
+      "dtype": "torch.float16",
+      "sha256": "0035dd36b9d93102131e4b3bbc7460c4a3cbe9081a12854b1fd8daacf1bb2a13"
+    },
+    {
+      "head_dim": 64,
+      "kv_length": 8193,
+      "dtype": "torch.float16",
+      "sha256": "051ad88cfb87cb37c6d0ad45523f9c283c29e5b87f0d4a68fcca621e7ae44d34"
+    },
+    {
+      "head_dim": 64,
+      "kv_length": 1,
+      "dtype": "torch.bfloat16",
+      "sha256": "272d50af584701637a326834484001ccadfd078390fc66fa30ae4e7ab5532c34"
+    },
+    {
+      "head_dim": 64,
+      "kv_length": 64,
+      "dtype": "torch.bfloat16",
+      "sha256": "a172d6661749fa83b2f295dcc5bd268e3dfcd2e63dc3398281ae7333ad758aee"
+    },
+    {
+      "head_dim": 64,
+      "kv_length": 65,
+      "dtype": "torch.bfloat16",
+      "sha256": "f05ba5eace39767b6fabbc3107b586ea198bba2fc161f6cc9e9a8d0e1f24513f"
+    },
+    {
+      "head_dim": 64,
+      "kv_length": 512,
+      "dtype": "torch.bfloat16",
+      "sha256": "628ee6f4f1c13e6483c865c41b7118b7f03bf60f17e443824178220239884ab1"
+    },
+    {
+      "head_dim": 64,
+      "kv_length": 513,
+      "dtype": "torch.bfloat16",
+      "sha256": "ce998cda9be704694d77bc3f89c9e9e601bba728af4b712ef273da645ffcb4d1"
+    },
+    {
+      "head_dim": 64,
+      "kv_length": 1024,
+      "dtype": "torch.bfloat16",
+      "sha256": "a65cf69e38408b633c1de35761e54d2132068e1165b5dbb63303574a54298cf9"
+    },
+    {
+      "head_dim": 64,
+      "kv_length": 1025,
+      "dtype": "torch.bfloat16",
+      "sha256": "2cc9b0ec9ee656728840825b85b338799acc83c1c00cf7a46dd37c58c2216a75"
+    },
+    {
+      "head_dim": 64,
+      "kv_length": 8193,
+      "dtype": "torch.bfloat16",
+      "sha256": "db81af55f97216213cad738ca57660822c9cb97e9e75c6121f2c609f0504643a"
+    },
+    {
+      "head_dim": 128,
+      "kv_length": 1,
+      "dtype": "torch.float16",
+      "sha256": "3ef9ef68bcda71aac23544fce2b278e0735f9a635056a04d5e5b2ff37043c611"
+    },
+    {
+      "head_dim": 128,
+      "kv_length": 64,
+      "dtype": "torch.float16",
+      "sha256": "fcebd359bd3278a239dd5248cfe04c226675893b206ba2aa36b259bcce64575c"
+    },
+    {
+      "head_dim": 128,
+      "kv_length": 65,
+      "dtype": "torch.float16",
+      "sha256": "a558594183cfa08ac047afce7e8d5baf3e3fb0df9d30f870b0f0eb98e7b791b3"
+    },
+    {
+      "head_dim": 128,
+      "kv_length": 512,
+      "dtype": "torch.float16",
+      "sha256": "413002983b20e9752945b5dbe7ff183c3fcafa20388b8e5347a91ff716b6f5bc"
+    },
+    {
+      "head_dim": 128,
+      "kv_length": 513,
+      "dtype": "torch.float16",
+      "sha256": "4b07401d507d10681a8bed595ecd0a9de0762eecd6a3897a6b5b5135f7f7ba85"
+    },
+    {
+      "head_dim": 128,
+      "kv_length": 1024,
+      "dtype": "torch.float16",
+      "sha256": "5c0caca65a09decf41be730668b18fbd7a77b07859741f04c1e18796c40d846b"
+    },
+    {
+      "head_dim": 128,
+      "kv_length": 1025,
+      "dtype": "torch.float16",
+      "sha256": "dea679613320e8886eb4ac9277c666ed8d66d09fe2995fcd6c8f47fc168736b3"
+    },
+    {
+      "head_dim": 128,
+      "kv_length": 8193,
+      "dtype": "torch.float16",
+      "sha256": "3806db7c05f6fc3a7f7b7edd7387158f119337343abf4c837f300303c43f4645"
+    },
+    {
+      "head_dim": 128,
+      "kv_length": 1,
+      "dtype": "torch.bfloat16",
+      "sha256": "7e50283086f6eca3e607cb4afbd074d5933fbd6fe2505c12dd5a3e555359186b"
+    },
+    {
+      "head_dim": 128,
+      "kv_length": 64,
+      "dtype": "torch.bfloat16",
+      "sha256": "5adc4faefcd08c0810a3526e30b952e17fc07d26d9b05d3fd557405c9dc1c221"
+    },
+    {
+      "head_dim": 128,
+      "kv_length": 65,
+      "dtype": "torch.bfloat16",
+      "sha256": "f94e8f2992fd267ee87add61453e54f05ad81bc659c2d44b2d78093735c52af7"
+    },
+    {
+      "head_dim": 128,
+      "kv_length": 512,
+      "dtype": "torch.bfloat16",
+      "sha256": "031473026da406895b428d91a5438406089d7acb64a03fde2c0378b6e7e85704"
+    },
+    {
+      "head_dim": 128,
+      "kv_length": 513,
+      "dtype": "torch.bfloat16",
+      "sha256": "32f6200b6a563e8a1e19dc32fc0287b727fc4070e8f88c895e0dad73df37065e"
+    },
+    {
+      "head_dim": 128,
+      "kv_length": 1024,
+      "dtype": "torch.bfloat16",
+      "sha256": "9eda95ce996031ae106312545971cbe0027fe225025f62909ec3ef412c680258"
+    },
+    {
+      "head_dim": 128,
+      "kv_length": 1025,
+      "dtype": "torch.bfloat16",
+      "sha256": "70b71eb2b9d71bd4ec0b88282b86f5193d34a183480fc00c63d8653bf3233c6d"
+    },
+    {
+      "head_dim": 128,
+      "kv_length": 8193,
+      "dtype": "torch.bfloat16",
+      "sha256": "3ad20f087dce2f94e66ebef570ab8b935e6cf18a5526102421cf0ac0ec5bf7be"
+    },
+    {
+      "head_dim": 256,
+      "kv_length": 1,
+      "dtype": "torch.float16",
+      "sha256": "c8a149ee327380dc9d69e21fee9e157890f69318a052a534171e0c94cdc8b4dd"
+    },
+    {
+      "head_dim": 256,
+      "kv_length": 64,
+      "dtype": "torch.float16",
+      "sha256": "81a48eff2ff7c08e905b92a8443eb39828707f0e2f2c5678b9cdf6392374cb84"
+    },
+    {
+      "head_dim": 256,
+      "kv_length": 65,
+      "dtype": "torch.float16",
+      "sha256": "da87853a50c15706dfdef14f65f078fd8de5392b13b376a9e28c0d72682a3c28"
+    },
+    {
+      "head_dim": 256,
+      "kv_length": 512,
+      "dtype": "torch.float16",
+      "sha256": "f6226f764e0b787c6df80b82aae47ae8d7d15d112d0c24d42921a5d10295a705"
+    },
+    {
+      "head_dim": 256,
+      "kv_length": 513,
+      "dtype": "torch.float16",
+      "sha256": "176fdbce6f1905ceaa94120222ba534d4a07bec305137d25d187205e0369ca91"
+    },
+    {
+      "head_dim": 256,
+      "kv_length": 1024,
+      "dtype": "torch.float16",
+      "sha256": "492daf8f8beaafee160ddf2a17474ec61edfad5e1a0954b76cfb2caa4672f7ab"
+    },
+    {
+      "head_dim": 256,
+      "kv_length": 1025,
+      "dtype": "torch.float16",
+      "sha256": "76117705203795007f3b857fc9da06e7cfff5e8f800d39ccb2b2df06f9f16d77"
+    },
+    {
+      "head_dim": 256,
+      "kv_length": 8193,
+      "dtype": "torch.float16",
+      "sha256": "b4da6ba1b775c3d382d874a4747aeabaea2aecf40b8a1533e6f720ba3d9c71b9"
+    },
+    {
+      "head_dim": 256,
+      "kv_length": 1,
+      "dtype": "torch.bfloat16",
+      "sha256": "16e757ded3e3a57b02bd51f0607ab325fb2a64e63b15c7a0ae2266ce7e057ad9"
+    },
+    {
+      "head_dim": 256,
+      "kv_length": 64,
+      "dtype": "torch.bfloat16",
+      "sha256": "6576ecdabc0a991dbb21004f378ca512caf10c2488e38996e377a0c65c205f7a"
+    },
+    {
+      "head_dim": 256,
+      "kv_length": 65,
+      "dtype": "torch.bfloat16",
+      "sha256": "48781c8ec2b275612e8a53ff22987dcd6bb28e7b9979321cc6e942d5200bc49e"
+    },
+    {
+      "head_dim": 256,
+      "kv_length": 512,
+      "dtype": "torch.bfloat16",
+      "sha256": "774e08b19144f6812313fd31477dd055075363c794be138ee9ad54bfa21e60ac"
+    },
+    {
+      "head_dim": 256,
+      "kv_length": 513,
+      "dtype": "torch.bfloat16",
+      "sha256": "f6ae9292d076be209b165c0d1e65acd1cacbd2f60f9d629239fb719821cefbb1"
+    },
+    {
+      "head_dim": 256,
+      "kv_length": 1024,
+      "dtype": "torch.bfloat16",
+      "sha256": "556a01a6f29a1fdd3a0afd036f002e94d6759bf4420b3815e530796ba53a278a"
+    },
+    {
+      "head_dim": 256,
+      "kv_length": 1025,
+      "dtype": "torch.bfloat16",
+      "sha256": "588f8148c91877c576813e592837ae1ad1d584f86997fab3cb71d491c493adf1"
+    },
+    {
+      "head_dim": 256,
+      "kv_length": 8193,
+      "dtype": "torch.bfloat16",
+      "sha256": "7197649908c7d7bd8c57fd30f7dfb7aff01c107d7c7a018d2761db975cac15df"
+    }
+  ],
+  "nonpositive": [
+    {
+      "scale": 0.0,
+      "nrmse": 0.016976889222860336,
+      "finite": true,
+      "nonzero": 66048,
+      "auto_sdpa_finite": false,
+      "reference_finite": true
+    },
+    {
+      "scale": -0.08838834764831845,
+      "nrmse": 1.0,
+      "finite": true,
+      "nonzero": 0,
+      "auto_sdpa_finite": false,
+      "reference_finite": true
+    }
+  ],
+  "benchmarks": [
+    {
+      "shape": [
+        1,
+        4,
+        4,
+        129,
+        8193,
+        128
+      ],
+      "samples_ms": [
+        0.15797120332717896,
+        0.17688319683074952,
+        0.15940799713134765,
+        0.17772480249404907,
+        0.17420159578323363,
+        0.1630560040473938,
+        0.1749727964401245,
+        0.1609663963317871
+      ],
+      "median_ms": 0.1686287999153137,
+      "sha256": "214987d10684d94ef520bcebda4cf1ec42c397aad116b068a1a725368f4757cc"
+    },
+    {
+      "shape": [
+        1,
+        16,
+        16,
+        4096,
+        4096,
+        128
+      ],
+      "samples_ms": [
+        0.2739840030670166,
+        0.2683712005615234,
+        0.26955840587615965,
+        0.2752959966659546,
+        0.27118721008300783,
+        0.27343039512634276,
+        0.2826495885848999,
+        0.2658655881881714
+      ],
+      "median_ms": 0.27230880260467527,
+      "sha256": "54fb975d1e3303a832a8d3745cc4f0ecb7d3ca5d01dc03d262a78f9a70e34740"
+    },
+    {
+      "shape": [
+        1,
+        56,
+        56,
+        14850,
+        14850,
+        128
+      ],
+      "samples_ms": [
+        11.875411224365234,
+        11.897897338867187,
+        11.901331329345703,
+        11.904009246826172,
+        11.904291534423828,
+        11.903958129882813,
+        11.904185485839843,
+        11.905683135986328
+      ],
+      "median_ms": 11.903983688354494,
+      "sha256": "335273ec2a8100b88f3453e97a1622295be59e8909d160329554a819797e0f99"
+    },
+    {
+      "shape": [
+        1,
+        42,
+        42,
+        32700,
+        32700,
+        128
+      ],
+      "samples_ms": [
+        42.73616027832031,
+        42.787078857421875,
+        42.8029296875,
+        42.797933959960936,
+        42.812844848632814,
+        42.821023559570314,
+        42.82050476074219,
+        42.82177734375
+      ],
+      "median_ms": 42.80788726806641,
+      "sha256": "4cbf28ce17b1d452e8fe74c47c92dee8b0d62cf35444a01d317759aee25c5d34"
+    }
+  ]
+}
