@@ -1,0 +1,44 @@
+{
+  "status": "success",
+  "protocol": "Same-shape checkpoint and three selected projection weight reconstructions against the new BF16-merged candidate. These are weight errors, NOT video/audio similarity.",
+  "schema_matches_current": true,
+  "sample_weights": [
+    {
+      "key": "blocks.0.attn.qkv_proj.weight",
+      "current_int8": {
+        "relative_l2": 0.013499765656888485,
+        "cosine": 0.9999089241027832
+      },
+      "once_int8": {
+        "relative_l2": 0.009722664952278137,
+        "cosine": 0.9999529123306274
+      }
+    },
+    {
+      "key": "blocks.25.mlp.fc2.weight",
+      "current_int8": {
+        "relative_l2": 0.014028174802660942,
+        "cosine": 0.9999017715454102
+      },
+      "once_int8": {
+        "relative_l2": 0.010190675966441631,
+        "cosine": 0.9999480843544006
+      }
+    },
+    {
+      "key": "blocks.49.attn.out_proj.weight",
+      "current_int8": {
+        "relative_l2": 0.01589862070977688,
+        "cosine": 0.9998735785484314
+      },
+      "once_int8": {
+        "relative_l2": 0.011912674643099308,
+        "cosine": 0.9999290704727173
+      }
+    }
+  ],
+  "loaded_quantized_layers": 200,
+  "runtime_lora_patches": 0,
+  "adaln_curve": true,
+  "model_class": "MiniMaxH3Model"
+}

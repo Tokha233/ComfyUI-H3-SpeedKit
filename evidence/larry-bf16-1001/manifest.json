@@ -1,0 +1,46 @@
+{
+  "status": "success",
+  "sources": {
+    "base_sha256": "37c0da793e20ca735272ec2be655f08a2e10f97a3ec8fdfb40f5b39a736ed6fe",
+    "lora_sha256": "7098acf3ee75028fd9fcd948f50fcc8d995057fabb76f86bd3ca2c0ffc58e409",
+    "template_sha256": "9255f52b6677845ad238f20dfaafa94727053694127ab7f255c048f0f9365779"
+  },
+  "patches": 208,
+  "int8_layers": 200,
+  "adaln_byte_equal": 103,
+  "bf16": {
+    "file": "minimax_h3_ref2va_larry_v4_pruned_bf16.safetensors",
+    "bytes": 40225724720,
+    "sha256": "75b7672ddadcb4e61cbee76d889cc79fa2a3a74693d5655335dc3cbe3aa7f236",
+    "tensors": 532
+  },
+  "int8": {
+    "file": "minimax_h3_ref2va_larry_v4_pruned_once_int8_convrot.safetensors",
+    "bytes": 20970380152,
+    "sha256": "0fe2d7dad437e591373ab6912e9716eada5cd3c46d89ef0f09d6cfbb4784b055",
+    "tensors": 932
+  },
+  "sample_reconstruction": [
+    {
+      "key": "blocks.0.attn.qkv_proj.weight",
+      "relative_l2": 0.009722664952278137,
+      "cosine": 0.9999529123306274
+    },
+    {
+      "key": "blocks.25.mlp.fc2.weight",
+      "relative_l2": 0.010190675966441631,
+      "cosine": 0.9999480843544006
+    },
+    {
+      "key": "blocks.49.attn.out_proj.weight",
+      "relative_l2": 0.011912674643099308,
+      "cosine": 0.9999290704727173
+    }
+  ],
+  "protocol": {
+    "h3_candidate": "{\"base_sha256\": \"37c0da793e20ca735272ec2be655f08a2e10f97a3ec8fdfb40f5b39a736ed6fe\", \"lora_sha256\": \"7098acf3ee75028fd9fcd948f50fcc8d995057fabb76f86bd3ca2c0ffc58e409\", \"template_sha256\": \"9255f52b6677845ad238f20dfaafa94727053694127ab7f255c048f0f9365779\", \"strength\": 1.0, \"merge\": \"FP32 B@A + FP32 original weight, round once to original dtype\", \"quant\": \"one INT8 ConvRot256 rowwise quantization; stochastic_rounding=0\", \"deployment\": \"experimental; no generation quality claim\"}"
+  },
+  "seconds": 227.1828717350727,
+  "torch": "2.12.0+cu130",
+  "gpu": "NVIDIA GeForce RTX 5090 D v2"
+}

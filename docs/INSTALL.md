@@ -61,6 +61,8 @@ The tool uses Comfy’s actual post-patch quantized weight materialization and p
 
 The published timing evidence uses a **pre-merged Larry v4 INT8 checkpoint**, SHA `9eccf52e4fe6e764f4aac8cdb6045a58bc86d8458c783c35b7035edca71fec12`. That private build artifact is not a downloadable release asset. Loading a different base/LoRA merge is a distinct numerical baseline. Active weight callbacks use the ordinary model path; the plugin must never silently discard your LoRA. Do not add Larry twice to a pre-merged checkpoint.
 
+For the verified INT8 merge lineage and the experimental BF16-first alternative, see [Larry weight lineage](LARRY-WEIGHT-LINEAGE-20261001.zh-CN.md). The new candidate has a different weight identity and is not included in the published speed or media-quality claims.
+
 ## 3. DiT connection
 
 ```mermaid
