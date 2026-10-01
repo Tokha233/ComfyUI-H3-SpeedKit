@@ -22,7 +22,7 @@ INT8 VAE 差异很小，但不是像素完全相同。DiT 融合保留的是**�
 
 **公开输入复验：** 768×512、124 帧、公开 Larry 合并权重，**19.31 → 16.76 秒（−13.19%）**，四项输出 SHA 一致。首次逐层验证不计入正式时间，见[单独数据](evidence/public-input-medium.json)。
 
-**上游贡献：** 当前[11 个 Kitchen/ComfyUI PR 开放中，9 个非 Draft、2 个等待依赖发布](docs/KITCHEN-H3-NEXT-20261001.zh-CN.md)，
+**上游贡献：** 当前[12 个 Kitchen/ComfyUI PR 开放中，10 个非 Draft、2 个等待依赖发布](docs/PDMD-KITCHEN-TESTS-20261001.zh-CN.md)，
 附源码、回归测试和原始实测。10/1 新审计包含 GEMM 调度、VAE 算子与最新少步模型；新候选尚无本项目新增 GPU 实测。新增的 [Indexed Gate 实验节点](docs/INDEXED-GATE.md)
 可以单独验证 #219 的完整 H3 收益；需源码编译尚未合并的 PR，与完整 Optimize DiT 节点二选一。
 各 PR 的范围与收益不能相加；[整套 6.49% DiT 方案的上游拆分与剩余工作](docs/FULL-UPSTREAM-PLAN.zh-CN.md)。
@@ -85,3 +85,5 @@ python benchmarks/run.py --help
 [Hugging Face 项目页](https://huggingface.co/StellarVoyager/MiniMax-H3-SpeedKit-RTX5090Dv2) · [Kitchen 上游 PR 机会分析](docs/KITCHEN-PR-OPPORTUNITIES.zh-CN.md)
 
 **10 月 1 日上游组合实测：** [完整报告与复现证据](docs/UPSTREAM-RECOVERY-TESTS-20261001.zh-CN.md)。在更新的固定 Kitchen/ComfyUI 基线上，完整 8 步采样 **15.737→14.201 s（−9.76%）**，视频/音频 latent、RGB8 和 PCM 哈希一致。此实验集成与上述已发布插件的历史口径分别统计。
+
+**10 月 1 日后续实测：** [PDMD 与 D64 attention 完整报告](docs/PDMD-KITCHEN-TESTS-20261001.zh-CN.md)。PDMD 两条 INT8 路径各完成 15 个业务片段，对比 BF16 50 步与当前部署，均未达到 Larry8 的质量目标。[Kitchen #227](https://github.com/Comfy-Org/comfy-kitchen/pull/227) 新增窄范围 SM120 D64 精确调度：attention 内核耗时约减少 4.6%–5.8%，单代表 latent 的独立进程完整 decoder 耗时减少 0.96%。与上述已发布插件口径分别统计。

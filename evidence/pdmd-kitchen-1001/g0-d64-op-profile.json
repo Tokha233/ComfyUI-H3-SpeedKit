@@ -1,0 +1,59 @@
+{
+  "status": "success",
+  "rows": [
+    {
+      "arm": "base",
+      "events": {
+        "quantize_int8_rowwise_convrot64": {
+          "calls": 14112,
+          "cuda_ms": 1179.9250506982207
+        },
+        "cutlass_int8_dequant": {
+          "calls": 7056,
+          "cuda_ms": 3723.915262877941
+        },
+        "rms_rope": {
+          "calls": 3528,
+          "cuda_ms": 442.19331113249063
+        },
+        "sage_sdpa": {
+          "calls": 3528,
+          "cuda_ms": 1339.2361928522587
+        },
+        "cutlass_int8_dequant_residual": {
+          "calls": 7056,
+          "cuda_ms": 1557.7438132539392
+        }
+      },
+      "signature": "c20e47118805b61b34a606886721eb6ecd202450897a7f5946624a020b537120"
+    },
+    {
+      "arm": "candidate",
+      "events": {
+        "quantize_int8_rowwise_convrot64": {
+          "calls": 14112,
+          "cuda_ms": 1182.6450522150844
+        },
+        "cutlass_int8_dequant": {
+          "calls": 7056,
+          "cuda_ms": 5179.891234874725
+        },
+        "rms_rope": {
+          "calls": 3528,
+          "cuda_ms": 448.7309768497944
+        },
+        "sage_sdpa": {
+          "calls": 3528,
+          "cuda_ms": 1282.431358128786
+        },
+        "cutlass_int8_dequant_residual": {
+          "calls": 7056,
+          "cuda_ms": 2318.2553559094667
+        }
+      },
+      "signature": "c20e47118805b61b34a606886721eb6ecd202450897a7f5946624a020b537120"
+    }
+  ],
+  "protocol": "Same full latent and INT8 VAE; all extension entry points replaced together, same object files and linker except D64 launcher delta; warmed repeated ABBA; SHA full float RGB and RGB8 required identical.",
+  "interpretation": "Diagnostic CUDA-event instrumentation with multiple extension modules, not a standalone performance benchmark."
+}

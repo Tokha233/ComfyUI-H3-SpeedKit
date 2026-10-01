@@ -62,7 +62,7 @@ Need regular IMAGE nodes for grading or upscaling? Keep standard VAE Decode and 
 
 [Every optimization and its numerical contract →](docs/MIGRATION-036.md) · [Historical experiments, including rejected approaches →](docs/R85-EXPERIMENTS.md)
 
-**Upstream work:** [11 open Kitchen/ComfyUI PRs: 9 ready for review and 2 drafts awaiting API releases](docs/KITCHEN-H3-NEXT-20261001.zh-CN.md).
+**Upstream work:** [12 open Kitchen/ComfyUI PRs: 10 ready for review and 2 drafts awaiting API releases](docs/PDMD-KITCHEN-TESTS-20261001.zh-CN.md).
 The October 1 audit also covers new GEMM scheduling, VAE kernel opportunities and recent H3 adapters; these research candidates have no new SpeedKit GPU benchmark yet.
 [October 1 integration test](docs/UPSTREAM-RECOVERY-TESTS-20261001.zh-CN.md): **15.737 → 14.201 s (−9.76% sampler time)** on a newer fixed Kitchen/ComfyUI baseline, with identical video/audio latent, RGB8 and PCM hashes. This experimental integration is separate from the released plugin benchmarks above.
 An optional [Indexed Gate node](docs/INDEXED-GATE.md)
@@ -90,3 +90,5 @@ CPU checks verify tooling and evidence, not GPU performance. `benchmarks/run.py`
 Built on [ComfyUI](https://github.com/Comfy-Org/ComfyUI), [Comfy Kitchen](https://github.com/Comfy-Org/comfy-kitchen), [SageAttention](https://github.com/thu-ml/SageAttention), [CUTLASS](https://github.com/NVIDIA/cutlass), PyTorch and SGLang. [Larry v4](https://huggingface.co/larryvrh/MiniMax-H3-Turbo-Lora) and the INT8 VAE are upstream work. This project contributes hardware-specific adaptations, integration, output engineering and measured validation.
 
 Combined plugin: [GPL-3.0-or-later](LICENSE). Kernel and other file-level licenses are preserved in [NOTICE](NOTICE) and the [provenance index](evidence/kernel-provenance.json). MiniMax H3 weights have a separate community license with geographic and commercial conditions; obtain them under upstream terms. Private prompts, business media and merged weights are not distributed.
+
+**October 1 follow-up:** [PDMD quality and D64 attention experiments](docs/PDMD-KITCHEN-TESTS-20261001.zh-CN.md). Two PDMD INT8 weight paths were evaluated on all 15 business segments against BF16 50-step and frozen deployment media; neither met the current Larry8 quality target. [Kitchen #227](https://github.com/Comfy-Org/comfy-kitchen/pull/227) adds a narrow exact SM120 D64 tile: 4.6–5.8% direct attention time reduction, and 0.96% full-decoder reduction on one representative latent in independent-process testing. These are separate from the released plugin numbers.

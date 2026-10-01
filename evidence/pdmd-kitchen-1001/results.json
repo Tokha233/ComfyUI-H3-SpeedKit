@@ -1,0 +1,5455 @@
+{
+  "metadata": {
+    "date": "2026-10-01T18:02:18.152425+08:00",
+    "gpu": "RTX 5090 D v2 24GB",
+    "coverage": "5 stories / 15 independent segments; approximately 9-12 seconds per segment; matched historical condition and seed",
+    "model": "Iwannapose/minimax_h3_pdmd_4nfe_comfyui",
+    "revision": "ae6ab62d28754b9ce052798b92d9567161568f28",
+    "file": "minimax_h3_pdmd_4nfe_comfyui_v6.safetensors",
+    "lora_sha256": "d1d7c9f08782492ebcaa57f9f823899541ee04c48a298692a229683c4b3dd8a1",
+    "weight_lineages": {
+      "pdmd4": "unbaked INT8 base -> dequantize -> merge -> requantize",
+      "pdmd8": "same weights as pdmd4, 8 NFE extrapolation",
+      "pdmd4bf16": "original BF16 base -> BF16 PDMD delta add, BF16/PyTorch attention; some non-DiT parameters retain source dtype",
+      "pdmd4fresh": "original BF16 base -> same PDMD merge -> ONE deterministic ConvRot256 rowwise INT8 quantization; nonquantized parameters use current INT8 deployment schema",
+      "larry8": "current frozen baked Larry v4 INT8, reproduced sampler; common current INT8 VAE",
+      "r85": "frozen actual deployed Larry v4 INT8 media, older optimized INT8 VAE"
+    },
+    "protocol": "Native-resolution fullframe YUV SSIM/PSNR; LPIPS SqueezeNet v0.1 at 2fps and384x672; 8kHzmono short-window logFFT cosine and32kHzstereo STFT1024/hop256 cosine. t0 alignment, no best shift. References are existing AAC MP4, not raw PCM. No subjective MOS or semantic correctness claim. Fixed test decoder except frozen r85/BF50 media. Sampler time excludes VAE/condition/export; each representative one warmup and one formal run. Other cases quality coverage only, not paired throughput benchmarks."
+  },
+  "summary": [
+    {
+      "arm": "larry8",
+      "count": 2,
+      "cases": [
+        1,
+        8
+      ],
+      "mean": {
+        "ssim": 0.724916,
+        "psnr_db": 19.589526,
+        "lpips": 0.34156050076667877,
+        "audio8k_cosine": 0.816881030566174,
+        "audio32k_cosine": 0.6342848533211036
+      },
+      "versus_r85_same_cases": {
+        "mean_delta": {
+          "ssim": -7.799999999996698e-05,
+          "psnr_db": -0.0007479999999997489,
+          "lpips": 2.1433901219142237e-05,
+          "audio8k_cosine": 0.0,
+          "audio32k_cosine": 0.0
+        },
+        "better_cases": {
+          "ssim": 0,
+          "psnr_db": 0,
+          "lpips": 0,
+          "audio8k_cosine": 0,
+          "audio32k_cosine": 0
+        }
+      },
+      "stories": [
+        {
+          "story": 1,
+          "count": 1,
+          "mean": {
+            "ssim": 0.720675,
+            "psnr_db": 19.330722,
+            "lpips": 0.3370197493405569,
+            "audio8k_cosine": 0.7949635389439251,
+            "audio32k_cosine": 0.5868866627869053
+          }
+        },
+        {
+          "story": 3,
+          "count": 1,
+          "mean": {
+            "ssim": 0.729157,
+            "psnr_db": 19.84833,
+            "lpips": 0.3461012521928007,
+            "audio8k_cosine": 0.8387985221884229,
+            "audio32k_cosine": 0.681683043855302
+          }
+        }
+      ]
+    },
+    {
+      "arm": "pdmd4",
+      "count": 15,
+      "cases": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "mean": {
+        "ssim": 0.6381951333333333,
+        "psnr_db": 16.654153133333335,
+        "lpips": 0.4277786399673647,
+        "audio8k_cosine": 0.8125542818542395,
+        "audio32k_cosine": 0.5316448990220983
+      },
+      "versus_r85_same_cases": {
+        "mean_delta": {
+          "ssim": -0.09633753333333332,
+          "psnr_db": -2.7821242666666666,
+          "lpips": 0.14430962459914326,
+          "audio8k_cosine": -0.056572394090624506,
+          "audio32k_cosine": -0.16472499013663502
+        },
+        "better_cases": {
+          "ssim": 0,
+          "psnr_db": 0,
+          "lpips": 0,
+          "audio8k_cosine": 1,
+          "audio32k_cosine": 1
+        }
+      },
+      "stories": [
+        {
+          "story": 1,
+          "count": 3,
+          "mean": {
+            "ssim": 0.6445733333333333,
+            "psnr_db": 17.329614,
+            "lpips": 0.39631872801553636,
+            "audio8k_cosine": 0.7993336461315672,
+            "audio32k_cosine": 0.43399606947212443
+          }
+        },
+        {
+          "story": 2,
+          "count": 3,
+          "mean": {
+            "ssim": 0.589058,
+            "psnr_db": 15.244768666666667,
+            "lpips": 0.5032116794396961,
+            "audio8k_cosine": 0.8674964587770659,
+            "audio32k_cosine": 0.633410860235339
+          }
+        },
+        {
+          "story": 3,
+          "count": 3,
+          "mean": {
+            "ssim": 0.6474976666666666,
+            "psnr_db": 17.390807666666667,
+            "lpips": 0.429811591054454,
+            "audio8k_cosine": 0.8321861207065662,
+            "audio32k_cosine": 0.5854917353032271
+          }
+        },
+        {
+          "story": 4,
+          "count": 3,
+          "mean": {
+            "ssim": 0.668201,
+            "psnr_db": 16.536023,
+            "lpips": 0.3933079962534879,
+            "audio8k_cosine": 0.8016501040621907,
+            "audio32k_cosine": 0.5450344340648063
+          }
+        },
+        {
+          "story": 5,
+          "count": 3,
+          "mean": {
+            "ssim": 0.6416456666666667,
+            "psnr_db": 16.769552333333333,
+            "lpips": 0.4162432050736493,
+            "audio8k_cosine": 0.7621050795938072,
+            "audio32k_cosine": 0.4602913960349947
+          }
+        }
+      ]
+    },
+    {
+      "arm": "pdmd4bf16",
+      "count": 2,
+      "cases": [
+        1,
+        8
+      ],
+      "mean": {
+        "ssim": 0.6919345,
+        "psnr_db": 19.158441,
+        "lpips": 0.37561966188542256,
+        "audio8k_cosine": 0.8208067875217397,
+        "audio32k_cosine": 0.5151104056864112
+      },
+      "versus_r85_same_cases": {
+        "mean_delta": {
+          "ssim": -0.033059499999999964,
+          "psnr_db": -0.431833000000001,
+          "lpips": 0.03408059501996291,
+          "audio8k_cosine": 0.003925756955565685,
+          "audio32k_cosine": -0.11917444763469243
+        },
+        "better_cases": {
+          "ssim": 0,
+          "psnr_db": 1,
+          "lpips": 0,
+          "audio8k_cosine": 1,
+          "audio32k_cosine": 0
+        }
+      },
+      "stories": [
+        {
+          "story": 1,
+          "count": 1,
+          "mean": {
+            "ssim": 0.702792,
+            "psnr_db": 19.484185,
+            "lpips": 0.337630889245442,
+            "audio8k_cosine": 0.8088303080594507,
+            "audio32k_cosine": 0.4361554613308478
+          }
+        },
+        {
+          "story": 3,
+          "count": 1,
+          "mean": {
+            "ssim": 0.681077,
+            "psnr_db": 18.832697,
+            "lpips": 0.41360843452540313,
+            "audio8k_cosine": 0.8327832669840287,
+            "audio32k_cosine": 0.5940653500419746
+          }
+        }
+      ]
+    },
+    {
+      "arm": "pdmd4fresh",
+      "count": 15,
+      "cases": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "mean": {
+        "ssim": 0.6721795333333334,
+        "psnr_db": 17.559596733333333,
+        "lpips": 0.3897603393553426,
+        "audio8k_cosine": 0.8144294399264317,
+        "audio32k_cosine": 0.5796586350161914
+      },
+      "versus_r85_same_cases": {
+        "mean_delta": {
+          "ssim": -0.062353133333333324,
+          "psnr_db": -1.8766806666666662,
+          "lpips": 0.10629132398712114,
+          "audio8k_cosine": -0.0546972360184323,
+          "audio32k_cosine": -0.11671125414254192
+        },
+        "better_cases": {
+          "ssim": 0,
+          "psnr_db": 1,
+          "lpips": 0,
+          "audio8k_cosine": 2,
+          "audio32k_cosine": 2
+        }
+      },
+      "stories": [
+        {
+          "story": 1,
+          "count": 3,
+          "mean": {
+            "ssim": 0.6800696666666667,
+            "psnr_db": 18.397811333333333,
+            "lpips": 0.36375221846595646,
+            "audio8k_cosine": 0.8096061024283608,
+            "audio32k_cosine": 0.5236963127848775
+          }
+        },
+        {
+          "story": 2,
+          "count": 3,
+          "mean": {
+            "ssim": 0.619904,
+            "psnr_db": 15.975501333333334,
+            "lpips": 0.45360083570556037,
+            "audio8k_cosine": 0.8686375771015267,
+            "audio32k_cosine": 0.6739193067569276
+          }
+        },
+        {
+          "story": 3,
+          "count": 3,
+          "mean": {
+            "ssim": 0.6872563333333334,
+            "psnr_db": 18.552504,
+            "lpips": 0.3801893924626093,
+            "audio8k_cosine": 0.853216805848309,
+            "audio32k_cosine": 0.6437111716658122
+          }
+        },
+        {
+          "story": 4,
+          "count": 3,
+          "mean": {
+            "ssim": 0.694066,
+            "psnr_db": 16.981640666666667,
+            "lpips": 0.37442763851433203,
+            "audio8k_cosine": 0.78626758888826,
+            "audio32k_cosine": 0.46474999384127014
+          }
+        },
+        {
+          "story": 5,
+          "count": 3,
+          "mean": {
+            "ssim": 0.6796016666666667,
+            "psnr_db": 17.890526333333334,
+            "lpips": 0.3768316116282549,
+            "audio8k_cosine": 0.754419125365702,
+            "audio32k_cosine": 0.5922163900320699
+          }
+        }
+      ]
+    },
+    {
+      "arm": "pdmd8",
+      "count": 2,
+      "cases": [
+        1,
+        8
+      ],
+      "mean": {
+        "ssim": 0.6440950000000001,
+        "psnr_db": 17.7469955,
+        "lpips": 0.42157772986532804,
+        "audio8k_cosine": 0.8057460707002139,
+        "audio32k_cosine": 0.5434895735823289
+      },
+      "versus_r85_same_cases": {
+        "mean_delta": {
+          "ssim": -0.08089899999999994,
+          "psnr_db": -1.8432785000000003,
+          "lpips": 0.08003866299986839,
+          "audio8k_cosine": -0.011134959865960137,
+          "audio32k_cosine": -0.09079527973877471
+        },
+        "better_cases": {
+          "ssim": 0,
+          "psnr_db": 0,
+          "lpips": 0,
+          "audio8k_cosine": 0,
+          "audio32k_cosine": 1
+        }
+      },
+      "stories": [
+        {
+          "story": 1,
+          "count": 1,
+          "mean": {
+            "ssim": 0.659196,
+            "psnr_db": 18.418388,
+            "lpips": 0.375905271087374,
+            "audio8k_cosine": 0.7918801656076072,
+            "audio32k_cosine": 0.39847824260138875
+          }
+        },
+        {
+          "story": 3,
+          "count": 1,
+          "mean": {
+            "ssim": 0.628994,
+            "psnr_db": 17.075603,
+            "lpips": 0.4672501886432821,
+            "audio8k_cosine": 0.8196119757928205,
+            "audio32k_cosine": 0.6885009045632691
+          }
+        }
+      ]
+    },
+    {
+      "arm": "r85",
+      "count": 15,
+      "cases": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "mean": {
+        "ssim": 0.7345326666666666,
+        "psnr_db": 19.4362774,
+        "lpips": 0.28346901536822144,
+        "audio8k_cosine": 0.8691266759448639,
+        "audio32k_cosine": 0.6963698891587333
+      },
+      "versus_r85_same_cases": {
+        "mean_delta": {
+          "ssim": 0.0,
+          "psnr_db": 0.0,
+          "lpips": 0.0,
+          "audio8k_cosine": 0.0,
+          "audio32k_cosine": 0.0
+        },
+        "better_cases": {
+          "ssim": 0,
+          "psnr_db": 0,
+          "lpips": 0,
+          "audio8k_cosine": 0,
+          "audio32k_cosine": 0
+        }
+      },
+      "stories": [
+        {
+          "story": 1,
+          "count": 3,
+          "mean": {
+            "ssim": 0.7308396666666667,
+            "psnr_db": 19.736926666666665,
+            "lpips": 0.3008762335493451,
+            "audio8k_cosine": 0.8193462685682616,
+            "audio32k_cosine": 0.6009777481574315
+          }
+        },
+        {
+          "story": 2,
+          "count": 3,
+          "mean": {
+            "ssim": 0.6989636666666666,
+            "psnr_db": 18.624269333333334,
+            "lpips": 0.2693781762842148,
+            "audio8k_cosine": 0.9015110872594525,
+            "audio32k_cosine": 0.6483543447476507
+          }
+        },
+        {
+          "story": 3,
+          "count": 3,
+          "mean": {
+            "ssim": 0.745265,
+            "psnr_db": 20.087334333333335,
+            "lpips": 0.2821425895313336,
+            "audio8k_cosine": 0.8862854892829753,
+            "audio32k_cosine": 0.7367861910419055
+          }
+        },
+        {
+          "story": 4,
+          "count": 3,
+          "mean": {
+            "ssim": 0.7482373333333333,
+            "psnr_db": 19.019024666666667,
+            "lpips": 0.2807079251638796,
+            "audio8k_cosine": 0.8667019400016832,
+            "audio32k_cosine": 0.7509497523485795
+          }
+        },
+        {
+          "story": 5,
+          "count": 3,
+          "mean": {
+            "ssim": 0.7493576666666667,
+            "psnr_db": 19.713832,
+            "lpips": 0.28424015231233424,
+            "audio8k_cosine": 0.8717885946119471,
+            "audio32k_cosine": 0.7447814094980996
+          }
+        }
+      ]
+    }
+  ],
+  "quality": [
+    {
+      "case": 1,
+      "story": 1,
+      "arm": "larry8",
+      "reference": "bf50",
+      "ssim": 0.720675,
+      "psnr_db": 19.330722,
+      "lpips": 0.3370197493405569,
+      "audio8k_cosine": 0.7949635389439251,
+      "audio32k_cosine": 0.5868866627869053,
+      "audio32k_relative_l2": 1.2979144000292329,
+      "audio32k_spectral_convergence": 1.0824493598764726,
+      "audio32k_rms_db_change": 0.681561706318894,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9881297450138359,
+          "candidate_energy_share": 0.9847295234121358,
+          "candidate_vs_reference_db": 0.6668412538807684
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.009821639917065455,
+          "candidate_energy_share": 0.013092925152171047,
+          "candidate_vs_reference_db": 1.930338166302459
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0020486150690987542,
+          "candidate_energy_share": 0.002177551435693245,
+          "candidate_vs_reference_db": 0.9468919862325762
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 1,
+      "story": 1,
+      "arm": "larry8",
+      "reference": "deployed_r85",
+      "ssim": 0.989942,
+      "psnr_db": 46.584476,
+      "lpips": 0.007060722004444827,
+      "audio8k_cosine": 1.0,
+      "audio32k_cosine": 1.0000000000000013,
+      "audio32k_relative_l2": 0.0,
+      "audio32k_spectral_convergence": 0.0,
+      "audio32k_rms_db_change": 0.0,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9847295234121358,
+          "candidate_energy_share": 0.9847295234121358,
+          "candidate_vs_reference_db": 0.0
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.013092925152171047,
+          "candidate_energy_share": 0.013092925152171047,
+          "candidate_vs_reference_db": 0.0
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.002177551435693245,
+          "candidate_energy_share": 0.002177551435693245,
+          "candidate_vs_reference_db": 0.0
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 8,
+      "story": 3,
+      "arm": "larry8",
+      "reference": "bf50",
+      "ssim": 0.729157,
+      "psnr_db": 19.84833,
+      "lpips": 0.3461012521928007,
+      "audio8k_cosine": 0.8387985221884229,
+      "audio32k_cosine": 0.681683043855302,
+      "audio32k_relative_l2": 1.5846127578705902,
+      "audio32k_spectral_convergence": 1.196246648014391,
+      "audio32k_rms_db_change": 2.8784938619009264,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9925515591953749,
+          "candidate_energy_share": 0.9934270820519587,
+          "candidate_vs_reference_db": 2.886165110497201
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.006295255336836897,
+          "candidate_energy_share": 0.005718182373021934,
+          "candidate_vs_reference_db": 2.4647824430865586
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.001153185467788283,
+          "candidate_energy_share": 0.0008547355750193565,
+          "candidate_vs_reference_db": 1.58166211038007
+        }
+      },
+      "video_seconds": 10.833333,
+      "frames": 260,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 8,
+      "story": 3,
+      "arm": "larry8",
+      "reference": "deployed_r85",
+      "ssim": 0.989808,
+      "psnr_db": 46.591717,
+      "lpips": 0.007831824287264184,
+      "audio8k_cosine": 1.0,
+      "audio32k_cosine": 1.0000000000000138,
+      "audio32k_relative_l2": 0.0,
+      "audio32k_spectral_convergence": 0.0,
+      "audio32k_rms_db_change": 0.0,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9934270820519587,
+          "candidate_energy_share": 0.9934270820519587,
+          "candidate_vs_reference_db": 0.0
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.005718182373021934,
+          "candidate_energy_share": 0.005718182373021934,
+          "candidate_vs_reference_db": 0.0
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0008547355750193565,
+          "candidate_energy_share": 0.0008547355750193565,
+          "candidate_vs_reference_db": 0.0
+        }
+      },
+      "video_seconds": 10.833333,
+      "frames": 260,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 1,
+      "story": 1,
+      "arm": "pdmd4",
+      "reference": "bf50",
+      "ssim": 0.673138,
+      "psnr_db": 18.58535,
+      "lpips": 0.36736431292125155,
+      "audio8k_cosine": 0.7612405159991139,
+      "audio32k_cosine": 0.37624071789688224,
+      "audio32k_relative_l2": 1.3150139529608618,
+      "audio32k_spectral_convergence": 1.1497811805677065,
+      "audio32k_rms_db_change": -0.9902771649140003,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9881297450138359,
+          "candidate_energy_share": 0.9819527417566638,
+          "candidate_vs_reference_db": -1.017756436709174
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.009821639917065455,
+          "candidate_energy_share": 0.015317619921115902,
+          "candidate_vs_reference_db": 0.9395502321062046
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0020486150690987542,
+          "candidate_energy_share": 0.002729638322220248,
+          "candidate_vs_reference_db": 0.2559248578090516
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 1,
+      "story": 1,
+      "arm": "pdmd4",
+      "reference": "deployed_r85",
+      "ssim": 0.662963,
+      "psnr_db": 18.269995,
+      "lpips": 0.37542628106616793,
+      "audio8k_cosine": 0.8449361079648131,
+      "audio32k_cosine": 0.5363073214867282,
+      "audio32k_relative_l2": 1.2019540066565728,
+      "audio32k_spectral_convergence": 0.8814530342076864,
+      "audio32k_rms_db_change": -1.6718388712328935,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9847295234121358,
+          "candidate_energy_share": 0.9819527417566638,
+          "candidate_vs_reference_db": -1.6845976905899427
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.013092925152171047,
+          "candidate_energy_share": 0.015317619921115902,
+          "candidate_vs_reference_db": -0.9907879341962545
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.002177551435693245,
+          "candidate_energy_share": 0.002729638322220248,
+          "candidate_vs_reference_db": -0.6909671284235235
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 1,
+      "story": 1,
+      "arm": "pdmd4",
+      "reference": "larry8",
+      "ssim": 0.662918,
+      "psnr_db": 18.269511,
+      "lpips": 0.3753998875617981,
+      "audio8k_cosine": 0.8449361079648131,
+      "audio32k_cosine": 0.5363073214867282,
+      "audio32k_relative_l2": 1.2019540066565728,
+      "audio32k_spectral_convergence": 0.8814530342076864,
+      "audio32k_rms_db_change": -1.6718388712328935,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9847295234121358,
+          "candidate_energy_share": 0.9819527417566638,
+          "candidate_vs_reference_db": -1.6845976905899427
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.013092925152171047,
+          "candidate_energy_share": 0.015317619921115902,
+          "candidate_vs_reference_db": -0.9907879341962545
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.002177551435693245,
+          "candidate_energy_share": 0.002729638322220248,
+          "candidate_vs_reference_db": -0.6909671284235235
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 1,
+      "story": 1,
+      "arm": "pdmd4",
+      "reference": "pdmd4bf16",
+      "ssim": 0.669234,
+      "psnr_db": 19.446637,
+      "lpips": 0.3058285727387383,
+      "audio8k_cosine": 0.840241433213351,
+      "audio32k_cosine": 0.5203805161659467,
+      "audio32k_relative_l2": 1.2468738534655628,
+      "audio32k_spectral_convergence": 1.061464632929363,
+      "audio32k_rms_db_change": -0.522013474740816,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9818559023406959,
+          "candidate_energy_share": 0.9819527417566638,
+          "candidate_vs_reference_db": -0.5214558418839603
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.016325645998277846,
+          "candidate_energy_share": 0.015317619921115902,
+          "candidate_vs_reference_db": -0.7986750211019562
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0018184516610265345,
+          "candidate_energy_share": 0.002729638322220248,
+          "candidate_vs_reference_db": 1.2421492972219803
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 2,
+      "story": 1,
+      "arm": "pdmd4",
+      "reference": "bf50",
+      "ssim": 0.637099,
+      "psnr_db": 17.339881,
+      "lpips": 0.4110250316915058,
+      "audio8k_cosine": 0.7845319778690728,
+      "audio32k_cosine": 0.4100288686659373,
+      "audio32k_relative_l2": 1.8629413866601807,
+      "audio32k_spectral_convergence": 1.6622437085144066,
+      "audio32k_rms_db_change": 4.301382768841094,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9879408265635851,
+          "candidate_energy_share": 0.9861259590423989,
+          "candidate_vs_reference_db": 4.293642571481616
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.01001688892394372,
+          "candidate_energy_share": 0.011109024165882431,
+          "candidate_vs_reference_db": 4.751058522397113
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0020422845124711602,
+          "candidate_energy_share": 0.002765016791718772,
+          "candidate_vs_reference_db": 5.617443278619304
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 2,
+      "story": 1,
+      "arm": "pdmd4",
+      "reference": "deployed_r85",
+      "ssim": 0.64248,
+      "psnr_db": 18.147113,
+      "lpips": 0.3863796563375564,
+      "audio8k_cosine": 0.825915348214075,
+      "audio32k_cosine": 0.4580385970515319,
+      "audio32k_relative_l2": 1.4430351743099201,
+      "audio32k_spectral_convergence": 1.196257251069114,
+      "audio32k_rms_db_change": 0.6210549566370578,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9917910695302851,
+          "candidate_energy_share": 0.9861259590423989,
+          "candidate_vs_reference_db": 0.5964025208382551
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.006457145074263073,
+          "candidate_energy_share": 0.011109024165882431,
+          "candidate_vs_reference_db": 2.9776342165721132
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0017517853954517608,
+          "candidate_energy_share": 0.002765016791718772,
+          "candidate_vs_reference_db": 2.6034492581929354
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 3,
+      "story": 1,
+      "arm": "pdmd4",
+      "reference": "bf50",
+      "ssim": 0.623483,
+      "psnr_db": 16.063611,
+      "lpips": 0.4105668394338517,
+      "audio8k_cosine": 0.852228444526515,
+      "audio32k_cosine": 0.5157186218535538,
+      "audio32k_relative_l2": 1.4790937008089136,
+      "audio32k_spectral_convergence": 1.2151780719937086,
+      "audio32k_rms_db_change": 1.7648524785175286,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9903253815527604,
+          "candidate_energy_share": 0.9863583228817149,
+          "candidate_vs_reference_db": 1.747555868629399
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.008722950659301088,
+          "candidate_energy_share": 0.012230192926701047,
+          "candidate_vs_reference_db": 3.2326867530126515
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0009516677879384711,
+          "candidate_energy_share": 0.0014114841915843447,
+          "candidate_vs_reference_db": 3.4768943222785973
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 3,
+      "story": 1,
+      "arm": "pdmd4",
+      "reference": "deployed_r85",
+      "ssim": 0.618708,
+      "psnr_db": 15.943003,
+      "lpips": 0.4193303684393565,
+      "audio8k_cosine": 0.8256673201968965,
+      "audio32k_cosine": 0.4547335939231694,
+      "audio32k_relative_l2": 1.3617223998746693,
+      "audio32k_spectral_convergence": 1.16453421656765,
+      "audio32k_rms_db_change": -0.33051901068661693,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9913406981442673,
+          "candidate_energy_share": 0.9863583228817149,
+          "candidate_vs_reference_db": -0.35227679313070925
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.00767805293329906,
+          "candidate_energy_share": 0.012230192926701047,
+          "candidate_vs_reference_db": 1.6914274915845504
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.000981248922433793,
+          "candidate_energy_share": 0.0014114841915843447,
+          "candidate_vs_reference_db": 1.248573687450771
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 4,
+      "story": 2,
+      "arm": "pdmd4",
+      "reference": "bf50",
+      "ssim": 0.514132,
+      "psnr_db": 14.877735,
+      "lpips": 0.5164924874192193,
+      "audio8k_cosine": 0.880005274480166,
+      "audio32k_cosine": 0.7419566221034272,
+      "audio32k_relative_l2": 0.976036353937834,
+      "audio32k_spectral_convergence": 0.8846606772100367,
+      "audio32k_rms_db_change": 1.2715541021104884,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9859437606702132,
+          "candidate_energy_share": 0.9885349549371224,
+          "candidate_vs_reference_db": 1.2920048667524966
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.009522091313744317,
+          "candidate_energy_share": 0.008156701688405292,
+          "candidate_vs_reference_db": 0.6084283638715048
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.004534148016042324,
+          "candidate_energy_share": 0.003308343374472461,
+          "candidate_vs_reference_db": -0.08824515647344663
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 4,
+      "story": 2,
+      "arm": "pdmd4",
+      "reference": "deployed_r85",
+      "ssim": 0.500306,
+      "psnr_db": 14.74721,
+      "lpips": 0.5262639139379773,
+      "audio8k_cosine": 0.8967385916141393,
+      "audio32k_cosine": 0.676360178610603,
+      "audio32k_relative_l2": 1.1957154828738799,
+      "audio32k_spectral_convergence": 1.1506651221472863,
+      "audio32k_rms_db_change": -0.9879438253389573,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9812478105078647,
+          "candidate_energy_share": 0.9885349549371224,
+          "candidate_vs_reference_db": -0.9346222080885975
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.0127411154648645,
+          "candidate_energy_share": 0.008156701688405292,
+          "candidate_vs_reference_db": -2.90368422976147
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.006011074027270862,
+          "candidate_energy_share": 0.003308343374472461,
+          "candidate_vs_reference_db": -3.56017048394547
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 5,
+      "story": 2,
+      "arm": "pdmd4",
+      "reference": "bf50",
+      "ssim": 0.641196,
+      "psnr_db": 15.720245,
+      "lpips": 0.4693173680986677,
+      "audio8k_cosine": 0.8934565579996223,
+      "audio32k_cosine": 0.7988731154378568,
+      "audio32k_relative_l2": 0.9740796645237506,
+      "audio32k_spectral_convergence": 0.4701317258825426,
+      "audio32k_rms_db_change": -2.050191131648697,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9859861649263426,
+          "candidate_energy_share": 0.9699225435032125,
+          "candidate_vs_reference_db": -2.121196260569139
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.008958940930879384,
+          "candidate_energy_share": 0.02545697915553939,
+          "candidate_vs_reference_db": 2.485643352554049
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.005054894142777784,
+          "candidate_energy_share": 0.004620477341248145,
+          "candidate_vs_reference_db": -2.440110789602012
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 5,
+      "story": 2,
+      "arm": "pdmd4",
+      "reference": "deployed_r85",
+      "ssim": 0.636213,
+      "psnr_db": 15.832284,
+      "lpips": 0.461285738717942,
+      "audio8k_cosine": 0.914879889511611,
+      "audio32k_cosine": 0.6889040581400735,
+      "audio32k_relative_l2": 0.859215203948408,
+      "audio32k_spectral_convergence": 0.667397790121955,
+      "audio32k_rms_db_change": -1.909583012234688,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9834544955704655,
+          "candidate_energy_share": 0.9699225435032125,
+          "candidate_vs_reference_db": -1.9697218342229532
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.010808117879559796,
+          "candidate_energy_share": 0.02545697915553939,
+          "candidate_vs_reference_db": 1.811018271742891
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.005737386549974617,
+          "candidate_energy_share": 0.004620477341248145,
+          "candidate_vs_reference_db": -2.8498223323578333
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 6,
+      "story": 2,
+      "arm": "pdmd4",
+      "reference": "bf50",
+      "ssim": 0.611846,
+      "psnr_db": 15.136326,
+      "lpips": 0.5238251828012013,
+      "audio8k_cosine": 0.8290275438514094,
+      "audio32k_cosine": 0.3594028431647331,
+      "audio32k_relative_l2": 1.2053380123093196,
+      "audio32k_spectral_convergence": 1.0332609553813272,
+      "audio32k_rms_db_change": -1.9906715137598177,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9827463790192512,
+          "candidate_energy_share": 0.9619211009398694,
+          "candidate_vs_reference_db": -2.0838485705182483
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.013498537155337229,
+          "candidate_energy_share": 0.034100184764172724,
+          "candidate_vs_reference_db": 2.033871694689416
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0037550838254115145,
+          "candidate_energy_share": 0.003978714295958001,
+          "candidate_vs_reference_db": -1.7395973826003155
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 6,
+      "story": 2,
+      "arm": "pdmd4",
+      "reference": "deployed_r85",
+      "ssim": 0.604714,
+      "psnr_db": 15.241084,
+      "lpips": 0.5227910564059303,
+      "audio8k_cosine": 0.8705506838176691,
+      "audio32k_cosine": 0.43664105240510404,
+      "audio32k_relative_l2": 1.211083323879707,
+      "audio32k_spectral_convergence": 0.9871462459635713,
+      "audio32k_rms_db_change": -2.6755340878317235,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9799955171089255,
+          "candidate_energy_share": 0.9619211009398694,
+          "candidate_vs_reference_db": -2.757296608851749
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.015606533986345685,
+          "candidate_energy_share": 0.034100184764172724,
+          "candidate_vs_reference_db": 0.718052462065192
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0043979489047286475,
+          "candidate_energy_share": 0.003978714295958001,
+          "candidate_vs_reference_db": -3.1115244849538892
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 7,
+      "story": 3,
+      "arm": "pdmd4",
+      "reference": "bf50",
+      "ssim": 0.645716,
+      "psnr_db": 16.806012,
+      "lpips": 0.4167426526546478,
+      "audio8k_cosine": 0.8491253862148476,
+      "audio32k_cosine": 0.4757701250478059,
+      "audio32k_relative_l2": 1.7234475052172724,
+      "audio32k_spectral_convergence": 1.405257138119859,
+      "audio32k_rms_db_change": 3.1484354691147005,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9756643395474057,
+          "candidate_energy_share": 0.9820527323868127,
+          "candidate_vs_reference_db": 3.176903630786127
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.01733725412281083,
+          "candidate_energy_share": 0.014883077104984106,
+          "candidate_vs_reference_db": 2.4856840336742887
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.006998406329783575,
+          "candidate_energy_share": 0.0030641905082032677,
+          "candidate_vs_reference_db": -0.438274046079443
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 7,
+      "story": 3,
+      "arm": "pdmd4",
+      "reference": "deployed_r85",
+      "ssim": 0.629371,
+      "psnr_db": 16.236133,
+      "lpips": 0.424350544100716,
+      "audio8k_cosine": 0.8899652355487294,
+      "audio32k_cosine": 0.6719175875528455,
+      "audio32k_relative_l2": 1.2814299298555218,
+      "audio32k_spectral_convergence": 0.8011822629884136,
+      "audio32k_rms_db_change": 0.37659111522637656,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9850323700555756,
+          "candidate_energy_share": 0.9820527323868127,
+          "candidate_vs_reference_db": 0.36349573745789315
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.011535486561581512,
+          "candidate_energy_share": 0.014883077104984106,
+          "candidate_vs_reference_db": 1.4832208203265367
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.003432143382842614,
+          "candidate_energy_share": 0.0030641905082032677,
+          "candidate_vs_reference_db": -0.11584391996733123
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 8,
+      "story": 3,
+      "arm": "pdmd4",
+      "reference": "bf50",
+      "ssim": 0.638902,
+      "psnr_db": 16.998853,
+      "lpips": 0.4628208713098006,
+      "audio8k_cosine": 0.7868153129647089,
+      "audio32k_cosine": 0.5052927097833652,
+      "audio32k_relative_l2": 1.594129753244524,
+      "audio32k_spectral_convergence": 1.3272094324774832,
+      "audio32k_rms_db_change": 1.984263202478109,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9925515591953749,
+          "candidate_energy_share": 0.9942173971010086,
+          "candidate_vs_reference_db": 1.9968290453807542
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.006295255336836897,
+          "candidate_energy_share": 0.004604471404270235,
+          "candidate_vs_reference_db": 0.6312105247733675
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.001153185467788283,
+          "candidate_energy_share": 0.0011781314947211423,
+          "candidate_vs_reference_db": 2.082492273726149
+        }
+      },
+      "video_seconds": 10.833333,
+      "frames": 260,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 8,
+      "story": 3,
+      "arm": "pdmd4",
+      "reference": "deployed_r85",
+      "ssim": 0.640438,
+      "psnr_db": 17.255031,
+      "lpips": 0.4491168247027831,
+      "audio8k_cosine": 0.8640318940024837,
+      "audio32k_cosine": 0.6719233237532535,
+      "audio32k_relative_l2": 1.1841856241501931,
+      "audio32k_spectral_convergence": 0.8976850527228025,
+      "audio32k_rms_db_change": -0.8942306594228171,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9934270820519587,
+          "candidate_energy_share": 0.9942173971010086,
+          "candidate_vs_reference_db": -0.8893360651164464
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.005718182373021934,
+          "candidate_energy_share": 0.004604471404270235,
+          "candidate_vs_reference_db": -1.8335719183131907
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0008547355750193565,
+          "candidate_energy_share": 0.0011781314947211423,
+          "candidate_vs_reference_db": 0.5008301633460792
+        }
+      },
+      "video_seconds": 10.833333,
+      "frames": 260,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 8,
+      "story": 3,
+      "arm": "pdmd4",
+      "reference": "larry8",
+      "ssim": 0.640381,
+      "psnr_db": 17.254393,
+      "lpips": 0.4488790997050025,
+      "audio8k_cosine": 0.8640318940024837,
+      "audio32k_cosine": 0.6719233237532535,
+      "audio32k_relative_l2": 1.1841856241501931,
+      "audio32k_spectral_convergence": 0.8976850527228025,
+      "audio32k_rms_db_change": -0.8942306594228171,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9934270820519587,
+          "candidate_energy_share": 0.9942173971010086,
+          "candidate_vs_reference_db": -0.8893360651164464
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.005718182373021934,
+          "candidate_energy_share": 0.004604471404270235,
+          "candidate_vs_reference_db": -1.8335719183131907
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0008547355750193565,
+          "candidate_energy_share": 0.0011781314947211423,
+          "candidate_vs_reference_db": 0.5008301633460792
+        }
+      },
+      "video_seconds": 10.833333,
+      "frames": 260,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 8,
+      "story": 3,
+      "arm": "pdmd4",
+      "reference": "pdmd4bf16",
+      "ssim": 0.643791,
+      "psnr_db": 18.138418,
+      "lpips": 0.38710679791190405,
+      "audio8k_cosine": 0.8275791730392055,
+      "audio32k_cosine": 0.7204956767620267,
+      "audio32k_relative_l2": 1.2989039044484876,
+      "audio32k_spectral_convergence": 0.9752940359890975,
+      "audio32k_rms_db_change": 1.4997329998998103,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9929239975591947,
+          "candidate_energy_share": 0.9942173971010086,
+          "candidate_vs_reference_db": 1.5164289628371488
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.005996623527268824,
+          "candidate_energy_share": 0.004604471404270235,
+          "candidate_vs_reference_db": 0.3635054092183848
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0010793789135363759,
+          "candidate_energy_share": 0.0011781314947211423,
+          "candidate_vs_reference_db": 1.8909738159860432
+        }
+      },
+      "video_seconds": 10.833333,
+      "frames": 260,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 9,
+      "story": 3,
+      "arm": "pdmd4",
+      "reference": "bf50",
+      "ssim": 0.657875,
+      "psnr_db": 18.367558,
+      "lpips": 0.4098712491989136,
+      "audio8k_cosine": 0.860617662940142,
+      "audio32k_cosine": 0.7754123710785101,
+      "audio32k_relative_l2": 1.386619853826651,
+      "audio32k_spectral_convergence": 1.21586965159575,
+      "audio32k_rms_db_change": 1.3539441265276586,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9664572835796145,
+          "candidate_energy_share": 0.9800331260398634,
+          "candidate_vs_reference_db": 1.4148612872946713
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.024938840379781176,
+          "candidate_energy_share": 0.014437823156762581,
+          "candidate_vs_reference_db": -1.019465008902172
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.008603876040604279,
+          "candidate_energy_share": 0.005529050803373948,
+          "candidate_vs_reference_db": -0.5661552761715967
+        }
+      },
+      "video_seconds": 12.25,
+      "frames": 294,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 9,
+      "story": 3,
+      "arm": "pdmd4",
+      "reference": "deployed_r85",
+      "ssim": 0.649441,
+      "psnr_db": 18.132978,
+      "lpips": 0.413667163848877,
+      "audio8k_cosine": 0.8680695543221844,
+      "audio32k_cosine": 0.7908171362441982,
+      "audio32k_relative_l2": 1.2324198373397177,
+      "audio32k_spectral_convergence": 1.0685815763618312,
+      "audio32k_rms_db_change": -0.6255529321087021,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9745974801402963,
+          "candidate_energy_share": 0.9800331260398634,
+          "candidate_vs_reference_db": -0.6093269838199988
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.01862853110071072,
+          "candidate_energy_share": 0.014437823156762581,
+          "candidate_vs_reference_db": -1.7402506291834632
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0067739887589929985,
+          "candidate_energy_share": 0.005529050803373948,
+          "candidate_vs_reference_db": -1.5154206089971167
+        }
+      },
+      "video_seconds": 12.25,
+      "frames": 294,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 10,
+      "story": 4,
+      "arm": "pdmd4",
+      "reference": "bf50",
+      "ssim": 0.657014,
+      "psnr_db": 17.082061,
+      "lpips": 0.3708546972937054,
+      "audio8k_cosine": 0.7484046407422368,
+      "audio32k_cosine": 0.22203193297602836,
+      "audio32k_relative_l2": 1.2630163735929574,
+      "audio32k_spectral_convergence": 1.2325973631027516,
+      "audio32k_rms_db_change": -1.8339863319388998,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.895112241032157,
+          "candidate_energy_share": 0.8261914366864287,
+          "candidate_vs_reference_db": -2.163508031915476
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.0614496150485825,
+          "candidate_energy_share": 0.07996967172774933,
+          "candidate_vs_reference_db": -0.6714784948229593
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.04343814391926044,
+          "candidate_energy_share": 0.09383889158582222,
+          "candidate_vs_reference_db": 1.5295761326493977
+        }
+      },
+      "video_seconds": 8.708333,
+      "frames": 209,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 10,
+      "story": 4,
+      "arm": "pdmd4",
+      "reference": "deployed_r85",
+      "ssim": 0.660825,
+      "psnr_db": 17.650075,
+      "lpips": 0.33934304614861804,
+      "audio8k_cosine": 0.7085384127341601,
+      "audio32k_cosine": 0.24267120529777936,
+      "audio32k_relative_l2": 1.3418675201894104,
+      "audio32k_spectral_convergence": 1.3152369226140448,
+      "audio32k_rms_db_change": -0.5496412107898534,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9236015077622578,
+          "candidate_energy_share": 0.8261914366864287,
+          "candidate_vs_reference_db": -1.0192368079529892
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.0342980764443298,
+          "candidate_energy_share": 0.07996967172774933,
+          "candidate_vs_reference_db": 3.1413581242424953
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.04210041579341228,
+          "candidate_energy_share": 0.09383889158582222,
+          "candidate_vs_reference_db": 2.9457674739412454
+        }
+      },
+      "video_seconds": 8.708333,
+      "frames": 209,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 11,
+      "story": 4,
+      "arm": "pdmd4",
+      "reference": "bf50",
+      "ssim": 0.648563,
+      "psnr_db": 16.272967,
+      "lpips": 0.3953238711470649,
+      "audio8k_cosine": 0.8420391307592346,
+      "audio32k_cosine": 0.7275330054522869,
+      "audio32k_relative_l2": 1.4110942890584952,
+      "audio32k_spectral_convergence": 0.8977937453359424,
+      "audio32k_rms_db_change": 1.768619560586835,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9812603993284355,
+          "candidate_energy_share": 0.9826846238063948,
+          "candidate_vs_reference_db": 1.775831674536422
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.013154960280929651,
+          "candidate_energy_share": 0.012261055580351845,
+          "candidate_vs_reference_db": 1.463915991894795
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.005584640390634719,
+          "candidate_energy_share": 0.005054320613253437,
+          "candidate_vs_reference_db": 1.3362085347497956
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 11,
+      "story": 4,
+      "arm": "pdmd4",
+      "reference": "deployed_r85",
+      "ssim": 0.649146,
+      "psnr_db": 16.687714,
+      "lpips": 0.3716632283869244,
+      "audio8k_cosine": 0.8900194603575036,
+      "audio32k_cosine": 0.7815817545186575,
+      "audio32k_relative_l2": 1.1745097657819175,
+      "audio32k_spectral_convergence": 0.6848063307670772,
+      "audio32k_rms_db_change": -0.8570283101882464,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9853528492539168,
+          "candidate_energy_share": 0.9826846238063948,
+          "candidate_vs_reference_db": -0.8687089329829756
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.009219667633532554,
+          "candidate_energy_share": 0.012261055580351845,
+          "candidate_vs_reference_db": 0.38119318780724437
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0054274831125508795,
+          "candidate_energy_share": 0.005054320613253437,
+          "candidate_vs_reference_db": -1.1662897076408638
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 12,
+      "story": 4,
+      "arm": "pdmd4",
+      "reference": "bf50",
+      "ssim": 0.699026,
+      "psnr_db": 16.253041,
+      "lpips": 0.4137454203196934,
+      "audio8k_cosine": 0.8145065406851006,
+      "audio32k_cosine": 0.6855383637661039,
+      "audio32k_relative_l2": 1.1511577658297725,
+      "audio32k_spectral_convergence": 0.9027351744744334,
+      "audio32k_rms_db_change": -0.9260651296524945,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9862454893985643,
+          "candidate_energy_share": 0.9541708668691147,
+          "candidate_vs_reference_db": -1.0701899253448632
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.012865547172173765,
+          "candidate_energy_share": 0.04349186421417151,
+          "candidate_vs_reference_db": 4.3631964702137696
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0008889634292621292,
+          "candidate_energy_share": 0.002337268916713917,
+          "candidate_vs_reference_db": 3.271646734448443
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 12,
+      "story": 4,
+      "arm": "pdmd4",
+      "reference": "deployed_r85",
+      "ssim": 0.706365,
+      "psnr_db": 16.368895,
+      "lpips": 0.39028476888225194,
+      "audio8k_cosine": 0.8362298957332033,
+      "audio32k_cosine": 0.6840778539488613,
+      "audio32k_relative_l2": 1.0806339811651489,
+      "audio32k_spectral_convergence": 0.8894608928436745,
+      "audio32k_rms_db_change": -2.755225205974185,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9887161784925297,
+          "candidate_energy_share": 0.9541708668691147,
+          "candidate_vs_reference_db": -2.9205977103217555
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.010552917384982494,
+          "candidate_energy_share": 0.04349186421417151,
+          "candidate_vs_reference_db": 3.3842120246484155
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0007309041224875336,
+          "candidate_energy_share": 0.002337268916713917,
+          "candidate_vs_reference_db": 2.2823398924013008
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 13,
+      "story": 5,
+      "arm": "pdmd4",
+      "reference": "bf50",
+      "ssim": 0.625737,
+      "psnr_db": 17.302601,
+      "lpips": 0.3973776184850269,
+      "audio8k_cosine": 0.7974018982072859,
+      "audio32k_cosine": 0.44784153379717484,
+      "audio32k_relative_l2": 1.6231192686273492,
+      "audio32k_spectral_convergence": 1.391375929668302,
+      "audio32k_rms_db_change": 3.0213447844929076,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9947739403507962,
+          "candidate_energy_share": 0.9863535684106126,
+          "candidate_vs_reference_db": 2.984503568529229
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.0037913686474730078,
+          "candidate_energy_share": 0.011329535329772602,
+          "candidate_vs_reference_db": 7.775582201450155
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0014346910017307103,
+          "candidate_energy_share": 0.0023168962596148896,
+          "candidate_vs_reference_db": 5.102903504640532
+        }
+      },
+      "video_seconds": 8.708333,
+      "frames": 209,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 13,
+      "story": 5,
+      "arm": "pdmd4",
+      "reference": "deployed_r85",
+      "ssim": 0.61747,
+      "psnr_db": 17.128806,
+      "lpips": 0.3927355408668518,
+      "audio8k_cosine": 0.8104444086146503,
+      "audio32k_cosine": 0.42820125301068823,
+      "audio32k_relative_l2": 1.4712836289107771,
+      "audio32k_spectral_convergence": 1.2583519679778672,
+      "audio32k_rms_db_change": 1.4557218329827095,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9929897336324376,
+          "candidate_energy_share": 0.9863535684106126,
+          "candidate_vs_reference_db": 1.4266459882958515
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.004772315170400464,
+          "candidate_energy_share": 0.011329535329772602,
+          "candidate_vs_reference_db": 5.210597178319658
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.002237951197161816,
+          "candidate_energy_share": 0.0023168962596148896,
+          "candidate_vs_reference_db": 1.6063271391433196
+        }
+      },
+      "video_seconds": 8.708333,
+      "frames": 209,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 14,
+      "story": 5,
+      "arm": "pdmd4",
+      "reference": "bf50",
+      "ssim": 0.66093,
+      "psnr_db": 16.696767,
+      "lpips": 0.40640124394780114,
+      "audio8k_cosine": 0.7908127873081239,
+      "audio32k_cosine": 0.5623578565902666,
+      "audio32k_relative_l2": 1.548620140830373,
+      "audio32k_spectral_convergence": 1.2319287411366846,
+      "audio32k_rms_db_change": 2.321518000823826,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9907730508996384,
+          "candidate_energy_share": 0.9865591486705603,
+          "candidate_vs_reference_db": 2.3030420639380256
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.007748034386484251,
+          "candidate_energy_share": 0.011682376639713716,
+          "candidate_vs_reference_db": 4.104949276339424
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0014789147138774303,
+          "candidate_energy_share": 0.00175847468972615,
+          "candidate_vs_reference_db": 3.073482553020498
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 14,
+      "story": 5,
+      "arm": "pdmd4",
+      "reference": "deployed_r85",
+      "ssim": 0.660878,
+      "psnr_db": 16.833728,
+      "lpips": 0.38872148735182627,
+      "audio8k_cosine": 0.7938282106966215,
+      "audio32k_cosine": 0.45386943583472583,
+      "audio32k_relative_l2": 1.3465922754681434,
+      "audio32k_spectral_convergence": 1.151694564169411,
+      "audio32k_rms_db_change": 0.09956604100079208,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9903520125494994,
+          "candidate_energy_share": 0.9865591486705603,
+          "candidate_vs_reference_db": 0.08287328621703635
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.007844824315937665,
+          "candidate_energy_share": 0.011682376639713716,
+          "candidate_vs_reference_db": 1.8290177054078547
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.001803163134562978,
+          "candidate_energy_share": 0.00175847468972615,
+          "candidate_vs_reference_db": -0.009451091246982967
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 15,
+      "story": 5,
+      "arm": "pdmd4",
+      "reference": "bf50",
+      "ssim": 0.63827,
+      "psnr_db": 16.309289,
+      "lpips": 0.44495075278811985,
+      "audio8k_cosine": 0.6981005532660121,
+      "audio32k_cosine": 0.3706747977175427,
+      "audio32k_relative_l2": 1.8096839984790194,
+      "audio32k_spectral_convergence": 1.5875568806920832,
+      "audio32k_rms_db_change": 3.8921390995723666,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9781613062176627,
+          "candidate_energy_share": 0.987387501655035,
+          "candidate_vs_reference_db": 3.9329137392147855
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.016436123272739432,
+          "candidate_energy_share": 0.010965719882575733,
+          "candidate_vs_reference_db": 2.1345198530010117
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.005402570509597786,
+          "candidate_energy_share": 0.0016467784623893412,
+          "candidate_vs_reference_db": -1.2675103778998569
+        }
+      },
+      "video_seconds": 8.708333,
+      "frames": 209,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 15,
+      "story": 5,
+      "arm": "pdmd4",
+      "reference": "deployed_r85",
+      "ssim": 0.651663,
+      "psnr_db": 16.642368,
+      "lpips": 0.4191492779387368,
+      "audio8k_cosine": 0.6526305063459598,
+      "audio32k_cosine": 0.33807303126303234,
+      "audio32k_relative_l2": 1.381748611991313,
+      "audio32k_spectral_convergence": 1.210289732920012,
+      "audio32k_rms_db_change": 0.5892610241594275,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9746043433353652,
+          "candidate_energy_share": 0.987387501655035,
+          "candidate_vs_reference_db": 0.6458088305721321
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.0204657472864885,
+          "candidate_energy_share": 0.010965719882575733,
+          "candidate_vs_reference_db": -2.1206885946842013
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.004929909378146213,
+          "candidate_energy_share": 0.0016467784623893412,
+          "candidate_vs_reference_db": -4.172821578182864
+        }
+      },
+      "video_seconds": 8.708333,
+      "frames": 209,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 1,
+      "story": 1,
+      "arm": "pdmd4bf16",
+      "reference": "bf50",
+      "ssim": 0.702792,
+      "psnr_db": 19.484185,
+      "lpips": 0.337630889245442,
+      "audio8k_cosine": 0.8088303080594507,
+      "audio32k_cosine": 0.4361554613308478,
+      "audio32k_relative_l2": 1.307417310468186,
+      "audio32k_spectral_convergence": 1.0121877972101092,
+      "audio32k_rms_db_change": -0.46826369017318403,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9881297450138359,
+          "candidate_energy_share": 0.9818559023406959,
+          "candidate_vs_reference_db": -0.4963005948252139
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.009821639917065455,
+          "candidate_energy_share": 0.016325645998277846,
+          "candidate_vs_reference_db": 1.738225253208161
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0020486150690987542,
+          "candidate_energy_share": 0.0018184516610265345,
+          "candidate_vs_reference_db": -0.9862244394129277
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 1,
+      "story": 1,
+      "arm": "pdmd4bf16",
+      "reference": "deployed_r85",
+      "ssim": 0.688277,
+      "psnr_db": 18.858439,
+      "lpips": 0.34063481716882615,
+      "audio8k_cosine": 0.8158723656428883,
+      "audio32k_cosine": 0.36771521834969306,
+      "audio32k_relative_l2": 1.2926745520147895,
+      "audio32k_spectral_convergence": 1.1332226214946222,
+      "audio32k_rms_db_change": -1.1498253964920773,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9847295234121358,
+          "candidate_energy_share": 0.9818559023406959,
+          "candidate_vs_reference_db": -1.1631418487059821
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.013092925152171047,
+          "candidate_energy_share": 0.016325645998277846,
+          "candidate_vs_reference_db": -0.19211291309429795
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.002177551435693245,
+          "candidate_energy_share": 0.0018184516610265345,
+          "candidate_vs_reference_db": -1.9331164256455036
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 8,
+      "story": 3,
+      "arm": "pdmd4bf16",
+      "reference": "bf50",
+      "ssim": 0.681077,
+      "psnr_db": 18.832697,
+      "lpips": 0.41360843452540313,
+      "audio8k_cosine": 0.8327832669840287,
+      "audio32k_cosine": 0.5940653500419746,
+      "audio32k_relative_l2": 1.3859395192377515,
+      "audio32k_spectral_convergence": 1.131072043644102,
+      "audio32k_rms_db_change": 0.48453020257829926,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9925515591953749,
+          "candidate_energy_share": 0.9929239975591947,
+          "candidate_vs_reference_db": 0.4804000825436051
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.006295255336836897,
+          "candidate_energy_share": 0.005996623527268824,
+          "candidate_vs_reference_db": 0.26770511555498333
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.001153185467788283,
+          "candidate_energy_share": 0.0010793789135363759,
+          "candidate_vs_reference_db": 0.19151845774010623
+        }
+      },
+      "video_seconds": 10.833333,
+      "frames": 260,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 8,
+      "story": 3,
+      "arm": "pdmd4bf16",
+      "reference": "deployed_r85",
+      "ssim": 0.677397,
+      "psnr_db": 18.758089,
+      "lpips": 0.3994814089753411,
+      "audio8k_cosine": 0.8569586940982662,
+      "audio32k_cosine": 0.8229187095545042,
+      "audio32k_relative_l2": 1.0630752063158162,
+      "audio32k_spectral_convergence": 0.6701143117159534,
+      "audio32k_rms_db_change": -2.3939636593226274,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9934270820519587,
+          "candidate_energy_share": 0.9929239975591947,
+          "candidate_vs_reference_db": -2.405765027953595
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.005718182373021934,
+          "candidate_energy_share": 0.005996623527268824,
+          "candidate_vs_reference_db": -2.197077327531575
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0008547355750193565,
+          "candidate_energy_share": 0.0010793789135363759,
+          "candidate_vs_reference_db": -1.3901436526399644
+        }
+      },
+      "video_seconds": 10.833333,
+      "frames": 260,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 1,
+      "story": 1,
+      "arm": "pdmd4fresh",
+      "reference": "bf50",
+      "ssim": 0.703784,
+      "psnr_db": 19.420449,
+      "lpips": 0.3468240953627087,
+      "audio8k_cosine": 0.7994929442296046,
+      "audio32k_cosine": 0.44817295267714347,
+      "audio32k_relative_l2": 1.4720213056198714,
+      "audio32k_spectral_convergence": 1.109328718108428,
+      "audio32k_rms_db_change": 1.411044601296903,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9881297450138359,
+          "candidate_energy_share": 0.985062755694907,
+          "candidate_vs_reference_db": 1.3972448868887142
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.009821639917065455,
+          "candidate_energy_share": 0.013559012250922353,
+          "candidate_vs_reference_db": 2.8111860758214235
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0020486150690987542,
+          "candidate_energy_share": 0.0013782320541708833,
+          "candidate_vs_reference_db": -0.31063454325176515
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 1,
+      "story": 1,
+      "arm": "pdmd4fresh",
+      "reference": "deployed_r85",
+      "ssim": 0.689433,
+      "psnr_db": 18.852644,
+      "lpips": 0.335476279258728,
+      "audio8k_cosine": 0.8031243430725651,
+      "audio32k_cosine": 0.37027134905574655,
+      "audio32k_relative_l2": 1.4314416376417145,
+      "audio32k_spectral_convergence": 1.2494138034258913,
+      "audio32k_rms_db_change": 0.7294828949780086,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9847295234121358,
+          "candidate_energy_share": 0.985062755694907,
+          "candidate_vs_reference_db": 0.730403633007946
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.013092925152171047,
+          "candidate_energy_share": 0.013559012250922353,
+          "candidate_vs_reference_db": 0.8808479095189639
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.002177551435693245,
+          "candidate_energy_share": 0.0013782320541708833,
+          "candidate_vs_reference_db": -1.2575265294843407
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 1,
+      "story": 1,
+      "arm": "pdmd4fresh",
+      "reference": "larry8",
+      "ssim": 0.689418,
+      "psnr_db": 18.851837,
+      "lpips": 0.33542326163677944,
+      "audio8k_cosine": 0.8031243430725651,
+      "audio32k_cosine": 0.37027134905574655,
+      "audio32k_relative_l2": 1.4314416376417145,
+      "audio32k_spectral_convergence": 1.2494138034258913,
+      "audio32k_rms_db_change": 0.7294828949780086,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9847295234121358,
+          "candidate_energy_share": 0.985062755694907,
+          "candidate_vs_reference_db": 0.730403633007946
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.013092925152171047,
+          "candidate_energy_share": 0.013559012250922353,
+          "candidate_vs_reference_db": 0.8808479095189639
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.002177551435693245,
+          "candidate_energy_share": 0.0013782320541708833,
+          "candidate_vs_reference_db": -1.2575265294843407
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 1,
+      "story": 1,
+      "arm": "pdmd4fresh",
+      "reference": "pdmd4bf16",
+      "ssim": 0.822289,
+      "psnr_db": 24.523611,
+      "lpips": 0.13860445930844262,
+      "audio8k_cosine": 0.9191639886857527,
+      "audio32k_cosine": 0.8099932421648115,
+      "audio32k_relative_l2": 1.0789648585836749,
+      "audio32k_spectral_convergence": 0.7604883219140746,
+      "audio32k_rms_db_change": 1.8793082914700867,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9818559023406959,
+          "candidate_energy_share": 0.985062755694907,
+          "candidate_vs_reference_db": 1.8935454817139286
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.016325645998277846,
+          "candidate_energy_share": 0.013559012250922353,
+          "candidate_vs_reference_db": 1.0729608226132623
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0018184516610265345,
+          "candidate_energy_share": 0.0013782320541708833,
+          "candidate_vs_reference_db": 0.6755898961611633
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 2,
+      "story": 1,
+      "arm": "pdmd4fresh",
+      "reference": "bf50",
+      "ssim": 0.67788,
+      "psnr_db": 18.624621,
+      "lpips": 0.36211265552611577,
+      "audio8k_cosine": 0.771896079927749,
+      "audio32k_cosine": 0.605383041193154,
+      "audio32k_relative_l2": 1.6311444590216728,
+      "audio32k_spectral_convergence": 1.3301314572790988,
+      "audio32k_rms_db_change": 3.761218712579071,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9879408265635851,
+          "candidate_energy_share": 0.9877749622020223,
+          "candidate_vs_reference_db": 3.7605900346498893
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.01001688892394372,
+          "candidate_energy_share": 0.010411808754424497,
+          "candidate_vs_reference_db": 3.929252472025127
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0020422845124711602,
+          "candidate_energy_share": 0.001813229043553,
+          "candidate_vs_reference_db": 3.244683457126611
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 2,
+      "story": 1,
+      "arm": "pdmd4fresh",
+      "reference": "deployed_r85",
+      "ssim": 0.687611,
+      "psnr_db": 19.632087,
+      "lpips": 0.33101872603098553,
+      "audio8k_cosine": 0.9090594262938231,
+      "audio32k_cosine": 0.81301637255192,
+      "audio32k_relative_l2": 0.9549828374405326,
+      "audio32k_spectral_convergence": 0.7187423165082487,
+      "audio32k_rms_db_change": 0.08089090037503738,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9917910695302851,
+          "candidate_energy_share": 0.9877749622020223,
+          "candidate_vs_reference_db": 0.06334998400652729
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.006457145074263073,
+          "candidate_energy_share": 0.010411808754424497,
+          "candidate_vs_reference_db": 2.155828166200128
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0017517853954517608,
+          "candidate_energy_share": 0.001813229043553,
+          "candidate_vs_reference_db": 0.23068943670024214
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 3,
+      "story": 1,
+      "arm": "pdmd4fresh",
+      "reference": "bf50",
+      "ssim": 0.658545,
+      "psnr_db": 17.148364,
+      "lpips": 0.38231990450904485,
+      "audio8k_cosine": 0.8574292831277288,
+      "audio32k_cosine": 0.5175329444843348,
+      "audio32k_relative_l2": 1.4524449384316434,
+      "audio32k_spectral_convergence": 1.2168325269463303,
+      "audio32k_rms_db_change": 1.7294619564949074,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9903253815527604,
+          "candidate_energy_share": 0.9806915762716761,
+          "candidate_vs_reference_db": 1.68704060795916
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.008722950659301088,
+          "candidate_energy_share": 0.017686551913816972,
+          "candidate_vs_reference_db": 4.799292830758994
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0009516677879384711,
+          "candidate_energy_share": 0.0016218718145067507,
+          "candidate_vs_reference_db": 4.044806828159916
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 3,
+      "story": 1,
+      "arm": "pdmd4fresh",
+      "reference": "deployed_r85",
+      "ssim": 0.65713,
+      "psnr_db": 17.257594,
+      "lpips": 0.3619872998623621,
+      "audio8k_cosine": 0.8167847919484299,
+      "audio32k_cosine": 0.4512526688676044,
+      "audio32k_relative_l2": 1.3451900636950047,
+      "audio32k_spectral_convergence": 1.173255900479698,
+      "audio32k_rms_db_change": -0.36590953270923815,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9913406981442673,
+          "candidate_energy_share": 0.9806915762716761,
+          "candidate_vs_reference_db": -0.4127920538009481
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.00767805293329906,
+          "candidate_energy_share": 0.017686551913816972,
+          "candidate_vs_reference_db": 3.258033569330894
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.000981248922433793,
+          "candidate_energy_share": 0.0016218718145067507,
+          "candidate_vs_reference_db": 1.8164861933320902
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 4,
+      "story": 2,
+      "arm": "pdmd4fresh",
+      "reference": "bf50",
+      "ssim": 0.549213,
+      "psnr_db": 16.042277,
+      "lpips": 0.4292552499544053,
+      "audio8k_cosine": 0.8881187860513899,
+      "audio32k_cosine": 0.76782294012168,
+      "audio32k_relative_l2": 0.9197510442341365,
+      "audio32k_spectral_convergence": 0.8189857470223509,
+      "audio32k_rms_db_change": -0.03612895801192986,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9859437606702132,
+          "candidate_energy_share": 0.9854167835244557,
+          "candidate_vs_reference_db": -0.0076773823170204385
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.009522091313744317,
+          "candidate_energy_share": 0.009447722375513067,
+          "candidate_vs_reference_db": -0.03940769085240458
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.004534148016042324,
+          "candidate_energy_share": 0.005135494100031288,
+          "candidate_vs_reference_db": 0.5355099107457003
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 4,
+      "story": 2,
+      "arm": "pdmd4fresh",
+      "reference": "deployed_r85",
+      "ssim": 0.530046,
+      "psnr_db": 15.762737,
+      "lpips": 0.4416610371498835,
+      "audio8k_cosine": 0.9060999885071128,
+      "audio32k_cosine": 0.6648045423031221,
+      "audio32k_relative_l2": 1.1369241900505174,
+      "audio32k_spectral_convergence": 1.0951962027801891,
+      "audio32k_rms_db_change": -2.2956268854613757,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9812478105078647,
+          "candidate_energy_share": 0.9854167835244557,
+          "candidate_vs_reference_db": -2.234304457158115
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.0127411154648645,
+          "candidate_energy_share": 0.009447722375513067,
+          "candidate_vs_reference_db": -3.5515202844853793
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.006011074027270862,
+          "candidate_energy_share": 0.005135494100031288,
+          "candidate_vs_reference_db": -2.936415416726323
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 5,
+      "story": 2,
+      "arm": "pdmd4fresh",
+      "reference": "bf50",
+      "ssim": 0.660536,
+      "psnr_db": 15.975744,
+      "lpips": 0.43436876365116667,
+      "audio8k_cosine": 0.9014053668738237,
+      "audio32k_cosine": 0.8162166372164793,
+      "audio32k_relative_l2": 1.0332495234657806,
+      "audio32k_spectral_convergence": 0.47617489871831487,
+      "audio32k_rms_db_change": -1.0840831098052077,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9859861649263426,
+          "candidate_energy_share": 0.976779819609197,
+          "candidate_vs_reference_db": -1.1244902068556264
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.008958940930879384,
+          "candidate_energy_share": 0.018888859995635797,
+          "candidate_vs_reference_db": 2.1557419641425364
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.005054894142777784,
+          "candidate_energy_share": 0.004331320395167393,
+          "candidate_vs_reference_db": -1.754666328570942
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 5,
+      "story": 2,
+      "arm": "pdmd4fresh",
+      "reference": "deployed_r85",
+      "ssim": 0.657657,
+      "psnr_db": 16.134288,
+      "lpips": 0.42197321426300777,
+      "audio8k_cosine": 0.9166684180314535,
+      "audio32k_cosine": 0.6727067789957787,
+      "audio32k_relative_l2": 1.0102494634388661,
+      "audio32k_spectral_convergence": 0.6946747984035792,
+      "audio32k_rms_db_change": -0.943474990391199,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9834544955704655,
+          "candidate_energy_share": 0.976779819609197,
+          "candidate_vs_reference_db": -0.9730157805094403
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.010808117879559796,
+          "candidate_energy_share": 0.018888859995635797,
+          "candidate_vs_reference_db": 1.4811168833313784
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.005737386549974617,
+          "candidate_energy_share": 0.004331320395167393,
+          "candidate_vs_reference_db": -2.164377871326764
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 6,
+      "story": 2,
+      "arm": "pdmd4fresh",
+      "reference": "bf50",
+      "ssim": 0.649963,
+      "psnr_db": 15.908483,
+      "lpips": 0.4971784935111091,
+      "audio8k_cosine": 0.8163885783793663,
+      "audio32k_cosine": 0.43771834293262335,
+      "audio32k_relative_l2": 1.2198771705440794,
+      "audio32k_spectral_convergence": 1.003391026670513,
+      "audio32k_rms_db_change": -0.34741570397957283,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9827463790192512,
+          "candidate_energy_share": 0.9691207789736309,
+          "candidate_vs_reference_db": -0.4078586678004195
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.013498537155337229,
+          "candidate_energy_share": 0.02644399000720913,
+          "candidate_vs_reference_db": 2.5731795821845265
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0037550838254115145,
+          "candidate_energy_share": 0.004435231019159919,
+          "candidate_vs_reference_db": 0.3757428982830258
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 6,
+      "story": 2,
+      "arm": "pdmd4fresh",
+      "reference": "deployed_r85",
+      "ssim": 0.644016,
+      "psnr_db": 16.256491,
+      "lpips": 0.4910777934959957,
+      "audio8k_cosine": 0.8728973040829631,
+      "audio32k_cosine": 0.5592460393948722,
+      "audio32k_relative_l2": 1.1667668583646291,
+      "audio32k_spectral_convergence": 0.8794046278363841,
+      "audio32k_rms_db_change": -1.0322782780514776,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9799955171089255,
+          "candidate_energy_share": 0.9691207789736309,
+          "candidate_vs_reference_db": -1.0813067061339208
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.015606533986345685,
+          "candidate_energy_share": 0.02644399000720913,
+          "candidate_vs_reference_db": 1.2573603495603032
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0043979489047286475,
+          "candidate_energy_share": 0.004435231019159919,
+          "candidate_vs_reference_db": -0.9961842040705476
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 7,
+      "story": 3,
+      "arm": "pdmd4fresh",
+      "reference": "bf50",
+      "ssim": 0.68196,
+      "psnr_db": 17.407367,
+      "lpips": 0.36687805681001573,
+      "audio8k_cosine": 0.862588423706603,
+      "audio32k_cosine": 0.5153715520332134,
+      "audio32k_relative_l2": 1.645372222261047,
+      "audio32k_spectral_convergence": 1.3413153312165405,
+      "audio32k_rms_db_change": 2.7647747905678752,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9756643395474057,
+          "candidate_energy_share": 0.9787482970724201,
+          "candidate_vs_reference_db": 2.7785195635416553
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.01733725412281083,
+          "candidate_energy_share": 0.017170388032936582,
+          "candidate_vs_reference_db": 2.7228116369155857
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.006998406329783575,
+          "candidate_energy_share": 0.004081314894643359,
+          "candidate_vs_reference_db": 0.42282318750963394
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 7,
+      "story": 3,
+      "arm": "pdmd4fresh",
+      "reference": "deployed_r85",
+      "ssim": 0.666871,
+      "psnr_db": 16.823381,
+      "lpips": 0.3767499029636383,
+      "audio8k_cosine": 0.88396172336618,
+      "audio32k_cosine": 0.692065013077802,
+      "audio32k_relative_l2": 1.1901428853062375,
+      "audio32k_spectral_convergence": 0.7497113770538396,
+      "audio32k_rms_db_change": -0.0070695633204484465,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9850323700555756,
+          "candidate_energy_share": 0.9787482970724201,
+          "candidate_vs_reference_db": -0.034888329786578465
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.011535486561581512,
+          "candidate_energy_share": 0.017170388032936582,
+          "candidate_vs_reference_db": 1.7203484235678341
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.003432143382842614,
+          "candidate_energy_share": 0.004081314894643359,
+          "candidate_vs_reference_db": 0.7452533136217461
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 8,
+      "story": 3,
+      "arm": "pdmd4fresh",
+      "reference": "bf50",
+      "ssim": 0.675378,
+      "psnr_db": 18.56947,
+      "lpips": 0.42552168667316437,
+      "audio8k_cosine": 0.8376915328721461,
+      "audio32k_cosine": 0.6063352603821262,
+      "audio32k_relative_l2": 1.4344599476592788,
+      "audio32k_spectral_convergence": 1.1246857345609274,
+      "audio32k_rms_db_change": 0.8592054151268497,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9925515591953749,
+          "candidate_energy_share": 0.9936325588720851,
+          "candidate_vs_reference_db": 0.8580384818880044
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.006295255336836897,
+          "candidate_energy_share": 0.005468831866982824,
+          "candidate_vs_reference_db": 0.24212332118719024
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.001153185467788283,
+          "candidate_energy_share": 0.0008986092609321058,
+          "candidate_vs_reference_db": -0.2299716050250983
+        }
+      },
+      "video_seconds": 10.833333,
+      "frames": 260,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 8,
+      "story": 3,
+      "arm": "pdmd4fresh",
+      "reference": "deployed_r85",
+      "ssim": 0.679393,
+      "psnr_db": 18.811962,
+      "lpips": 0.3931399245153774,
+      "audio8k_cosine": 0.8397996361965203,
+      "audio32k_cosine": 0.8001268129159002,
+      "audio32k_relative_l2": 1.0931054153907451,
+      "audio32k_spectral_convergence": 0.6818635660234807,
+      "audio32k_rms_db_change": -2.0192884467740773,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9934270820519587,
+          "candidate_energy_share": 0.9936325588720851,
+          "candidate_vs_reference_db": -2.0281266286091957
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.005718182373021934,
+          "candidate_energy_share": 0.005468831866982824,
+          "candidate_vs_reference_db": -2.222659121899368
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0008547355750193565,
+          "candidate_energy_share": 0.0008986092609321058,
+          "candidate_vs_reference_db": -1.8116337154051687
+        }
+      },
+      "video_seconds": 10.833333,
+      "frames": 260,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 8,
+      "story": 3,
+      "arm": "pdmd4fresh",
+      "reference": "larry8",
+      "ssim": 0.679311,
+      "psnr_db": 18.811433,
+      "lpips": 0.39314467121254315,
+      "audio8k_cosine": 0.8397996361965203,
+      "audio32k_cosine": 0.8001268129159002,
+      "audio32k_relative_l2": 1.0931054153907451,
+      "audio32k_spectral_convergence": 0.6818635660234807,
+      "audio32k_rms_db_change": -2.0192884467740773,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9934270820519587,
+          "candidate_energy_share": 0.9936325588720851,
+          "candidate_vs_reference_db": -2.0281266286091957
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.005718182373021934,
+          "candidate_energy_share": 0.005468831866982824,
+          "candidate_vs_reference_db": -2.222659121899368
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0008547355750193565,
+          "candidate_energy_share": 0.0008986092609321058,
+          "candidate_vs_reference_db": -1.8116337154051687
+        }
+      },
+      "video_seconds": 10.833333,
+      "frames": 260,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 8,
+      "story": 3,
+      "arm": "pdmd4fresh",
+      "reference": "pdmd4bf16",
+      "ssim": 0.754476,
+      "psnr_db": 22.8239,
+      "lpips": 0.20815245468508115,
+      "audio8k_cosine": 0.9295894859421185,
+      "audio32k_cosine": 0.9228712820775459,
+      "audio32k_relative_l2": 0.9268167237581427,
+      "audio32k_spectral_convergence": 0.5356700947018295,
+      "audio32k_rms_db_change": 0.37467521254855,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9929239975591947,
+          "candidate_energy_share": 0.9936325588720851,
+          "candidate_vs_reference_db": 0.3776383993443996
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.005996623527268824,
+          "candidate_energy_share": 0.005468831866982824,
+          "candidate_vs_reference_db": -0.025581794367792697
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0010793789135363759,
+          "candidate_energy_share": 0.0008986092609321058,
+          "candidate_vs_reference_db": -0.4214900627652049
+        }
+      },
+      "video_seconds": 10.833333,
+      "frames": 260,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 9,
+      "story": 3,
+      "arm": "pdmd4fresh",
+      "reference": "bf50",
+      "ssim": 0.704431,
+      "psnr_db": 19.680675,
+      "lpips": 0.3481684339046478,
+      "audio8k_cosine": 0.8593704609661775,
+      "audio32k_cosine": 0.8094267025820969,
+      "audio32k_relative_l2": 1.2378195662089384,
+      "audio32k_spectral_convergence": 1.025199040119829,
+      "audio32k_rms_db_change": 0.33148825439983703,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9664572835796145,
+          "candidate_energy_share": 0.9713788801093621,
+          "candidate_vs_reference_db": 0.35647977719516344
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.024938840379781176,
+          "candidate_energy_share": 0.020339054807690642,
+          "candidate_vs_reference_db": -0.5510350452471899
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.008603876040604279,
+          "candidate_energy_share": 0.008282065082947189,
+          "candidate_vs_reference_db": 0.16886478690399273
+        }
+      },
+      "video_seconds": 12.25,
+      "frames": 294,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 9,
+      "story": 3,
+      "arm": "pdmd4fresh",
+      "reference": "deployed_r85",
+      "ssim": 0.703075,
+      "psnr_db": 19.751137,
+      "lpips": 0.34489389538764953,
+      "audio8k_cosine": 0.8730337314223174,
+      "audio32k_cosine": 0.8275644775911691,
+      "audio32k_relative_l2": 1.0824022548608485,
+      "audio32k_spectral_convergence": 0.9110917453738387,
+      "audio32k_rms_db_change": -1.6480088042365226,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9745974801402963,
+          "candidate_energy_share": 0.9713788801093621,
+          "candidate_vs_reference_db": -1.6677084939195062
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.01862853110071072,
+          "candidate_energy_share": 0.020339054807690642,
+          "candidate_vs_reference_db": -1.271820665528482
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0067739887589929985,
+          "candidate_energy_share": 0.008282065082947189,
+          "candidate_vs_reference_db": -0.7804005459215269
+        }
+      },
+      "video_seconds": 12.25,
+      "frames": 294,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 10,
+      "story": 4,
+      "arm": "pdmd4fresh",
+      "reference": "bf50",
+      "ssim": 0.675318,
+      "psnr_db": 17.430605,
+      "lpips": 0.36736081375016105,
+      "audio8k_cosine": 0.7800587035819062,
+      "audio32k_cosine": 0.31725433076525245,
+      "audio32k_relative_l2": 1.300862913558651,
+      "audio32k_spectral_convergence": 1.2536795093571234,
+      "audio32k_rms_db_change": -1.0242225863033159,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.895112241032157,
+          "candidate_energy_share": 0.8059076281373315,
+          "candidate_vs_reference_db": -1.448746815968188
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.0614496150485825,
+          "candidate_energy_share": 0.07831175283516781,
+          "candidate_vs_reference_db": 0.06025326426930165
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.04343814391926044,
+          "candidate_energy_share": 0.11578061902750064,
+          "candidate_vs_reference_db": 3.2648215555255082
+        }
+      },
+      "video_seconds": 8.708333,
+      "frames": 209,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 10,
+      "story": 4,
+      "arm": "pdmd4fresh",
+      "reference": "deployed_r85",
+      "ssim": 0.680706,
+      "psnr_db": 18.189161,
+      "lpips": 0.33152225944730973,
+      "audio8k_cosine": 0.7858873260546555,
+      "audio32k_cosine": 0.3055630455804348,
+      "audio32k_relative_l2": 1.394574514189097,
+      "audio32k_spectral_convergence": 1.365409849166375,
+      "audio32k_rms_db_change": 0.2601225348457308,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9236015077622578,
+          "candidate_energy_share": 0.8059076281373315,
+          "candidate_vs_reference_db": -0.3044755920057007
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.0342980764443298,
+          "candidate_energy_share": 0.07831175283516781,
+          "candidate_vs_reference_db": 3.873089883334756
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.04210041579341228,
+          "candidate_energy_share": 0.11578061902750064,
+          "candidate_vs_reference_db": 4.681012896817355
+        }
+      },
+      "video_seconds": 8.708333,
+      "frames": 209,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 11,
+      "story": 4,
+      "arm": "pdmd4fresh",
+      "reference": "bf50",
+      "ssim": 0.679709,
+      "psnr_db": 16.683384,
+      "lpips": 0.3696411181063879,
+      "audio8k_cosine": 0.7764448439677542,
+      "audio32k_cosine": 0.6238546511528521,
+      "audio32k_relative_l2": 1.5675115325483562,
+      "audio32k_spectral_convergence": 1.2386703910954482,
+      "audio32k_rms_db_change": 3.031645946879438,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9812603993284355,
+          "candidate_energy_share": 0.9842588520706393,
+          "candidate_vs_reference_db": 3.0448419486448652
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.013154960280929651,
+          "candidate_energy_share": 0.010134193333046647,
+          "candidate_vs_reference_db": 1.898587819473104
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.005584640390634719,
+          "candidate_energy_share": 0.005606954596314146,
+          "candidate_vs_reference_db": 3.0489096419023936
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 11,
+      "story": 4,
+      "arm": "pdmd4fresh",
+      "reference": "deployed_r85",
+      "ssim": 0.680684,
+      "psnr_db": 17.367948,
+      "lpips": 0.338402495497749,
+      "audio8k_cosine": 0.82162431531798,
+      "audio32k_cosine": 0.6599148701269268,
+      "audio32k_relative_l2": 1.3479648058544638,
+      "audio32k_spectral_convergence": 0.9409254273348525,
+      "audio32k_rms_db_change": 0.4059980761043572,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9853528492539168,
+          "candidate_energy_share": 0.9842588520706393,
+          "candidate_vs_reference_db": 0.4003013411254682
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.009219667633532554,
+          "candidate_energy_share": 0.010134193333046647,
+          "candidate_vs_reference_db": 0.8158650153855536
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0054274831125508795,
+          "candidate_energy_share": 0.005606954596314146,
+          "candidate_vs_reference_db": 0.5464113995117341
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 12,
+      "story": 4,
+      "arm": "pdmd4fresh",
+      "reference": "bf50",
+      "ssim": 0.727171,
+      "psnr_db": 16.830933,
+      "lpips": 0.38628098368644714,
+      "audio8k_cosine": 0.8022992191151195,
+      "audio32k_cosine": 0.4531409996057059,
+      "audio32k_relative_l2": 1.2985667212965282,
+      "audio32k_spectral_convergence": 1.09431133526953,
+      "audio32k_rms_db_change": -0.8264973796267436,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9862454893985643,
+          "candidate_energy_share": 0.9708697069550404,
+          "candidate_vs_reference_db": -0.8949290442654632
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.012865547172173765,
+          "candidate_energy_share": 0.027272050009653947,
+          "candidate_vs_reference_db": 2.436206981924797
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0008889634292621292,
+          "candidate_energy_share": 0.0018582430353056064,
+          "candidate_vs_reference_db": 2.375497937744722
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 12,
+      "story": 4,
+      "arm": "pdmd4fresh",
+      "reference": "deployed_r85",
+      "ssim": 0.737385,
+      "psnr_db": 17.083798,
+      "lpips": 0.3608859820025308,
+      "audio8k_cosine": 0.8127058167161085,
+      "audio32k_cosine": 0.4451523502751936,
+      "audio32k_relative_l2": 1.1691398372919375,
+      "audio32k_spectral_convergence": 1.031009319666804,
+      "audio32k_rms_db_change": -2.6556574559484347,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9887161784925297,
+          "candidate_energy_share": 0.9708697069550404,
+          "candidate_vs_reference_db": -2.7453368292423557
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.010552917384982494,
+          "candidate_energy_share": 0.027272050009653947,
+          "candidate_vs_reference_db": 1.4572225363594427
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0007309041224875336,
+          "candidate_energy_share": 0.0018582430353056064,
+          "candidate_vs_reference_db": 1.3861910956975807
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 13,
+      "story": 5,
+      "arm": "pdmd4fresh",
+      "reference": "bf50",
+      "ssim": 0.653546,
+      "psnr_db": 18.193041,
+      "lpips": 0.3687117596467336,
+      "audio8k_cosine": 0.7606618993983365,
+      "audio32k_cosine": 0.6909455040352636,
+      "audio32k_relative_l2": 1.4071718876033328,
+      "audio32k_spectral_convergence": 0.9772989289703163,
+      "audio32k_rms_db_change": 2.4714998532885657,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9947739403507962,
+          "candidate_energy_share": 0.9913248739527497,
+          "candidate_vs_reference_db": 2.456461475018553
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.0037913686474730078,
+          "candidate_energy_share": 0.007117439629509976,
+          "candidate_vs_reference_db": 5.206823214999915
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0014346910017307103,
+          "candidate_energy_share": 0.001557686417740354,
+          "candidate_vs_reference_db": 2.8287620239084035
+        }
+      },
+      "video_seconds": 8.708333,
+      "frames": 209,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 13,
+      "story": 5,
+      "arm": "pdmd4fresh",
+      "reference": "deployed_r85",
+      "ssim": 0.64856,
+      "psnr_db": 18.145242,
+      "lpips": 0.3574556244744195,
+      "audio8k_cosine": 0.7683590102473978,
+      "audio32k_cosine": 0.6903293145383697,
+      "audio32k_relative_l2": 1.3220745388998179,
+      "audio32k_spectral_convergence": 0.8870938757862745,
+      "audio32k_rms_db_change": 0.9058769017783664,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9929897336324376,
+          "candidate_energy_share": 0.9913248739527497,
+          "candidate_vs_reference_db": 0.8986038947851748
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.004772315170400464,
+          "candidate_energy_share": 0.007117439629509976,
+          "candidate_vs_reference_db": 2.641838191869417
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.002237951197161816,
+          "candidate_energy_share": 0.001557686417740354,
+          "candidate_vs_reference_db": -0.6678143415888099
+        }
+      },
+      "video_seconds": 8.708333,
+      "frames": 209,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 14,
+      "story": 5,
+      "arm": "pdmd4fresh",
+      "reference": "bf50",
+      "ssim": 0.708932,
+      "psnr_db": 18.315969,
+      "lpips": 0.35106115397952853,
+      "audio8k_cosine": 0.7813141542165393,
+      "audio32k_cosine": 0.7002076398891577,
+      "audio32k_relative_l2": 1.433300450208932,
+      "audio32k_spectral_convergence": 1.0087989232384649,
+      "audio32k_rms_db_change": 1.8952393742563645,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9907730508996384,
+          "candidate_energy_share": 0.9888565590004511,
+          "candidate_vs_reference_db": 1.8868431771457728
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.007748034386484251,
+          "candidate_energy_share": 0.009826752863527263,
+          "candidate_vs_reference_db": 2.9274369890058436
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0014789147138774303,
+          "candidate_energy_share": 0.001316688136021711,
+          "candidate_vs_reference_db": 1.390649970066784
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 14,
+      "story": 5,
+      "arm": "pdmd4fresh",
+      "reference": "deployed_r85",
+      "ssim": 0.713608,
+      "psnr_db": 18.840522,
+      "lpips": 0.32030855899765376,
+      "audio8k_cosine": 0.76436676925605,
+      "audio32k_cosine": 0.5685809121001705,
+      "audio32k_relative_l2": 1.3067662605229615,
+      "audio32k_spectral_convergence": 1.0176263435663637,
+      "audio32k_rms_db_change": -0.3267125855666698,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9903520125494994,
+          "candidate_energy_share": 0.9888565590004511,
+          "candidate_vs_reference_db": -0.33332560057521543
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.007844824315937665,
+          "candidate_energy_share": 0.009826752863527263,
+          "candidate_vs_reference_db": 0.6515054180742745
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.001803163134562978,
+          "candidate_energy_share": 0.001316688136021711,
+          "candidate_vs_reference_db": -1.6922836742006966
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 15,
+      "story": 5,
+      "arm": "pdmd4fresh",
+      "reference": "bf50",
+      "ssim": 0.676327,
+      "psnr_db": 17.162569,
+      "lpips": 0.41072192125850254,
+      "audio8k_cosine": 0.7212813224822302,
+      "audio32k_cosine": 0.3854960261717886,
+      "audio32k_relative_l2": 1.7681522411669683,
+      "audio32k_spectral_convergence": 1.5168357905108762,
+      "audio32k_rms_db_change": 3.6582331112049666,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9781613062176627,
+          "candidate_energy_share": 0.9814269433876265,
+          "candidate_vs_reference_db": 3.672716934162557
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.016436123272739432,
+          "candidate_energy_share": 0.01644359511940778,
+          "candidate_vs_reference_db": 3.660215809610727
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.005402570509597786,
+          "candidate_energy_share": 0.0021294614929658778,
+          "candidate_vs_reference_db": -0.38506456537149947
+        }
+      },
+      "video_seconds": 8.708333,
+      "frames": 209,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 15,
+      "story": 5,
+      "arm": "pdmd4fresh",
+      "reference": "deployed_r85",
+      "ssim": 0.694525,
+      "psnr_db": 17.79804,
+      "lpips": 0.38213758170604706,
+      "audio8k_cosine": 0.8300130490068134,
+      "audio32k_cosine": 0.4726148021288881,
+      "audio32k_relative_l2": 1.2782341555715313,
+      "audio32k_spectral_convergence": 1.0257832091377872,
+      "audio32k_rms_db_change": 0.35535503579202815,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9746043433353652,
+          "candidate_energy_share": 0.9814269433876265,
+          "candidate_vs_reference_db": 0.3856120255199035
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.0204657472864885,
+          "candidate_energy_share": 0.01644359511940778,
+          "candidate_vs_reference_db": -0.5949926380744861
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.004929909378146213,
+          "candidate_energy_share": 0.0021294614929658778,
+          "candidate_vs_reference_db": -3.290375765654506
+        }
+      },
+      "video_seconds": 8.708333,
+      "frames": 209,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 1,
+      "story": 1,
+      "arm": "pdmd8",
+      "reference": "bf50",
+      "ssim": 0.659196,
+      "psnr_db": 18.418388,
+      "lpips": 0.375905271087374,
+      "audio8k_cosine": 0.7918801656076072,
+      "audio32k_cosine": 0.39847824260138875,
+      "audio32k_relative_l2": 1.4166468052719594,
+      "audio32k_spectral_convergence": 1.2142149072057247,
+      "audio32k_rms_db_change": 0.26737734451863066,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9881297450138359,
+          "candidate_energy_share": 0.9900665247856841,
+          "candidate_vs_reference_db": 0.2770935121154997
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.009821639917065455,
+          "candidate_energy_share": 0.008504103796716254,
+          "candidate_vs_reference_db": -0.3569650838809544
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0020486150690987542,
+          "candidate_energy_share": 0.0014293714175997146,
+          "candidate_vs_reference_db": -1.2945632227880497
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 1,
+      "story": 1,
+      "arm": "pdmd8",
+      "reference": "deployed_r85",
+      "ssim": 0.648444,
+      "psnr_db": 18.04624,
+      "lpips": 0.38647799974396113,
+      "audio8k_cosine": 0.8467381869160582,
+      "audio32k_cosine": 0.5558123391063856,
+      "audio32k_relative_l2": 1.3089603269918402,
+      "audio32k_spectral_convergence": 0.9381395733370702,
+      "audio32k_rms_db_change": -0.41418436180026197,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9847295234121358,
+          "candidate_energy_share": 0.9900665247856841,
+          "candidate_vs_reference_db": -0.38974774176526816
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.013092925152171047,
+          "candidate_energy_share": 0.008504103796716254,
+          "candidate_vs_reference_db": -2.2873032501834136
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.002177551435693245,
+          "candidate_energy_share": 0.0014293714175997146,
+          "candidate_vs_reference_db": -2.241455209020625
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 1,
+      "story": 1,
+      "arm": "pdmd8",
+      "reference": "larry8",
+      "ssim": 0.648415,
+      "psnr_db": 18.046082,
+      "lpips": 0.38642064162663053,
+      "audio8k_cosine": 0.8467381869160582,
+      "audio32k_cosine": 0.5558123391063856,
+      "audio32k_relative_l2": 1.3089603269918402,
+      "audio32k_spectral_convergence": 0.9381395733370702,
+      "audio32k_rms_db_change": -0.41418436180026197,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9847295234121358,
+          "candidate_energy_share": 0.9900665247856841,
+          "candidate_vs_reference_db": -0.38974774176526816
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.013092925152171047,
+          "candidate_energy_share": 0.008504103796716254,
+          "candidate_vs_reference_db": -2.2873032501834136
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.002177551435693245,
+          "candidate_energy_share": 0.0014293714175997146,
+          "candidate_vs_reference_db": -2.241455209020625
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 8,
+      "story": 3,
+      "arm": "pdmd8",
+      "reference": "bf50",
+      "ssim": 0.628994,
+      "psnr_db": 17.075603,
+      "lpips": 0.4672501886432821,
+      "audio8k_cosine": 0.8196119757928205,
+      "audio32k_cosine": 0.6885009045632691,
+      "audio32k_relative_l2": 1.6132964322960843,
+      "audio32k_spectral_convergence": 1.2278729078340518,
+      "audio32k_rms_db_change": 3.302314877070387,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9925515591953749,
+          "candidate_energy_share": 0.994723560653121,
+          "candidate_vs_reference_db": 3.334039894861868
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.006295255336836897,
+          "candidate_energy_share": 0.004346395519991525,
+          "candidate_vs_reference_db": 1.7157055532310281
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.001153185467788283,
+          "candidate_energy_share": 0.0009300438268874714,
+          "candidate_vs_reference_db": 2.390589144540801
+        }
+      },
+      "video_seconds": 10.833333,
+      "frames": 260,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 8,
+      "story": 3,
+      "arm": "pdmd8",
+      "reference": "deployed_r85",
+      "ssim": 0.630708,
+      "psnr_db": 17.394403,
+      "lpips": 0.45264212922616437,
+      "audio8k_cosine": 0.8983288092679945,
+      "audio32k_cosine": 0.7215756727451195,
+      "audio32k_relative_l2": 1.3039715433809271,
+      "audio32k_spectral_convergence": 0.9487904928147036,
+      "audio32k_rms_db_change": 0.42382101516946113,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9934270820519587,
+          "candidate_energy_share": 0.994723560653121,
+          "candidate_vs_reference_db": 0.44787478436466716
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.005718182373021934,
+          "candidate_energy_share": 0.004346395519991525,
+          "candidate_vs_reference_db": -0.74907688985553
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0008547355750193565,
+          "candidate_energy_share": 0.0009300438268874714,
+          "candidate_vs_reference_db": 0.8089270341607309
+        }
+      },
+      "video_seconds": 10.833333,
+      "frames": 260,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 8,
+      "story": 3,
+      "arm": "pdmd8",
+      "reference": "larry8",
+      "ssim": 0.630638,
+      "psnr_db": 17.393838,
+      "lpips": 0.45244244553826074,
+      "audio8k_cosine": 0.8983288092679945,
+      "audio32k_cosine": 0.7215756727451195,
+      "audio32k_relative_l2": 1.3039715433809271,
+      "audio32k_spectral_convergence": 0.9487904928147036,
+      "audio32k_rms_db_change": 0.42382101516946113,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9934270820519587,
+          "candidate_energy_share": 0.994723560653121,
+          "candidate_vs_reference_db": 0.44787478436466716
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.005718182373021934,
+          "candidate_energy_share": 0.004346395519991525,
+          "candidate_vs_reference_db": -0.74907688985553
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0008547355750193565,
+          "candidate_energy_share": 0.0009300438268874714,
+          "candidate_vs_reference_db": 0.8089270341607309
+        }
+      },
+      "video_seconds": 10.833333,
+      "frames": 260,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 1,
+      "story": 1,
+      "arm": "r85",
+      "reference": "bf50",
+      "ssim": 0.720753,
+      "psnr_db": 19.33171,
+      "lpips": 0.33698501757213045,
+      "audio8k_cosine": 0.7949635389439251,
+      "audio32k_cosine": 0.5868866627869053,
+      "audio32k_relative_l2": 1.2979144000292329,
+      "audio32k_spectral_convergence": 1.0824493598764726,
+      "audio32k_rms_db_change": 0.681561706318894,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9881297450138359,
+          "candidate_energy_share": 0.9847295234121358,
+          "candidate_vs_reference_db": 0.6668412538807684
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.009821639917065455,
+          "candidate_energy_share": 0.013092925152171047,
+          "candidate_vs_reference_db": 1.930338166302459
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0020486150690987542,
+          "candidate_energy_share": 0.002177551435693245,
+          "candidate_vs_reference_db": 0.9468919862325762
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 2,
+      "story": 1,
+      "arm": "r85",
+      "reference": "bf50",
+      "ssim": 0.736158,
+      "psnr_db": 19.941429,
+      "lpips": 0.282001175341152,
+      "audio8k_cosine": 0.8260366765772396,
+      "audio32k_cosine": 0.6275012373383871,
+      "audio32k_relative_l2": 1.550055127821897,
+      "audio32k_spectral_convergence": 1.2712539433524332,
+      "audio32k_rms_db_change": 3.680327812204035,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9879408265635851,
+          "candidate_energy_share": 0.9917910695302851,
+          "candidate_vs_reference_db": 3.6972400506433614
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.01001688892394372,
+          "candidate_energy_share": 0.006457145074263073,
+          "candidate_vs_reference_db": 1.7734243058249994
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0020422845124711602,
+          "candidate_energy_share": 0.0017517853954517608,
+          "candidate_vs_reference_db": 3.0139940204263693
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 3,
+      "story": 1,
+      "arm": "r85",
+      "reference": "bf50",
+      "ssim": 0.735608,
+      "psnr_db": 19.937641,
+      "lpips": 0.28364250773475286,
+      "audio8k_cosine": 0.8370385901836203,
+      "audio32k_cosine": 0.5885453443470022,
+      "audio32k_relative_l2": 1.5093791301050723,
+      "audio32k_spectral_convergence": 1.228033781838854,
+      "audio32k_rms_db_change": 2.0953714892041453,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9903253815527604,
+          "candidate_energy_share": 0.9913406981442673,
+          "candidate_vs_reference_db": 2.0998326617601077
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.008722950659301088,
+          "candidate_energy_share": 0.00767805293329906,
+          "candidate_vs_reference_db": 1.5412592614281002
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0009516677879384711,
+          "candidate_energy_share": 0.000981248922433793,
+          "candidate_vs_reference_db": 2.228320634827827
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 4,
+      "story": 2,
+      "arm": "r85",
+      "reference": "bf50",
+      "ssim": 0.591441,
+      "psnr_db": 17.452918,
+      "lpips": 0.3077599342380251,
+      "audio8k_cosine": 0.9304046706988522,
+      "audio32k_cosine": 0.7771246617963529,
+      "audio32k_relative_l2": 1.2306380791657527,
+      "audio32k_spectral_convergence": 1.1602843084440138,
+      "audio32k_rms_db_change": 2.2594979274494458,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9859437606702132,
+          "candidate_energy_share": 0.9812478105078647,
+          "candidate_vs_reference_db": 2.2266270748410943
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.009522091313744317,
+          "candidate_energy_share": 0.0127411154648645,
+          "candidate_vs_reference_db": 3.512112593632975
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.004534148016042324,
+          "candidate_energy_share": 0.006011074027270862,
+          "candidate_vs_reference_db": 3.471925327472023
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 5,
+      "story": 2,
+      "arm": "r85",
+      "reference": "bf50",
+      "ssim": 0.772691,
+      "psnr_db": 19.810654,
+      "lpips": 0.20827786979221163,
+      "audio8k_cosine": 0.905941282608361,
+      "audio32k_cosine": 0.7520364053962887,
+      "audio32k_relative_l2": 1.1334204540144865,
+      "audio32k_spectral_convergence": 0.6211559555994478,
+      "audio32k_rms_db_change": -0.14060811941400905,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9859861649263426,
+          "candidate_energy_share": 0.9834544955704655,
+          "candidate_vs_reference_db": -0.1514744263461864
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.008958940930879384,
+          "candidate_energy_share": 0.010808117879559796,
+          "candidate_vs_reference_db": 0.674625080811158
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.005054894142777784,
+          "candidate_energy_share": 0.005737386549974617,
+          "candidate_vs_reference_db": 0.4097115427558215
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 6,
+      "story": 2,
+      "arm": "r85",
+      "reference": "bf50",
+      "ssim": 0.732759,
+      "psnr_db": 18.609236,
+      "lpips": 0.29209672482240767,
+      "audio8k_cosine": 0.8681873084711442,
+      "audio32k_cosine": 0.4159019670503108,
+      "audio32k_relative_l2": 1.2960409256999506,
+      "audio32k_spectral_convergence": 1.1204934265765774,
+      "audio32k_rms_db_change": 0.6848625740719048,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9827463790192512,
+          "candidate_energy_share": 0.9799955171089255,
+          "candidate_vs_reference_db": 0.6734480383335004
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.013498537155337229,
+          "candidate_energy_share": 0.015606533986345685,
+          "candidate_vs_reference_db": 1.3158192326242242
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0037550838254115145,
+          "candidate_energy_share": 0.0043979489047286475,
+          "candidate_vs_reference_db": 1.3719271023535735
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 7,
+      "story": 3,
+      "arm": "r85",
+      "reference": "bf50",
+      "ssim": 0.726026,
+      "psnr_db": 18.030447,
+      "lpips": 0.28065737940016244,
+      "audio8k_cosine": 0.8766817056386982,
+      "audio32k_cosine": 0.6091135877984766,
+      "audio32k_relative_l2": 1.534665295475814,
+      "audio32k_spectral_convergence": 1.2588778183034526,
+      "audio32k_rms_db_change": 2.7718443538883246,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9756643395474057,
+          "candidate_energy_share": 0.9850323700555756,
+          "candidate_vs_reference_db": 2.8134078933282334
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.01733725412281083,
+          "candidate_energy_share": 0.011535486561581512,
+          "candidate_vs_reference_db": 1.002463213347752
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.006998406329783575,
+          "candidate_energy_share": 0.003432143382842614,
+          "candidate_vs_reference_db": -0.32243012611211197
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 8,
+      "story": 3,
+      "arm": "r85",
+      "reference": "bf50",
+      "ssim": 0.729235,
+      "psnr_db": 19.848838,
+      "lpips": 0.34609311615878885,
+      "audio8k_cosine": 0.8387985221884229,
+      "audio32k_cosine": 0.681683043855302,
+      "audio32k_relative_l2": 1.5846127578705902,
+      "audio32k_spectral_convergence": 1.196246648014391,
+      "audio32k_rms_db_change": 2.8784938619009264,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9925515591953749,
+          "candidate_energy_share": 0.9934270820519587,
+          "candidate_vs_reference_db": 2.886165110497201
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.006295255336836897,
+          "candidate_energy_share": 0.005718182373021934,
+          "candidate_vs_reference_db": 2.4647824430865586
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.001153185467788283,
+          "candidate_energy_share": 0.0008547355750193565,
+          "candidate_vs_reference_db": 1.58166211038007
+        }
+      },
+      "video_seconds": 10.833333,
+      "frames": 260,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 9,
+      "story": 3,
+      "arm": "r85",
+      "reference": "bf50",
+      "ssim": 0.780534,
+      "psnr_db": 22.382718,
+      "lpips": 0.21967727303504944,
+      "audio8k_cosine": 0.9433762400218049,
+      "audio32k_cosine": 0.9195619414719378,
+      "audio32k_relative_l2": 0.8807868325566852,
+      "audio32k_spectral_convergence": 0.6445778318502363,
+      "audio32k_rms_db_change": 1.9794970586363596,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9664572835796145,
+          "candidate_energy_share": 0.9745974801402963,
+          "candidate_vs_reference_db": 2.02418827111467
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.024938840379781176,
+          "candidate_energy_share": 0.01862853110071072,
+          "candidate_vs_reference_db": 0.7207856202812915
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.008603876040604279,
+          "candidate_energy_share": 0.0067739887589929985,
+          "candidate_vs_reference_db": 0.9492653328255202
+        }
+      },
+      "video_seconds": 12.25,
+      "frames": 294,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 10,
+      "story": 4,
+      "arm": "r85",
+      "reference": "bf50",
+      "ssim": 0.734255,
+      "psnr_db": 18.790167,
+      "lpips": 0.2813262906339433,
+      "audio8k_cosine": 0.801603443770345,
+      "audio32k_cosine": 0.4948851669356351,
+      "audio32k_relative_l2": 1.131317100352225,
+      "audio32k_spectral_convergence": 1.06199808423258,
+      "audio32k_rms_db_change": -1.2843451211490464,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.895112241032157,
+          "candidate_energy_share": 0.9236015077622578,
+          "candidate_vs_reference_db": -1.1442712239624866
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.0614496150485825,
+          "candidate_energy_share": 0.0342980764443298,
+          "candidate_vs_reference_db": -3.8128366190654543
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.04343814391926044,
+          "candidate_energy_share": 0.04210041579341228,
+          "candidate_vs_reference_db": -1.4161913412918472
+        }
+      },
+      "video_seconds": 8.708333,
+      "frames": 209,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 11,
+      "story": 4,
+      "arm": "r85",
+      "reference": "bf50",
+      "ssim": 0.705382,
+      "psnr_db": 17.601579,
+      "lpips": 0.3129858842917851,
+      "audio8k_cosine": 0.885618285488843,
+      "audio32k_cosine": 0.8347311976178956,
+      "audio32k_relative_l2": 1.1576796990210925,
+      "audio32k_spectral_convergence": 0.6787312043864846,
+      "audio32k_rms_db_change": 2.625647870775081,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9812603993284355,
+          "candidate_energy_share": 0.9853528492539168,
+          "candidate_vs_reference_db": 2.644540607519397
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.013154960280929651,
+          "candidate_energy_share": 0.009219667633532554,
+          "candidate_vs_reference_db": 1.0827228040875505
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.005584640390634719,
+          "candidate_energy_share": 0.0054274831125508795,
+          "candidate_vs_reference_db": 2.5024982423906588
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 12,
+      "story": 4,
+      "arm": "r85",
+      "reference": "bf50",
+      "ssim": 0.805075,
+      "psnr_db": 20.665328,
+      "lpips": 0.24781160056591034,
+      "audio8k_cosine": 0.9128840907458615,
+      "audio32k_cosine": 0.9232328924922077,
+      "audio32k_relative_l2": 0.697901853774796,
+      "audio32k_spectral_convergence": 0.5930187400490883,
+      "audio32k_rms_db_change": 1.829160076321692,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9862454893985643,
+          "candidate_energy_share": 0.9887161784925297,
+          "candidate_vs_reference_db": 1.850407784976893
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.012865547172173765,
+          "candidate_energy_share": 0.010552917384982494,
+          "candidate_vs_reference_db": 0.9789844455653541
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0008889634292621292,
+          "candidate_energy_share": 0.0007309041224875336,
+          "candidate_vs_reference_db": 0.9893068420471414
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 13,
+      "story": 5,
+      "arm": "r85",
+      "reference": "bf50",
+      "ssim": 0.72904,
+      "psnr_db": 19.802352,
+      "lpips": 0.27333497173256344,
+      "audio8k_cosine": 0.9207071498333339,
+      "audio32k_cosine": 0.89514257598999,
+      "audio32k_relative_l2": 1.0503825172765267,
+      "audio32k_spectral_convergence": 0.4835336133771345,
+      "audio32k_rms_db_change": 1.5656229515101994,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9947739403507962,
+          "candidate_energy_share": 0.9929897336324376,
+          "candidate_vs_reference_db": 1.5578575802333783
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.0037913686474730078,
+          "candidate_energy_share": 0.004772315170400464,
+          "candidate_vs_reference_db": 2.564985023130497
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0014346910017307103,
+          "candidate_energy_share": 0.002237951197161816,
+          "candidate_vs_reference_db": 3.496576365497214
+        }
+      },
+      "video_seconds": 8.708333,
+      "frames": 209,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 14,
+      "story": 5,
+      "arm": "r85",
+      "reference": "bf50",
+      "ssim": 0.786099,
+      "psnr_db": 20.613482,
+      "lpips": 0.22819651592345463,
+      "audio8k_cosine": 0.9022530054971168,
+      "audio32k_cosine": 0.7586044297359402,
+      "audio32k_relative_l2": 1.3028963775087972,
+      "audio32k_spectral_convergence": 0.9011625050789924,
+      "audio32k_rms_db_change": 2.2219519598230337,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9907730508996384,
+          "candidate_energy_share": 0.9903520125494994,
+          "candidate_vs_reference_db": 2.2201687777209886
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.007748034386484251,
+          "candidate_energy_share": 0.007844824315937665,
+          "candidate_vs_reference_db": 2.2759315709315695
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0014789147138774303,
+          "candidate_energy_share": 0.001803163134562978,
+          "candidate_vs_reference_db": 3.082933644267481
+        }
+      },
+      "video_seconds": 10.125,
+      "frames": 243,
+      "width": 768,
+      "height": 1344
+    },
+    {
+      "case": 15,
+      "story": 5,
+      "arm": "r85",
+      "reference": "bf50",
+      "ssim": 0.732934,
+      "psnr_db": 18.725662,
+      "lpips": 0.35118896928098464,
+      "audio8k_cosine": 0.7924056285053906,
+      "audio32k_cosine": 0.5805972227683683,
+      "audio32k_relative_l2": 1.658574619210829,
+      "audio32k_spectral_convergence": 1.2773489095969344,
+      "audio32k_rms_db_change": 3.3028780754129388,
+      "audio_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9781613062176627,
+          "candidate_energy_share": 0.9746043433353652,
+          "candidate_vs_reference_db": 3.287104908642654
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.016436123272739432,
+          "candidate_energy_share": 0.0204657472864885,
+          "candidate_vs_reference_db": 4.255208447685213
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.005402570509597786,
+          "candidate_energy_share": 0.004929909378146213,
+          "candidate_vs_reference_db": 2.905311200283007
+        }
+      },
+      "video_seconds": 8.708333,
+      "frames": 209,
+      "width": 768,
+      "height": 1344
+    }
+  ],
+  "sampling": [
+    {
+      "case": 1,
+      "sampler_seconds": 229.7313229989959,
+      "nfe": 8,
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "sigmas": [
+        1.0,
+        0.9949881434440613,
+        0.9825119376182556,
+        0.9607445001602173,
+        0.9233605265617371,
+        0.8552915453910828,
+        0.7207329869270325,
+        0.4249083995819092,
+        0.0
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "arm": "larry8",
+      "gpu_slot": "g3",
+      "formal_repeats": 1,
+      "warmup_done": true
+    },
+    {
+      "case": 8,
+      "sampler_seconds": 215.26369678706396,
+      "nfe": 8,
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "sigmas": [
+        1.0,
+        0.9949881434440613,
+        0.9825119376182556,
+        0.9607445001602173,
+        0.9233605265617371,
+        0.8552915453910828,
+        0.7207329869270325,
+        0.4249083995819092,
+        0.0
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          77,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          433
+        ]
+      ],
+      "arm": "larry8",
+      "gpu_slot": "g3",
+      "formal_repeats": 1,
+      "warmup_done": true
+    },
+    {
+      "case": 1,
+      "sampler_seconds": 114.9730559589807,
+      "nfe": 4,
+      "counts": {
+        "norm": 400,
+        "qkv": 200,
+        "gate": 400
+      },
+      "sigmas": [
+        1.0,
+        0.9729729890823364,
+        0.9230769276618958,
+        0.800000011920929,
+        0.0
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "arm": "pdmd4",
+      "gpu_slot": "g3",
+      "formal_repeats": 1,
+      "warmup_done": true
+    },
+    {
+      "case": 8,
+      "sampler_seconds": 107.73791834001895,
+      "nfe": 4,
+      "counts": {
+        "norm": 400,
+        "qkv": 200,
+        "gate": 400
+      },
+      "sigmas": [
+        1.0,
+        0.9729729890823364,
+        0.9230769276618958,
+        0.800000011920929,
+        0.0
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          77,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          433
+        ]
+      ],
+      "arm": "pdmd4",
+      "gpu_slot": "g3",
+      "formal_repeats": 1,
+      "warmup_done": true
+    },
+    {
+      "case": 2,
+      "sampler_seconds": 115.67365282704122,
+      "nfe": 4,
+      "counts": {
+        "norm": 400,
+        "qkv": 200,
+        "gate": 400
+      },
+      "sigmas": [
+        1.0,
+        0.9729729890823364,
+        0.9230769276618958,
+        0.800000011920929,
+        0.0
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "arm": "pdmd4",
+      "gpu_slot": "g3",
+      "formal_repeats": 1,
+      "warmup_done": false
+    },
+    {
+      "case": 3,
+      "sampler_seconds": 115.45935026707593,
+      "nfe": 4,
+      "counts": {
+        "norm": 400,
+        "qkv": 200,
+        "gate": 400
+      },
+      "sigmas": [
+        1.0,
+        0.9729729890823364,
+        0.9230769276618958,
+        0.800000011920929,
+        0.0
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "arm": "pdmd4",
+      "gpu_slot": "g3",
+      "formal_repeats": 1,
+      "warmup_done": false
+    },
+    {
+      "case": 4,
+      "sampler_seconds": 97.44292618404143,
+      "nfe": 4,
+      "counts": {
+        "norm": 400,
+        "qkv": 200,
+        "gate": 400
+      },
+      "sigmas": [
+        1.0,
+        0.9729729890823364,
+        0.9230769276618958,
+        0.800000011920929,
+        0.0
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "arm": "pdmd4",
+      "gpu_slot": "g3",
+      "formal_repeats": 1,
+      "warmup_done": false
+    },
+    {
+      "case": 5,
+      "sampler_seconds": 101.88612865610048,
+      "nfe": 4,
+      "counts": {
+        "norm": 400,
+        "qkv": 200,
+        "gate": 400
+      },
+      "sigmas": [
+        1.0,
+        0.9729729890823364,
+        0.9230769276618958,
+        0.800000011920929,
+        0.0
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "arm": "pdmd4",
+      "gpu_slot": "g3",
+      "formal_repeats": 1,
+      "warmup_done": false
+    },
+    {
+      "case": 6,
+      "sampler_seconds": 101.88448322506156,
+      "nfe": 4,
+      "counts": {
+        "norm": 400,
+        "qkv": 200,
+        "gate": 400
+      },
+      "sigmas": [
+        1.0,
+        0.9729729890823364,
+        0.9230769276618958,
+        0.800000011920929,
+        0.0
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "arm": "pdmd4",
+      "gpu_slot": "g3",
+      "formal_repeats": 1,
+      "warmup_done": false
+    },
+    {
+      "case": 7,
+      "sampler_seconds": 101.31698572996538,
+      "nfe": 4,
+      "counts": {
+        "norm": 400,
+        "qkv": 200,
+        "gate": 400
+      },
+      "sigmas": [
+        1.0,
+        0.9729729890823364,
+        0.9230769276618958,
+        0.800000011920929,
+        0.0
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "arm": "pdmd4",
+      "gpu_slot": "g3",
+      "formal_repeats": 1,
+      "warmup_done": false
+    },
+    {
+      "case": 9,
+      "sampler_seconds": 135.59118935698643,
+      "nfe": 4,
+      "counts": {
+        "norm": 400,
+        "qkv": 200,
+        "gate": 400
+      },
+      "sigmas": [
+        1.0,
+        0.9729729890823364,
+        0.9230769276618958,
+        0.800000011920929,
+        0.0
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          87,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          490
+        ]
+      ],
+      "arm": "pdmd4",
+      "gpu_slot": "g3",
+      "formal_repeats": 1,
+      "warmup_done": false
+    },
+    {
+      "case": 10,
+      "sampler_seconds": 69.98760086798575,
+      "nfe": 4,
+      "counts": {
+        "norm": 400,
+        "qkv": 200,
+        "gate": 400
+      },
+      "sigmas": [
+        1.0,
+        0.9729729890823364,
+        0.9230769276618958,
+        0.800000011920929,
+        0.0
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          62,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          348
+        ]
+      ],
+      "arm": "pdmd4",
+      "gpu_slot": "g3",
+      "formal_repeats": 1,
+      "warmup_done": false
+    },
+    {
+      "case": 11,
+      "sampler_seconds": 92.7242514990503,
+      "nfe": 4,
+      "counts": {
+        "norm": 400,
+        "qkv": 200,
+        "gate": 400
+      },
+      "sigmas": [
+        1.0,
+        0.9729729890823364,
+        0.9230769276618958,
+        0.800000011920929,
+        0.0
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "arm": "pdmd4",
+      "gpu_slot": "g3",
+      "formal_repeats": 1,
+      "warmup_done": false
+    },
+    {
+      "case": 12,
+      "sampler_seconds": 97.10489411605522,
+      "nfe": 4,
+      "counts": {
+        "norm": 400,
+        "qkv": 200,
+        "gate": 400
+      },
+      "sigmas": [
+        1.0,
+        0.9729729890823364,
+        0.9230769276618958,
+        0.800000011920929,
+        0.0
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "arm": "pdmd4",
+      "gpu_slot": "g3",
+      "formal_repeats": 1,
+      "warmup_done": false
+    },
+    {
+      "case": 13,
+      "sampler_seconds": 93.30654277303256,
+      "nfe": 4,
+      "counts": {
+        "norm": 400,
+        "qkv": 200,
+        "gate": 400
+      },
+      "sigmas": [
+        1.0,
+        0.9729729890823364,
+        0.9230769276618958,
+        0.800000011920929,
+        0.0
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          62,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          348
+        ]
+      ],
+      "arm": "pdmd4",
+      "gpu_slot": "g3",
+      "formal_repeats": 1,
+      "warmup_done": false
+    },
+    {
+      "case": 14,
+      "sampler_seconds": 114.87904902698938,
+      "nfe": 4,
+      "counts": {
+        "norm": 400,
+        "qkv": 200,
+        "gate": 400
+      },
+      "sigmas": [
+        1.0,
+        0.9729729890823364,
+        0.9230769276618958,
+        0.800000011920929,
+        0.0
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "arm": "pdmd4",
+      "gpu_slot": "g3",
+      "formal_repeats": 1,
+      "warmup_done": false
+    },
+    {
+      "case": 15,
+      "sampler_seconds": 93.27549375605304,
+      "nfe": 4,
+      "counts": {
+        "norm": 400,
+        "qkv": 200,
+        "gate": 400
+      },
+      "sigmas": [
+        1.0,
+        0.9729729890823364,
+        0.9230769276618958,
+        0.800000011920929,
+        0.0
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          62,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          348
+        ]
+      ],
+      "arm": "pdmd4",
+      "gpu_slot": "g3",
+      "formal_repeats": 1,
+      "warmup_done": false
+    },
+    {
+      "case": 1,
+      "sampler_seconds": 291.92115308798384,
+      "nfe": 4,
+      "counts": {
+        "norm": 0,
+        "qkv": 0,
+        "gate": 0
+      },
+      "sigmas": [
+        1.0,
+        0.9729729890823364,
+        0.9230769276618958,
+        0.800000011920929,
+        0.0
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "arm": "pdmd4bf16",
+      "gpu_slot": "g0",
+      "formal_repeats": 1,
+      "warmup_done": false
+    },
+    {
+      "case": 8,
+      "sampler_seconds": 271.7490337190684,
+      "nfe": 4,
+      "counts": {
+        "norm": 0,
+        "qkv": 0,
+        "gate": 0
+      },
+      "sigmas": [
+        1.0,
+        0.9729729890823364,
+        0.9230769276618958,
+        0.800000011920929,
+        0.0
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          77,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          433
+        ]
+      ],
+      "arm": "pdmd4bf16",
+      "gpu_slot": "g0",
+      "formal_repeats": 1,
+      "warmup_done": false
+    },
+    {
+      "case": 9,
+      "sampler_seconds": 136.89361277397256,
+      "nfe": 4,
+      "counts": {
+        "norm": 400,
+        "qkv": 200,
+        "gate": 400
+      },
+      "sigmas": [
+        1.0,
+        0.9729729890823364,
+        0.9230769276618958,
+        0.800000011920929,
+        0.0
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          87,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          490
+        ]
+      ],
+      "arm": "pdmd4fresh",
+      "gpu_slot": "g3",
+      "formal_repeats": 1,
+      "warmup_done": false
+    },
+    {
+      "case": 10,
+      "sampler_seconds": 70.0078699720325,
+      "nfe": 4,
+      "counts": {
+        "norm": 400,
+        "qkv": 200,
+        "gate": 400
+      },
+      "sigmas": [
+        1.0,
+        0.9729729890823364,
+        0.9230769276618958,
+        0.800000011920929,
+        0.0
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          62,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          348
+        ]
+      ],
+      "arm": "pdmd4fresh",
+      "gpu_slot": "g3",
+      "formal_repeats": 1,
+      "warmup_done": false
+    },
+    {
+      "case": 11,
+      "sampler_seconds": 92.7396947729867,
+      "nfe": 4,
+      "counts": {
+        "norm": 400,
+        "qkv": 200,
+        "gate": 400
+      },
+      "sigmas": [
+        1.0,
+        0.9729729890823364,
+        0.9230769276618958,
+        0.800000011920929,
+        0.0
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "arm": "pdmd4fresh",
+      "gpu_slot": "g3",
+      "formal_repeats": 1,
+      "warmup_done": false
+    },
+    {
+      "case": 12,
+      "sampler_seconds": 97.08528127905447,
+      "nfe": 4,
+      "counts": {
+        "norm": 400,
+        "qkv": 200,
+        "gate": 400
+      },
+      "sigmas": [
+        1.0,
+        0.9729729890823364,
+        0.9230769276618958,
+        0.800000011920929,
+        0.0
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "arm": "pdmd4fresh",
+      "gpu_slot": "g3",
+      "formal_repeats": 1,
+      "warmup_done": false
+    },
+    {
+      "case": 13,
+      "sampler_seconds": 93.23417396505829,
+      "nfe": 4,
+      "counts": {
+        "norm": 400,
+        "qkv": 200,
+        "gate": 400
+      },
+      "sigmas": [
+        1.0,
+        0.9729729890823364,
+        0.9230769276618958,
+        0.800000011920929,
+        0.0
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          62,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          348
+        ]
+      ],
+      "arm": "pdmd4fresh",
+      "gpu_slot": "g3",
+      "formal_repeats": 1,
+      "warmup_done": false
+    },
+    {
+      "case": 14,
+      "sampler_seconds": 114.82126439001877,
+      "nfe": 4,
+      "counts": {
+        "norm": 400,
+        "qkv": 200,
+        "gate": 400
+      },
+      "sigmas": [
+        1.0,
+        0.9729729890823364,
+        0.9230769276618958,
+        0.800000011920929,
+        0.0
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "arm": "pdmd4fresh",
+      "gpu_slot": "g3",
+      "formal_repeats": 1,
+      "warmup_done": false
+    },
+    {
+      "case": 15,
+      "sampler_seconds": 93.29367188899778,
+      "nfe": 4,
+      "counts": {
+        "norm": 400,
+        "qkv": 200,
+        "gate": 400
+      },
+      "sigmas": [
+        1.0,
+        0.9729729890823364,
+        0.9230769276618958,
+        0.800000011920929,
+        0.0
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          62,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          348
+        ]
+      ],
+      "arm": "pdmd4fresh",
+      "gpu_slot": "g3",
+      "formal_repeats": 1,
+      "warmup_done": false
+    },
+    {
+      "case": 1,
+      "sampler_seconds": 229.79242734902073,
+      "nfe": 8,
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "sigmas": [
+        1.0,
+        0.9882352948188782,
+        0.9729729890823364,
+        0.9523809552192688,
+        0.9230769276618958,
+        0.8780487775802612,
+        0.800000011920929,
+        0.6315789222717285,
+        0.0
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "arm": "pdmd8",
+      "gpu_slot": "g0",
+      "formal_repeats": 1,
+      "warmup_done": false
+    },
+    {
+      "case": 8,
+      "sampler_seconds": 214.89526114996988,
+      "nfe": 8,
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "sigmas": [
+        1.0,
+        0.9882352948188782,
+        0.9729729890823364,
+        0.9523809552192688,
+        0.9230769276618958,
+        0.8780487775802612,
+        0.800000011920929,
+        0.6315789222717285,
+        0.0
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          77,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          433
+        ]
+      ],
+      "arm": "pdmd8",
+      "gpu_slot": "g0",
+      "formal_repeats": 1,
+      "warmup_done": false
+    },
+    {
+      "case": 1,
+      "sampler_seconds": 114.7722985970322,
+      "nfe": 4,
+      "counts": {
+        "norm": 400,
+        "qkv": 200,
+        "gate": 400
+      },
+      "sigmas": [
+        1.0,
+        0.9729729890823364,
+        0.9230769276618958,
+        0.800000011920929,
+        0.0
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "arm": "pdmd4fresh",
+      "gpu_slot": "g0",
+      "formal_repeats": 1,
+      "warmup_done": true
+    },
+    {
+      "case": 8,
+      "sampler_seconds": 107.6432227450423,
+      "nfe": 4,
+      "counts": {
+        "norm": 400,
+        "qkv": 200,
+        "gate": 400
+      },
+      "sigmas": [
+        1.0,
+        0.9729729890823364,
+        0.9230769276618958,
+        0.800000011920929,
+        0.0
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          77,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          433
+        ]
+      ],
+      "arm": "pdmd4fresh",
+      "gpu_slot": "g0",
+      "formal_repeats": 1,
+      "warmup_done": true
+    },
+    {
+      "case": 2,
+      "sampler_seconds": 115.36639224702958,
+      "nfe": 4,
+      "counts": {
+        "norm": 400,
+        "qkv": 200,
+        "gate": 400
+      },
+      "sigmas": [
+        1.0,
+        0.9729729890823364,
+        0.9230769276618958,
+        0.800000011920929,
+        0.0
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "arm": "pdmd4fresh",
+      "gpu_slot": "g0",
+      "formal_repeats": 1,
+      "warmup_done": false
+    },
+    {
+      "case": 3,
+      "sampler_seconds": 115.30527023703326,
+      "nfe": 4,
+      "counts": {
+        "norm": 400,
+        "qkv": 200,
+        "gate": 400
+      },
+      "sigmas": [
+        1.0,
+        0.9729729890823364,
+        0.9230769276618958,
+        0.800000011920929,
+        0.0
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "arm": "pdmd4fresh",
+      "gpu_slot": "g0",
+      "formal_repeats": 1,
+      "warmup_done": false
+    },
+    {
+      "case": 4,
+      "sampler_seconds": 97.3189133759588,
+      "nfe": 4,
+      "counts": {
+        "norm": 400,
+        "qkv": 200,
+        "gate": 400
+      },
+      "sigmas": [
+        1.0,
+        0.9729729890823364,
+        0.9230769276618958,
+        0.800000011920929,
+        0.0
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "arm": "pdmd4fresh",
+      "gpu_slot": "g0",
+      "formal_repeats": 1,
+      "warmup_done": false
+    },
+    {
+      "case": 5,
+      "sampler_seconds": 101.75402811600361,
+      "nfe": 4,
+      "counts": {
+        "norm": 400,
+        "qkv": 200,
+        "gate": 400
+      },
+      "sigmas": [
+        1.0,
+        0.9729729890823364,
+        0.9230769276618958,
+        0.800000011920929,
+        0.0
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "arm": "pdmd4fresh",
+      "gpu_slot": "g0",
+      "formal_repeats": 1,
+      "warmup_done": false
+    },
+    {
+      "case": 6,
+      "sampler_seconds": 101.76580939104315,
+      "nfe": 4,
+      "counts": {
+        "norm": 400,
+        "qkv": 200,
+        "gate": 400
+      },
+      "sigmas": [
+        1.0,
+        0.9729729890823364,
+        0.9230769276618958,
+        0.800000011920929,
+        0.0
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "arm": "pdmd4fresh",
+      "gpu_slot": "g0",
+      "formal_repeats": 1,
+      "warmup_done": false
+    },
+    {
+      "case": 7,
+      "sampler_seconds": 101.15839138207957,
+      "nfe": 4,
+      "counts": {
+        "norm": 400,
+        "qkv": 200,
+        "gate": 400
+      },
+      "sigmas": [
+        1.0,
+        0.9729729890823364,
+        0.9230769276618958,
+        0.800000011920929,
+        0.0
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "arm": "pdmd4fresh",
+      "gpu_slot": "g0",
+      "formal_repeats": 1,
+      "warmup_done": false
+    }
+  ],
+  "decoding": [
+    {
+      "arm": "larry8",
+      "case": 1,
+      "video_decode_seconds": 11.084877575049177,
+      "audio_decode_seconds": 0.3535785679705441,
+      "export_seconds": 4.722336384002119
+    },
+    {
+      "arm": "larry8",
+      "case": 8,
+      "video_decode_seconds": 10.831693907035515,
+      "audio_decode_seconds": 0.12081989389844239,
+      "export_seconds": 5.007259155972861
+    },
+    {
+      "arm": "pdmd4",
+      "case": 1,
+      "video_decode_seconds": 11.31615575903561,
+      "audio_decode_seconds": 0.39577735599596053,
+      "export_seconds": 4.765387229970656
+    },
+    {
+      "arm": "pdmd4",
+      "case": 8,
+      "video_decode_seconds": 10.784891976974905,
+      "audio_decode_seconds": 0.12733309203758836,
+      "export_seconds": 5.600560405990109
+    },
+    {
+      "arm": "pdmd4",
+      "case": 2,
+      "video_decode_seconds": 10.159185718977824,
+      "audio_decode_seconds": 0.11289170803502202,
+      "export_seconds": 4.92151275195647
+    },
+    {
+      "arm": "pdmd4",
+      "case": 3,
+      "video_decode_seconds": 10.126380529953167,
+      "audio_decode_seconds": 0.11556618800386786,
+      "export_seconds": 5.139259250019677
+    },
+    {
+      "arm": "pdmd4",
+      "case": 4,
+      "video_decode_seconds": 10.178794075036421,
+      "audio_decode_seconds": 0.11462757992558181,
+      "export_seconds": 5.4981733890017495
+    },
+    {
+      "arm": "pdmd4",
+      "case": 5,
+      "video_decode_seconds": 10.05209468898829,
+      "audio_decode_seconds": 0.11762469203677028,
+      "export_seconds": 5.32725069206208
+    },
+    {
+      "arm": "pdmd4",
+      "case": 6,
+      "video_decode_seconds": 10.118090066942386,
+      "audio_decode_seconds": 0.12256098003126681,
+      "export_seconds": 4.659736737958156
+    },
+    {
+      "arm": "pdmd4",
+      "case": 7,
+      "video_decode_seconds": 10.065218921983615,
+      "audio_decode_seconds": 0.11793424491770566,
+      "export_seconds": 5.643478434998542
+    },
+    {
+      "arm": "pdmd4",
+      "case": 9,
+      "video_decode_seconds": 12.204721158952452,
+      "audio_decode_seconds": 0.13868194597307593,
+      "export_seconds": 7.1269661280093715
+    },
+    {
+      "arm": "pdmd4",
+      "case": 10,
+      "video_decode_seconds": 8.671279356000014,
+      "audio_decode_seconds": 0.11922628490719944,
+      "export_seconds": 4.38375251495745
+    },
+    {
+      "arm": "pdmd4",
+      "case": 11,
+      "video_decode_seconds": 10.041545187006705,
+      "audio_decode_seconds": 0.1162834009155631,
+      "export_seconds": 4.987163298064843
+    },
+    {
+      "arm": "pdmd4",
+      "case": 12,
+      "video_decode_seconds": 10.023652430973016,
+      "audio_decode_seconds": 0.1148443550337106,
+      "export_seconds": 5.425980400992557
+    },
+    {
+      "arm": "pdmd4",
+      "case": 13,
+      "video_decode_seconds": 8.633113859104924,
+      "audio_decode_seconds": 0.11304642504546791,
+      "export_seconds": 4.959673090022989
+    },
+    {
+      "arm": "pdmd4",
+      "case": 14,
+      "video_decode_seconds": 10.079280104953796,
+      "audio_decode_seconds": 0.12085669895168394,
+      "export_seconds": 4.862381078884937
+    },
+    {
+      "arm": "pdmd4",
+      "case": 15,
+      "video_decode_seconds": 8.67013731203042,
+      "audio_decode_seconds": 0.10729820502456278,
+      "export_seconds": 4.294610211043619
+    },
+    {
+      "arm": "pdmd4bf16",
+      "case": 1,
+      "video_decode_seconds": 11.02099313098006,
+      "audio_decode_seconds": 0.3411654999945313,
+      "export_seconds": 4.922141733928584
+    },
+    {
+      "arm": "pdmd4bf16",
+      "case": 8,
+      "video_decode_seconds": 10.639584047021344,
+      "audio_decode_seconds": 0.12492816301528364,
+      "export_seconds": 5.025371965952218
+    },
+    {
+      "arm": "pdmd4fresh",
+      "case": 9,
+      "video_decode_seconds": 13.409305964014493,
+      "audio_decode_seconds": 0.37778641609475017,
+      "export_seconds": 7.105888691032305
+    },
+    {
+      "arm": "pdmd4fresh",
+      "case": 10,
+      "video_decode_seconds": 8.712187418015674,
+      "audio_decode_seconds": 0.11121975199785084,
+      "export_seconds": 4.614301176043227
+    },
+    {
+      "arm": "pdmd4fresh",
+      "case": 11,
+      "video_decode_seconds": 10.133248044992797,
+      "audio_decode_seconds": 0.11711634998209774,
+      "export_seconds": 5.234902868978679
+    },
+    {
+      "arm": "pdmd4fresh",
+      "case": 12,
+      "video_decode_seconds": 10.167145043960772,
+      "audio_decode_seconds": 0.11358561902306974,
+      "export_seconds": 5.669356431928463
+    },
+    {
+      "arm": "pdmd4fresh",
+      "case": 13,
+      "video_decode_seconds": 8.654988653026521,
+      "audio_decode_seconds": 0.10647804802283645,
+      "export_seconds": 4.755061365081929
+    },
+    {
+      "arm": "pdmd4fresh",
+      "case": 14,
+      "video_decode_seconds": 10.123487914912403,
+      "audio_decode_seconds": 0.12087729503400624,
+      "export_seconds": 5.222466586972587
+    },
+    {
+      "arm": "pdmd4fresh",
+      "case": 15,
+      "video_decode_seconds": 8.68895053002052,
+      "audio_decode_seconds": 0.10642545006703585,
+      "export_seconds": 4.521608047070913
+    },
+    {
+      "arm": "pdmd8",
+      "case": 1,
+      "video_decode_seconds": 11.190907781012356,
+      "audio_decode_seconds": 0.36074034904595464,
+      "export_seconds": 4.751296374946833
+    },
+    {
+      "arm": "pdmd8",
+      "case": 8,
+      "video_decode_seconds": 10.615980039001442,
+      "audio_decode_seconds": 0.12149243894964457,
+      "export_seconds": 5.283044899930246
+    },
+    {
+      "arm": "pdmd4fresh",
+      "case": 1,
+      "video_decode_seconds": 11.215955449035391,
+      "audio_decode_seconds": 0.36240198893938214,
+      "export_seconds": 4.520928836078383
+    },
+    {
+      "arm": "pdmd4fresh",
+      "case": 2,
+      "video_decode_seconds": 11.332670098985545,
+      "audio_decode_seconds": 0.38492588500957936,
+      "export_seconds": 4.766415890073404
+    },
+    {
+      "arm": "pdmd4fresh",
+      "case": 3,
+      "video_decode_seconds": 10.036635113996454,
+      "audio_decode_seconds": 0.1149846879998222,
+      "export_seconds": 5.038248745026067
+    },
+    {
+      "arm": "pdmd4fresh",
+      "case": 4,
+      "video_decode_seconds": 10.090144103043713,
+      "audio_decode_seconds": 0.1153459990164265,
+      "export_seconds": 5.25273988803383
+    },
+    {
+      "arm": "pdmd4fresh",
+      "case": 5,
+      "video_decode_seconds": 9.974896211992018,
+      "audio_decode_seconds": 0.11429152404889464,
+      "export_seconds": 4.957147476030514
+    },
+    {
+      "arm": "pdmd4fresh",
+      "case": 6,
+      "video_decode_seconds": 9.925019314978272,
+      "audio_decode_seconds": 0.11566740495618433,
+      "export_seconds": 4.783218165975995
+    },
+    {
+      "arm": "pdmd4fresh",
+      "case": 7,
+      "video_decode_seconds": 9.998330155969597,
+      "audio_decode_seconds": 0.11418698506895453,
+      "export_seconds": 5.365251120063476
+    },
+    {
+      "arm": "pdmd4fresh",
+      "case": 8,
+      "video_decode_seconds": 10.650932119926438,
+      "audio_decode_seconds": 0.12016847997438163,
+      "export_seconds": 4.900034751975909
+    }
+  ]
+}

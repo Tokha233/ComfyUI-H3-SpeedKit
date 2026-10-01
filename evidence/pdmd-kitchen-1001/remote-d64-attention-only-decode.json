@@ -1,0 +1,138 @@
+{
+  "status": "success",
+  "rows": [
+    {
+      "case": "c01-r0",
+      "arm": "base",
+      "repeat": 0,
+      "warmup": true,
+      "seconds": 10.872332394006662,
+      "signature": [
+        "c20e47118805b61b34a606886721eb6ecd202450897a7f5946624a020b537120",
+        "25e08e1d73f3f64f0a20a1f640625f8c0749d159e0426b26bf3dd092087054dc"
+      ]
+    },
+    {
+      "case": "c01-r0",
+      "arm": "candidate",
+      "repeat": 1,
+      "warmup": true,
+      "seconds": 9.82582058396656,
+      "signature": [
+        "c20e47118805b61b34a606886721eb6ecd202450897a7f5946624a020b537120",
+        "25e08e1d73f3f64f0a20a1f640625f8c0749d159e0426b26bf3dd092087054dc"
+      ]
+    },
+    {
+      "case": "c01-r0",
+      "arm": "base",
+      "repeat": 2,
+      "warmup": false,
+      "seconds": 9.910493606003001,
+      "signature": [
+        "c20e47118805b61b34a606886721eb6ecd202450897a7f5946624a020b537120",
+        "25e08e1d73f3f64f0a20a1f640625f8c0749d159e0426b26bf3dd092087054dc"
+      ]
+    },
+    {
+      "case": "c01-r0",
+      "arm": "candidate",
+      "repeat": 3,
+      "warmup": false,
+      "seconds": 9.877312598051503,
+      "signature": [
+        "c20e47118805b61b34a606886721eb6ecd202450897a7f5946624a020b537120",
+        "25e08e1d73f3f64f0a20a1f640625f8c0749d159e0426b26bf3dd092087054dc"
+      ]
+    },
+    {
+      "case": "c01-r0",
+      "arm": "candidate",
+      "repeat": 4,
+      "warmup": false,
+      "seconds": 9.870761613012291,
+      "signature": [
+        "c20e47118805b61b34a606886721eb6ecd202450897a7f5946624a020b537120",
+        "25e08e1d73f3f64f0a20a1f640625f8c0749d159e0426b26bf3dd092087054dc"
+      ]
+    },
+    {
+      "case": "c01-r0",
+      "arm": "base",
+      "repeat": 5,
+      "warmup": false,
+      "seconds": 9.948009749990888,
+      "signature": [
+        "c20e47118805b61b34a606886721eb6ecd202450897a7f5946624a020b537120",
+        "25e08e1d73f3f64f0a20a1f640625f8c0749d159e0426b26bf3dd092087054dc"
+      ]
+    },
+    {
+      "case": "c08-r0",
+      "arm": "base",
+      "repeat": 0,
+      "warmup": true,
+      "seconds": 10.670340186916292,
+      "signature": [
+        "d1039e9a740e921828e513d23334a03a21377aa402d8d9203600030629a788cc",
+        "e6b2fd9be379706f29a5c7882c7eeb979354880e401295387730a4d77f0ab21f"
+      ]
+    },
+    {
+      "case": "c08-r0",
+      "arm": "candidate",
+      "repeat": 1,
+      "warmup": true,
+      "seconds": 10.591812288970686,
+      "signature": [
+        "d1039e9a740e921828e513d23334a03a21377aa402d8d9203600030629a788cc",
+        "e6b2fd9be379706f29a5c7882c7eeb979354880e401295387730a4d77f0ab21f"
+      ]
+    },
+    {
+      "case": "c08-r0",
+      "arm": "base",
+      "repeat": 2,
+      "warmup": false,
+      "seconds": 10.626611300045624,
+      "signature": [
+        "d1039e9a740e921828e513d23334a03a21377aa402d8d9203600030629a788cc",
+        "e6b2fd9be379706f29a5c7882c7eeb979354880e401295387730a4d77f0ab21f"
+      ]
+    },
+    {
+      "case": "c08-r0",
+      "arm": "candidate",
+      "repeat": 3,
+      "warmup": false,
+      "seconds": 10.589882369968109,
+      "signature": [
+        "d1039e9a740e921828e513d23334a03a21377aa402d8d9203600030629a788cc",
+        "e6b2fd9be379706f29a5c7882c7eeb979354880e401295387730a4d77f0ab21f"
+      ]
+    },
+    {
+      "case": "c08-r0",
+      "arm": "candidate",
+      "repeat": 4,
+      "warmup": false,
+      "seconds": 10.590286021004431,
+      "signature": [
+        "d1039e9a740e921828e513d23334a03a21377aa402d8d9203600030629a788cc",
+        "e6b2fd9be379706f29a5c7882c7eeb979354880e401295387730a4d77f0ab21f"
+      ]
+    },
+    {
+      "case": "c08-r0",
+      "arm": "base",
+      "repeat": 5,
+      "warmup": false,
+      "seconds": 10.62797552102711,
+      "signature": [
+        "d1039e9a740e921828e513d23334a03a21377aa402d8d9203600030629a788cc",
+        "e6b2fd9be379706f29a5c7882c7eeb979354880e401295387730a4d77f0ab21f"
+      ]
+    }
+  ],
+  "protocol": "Same full latent and INT8 VAE; only attention extension changes; warmed ABBA repeated; SHA full float RGB and RGB8 required identical."
+}

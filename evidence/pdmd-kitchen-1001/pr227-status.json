@@ -1,0 +1,49 @@
+{
+  "checked_at": "2026-10-01T17:59:38.081957+08:00",
+  "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/227",
+  "head": "5ff2a31f5e5c5bbbaa1deb054d4a1e96f4f626ef",
+  "state": "open",
+  "draft": false,
+  "mergeable": true,
+  "checks": [
+    {
+      "name": "Socket Security: Pull Request Alerts",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Comfy-Org/comfy-kitchen/runs/110315310621"
+    },
+    {
+      "name": "Socket Security: Project Report",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Comfy-Org/comfy-kitchen/runs/110315238610"
+    },
+    {
+      "name": "cla-assistant",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Comfy-Org/comfy-kitchen/actions/runs/36845713470/job/110315233316"
+    }
+  ],
+  "workflows": [
+    {
+      "name": "Build Wheels",
+      "status": "completed",
+      "conclusion": "action_required",
+      "html_url": "https://github.com/Comfy-Org/comfy-kitchen/actions/runs/36845716291"
+    },
+    {
+      "name": "CLA Assistant",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Comfy-Org/comfy-kitchen/actions/runs/36845713470"
+    }
+  ],
+  "review_fix": {
+    "commit": "5ff2a31",
+    "issue": "Reject wrong checkout/import fallback in benchmark",
+    "validation": "local positive and negative path checks; actual GPU package and extension containment; Ruff; diff check",
+    "reply": "https://github.com/Comfy-Org/comfy-kitchen/pull/227#issuecomment-5929058182",
+    "reviewer_confirmation": "CodeRabbit marked the finding as addressed in commit 5ff2a31"
+  }
+}

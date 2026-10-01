@@ -1,5 +1,7 @@
 # 2026-10-01：Kitchen 后续贡献与最新 H3 加速方案
 
+> 后续新增 GPU 实验：Gate 分带未得到稳定收益；D64 小查询块已提交 #227，完整 decoder 独立进程对照 −0.96%；PDMD 已进行 Ref2VA 音视频对照。见 [实测报告](PDMD-KITCHEN-TESTS-20261001.zh-CN.md)。以下保留下午检索时的研究快照。
+
 核查时间：北京时间 2026-10-01 下午，资料检索截至约 15:10。目标场景：单卡 RTX 5090 D v2 / 24 GB、Ref2VA、Larry v4 8 步、INT8 DiT、已接受的 INT8 视频 decoder、保留旧 encoder。本文是源码审计、公开资料核查和 PR 推进记录，**本轮没有新增 GPU 性能实验**。
 
 建议继续以现有经过验证的组合为部署基线。最有价值的后续工作是：**把最新 GEMM 分带调度接到 indexed gate；迁移历史 VAE D64 精确优化；补齐通用消费者边界。** 新模型首先评估 PDMD 4-NFE，其次是 LynnReal LightVAE 和 LongLive-Plug；Veda 值得作为稀疏研究支线。尚无新方案经过本项目五个业务 case 验证，能同时证明超过 Larry v4 8 步的速度与音视频质量。

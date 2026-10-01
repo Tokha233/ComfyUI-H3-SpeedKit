@@ -1,0 +1,9 @@
+{
+  "quality_coverage": "PDMD4 both INT8 lineages 15/15 versus BF50 and frozen deployment",
+  "decodes": "15/15 each",
+  "aggregates": "recomputed means match",
+  "public_artifacts": "no private prompt/task/path fields",
+  "html": "12 media files and all local links verified",
+  "kernel": "12 independent-process decodes floatRGB/RGB8 exact;527combined tests;upstream2knownfailures disclosed",
+  "lint": "public tensor_diff.py and upstream benchmark/test pass Ruff"
+}
