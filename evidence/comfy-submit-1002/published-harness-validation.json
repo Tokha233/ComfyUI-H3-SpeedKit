@@ -1,0 +1,56 @@
+{
+  "arm": "packing",
+  "pair": 2,
+  "kitchen": "/tmp/h3-kitchen-prs-0930/base/comfy_kitchen/__init__.py",
+  "torch": "2.12.0+cu130",
+  "gpu": "NVIDIA GeForce RTX 5090 D v2",
+  "comfy_dir": "/tmp/h3-comfy-submit-1002/packing",
+  "records": [
+    {
+      "repeat": -1,
+      "warmup": true,
+      "seconds": 23.49471886199899,
+      "sha256": [
+        "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+        "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb"
+      ],
+      "peak_allocated_bytes": 1664144896
+    },
+    {
+      "repeat": 0,
+      "warmup": false,
+      "seconds": 15.731430922052823,
+      "sha256": [
+        "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+        "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb"
+      ],
+      "peak_allocated_bytes": 1664144896
+    },
+    {
+      "repeat": 1,
+      "warmup": false,
+      "seconds": 15.73846062400844,
+      "sha256": [
+        "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+        "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb"
+      ],
+      "peak_allocated_bytes": 1664144896
+    }
+  ],
+  "scope": "8-step sampler including condition preparation; excludes encoding, VAE, export; user-supplied local Ref2VA fixture",
+  "refs": [
+    {
+      "kind": "image",
+      "latent_h": 16,
+      "latent_w": 24,
+      "latent": [
+        1,
+        24,
+        1,
+        16,
+        24
+      ]
+    }
+  ],
+  "status": "success"
+}

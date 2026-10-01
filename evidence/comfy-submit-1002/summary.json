@@ -1,0 +1,37 @@
+{
+  "base": {
+    "n": 4,
+    "sampler_mean_s": 15.735140053468058,
+    "peak_allocated_bytes": 1664144896,
+    "all_latent_hashes_equal": true
+  },
+  "packing": {
+    "n": 4,
+    "sampler_mean_s": 15.738750553777209,
+    "peak_allocated_bytes": 1664144896,
+    "all_latent_hashes_equal": true
+  },
+  "cond": {
+    "n": 4,
+    "sampler_mean_s": 15.7392654287396,
+    "peak_allocated_bytes": 1664218624,
+    "all_latent_hashes_equal": true
+  },
+  "last-probe": {
+    "n": 2,
+    "sampler_mean_s": 15.741295578482095,
+    "peak_allocated_bytes": 1664144896,
+    "all_latent_hashes_equal": true
+  },
+  "gate": {
+    "base": {
+      "mean_s": 15.740014881535899,
+      "n": 2
+    },
+    "gate": {
+      "mean_s": 15.581094699446112,
+      "n": 2
+    }
+  },
+  "all_27_sampler_requests_equal": true
+}

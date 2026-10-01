@@ -1,0 +1,98 @@
+{
+  "arm": "packing",
+  "events": {
+    "aten::copy_": {
+      "calls": 17,
+      "cpu_us": 1319.1999999999994,
+      "device_us": 25.98399999999924
+    },
+    "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>, 4, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1> >(int, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1>)": {
+      "calls": 2,
+      "cpu_us": 0,
+      "device_us": 6.304000000000087
+    },
+    "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1} const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1} const&)::{lambda(int)#1})": {
+      "calls": 2,
+      "cpu_us": 0,
+      "device_us": 6.367999999999938
+    },
+    "aten::randn": {
+      "calls": 2,
+      "cpu_us": 144.4779999999996,
+      "device_us": 0
+    },
+    "cudaStreamSynchronize": {
+      "calls": 2,
+      "cpu_us": 9.1400000000001,
+      "device_us": 0
+    },
+    "aten::cat": {
+      "calls": 4,
+      "cpu_us": 101.06700000000023,
+      "device_us": 6.7199999999998
+    },
+    "void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul>)": {
+      "calls": 2,
+      "cpu_us": 0,
+      "device_us": 1.7600000000002183
+    },
+    "cudaDeviceSynchronize": {
+      "calls": 2,
+      "cpu_us": 11.189000000000306,
+      "device_us": 0
+    }
+  },
+  "helper_ms": [
+    0.8889909368008375,
+    0.6718960357829928,
+    0.6242970703169703,
+    0.7191239856183529,
+    0.6281470414251089,
+    0.6193660665303469,
+    0.6202770164236426,
+    0.634846044704318,
+    0.6073969416320324,
+    0.6553060375154018,
+    0.6438759155571461,
+    0.6117669399827719,
+    0.6346959853544831,
+    0.6038269493728876,
+    0.6297770887613297,
+    0.6468470674008131,
+    0.618587015196681,
+    0.6131569389253855,
+    0.6075970595702529,
+    0.5958470283076167,
+    0.6240269867703319,
+    0.5977869732305408,
+    0.6551559781655669,
+    0.6242260569706559,
+    0.5960470298305154,
+    0.6277370266616344,
+    0.6230470025911927,
+    0.5984579911455512,
+    0.6416270043700933,
+    0.6060270825400949,
+    0.6171670975163579,
+    0.6194768939167261,
+    0.600716914050281,
+    0.6233869353309274,
+    0.6388659821823239,
+    0.6086669163778424,
+    0.6178559269756079,
+    0.5947670433670282,
+    0.6255670450627804,
+    0.628775916993618,
+    0.6031270604580641,
+    0.6317869992926717,
+    0.6183969089761376,
+    0.6126359803602099,
+    0.62090705614537,
+    0.5968969780951738,
+    0.6295558996498585,
+    0.6463860627263784,
+    0.5982780130580068,
+    0.6321760592982173
+  ],
+  "note": "Real helper on synthetic mixed visual/audio references, hidden=8; not full model speed."
+}

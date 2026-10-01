@@ -40,3 +40,7 @@ For serving throughput submit a sustained queue and measure completed outputs pe
 `case_id`, `source_url`, `license`, `sha256`, `prompt`, `seed`, `width`, `height`, `frames`, `fps`, `sampler`, `scheduler`, `nfe`, `cfg`, `shift`, `model_sha256`, `lora_sha256`, `vae_sha256`, `audio_sha256`, `kernel_build_id`, `runtime_manifest`, `encoding_parameters`.
 
 No sample manifest with fictitious hashes is shipped. Populate it from real publishable inputs when the generation runner is extracted.
+
+## Current ComfyUI integration A/B
+
+`comfy_h3_sampler.py` measures the native eight-step H3 sampler with caller-supplied checkout, Kitchen, merged model and trusted conditioning paths. It records both latent hashes and allocator peaks outside the timed region. See [October 2 integration results](../docs/COMFYUI-SUBMISSIONS-20261002.zh-CN.md) for commands, limits and raw results.
