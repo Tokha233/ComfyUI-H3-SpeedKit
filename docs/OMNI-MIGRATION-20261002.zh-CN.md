@@ -25,9 +25,11 @@ SGLang 原生 H3 的 Larry8 采样可以跑通，但优化后仍比当前 ComfyU
 | PR | 原因 | 操作与验证 | 状态 |
 |---|---|---|---|
 | [ComfyUI #16681](https://github.com/Comfy-Org/ComfyUI/pull/16681) | CI 固定 Kitchen 0.2.36 没有 `int8_linear_indexed_gate` | 接口存在才融合；不存在用已有 INT8 linear 与 segmented gate；真实 0.2.36 下 30 项测试通过 | `85f21d2` 已推送，14 项 CI 全绿 |
-| [Kitchen #231](https://github.com/Comfy-Org/comfy-kitchen/pull/231) | 评审指出 smoke 命令不能复现 attention / sampler 数据 | 补原始测试脚本、完整编译链接参数、固定版本、输入 hash 和精确命令 | `98f7fb9` 已推送；原意见来自机器人 |
+| [Kitchen #231](https://github.com/Comfy-Org/comfy-kitchen/pull/231) | 评审指出 smoke 命令不能复现 attention / sampler 数据 | 补原始测试脚本、完整编译链接参数、固定版本、输入 hash 和精确命令 | `98f7fb9` 已推送；3 项检查通过，Build Wheels 为 action_required，待维护者批准运行 |
 | [SGLang #42121](https://github.com/sgl-project/sglang/pull/42121) | `Require run-ci label` 门禁失败，后续汇总作业连带失败 | 不改工作流绕过门禁；本地真实 loader 回归和 GPU 采样已验证 | PR 已存在；需要维护者加 `run-ci` |
 | [ComfyUI #16712](https://github.com/Comfy-Org/ComfyUI/pull/16712)、[#16713](https://github.com/Comfy-Org/ComfyUI/pull/16713) | 当前无失败项 | 各 14 项检查通过 | 等审核 |
+
+最后一次 API 核对：#16681 全部 workflow 成功、mergeable_state=clean；旧机器评审的 changes requested 记录仍在，需要评审方重新确认，不等于已批准合并。#231 当前没有新提交对应的新增评审意见；Build Wheels 尚未获得运行授权。
 
 ComfyUI #16681 的新旧消费者使用相同 Kitchen #223 构建复测：每侧 1 次 warmup + 2 次正式请求，采样中位数 15.738291 → 15.580160 秒，约 1.00%。全部视频、音频 latent SHA256 一致。该次结果只证明当前修复保持正确性和原有小幅收益，不替换此前更大样本测试。
 

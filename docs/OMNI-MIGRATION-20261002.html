@@ -35,7 +35,7 @@
 <td><a href="https://github.com/Comfy-Org/comfy-kitchen/pull/231">Kitchen #231</a></td>
 <td>评审指出 smoke 命令不能复现 attention / sampler 数据</td>
 <td>补原始测试脚本、完整编译链接参数、固定版本、输入 hash 和精确命令</td>
-<td><code>98f7fb9</code> 已推送；原意见来自机器人</td>
+<td><code>98f7fb9</code> 已推送；3 项检查通过，Build Wheels 为 action_required，待维护者批准运行</td>
 </tr>
 <tr>
 <td><a href="https://github.com/sgl-project/sglang/pull/42121">SGLang #42121</a></td>
@@ -51,6 +51,7 @@
 </tr>
 </tbody>
 </table>
+<p>最后一次 API 核对：#16681 全部 workflow 成功、mergeable_state=clean；旧机器评审的 changes requested 记录仍在，需要评审方重新确认，不等于已批准合并。#231 当前没有新提交对应的新增评审意见；Build Wheels 尚未获得运行授权。</p>
 <p>ComfyUI #16681 的新旧消费者使用相同 Kitchen #223 构建复测：每侧 1 次 warmup + 2 次正式请求，采样中位数 15.738291 → 15.580160 秒，约 1.00%。全部视频、音频 latent SHA256 一致。该次结果只证明当前修复保持正确性和原有小幅收益，不替换此前更大样本测试。</p>
 <p>GitHub PR 描述和新 PR 的发布通道尚需恢复：当前 <code>gh</code> 未认证，Chrome 页面可读但提交动作未生效。因此 #42121 的正文尚未成功更新，SGLang-Omni 传输 PR 和 vLLM-Omni SM120 VAE PR 尚未创建；不能将已经推送的代码分支称作已提交 PR。</p>
 <h2>vLLM-Omni：视频 VAE 精确算子迁移</h2>
