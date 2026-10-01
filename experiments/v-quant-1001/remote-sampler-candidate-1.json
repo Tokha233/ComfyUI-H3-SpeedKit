@@ -1,0 +1,39 @@
+{
+  "arm": "candidate",
+  "pair": 1,
+  "records": [
+    {
+      "repeat": -1,
+      "warmup": true,
+      "seconds": 24.144563045934774,
+      "sha256": [
+        "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+        "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb"
+      ],
+      "peak_allocated_bytes": 1833455616
+    },
+    {
+      "repeat": 0,
+      "warmup": false,
+      "seconds": 15.53877211699728,
+      "sha256": [
+        "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+        "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb"
+      ],
+      "peak_allocated_bytes": 1833455616
+    },
+    {
+      "repeat": 1,
+      "warmup": false,
+      "seconds": 15.533210164052434,
+      "sha256": [
+        "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+        "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb"
+      ],
+      "peak_allocated_bytes": 1833455616
+    }
+  ],
+  "kitchen": "/tmp/h3-kitchen-followup-1001/candidate/comfy_kitchen/__init__.py",
+  "note": "Main Python and attention/V kernels; other linked objects common combined build. Only V scheduler differs between arms. Sampler excludes VAE/input encoding/export.",
+  "status": "success"
+}

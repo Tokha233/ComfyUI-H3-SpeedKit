@@ -1,0 +1,17 @@
+{
+  "build_extensions.py": "bfbd7ff751695f4c78ba4803528c48c22c20c26dc4c19b72250b2cf583d6d0a0",
+  "bench_extensions.py": "1c9dbec3c8ada00348ce01825d18441926ade3ff8e6ba01a966c385dfef4f04c",
+  "sampler.py": "314a5811de44a7c429fbd41c717c4fc1b16527ee9ae1682a5a7d06f756d657c3",
+  "profile_sampler.py": "6d642b88abf14c0f35d034499d500e30887c694510f5a67886278f7bf824ad2b",
+  "run_final.py": "0d0e66e4582c0bf98c1281fa8a4a52bd9d8367049684d43a36d814a558deb983",
+  "run_tests.py": "64812a3fc94bd7b7fb501e82ff1173a11742890fe6b97e84fba298c2dc804a1a",
+  "quant_v_base.cu": "9f82e38c5f3045c15268952a9ef421281e977ea33f25aba0bf90ac16c75c1497",
+  "quant_v_candidate.cu": "be787552186d91d0b870c8675b59fadfa4256eed08b390465e923b724c42f079",
+  "remote-extensions-build.json": "41eeb4a7ffe4b096d3e5e0ce30735bc4b52de5300bac101f2316254bf9159347",
+  "remote-benchmark.json": "b4a70315b7f72f512cbd5792081df6e821c9f8db9d066469492b04989fc2eb5c",
+  "remote-sampler-base-0.json": "5bd5332e38a19cabf7bb960d80cf1f110cf59ce4a991f8700552bc2f855fdbfc",
+  "remote-sampler-base-1.json": "6f0642395c8e77ddb77c8a7dd2916883392d873c257a6f646abea7d8ecfee4a8",
+  "remote-sampler-candidate-0.json": "93a11c56d288411ccd6787654b376d5675c8ed578f8b79309f7b5047065bb974",
+  "remote-sampler-candidate-1.json": "09352dd8435dfe4d090dfff809a01ad7bf02077620a56e3e7314ed23f6c413a9",
+  "remote-profile-candidate.json": "abab3500e5bf8342f7062bbd91ad6ff52e9bd7eeddea1d565f5d4da71ea9fe25"
+}

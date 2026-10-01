@@ -1,0 +1,32 @@
+{
+  "arm": "candidate",
+  "pair": 9,
+  "records": [
+    {
+      "repeat": -1,
+      "warmup": true,
+      "seconds": 27.869852575007826,
+      "sha256": [
+        "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+        "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb"
+      ],
+      "peak_allocated_bytes": 1833455616
+    },
+    {
+      "repeat": 0,
+      "warmup": false,
+      "seconds": 21.40882312192116,
+      "sha256": [
+        "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+        "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb"
+      ],
+      "peak_allocated_bytes": 1833455616
+    }
+  ],
+  "kitchen": "/tmp/h3-kitchen-followup-1001/candidate/comfy_kitchen/__init__.py",
+  "note": "Main Python and attention/V kernels; other linked objects common combined build. Only V scheduler differs between arms. Sampler excludes VAE/input encoding/export.",
+  "v_kernel_counts": {
+    "void (anonymous namespace)::quant_v_int8_kernel<__nv_bfloat16, 1024>(__nv_bfloat16 const*, signed char*, float*, int, int, int, int, long, long, long)": 400
+  },
+  "status": "success"
+}
