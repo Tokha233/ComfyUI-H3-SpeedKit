@@ -1,0 +1,519 @@
+{
+  "16681": {
+    "head": "85f21d224f39800cdf566dc9d89221d5305d3d29",
+    "state": "open",
+    "draft": false,
+    "merge": "clean",
+    "checks": [
+      [
+        "Socket Security: Pull Request Alerts",
+        "success"
+      ],
+      [
+        "Socket Security: Project Report",
+        "success"
+      ],
+      [
+        "Run Pylint",
+        "success"
+      ],
+      [
+        "Run Ruff",
+        "success"
+      ],
+      [
+        "Check for AI agent co-author trailers",
+        "success"
+      ],
+      [
+        "test (windows-2022)",
+        "success"
+      ],
+      [
+        "check-line-endings",
+        "success"
+      ],
+      [
+        "test (ubuntu-latest)",
+        "success"
+      ],
+      [
+        "test (windows-latest)",
+        "success"
+      ],
+      [
+        "test (macos-latest)",
+        "success"
+      ],
+      [
+        "test (ubuntu-latest)",
+        "success"
+      ],
+      [
+        "test (macos-latest)",
+        "success"
+      ],
+      [
+        "test",
+        "success"
+      ],
+      [
+        "cla-assistant",
+        "success"
+      ]
+    ],
+    "reviews": [
+      [
+        "coderabbitai[bot]",
+        "CHANGES_REQUESTED"
+      ],
+      [
+        "Tokha233",
+        "COMMENTED"
+      ],
+      [
+        "coderabbitai[bot]",
+        "COMMENTED"
+      ],
+      [
+        "coderabbitai[bot]",
+        "CHANGES_REQUESTED"
+      ]
+    ]
+  },
+  "231": {
+    "head": "98f7fb96aed08aada468d9daf49f2757a99178bf",
+    "state": "open",
+    "draft": false,
+    "merge": "unstable",
+    "checks": [
+      [
+        "Socket Security: Pull Request Alerts",
+        "success"
+      ],
+      [
+        "Socket Security: Project Report",
+        "success"
+      ],
+      [
+        "cla-assistant",
+        "success"
+      ]
+    ],
+    "reviews": [
+      [
+        "coderabbitai[bot]",
+        "COMMENTED"
+      ]
+    ]
+  },
+  "42121": {
+    "head": "f851045c948692b44d5998bd337476a3f7709428",
+    "state": "open",
+    "draft": false,
+    "merge": "unstable",
+    "checks": [
+      [
+        "tier-3 \u2014 k8s integration",
+        "skipped"
+      ],
+      [
+        "tier-3 \u2014 docker (placeholder)",
+        "skipped"
+      ],
+      [
+        "tier-3 \u2014 e2e",
+        "skipped"
+      ],
+      [
+        "tier-2 \u2014 build + test",
+        "skipped"
+      ],
+      [
+        "finish",
+        "success"
+      ],
+      [
+        "tier-1 \u2014 lint",
+        "skipped"
+      ],
+      [
+        "notify-pr-states",
+        "skipped"
+      ],
+      [
+        "notify-pr-states",
+        "skipped"
+      ],
+      [
+        "base-c-test-${{ matrix.runner_config }}",
+        "skipped"
+      ],
+      [
+        "base-c-test-${{ matrix.runner_config }}",
+        "skipped"
+      ],
+      [
+        "call-jit-kernel-tests",
+        "skipped"
+      ],
+      [
+        "base-a-test-cpu",
+        "skipped"
+      ],
+      [
+        "wait-for-base-b",
+        "skipped"
+      ],
+      [
+        "pr-test-finish",
+        "failure"
+      ],
+      [
+        "call-multimodal-gen-tests",
+        "skipped"
+      ],
+      [
+        "wait-for-base-a",
+        "skipped"
+      ],
+      [
+        "base-a-test-${{ matrix.runner_config }}",
+        "skipped"
+      ],
+      [
+        "call-sgl-kernel-tests",
+        "skipped"
+      ],
+      [
+        "rust-ext-build",
+        "skipped"
+      ],
+      [
+        "sgl-kernel-build-wheels-arm",
+        "skipped"
+      ],
+      [
+        "base-b-test-${{ matrix.runner_config }}",
+        "skipped"
+      ],
+      [
+        "sgl-kernel-build-wheels",
+        "skipped"
+      ],
+      [
+        "rust-ext-build-aarch64",
+        "skipped"
+      ],
+      [
+        "setup-covstub",
+        "skipped"
+      ],
+      [
+        "base-c-test-perf-2-npu-a3",
+        "skipped"
+      ],
+      [
+        "base-c-test-acc-16-npu-a3",
+        "skipped"
+      ],
+      [
+        "base-c-test-perf-16-npu-a3",
+        "skipped"
+      ],
+      [
+        "pr-test-npu-finish",
+        "success"
+      ],
+      [
+        "base-c-test-acc-2-npu-a3",
+        "skipped"
+      ],
+      [
+        "Analyze failure report / cross-reference failures with recommendations",
+        "success"
+      ],
+      [
+        "multimodal-gen-test-1-npu-a3",
+        "skipped"
+      ],
+      [
+        "base-b-test-4-npu-a3",
+        "skipped"
+      ],
+      [
+        "base-b-test-16-npu-a3",
+        "skipped"
+      ],
+      [
+        "base-b-test-8-npu-a3",
+        "skipped"
+      ],
+      [
+        "base-b-test-1-npu-a3",
+        "skipped"
+      ],
+      [
+        "base-b-test-2-npu-a3",
+        "skipped"
+      ],
+      [
+        "multimodal-gen-test-4-npu-a3",
+        "skipped"
+      ],
+      [
+        "base-a-test-npu",
+        "skipped"
+      ],
+      [
+        "simulator-test-cpu",
+        "skipped"
+      ],
+      [
+        "${{ matrix.stage }}-test-${{ matrix.runner_config }}",
+        "skipped"
+      ],
+      [
+        "sgl-kernel-build-wheels",
+        "skipped"
+      ],
+      [
+        "rust-ext-build",
+        "skipped"
+      ],
+      [
+        "pr-test-extra-finish",
+        "failure"
+      ],
+      [
+        "call-gate / pr-gate",
+        "failure"
+      ],
+      [
+        "stage-a-test-1-gpu-xpu",
+        "skipped"
+      ],
+      [
+        "multimodal-gen-test-1-gpu-xpu",
+        "skipped"
+      ],
+      [
+        "finish",
+        "success"
+      ],
+      [
+        "stage-c-dsv4-flash-fp4-fp8-amd-mi35x (${{ matrix.rocm_version }}, ${{ matrix.runner }})",
+        "skipped"
+      ],
+      [
+        "stage-c-test-large-8-gpu-amd-mi35x (${{ matrix.rocm_version }}, ${{ matrix.runner }}, ${{ matrix.part }})",
+        "skipped"
+      ],
+      [
+        "stage-c-dsv4-pro-fp4-amd-mi35x (${{ matrix.rocm_version }}, ${{ matrix.runner }})",
+        "skipped"
+      ],
+      [
+        "stage-c-test-4-gpu-amd (${{ matrix.rocm_version }}, linux-${{ (inputs.runner_arch || 'mi300') }}-4gpu-sglang, ${{ matrix.part }})",
+        "skipped"
+      ],
+      [
+        "stage-c-test-large-8-gpu-amd (${{ matrix.rocm_version }}, linux-${{ (inputs.runner_arch || 'mi300') }}-8gpu-sglang, ${{ matrix.part }})",
+        "skipped"
+      ],
+      [
+        "stage-b-test-large-8-gpu-mi35x-disaggregation-amd (${{ matrix.rocm_version }}, ${{ matrix.runner }})",
+        "skipped"
+      ],
+      [
+        "pr-test-amd-finish",
+        "failure"
+      ],
+      [
+        "stage-b-test-1-gpu-small-amd-nondeterministic (${{ matrix.rocm_version }}, linux-${{ (inputs.runner_arch || 'mi300') }}-1gpu-sglang)",
+        "skipped"
+      ],
+      [
+        "stage-b-test-1-gpu-large-amd (${{ matrix.rocm_version }}, linux-${{ (inputs.runner_arch || 'mi300') }}-1gpu-sglang, ${{ matrix.part }})",
+        "skipped"
+      ],
+      [
+        "build-test",
+        "skipped"
+      ],
+      [
+        "wait-for-stage-b-amd",
+        "skipped"
+      ],
+      [
+        "stage-b-test-1-gpu-small-amd (${{ matrix.rocm_version }}, linux-${{ (inputs.runner_arch || 'mi300') }}-1gpu-sglang, ${{ matrix.part }})",
+        "skipped"
+      ],
+      [
+        "stage-b-test-2-gpu-large-amd (${{ matrix.rocm_version }}, linux-${{ (inputs.runner_arch || 'mi300') }}-2gpu-sglang, ${{ matrix.part }})",
+        "skipped"
+      ],
+      [
+        "stage-b-test-1-gpu-small-amd-mi35x (${{ matrix.rocm_version }}, ${{ matrix.runner }})",
+        "skipped"
+      ],
+      [
+        "pr-gate",
+        "skipped"
+      ],
+      [
+        "stage-a-test-1-gpu-small-amd (${{ matrix.rocm_version }}, linux-${{ (inputs.runner_arch || 'mi300') }}-1gpu-sglang)",
+        "skipped"
+      ],
+      [
+        "multimodal-gen-test-2-gpu-amd (${{ matrix.rocm_version }}, linux-${{ (inputs.runner_arch || 'mi300') }}-2gpu-sglang, ${{ matrix.part }})",
+        "skipped"
+      ],
+      [
+        "call-pr-test-amd-extra",
+        "skipped"
+      ],
+      [
+        "sgl-kernel-unit-test-amd (${{ matrix.rocm_version }}, linux-${{ (inputs.runner_arch || 'mi300') }}-1gpu-sglang)",
+        "skipped"
+      ],
+      [
+        "jit-kernel-unit-test-amd (${{ matrix.rocm_version }}, linux-${{ (inputs.runner_arch || 'mi300') }}-1gpu-sglang)",
+        "skipped"
+      ],
+      [
+        "wait-for-stage-a-amd",
+        "skipped"
+      ],
+      [
+        "sgl-kernel-unit-test-2-gpu-amd (${{ matrix.rocm_version }}, linux-${{ (inputs.runner_arch || 'mi300') }}-2gpu-sglang)",
+        "skipped"
+      ],
+      [
+        "jit-kernel-benchmark-test-amd (${{ matrix.rocm_version }}, linux-${{ (inputs.runner_arch || 'mi300') }}-1gpu-sglang)",
+        "skipped"
+      ],
+      [
+        "multimodal-gen-test-1-gpu-amd (${{ matrix.rocm_version }}, linux-${{ (inputs.runner_arch || 'mi300') }}-1gpu-sglang, ${{ matrix.part }})",
+        "skipped"
+      ],
+      [
+        "call-gate / pr-gate",
+        "failure"
+      ],
+      [
+        "pr-gate / pr-gate",
+        "failure"
+      ],
+      [
+        "pr-test-musa-finish",
+        "success"
+      ],
+      [
+        "multimodal-gen-test-1-gpu-musa",
+        "skipped"
+      ],
+      [
+        "multimodal-gen-layer-unit-test-musa",
+        "skipped"
+      ],
+      [
+        "multimodal-gen-test-2-gpu-musa",
+        "skipped"
+      ],
+      [
+        "sgl-kernel-unit-test-musa",
+        "skipped"
+      ],
+      [
+        "build-test",
+        "skipped"
+      ],
+      [
+        "pr-gate",
+        "skipped"
+      ],
+      [
+        "pr-gate",
+        "skipped"
+      ],
+      [
+        "pr-gate / pr-gate",
+        "failure"
+      ],
+      [
+        "(github.event_name == 'pull_request' && github.event.action == 'labeled' &&\n     github.event.label.name != 'run-ci' && github.event.label.name != 'run-ci-ppu') &&\n    'ignored-label-ppu-preflight' || 'ppu-preflight'",
+        "skipped"
+      ],
+      [
+        "pr-gate",
+        "skipped"
+      ],
+      [
+        "pr-test-ppu-finish",
+        "success"
+      ],
+      [
+        "stage-a-unit-test-mlx",
+        "skipped"
+      ],
+      [
+        "stage-b-e2e-test-mlx",
+        "skipped"
+      ],
+      [
+        "pr-test-mlx-finish",
+        "success"
+      ],
+      [
+        "pr-gate",
+        "skipped"
+      ],
+      [
+        "extra-a-test-1-gpu-large-amd (${{ (inputs.rocm_version || 'rocm10') }}, linux-${{ (inputs.runner_arch || 'mi300') }}-1gpu-sglang)",
+        "skipped"
+      ],
+      [
+        "extra-a-test-1-gpu-small-amd (${{ (inputs.rocm_version || 'rocm10') }}, linux-${{ (inputs.runner_arch || 'mi300') }}-1gpu-sglang)",
+        "skipped"
+      ],
+      [
+        "extra-a-test-2-gpu-large-amd (${{ (inputs.rocm_version || 'rocm10') }}, linux-${{ (inputs.runner_arch || 'mi300') }}-2gpu-sglang)",
+        "skipped"
+      ],
+      [
+        "pr-test-amd-extra-finish",
+        "failure"
+      ],
+      [
+        "check-changes",
+        "success"
+      ],
+      [
+        "call-pr-test-extra",
+        "skipped"
+      ],
+      [
+        "check-changes / check-changes",
+        "success"
+      ],
+      [
+        "call-gate / pr-gate",
+        "failure"
+      ],
+      [
+        "check-changes / check-changes",
+        "success"
+      ],
+      [
+        "check-changes",
+        "success"
+      ],
+      [
+        "Recommend tests from coverage",
+        "success"
+      ]
+    ],
+    "reviews": []
+  }
+}

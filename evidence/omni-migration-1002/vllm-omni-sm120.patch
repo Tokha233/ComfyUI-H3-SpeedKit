@@ -1,0 +1,117 @@
+From ce3039e4a48b6026302b6b9dec107dec8ac69fd9 Mon Sep 17 00:00:00 2001
+From: Tokha233 <61346912+Tokha233@users.noreply.github.com>
+Date: Fri, 2 Oct 2026 05:28:54 +0800
+Subject: [PATCH] [Hardware][NVIDIA] Enable exact H3 VAE operators on SM120
+
+Signed-off-by: Tokha233 <61346912+Tokha233@users.noreply.github.com>
+---
+ .../models/minimax_h3/test_minimax_h3_vae_ops.py | 13 +++++++------
+ .../diffusion/models/minimax_h3/ops/README.md    | 16 +++++++++++++++-
+ .../models/minimax_h3/ops/vae/dispatch.py        |  9 +++++++++
+ 3 files changed, 31 insertions(+), 7 deletions(-)
+
+diff --git a/tests/diffusion/models/minimax_h3/test_minimax_h3_vae_ops.py b/tests/diffusion/models/minimax_h3/test_minimax_h3_vae_ops.py
+index 86ccaa2..6606473 100644
+--- a/tests/diffusion/models/minimax_h3/test_minimax_h3_vae_ops.py
++++ b/tests/diffusion/models/minimax_h3/test_minimax_h3_vae_ops.py
+@@ -60,7 +60,7 @@ def _failing_norm_input(_module, _hidden_states):
+     raise RuntimeError("unsupported remote normalization semantics")
+ 
+ 
+-@pytest.mark.parametrize(("batch", "sequence"), [(1, 1), (1, 195), (2, 1797)])
++@pytest.mark.parametrize(("batch", "sequence"), [(1, 1), (1, 195), (2, 1797), (1, 8192), (1, 32768)])
+ def test_h3_vae_qk_norm_rope_is_bit_exact(batch, sequence):
+     device, operators = _selected_operators()
+ 
+@@ -88,12 +88,13 @@ def test_h3_vae_qk_norm_rope_is_bit_exact(batch, sequence):
+     assert torch.equal(actual_k, expected_k)
+ 
+ 
+-def test_h3_vae_scaled_residual_is_bit_exact():
++@pytest.mark.parametrize("rows", [1, 195, 8192, 32768])
++def test_h3_vae_scaled_residual_is_bit_exact(rows):
+     device, operators = _selected_operators()
+ 
+     torch.manual_seed(29)
+-    residual = torch.randn(195, 2048, device=device, dtype=torch.float32)
+-    branch = torch.randn(195, 2048, device=device, dtype=torch.float16)
++    residual = torch.randn(rows, 2048, device=device, dtype=torch.float32)
++    branch = torch.randn(rows, 2048, device=device, dtype=torch.float16)
+     scale = torch.randn(2048, device=device, dtype=torch.float32)
+     expected = residual + branch * scale
+ 
+@@ -376,10 +377,10 @@ def test_h3_vae_dispatch_selects_supported_cuda_capabilities(monkeypatch):
+     monkeypatch.setattr(dispatch, "HAS_TRITON", True)
+     monkeypatch.setattr(dispatch, "current_omni_platform", platform)
+ 
+-    for capability in (90, 100, 103):
++    for capability in (90, 100, 103, 120):
+         platform.get_device_capability.return_value.to_int.return_value = capability
+         assert dispatch.resolve_h3_vae_operators(torch.device("cuda:0")) is not None
+ 
+-    for capability in (89, 101, 110):
++    for capability in (89, 101, 110, 121):
+         platform.get_device_capability.return_value.to_int.return_value = capability
+         assert dispatch.resolve_h3_vae_operators(torch.device("cuda:0")) is None
+diff --git a/vllm_omni/diffusion/models/minimax_h3/ops/README.md b/vllm_omni/diffusion/models/minimax_h3/ops/README.md
+index e882ee7..e399254 100644
+--- a/vllm_omni/diffusion/models/minimax_h3/ops/README.md
++++ b/vllm_omni/diffusion/models/minimax_h3/ops/README.md
+@@ -26,12 +26,26 @@ change. It then binds the selected operator set, reuses Omni's existing
+ dtype already selected by decode autocast. Unsupported model contracts, tensor
+ inputs, execution modes, and devices retain the original implementation.
+ 
+-Hardware dispatch is an explicit allowlist. SM90, SM100, and SM103 are enabled;
++Hardware dispatch is an explicit allowlist. SM90, SM100, SM103, and SM120 are enabled;
+ other capabilities fall back to the reference path. Bit-exact full-decode and
+ operator evidence has been collected on SM90, with independent full-decode and
+ stress validation on SM103. Enabling a target and claiming it as validated are
+ kept separate so the evidence remains clear.
+ 
++SM120 was validated on one RTX 5090 D v2 (24 GB), driver 580.126.20,
++PyTorch 2.13.0+cu130, Triton 3.7.1, and vLLM 0.30.0. With official H3 VAE
++weights and FP16 decode autocast, a sampled `[1, 24, 37, 32, 48]` latent decoded
++to 124 frames at 512x768. Warmed ABBA median decode latency decreased from
++6202.364 to 4631.699 ms (25.32%). RGB8 and pre-conversion FP32 output were
++bit-exact; three additional cropped, zero, and noise latent inputs also passed
++full FP32 equality. The small 195-row scaled-residual operator was slower in
++isolation; the complete decode improved. These are video-VAE measurements,
++not end-to-end generation or serving throughput.
++
++The [reproduction commands and scripts](https://github.com/Tokha233/ComfyUI-H3-SpeedKit/tree/d6d6da7/experiments/omni-migration-1002)
++and [raw measurements](https://github.com/Tokha233/ComfyUI-H3-SpeedKit/tree/d6d6da7/evidence/omni-migration-1002)
++pin the baseline, official model revision, autocast, warmup, and timing scope.
++
+ ## Extending platform support
+ 
+ Validation and improvements for other platforms are welcome. A contribution
+diff --git a/vllm_omni/diffusion/models/minimax_h3/ops/vae/dispatch.py b/vllm_omni/diffusion/models/minimax_h3/ops/vae/dispatch.py
+index d413ef8..77b5100 100644
+--- a/vllm_omni/diffusion/models/minimax_h3/ops/vae/dispatch.py
++++ b/vllm_omni/diffusion/models/minimax_h3/ops/vae/dispatch.py
+@@ -65,6 +65,10 @@ def _supports_cuda_sm103(device: torch.device) -> bool:
+     return _supports_cuda_capability(device, 103)
+ 
+ 
++def _supports_cuda_sm120(device: torch.device) -> bool:
++    return _supports_cuda_capability(device, 120)
++
++
+ # Keep hardware selection flat: adding a backend means adding one operator set,
+ # without changing the installer or the model execution path.
+ H3_VAE_OPERATOR_TABLE: tuple[H3VAEOperatorSet, ...] = (
+@@ -83,6 +87,11 @@ H3_VAE_OPERATOR_TABLE: tuple[H3VAEOperatorSet, ...] = (
+         qk_norm_rope=try_qk_norm_rope_exact,
+         scaled_residual=try_scaled_residual_exact,
+     ),
++    H3VAEOperatorSet(
++        supports=_supports_cuda_sm120,
++        qk_norm_rope=try_qk_norm_rope_exact,
++        scaled_residual=try_scaled_residual_exact,
++    ),
+ )
+ 
+ 
+-- 
+2.39.5 (Apple Git-154)
+

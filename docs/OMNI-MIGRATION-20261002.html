@@ -1,0 +1,305 @@
+<!DOCTYPE html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Omni 迁移与 PR 修复实测</title><style>*{box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif;background:#f5f7fa;color:#15233b;margin:0;padding:48px 24px;line-height:1.7}main{max-width:1160px;margin:auto;background:white;padding:36px 46px;border:1px solid #dde4ec;border-radius:16px}h1{font-size:32px;line-height:1.35}h2{font-size:25px;border-bottom:2px solid #e3eaf5;margin-top:44px;padding-bottom:9px}h3{margin-top:30px}a{color:#125cb9;overflow-wrap:anywhere}table{display:block;max-width:100%;overflow-x:auto;border-collapse:collapse;font-size:14px;line-height:1.5;margin:20px 0}th,td{padding:12px 14px;border:1px solid #dce4ed;text-align:left}th{background:#edf3fa;color:#123665;white-space:nowrap}tr:nth-child(even){background:#f8fafc}code{font-family:ui-monospace,SFMono-Regular,monospace;font-size:.88em;background:#edf2f7;border-radius:4px;padding:2px 5px;overflow-wrap:anywhere}pre{background:#10243c;color:#e5eef8;padding:16px;overflow:auto;border-radius:8px}pre code{background:none;color:inherit;white-space:pre}strong{color:#164f7e}@media(max-width:720px){body{padding:12px}main{padding:18px}h1{font-size:26px}}</style><main><h1>2026-10-02：Omni 迁移实验与 PR 修复</h1>
+<h2>当前结论</h2>
+<p>本轮已修复 ComfyUI #16681 的正式依赖兼容问题，提交 <code>85f21d224f39800cdf566dc9d89221d5305d3d29</code> 已推送，14 项 GitHub CI 全部通过，包含 Windows、macOS、Linux。Kitchen #231 的复现资料评审意见也已修复并推送。</p>
+<p>新框架中最明确的可迁移收益是 <strong>vLLM-Omni H3 视频 VAE 的 SM120 支持：6.202 → 4.632 秒，解码耗时减少 25.32%，FP32 解码输出逐字节一致</strong>。这是该框架内参考路径对比，不能算作当前线上 INT8 VAE 的额外收益。</p>
+<p>SGLang-Omni 的多 Tensor 传输优化已完成真实 SHM 测试，40 MiB / 160 MiB GPU 来源载荷的完整传输耗时减少 13.49% / 16.58%。它没有运行语音模型，不代表模型端到端 QPS。</p>
+<p>SGLang 原生 H3 的 Larry8 采样可以跑通，但优化后仍比当前 ComfyUI 慢，且生成结果存在明显差异，<strong>尚不能替换当前生产方案</strong>。</p>
+<h2>测试环境和口径</h2>
+<ul>
+<li>仅使用实验容器内 GPU0：RTX 5090 D v2 24 GB，SM120；未修改其他 GPU 服务。</li>
+<li>驱动 580.126.20，PyTorch 2.13.0+cu130，Triton 3.7.1。</li>
+<li>vLLM-Omni <code>7b15d22f48a4af2ba83f9a209944d0496348fc91</code>，实际 vLLM 0.30.0；独立虚拟环境，避免旧 <code>/last/deps</code> 遮蔽依赖。</li>
+<li>SGLang <code>a71c7d19e7154f5cf2a698418486706f7ce314f6</code>；SGLang-Omni <code>1523543056bf334bc2f4d69db23aad0a002cedf2</code>。</li>
+<li>公共采样用例：768×512，124 帧，Larry v4 已合并 INT8，seed42，Euler/beta 8 步，CFG1，shift12/4。</li>
+<li>本轮不是此前 5 个约 30 秒业务 case，也没有重新运行 BF16 50 步 teacher。质量指标参考同环境 ComfyUI Larry8。</li>
+<li>原始记录：<a href="../evidence/omni-migration-1002/">evidence/omni-migration-1002</a>；实验脚本和复现说明：<a href="../experiments/omni-migration-1002/">experiments/omni-migration-1002</a>。</li>
+</ul>
+<h2>PR 失败及修复</h2>
+<table>
+<thead>
+<tr>
+<th>PR</th>
+<th>原因</th>
+<th>操作与验证</th>
+<th>状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/Comfy-Org/ComfyUI/pull/16681">ComfyUI #16681</a></td>
+<td>CI 固定 Kitchen 0.2.36 没有 <code>int8_linear_indexed_gate</code></td>
+<td>接口存在才融合；不存在用已有 INT8 linear 与 segmented gate；真实 0.2.36 下 30 项测试通过</td>
+<td><code>85f21d2</code> 已推送，14 项 CI 全绿</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Comfy-Org/comfy-kitchen/pull/231">Kitchen #231</a></td>
+<td>评审指出 smoke 命令不能复现 attention / sampler 数据</td>
+<td>补原始测试脚本、完整编译链接参数、固定版本、输入 hash 和精确命令</td>
+<td><code>98f7fb9</code> 已推送；原意见来自机器人</td>
+</tr>
+<tr>
+<td><a href="https://github.com/sgl-project/sglang/pull/42121">SGLang #42121</a></td>
+<td><code>Require run-ci label</code> 门禁失败，后续汇总作业连带失败</td>
+<td>不改工作流绕过门禁；本地真实 loader 回归和 GPU 采样已验证</td>
+<td>PR 已存在；需要维护者加 <code>run-ci</code></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Comfy-Org/ComfyUI/pull/16712">ComfyUI #16712</a>、<a href="https://github.com/Comfy-Org/ComfyUI/pull/16713">#16713</a></td>
+<td>当前无失败项</td>
+<td>各 14 项检查通过</td>
+<td>等审核</td>
+</tr>
+</tbody>
+</table>
+<p>ComfyUI #16681 的新旧消费者使用相同 Kitchen #223 构建复测：每侧 1 次 warmup + 2 次正式请求，采样中位数 15.738291 → 15.580160 秒，约 1.00%。全部视频、音频 latent SHA256 一致。该次结果只证明当前修复保持正确性和原有小幅收益，不替换此前更大样本测试。</p>
+<p>GitHub PR 描述和新 PR 的发布通道尚需恢复：当前 <code>gh</code> 未认证，Chrome 页面可读但提交动作未生效。因此 #42121 的正文尚未成功更新，SGLang-Omni 传输 PR 和 vLLM-Omni SM120 VAE PR 尚未创建；不能将已经推送的代码分支称作已提交 PR。</p>
+<h2>vLLM-Omni：视频 VAE 精确算子迁移</h2>
+<h3>改动</h3>
+<p>在已有 <code>H3_VAE_OPERATOR_TABLE</code> 增加 SM120。复用框架已有的 QK RMSNorm＋RoPE 精确融合、FP32 residual 精确融合、SiluAndMul 和 decoder block Linear 的 FP16 权重预转换。没有新增量化、改权重数值精度策略或改变时间分块。FP16 权重预转换匹配原 decode autocast 使用的计算 dtype。</p>
+<p>正式视频 VAE 权重及 remote code：<code>MiniMaxAI/MiniMax-H3</code> 固定 <code>42ed227ee7df40d41602854ae760620d6eb651fe</code> 的 <code>Ref2VA/video_vae</code>。使用实际采样 latent <code>[1,24,37,32,48]</code>；默认输出 <code>[1,3,124,512,768]</code>。</p>
+<h3>完整解码</h3>
+<table>
+<thead>
+<tr>
+<th>测试</th>
+<th style="text-align: right;">参考 ms</th>
+<th style="text-align: right;">SM120 ms</th>
+<th style="text-align: right;">耗时减少</th>
+<th>输出检查</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>默认 RGB8 解码，ABBA</td>
+<td style="text-align: right;">6202.364</td>
+<td style="text-align: right;">4631.699</td>
+<td style="text-align: right;">25.32%</td>
+<td>全部逐字节一致</td>
+</tr>
+<tr>
+<td>保留 FP32 输出的解码</td>
+<td style="text-align: right;">6213.711</td>
+<td style="text-align: right;">4625.177</td>
+<td style="text-align: right;">25.56%</td>
+<td>全部逐字节一致，max_abs=0</td>
+</tr>
+<tr>
+<td>采样 latent 裁剪，56×256×384</td>
+<td style="text-align: right;">443.818</td>
+<td style="text-align: right;">322.649</td>
+<td style="text-align: right;">27.30%</td>
+<td>FP32 逐字节一致</td>
+</tr>
+<tr>
+<td>零 latent，43×256×256</td>
+<td style="text-align: right;">221.381</td>
+<td style="text-align: right;">161.563</td>
+<td style="text-align: right;">27.02%</td>
+<td>FP32 逐字节一致</td>
+</tr>
+<tr>
+<td>噪声 latent，69×256×384</td>
+<td style="text-align: right;">591.425</td>
+<td style="text-align: right;">430.835</td>
+<td style="text-align: right;">27.15%</td>
+<td>FP32 逐字节一致</td>
+</tr>
+</tbody>
+</table>
+<p>主测试按 baseline/candidate/candidate/baseline 顺序，每组 1 次 warmup + 2 次正式解码；统计 4 个正式样本的中位数。补充 FP32 与三种输入为正确性检查，每侧 1 warmup + 2 次正式解码，不具有主测试一样的平衡顺序。</p>
+<p>参数化复用脚本也已在相同 GPU 完成一次独立 ABBA 复测：6.199159 → 4.631679 秒，减少 25.29%，所有输出 hash 一致（<code>vo-portable.json</code>）。</p>
+<p>主测试 PyTorch allocator 峰值约 10.661 → 5.825 GB。该数值不等于全卡或全服务总显存。收益主要包括减少每次 Linear 的权重转换/缓存和融合中间算子。</p>
+<h3>算子级结果</h3>
+<table>
+<thead>
+<tr>
+<th>操作 / rows</th>
+<th style="text-align: right;">参考 ms</th>
+<th style="text-align: right;">优化 ms</th>
+<th>精确一致</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>QK norm＋RoPE / 195</td>
+<td style="text-align: right;">0.102432</td>
+<td style="text-align: right;">0.031949</td>
+<td>是</td>
+</tr>
+<tr>
+<td>QK norm＋RoPE / 8192</td>
+<td style="text-align: right;">0.883917</td>
+<td style="text-align: right;">0.100230</td>
+<td>是</td>
+</tr>
+<tr>
+<td>QK norm＋RoPE / 32768</td>
+<td style="text-align: right;">5.608381</td>
+<td style="text-align: right;">0.511011</td>
+<td>是</td>
+</tr>
+<tr>
+<td>scaled residual / 195</td>
+<td style="text-align: right;">0.010275</td>
+<td style="text-align: right;">0.018202</td>
+<td>是；小形状变慢</td>
+</tr>
+<tr>
+<td>scaled residual / 8192</td>
+<td style="text-align: right;">0.223792</td>
+<td style="text-align: right;">0.119552</td>
+<td>是</td>
+</tr>
+<tr>
+<td>scaled residual / 32768</td>
+<td style="text-align: right;">1.060157</td>
+<td style="text-align: right;">0.579174</td>
+<td>是</td>
+</tr>
+</tbody>
+</table>
+<p>没有隐藏小形状 residual 退化；最终资格以完整 decode 的收益为依据。原生测试共 69 passed，覆盖新增大形状、支持/不支持 capability、安装契约、temporal patch 和 split residency。完整 changed-file pre-commit 通过，包含 mypy、CI markers、SPDX 和禁止新增 <code>torch.cuda</code> 等本地检查。</p>
+<p>待提交分支 <code>perf/h3-vae-sm120</code>，本地提交 <code>ce3039e</code>；补丁、PR 正文与最终 pre-commit 日志均已归档。当前尚无该仓库 fork，不能把本地提交称作远程 PR。</p>
+<p>最初缺少 autocast 的 19 秒试跑、dtype 不匹配报错，以及测试环境缺 pytest/xdist 的准备失败均已排除，不计入速度统计。</p>
+<h2>SGLang-Omni：多 Tensor host 打包</h2>
+<p>SGLang-Omni 是多阶段语音/全模态运行时；H3 的原生扩散实现位于 SGLang Diffusion，不能把二者混为一谈。</p>
+<p>本改动先计算各 tensor 的对齐偏移，一次分配最终 CPU byte buffer，CUDA tensor 直接复制到最终 slice，省掉单独 D2H 临时 buffer 后的 CPU cat。阻塞复制在等待 relay credit 之前完成，保留 producer 随后复用输入内存时的快照语义；padding 清零。没有改成不安全的异步 D2H，也没有改变全 CUDA IPC 路径。</p>
+<p>隔离复测采用真实 <code>write_payload → SHM write/read → ack → device restore</code>，ABBA，每块 3 次 warmup + 15 次正式事务，汇总每侧 30 个正式样本中位数：</p>
+<table>
+<thead>
+<tr>
+<th>输入来源与总量</th>
+<th style="text-align: right;">参考 ms</th>
+<th style="text-align: right;">优化 ms</th>
+<th style="text-align: right;">耗时减少</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPU / 约 1.35 MB</td>
+<td style="text-align: right;">1.048607</td>
+<td style="text-align: right;">1.057946</td>
+<td style="text-align: right;">-0.89%</td>
+</tr>
+<tr>
+<td>GPU / 约 40 MiB</td>
+<td style="text-align: right;">49.997057</td>
+<td style="text-align: right;">43.252745</td>
+<td style="text-align: right;">13.49%</td>
+</tr>
+<tr>
+<td>GPU / 约 160 MiB</td>
+<td style="text-align: right;">189.113012</td>
+<td style="text-align: right;">157.749784</td>
+<td style="text-align: right;">16.58%</td>
+</tr>
+<tr>
+<td>CPU / 约 40 MiB</td>
+<td style="text-align: right;">31.758029</td>
+<td style="text-align: right;">32.035689</td>
+<td style="text-align: right;">-0.87%</td>
+</tr>
+<tr>
+<td>CPU / 约 160 MiB</td>
+<td style="text-align: right;">119.708824</td>
+<td style="text-align: right;">120.825679</td>
+<td style="text-align: right;">-0.93%</td>
+</tr>
+</tbody>
+</table>
+<p>小载荷与 CPU 路径没有实质收益，不能宣传统一加速。此前独立一轮的大 GPU 载荷也有约 11% / 15.6% 收益；不同轮次主机负载影响绝对时间，所以只在每轮内部比较。</p>
+<p>32 passed，1 skipped；包含 11 种 dtype、strided/empty tensor、device 保持、背压期间 producer 复用、取消后 credit 回收。所有 round-trip 值精确相等。分支 <code>perf/direct-multi-tensor-host-pack</code>，提交 <code>9897501</code> 已推送。与 #2368 的单 tensor 打包优化互补。</p>
+<h2>SGLang：完整 8 步采样</h2>
+<p>先修复实际 H3 INT8 checkpoint 的 <code>.comfy_quant</code> 元数据加载失败：复用已有量化配置和 QKV layout，原 INT8 字节、FP32 scales 保持相同；提交 <code>f851045</code>，PR #42121。实际 safetensors 回归在原版报错、改后通过，相关 suite 28 passed、1 skipped、3 xfailed。</p>
+<table>
+<thead>
+<tr>
+<th>配置</th>
+<th style="text-align: right;">采样 ms，中位数</th>
+<th>比较说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SDPA，split8192，0 resident</td>
+<td style="text-align: right;">32915.950</td>
+<td>SGLang 原设置</td>
+</tr>
+<tr>
+<td>SDPA，split0，0 resident</td>
+<td style="text-align: right;">32486.782</td>
+<td>同框架输出逐字节一致，约 1.30%</td>
+</tr>
+<tr>
+<td>Kitchen INT8 attention，0 resident</td>
+<td style="text-align: right;">26185.975</td>
+<td>attention 精度改变，不能称无损</td>
+</tr>
+<tr>
+<td>INT8 attention，24 resident / forward</td>
+<td style="text-align: right;">22811.053</td>
+<td>与上行输出逐字节一致</td>
+</tr>
+<tr>
+<td>INT8 attention，24 resident / permanent</td>
+<td style="text-align: right;">21646.720</td>
+<td>与 INT8 0 resident 输出逐字节一致</td>
+</tr>
+<tr>
+<td>同环境 ComfyUI＋已有融合</td>
+<td style="text-align: right;">15656.289</td>
+<td>目前更快</td>
+</tr>
+</tbody>
+</table>
+<p>这些时间包括 8 步采样及 condition preparation，排除 encoders、VAE、导出。residency 优化在 SGLang 内可保留输出，但整体迁移尚未保留 ComfyUI 结果。</p>
+<h3>相对同环境 ComfyUI Larry8 的质量</h3>
+<p>全部用相同 INT8 video VAE＋FP32 audio VAE 解码；对相同帧计算 SSIM，对相同长度 PCM / 幅度谱计算 cosine，float64 累积。指标衡量输出一致性，不代表独立主观质量评分。</p>
+<table>
+<thead>
+<tr>
+<th>SGLang 配置</th>
+<th style="text-align: right;">视频 SSIM</th>
+<th style="text-align: right;">PSNR dB</th>
+<th style="text-align: right;">PCM cosine</th>
+<th style="text-align: right;">幅度谱 cosine</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SDPA</td>
+<td style="text-align: right;">0.666624</td>
+<td style="text-align: right;">17.898</td>
+<td style="text-align: right;">约 0.020327</td>
+<td style="text-align: right;">约 0.12829</td>
+</tr>
+<tr>
+<td>Kitchen INT8</td>
+<td style="text-align: right;">0.655392</td>
+<td style="text-align: right;">16.614</td>
+<td style="text-align: right;">0.027677</td>
+<td style="text-align: right;">0.129514</td>
+</tr>
+<tr>
+<td>INT8＋resident24</td>
+<td style="text-align: right;">同上</td>
+<td style="text-align: right;">同上</td>
+<td style="text-align: right;">同上</td>
+<td style="text-align: right;">同上</td>
+</tr>
+<tr>
+<td>去掉额外 audio slope 的探索</td>
+<td style="text-align: right;">0.523042</td>
+<td style="text-align: right;">13.737</td>
+<td style="text-align: right;">0.036344</td>
+<td style="text-align: right;">0.194736</td>
+</tr>
+</tbody>
+</table>
+<p>最后一行仅为诊断实验：代码对比发现 SGLang adapter 比当前 ComfyUI 多一次 audio slope，因此做了独立移除测试。音频一致性稍升但视频一致性下降，整体仍不合格，<strong>没有作为正式修复提交</strong>。需进一步逐层对齐精度、条件处理与 timestep 语义。</p>
+<h2>后续门槛</h2>
+<ol>
+<li>恢复 GitHub 发布通道，更新 #42121 正文并请求维护者 <code>run-ci</code>；提交已验证的 SGLang-Omni 传输和 vLLM-Omni VAE PR。</li>
+<li>继续观察 #16681 新 head 的审核；Kitchen release 后才能使普通用户实际启用新融合接口，现有 pin 下先保证不报错。</li>
+<li>完整 H3 框架迁移必须先解决输出差异，再补 5 个 30 秒业务 case、BF16 teacher 和服务并发测量。当前不宣称端到端服务吞吐提升，也不替换生产基线。</li>
+</ol></main></html>

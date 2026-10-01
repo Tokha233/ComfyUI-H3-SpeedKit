@@ -25,7 +25,7 @@ SGLang 原生 H3 的 Larry8 采样可以跑通，但优化后仍比当前 ComfyU
 | PR | 原因 | 操作与验证 | 状态 |
 |---|---|---|---|
 | [ComfyUI #16681](https://github.com/Comfy-Org/ComfyUI/pull/16681) | CI 固定 Kitchen 0.2.36 没有 `int8_linear_indexed_gate` | 接口存在才融合；不存在用已有 INT8 linear 与 segmented gate；真实 0.2.36 下 30 项测试通过 | `85f21d2` 已推送，14 项 CI 全绿 |
-| [Kitchen #231](https://github.com/Comfy-Org/comfy-kitchen/pull/231) | 评审指出 smoke 命令不能复现 attention / sampler 数据 | 补原始测试脚本、完整编译链接参数、固定版本、输入 hash 和精确命令 | 文档修复已推送；原意见来自机器人 |
+| [Kitchen #231](https://github.com/Comfy-Org/comfy-kitchen/pull/231) | 评审指出 smoke 命令不能复现 attention / sampler 数据 | 补原始测试脚本、完整编译链接参数、固定版本、输入 hash 和精确命令 | `98f7fb9` 已推送；原意见来自机器人 |
 | [SGLang #42121](https://github.com/sgl-project/sglang/pull/42121) | `Require run-ci label` 门禁失败，后续汇总作业连带失败 | 不改工作流绕过门禁；本地真实 loader 回归和 GPU 采样已验证 | PR 已存在；需要维护者加 `run-ci` |
 | [ComfyUI #16712](https://github.com/Comfy-Org/ComfyUI/pull/16712)、[#16713](https://github.com/Comfy-Org/ComfyUI/pull/16713) | 当前无失败项 | 各 14 项检查通过 | 等审核 |
 
@@ -69,6 +69,8 @@ GitHub PR 描述和新 PR 的发布通道尚需恢复：当前 `gh` 未认证，
 | scaled residual / 32768 | 1.060157 | 0.579174 | 是 |
 
 没有隐藏小形状 residual 退化；最终资格以完整 decode 的收益为依据。原生测试共 69 passed，覆盖新增大形状、支持/不支持 capability、安装契约、temporal patch 和 split residency。完整 changed-file pre-commit 通过，包含 mypy、CI markers、SPDX 和禁止新增 `torch.cuda` 等本地检查。
+
+待提交分支 `perf/h3-vae-sm120`，本地提交 `ce3039e`；补丁、PR 正文与最终 pre-commit 日志均已归档。当前尚无该仓库 fork，不能把本地提交称作远程 PR。
 
 最初缺少 autocast 的 19 秒试跑、dtype 不匹配报错，以及测试环境缺 pytest/xdist 的准备失败均已排除，不计入速度统计。
 
