@@ -1,0 +1,290 @@
+{
+  "checked_at": "2026-10-01T15:22:48.826691+00:00",
+  "prs": [
+    {
+      "repo": "Comfy-Org/comfy-kitchen",
+      "number": 217,
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/217",
+      "title": "Add exact BF16 register ConvRot256 fast path for SM120",
+      "state": "open",
+      "draft": false,
+      "merged": false,
+      "head": "6e2006d4a715939847ff553cb46949d18c5f7171",
+      "checks": [
+        {
+          "name": "cla-assistant",
+          "conclusion": "success"
+        },
+        {
+          "name": "Socket Security: Pull Request Alerts",
+          "conclusion": "success"
+        },
+        {
+          "name": "Socket Security: Project Report",
+          "conclusion": "success"
+        }
+      ],
+      "wheel": "action_required"
+    },
+    {
+      "repo": "Comfy-Org/comfy-kitchen",
+      "number": 218,
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/218",
+      "title": "Pipeline SM120 D128 dense INT8 attention with TMA and cached Q",
+      "state": "open",
+      "draft": false,
+      "merged": false,
+      "head": "2eb97e0948180e568d722dab65ca8c2db1fa0790",
+      "checks": [
+        {
+          "name": "cla-assistant",
+          "conclusion": "success"
+        },
+        {
+          "name": "Socket Security: Pull Request Alerts",
+          "conclusion": "success"
+        },
+        {
+          "name": "Socket Security: Project Report",
+          "conclusion": "success"
+        }
+      ],
+      "wheel": "action_required"
+    },
+    {
+      "repo": "Comfy-Org/comfy-kitchen",
+      "number": 219,
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/219",
+      "title": "Add prequantized INT8 GEMM with indexed BF16 gate and residual",
+      "state": "open",
+      "draft": false,
+      "merged": false,
+      "head": "5f7290d1301e6bc7e2109c7c3d35a3d14f7f3de9",
+      "checks": [
+        {
+          "name": "Socket Security: Pull Request Alerts",
+          "conclusion": "success"
+        },
+        {
+          "name": "Socket Security: Project Report",
+          "conclusion": "success"
+        },
+        {
+          "name": "cla-assistant",
+          "conclusion": "success"
+        }
+      ],
+      "wheel": "action_required"
+    },
+    {
+      "repo": "Comfy-Org/comfy-kitchen",
+      "number": 220,
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/220",
+      "title": "Add projection-ready BSHD output to prequantized INT8 attention",
+      "state": "open",
+      "draft": false,
+      "merged": false,
+      "head": "13bbea660c11c20718336ff3bc791667b235b105",
+      "checks": [
+        {
+          "name": "Socket Security: Pull Request Alerts",
+          "conclusion": "success"
+        },
+        {
+          "name": "Socket Security: Project Report",
+          "conclusion": "success"
+        },
+        {
+          "name": "cla-assistant",
+          "conclusion": "success"
+        }
+      ],
+      "wheel": "action_required"
+    },
+    {
+      "repo": "Comfy-Org/comfy-kitchen",
+      "number": 221,
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/221",
+      "title": "Fuse indexed modulation, RMSNorm and ConvRot INT8 quantization",
+      "state": "open",
+      "draft": false,
+      "merged": false,
+      "head": "f66dda592a0796a12a96b3adbf8d61e51113e58d",
+      "checks": [
+        {
+          "name": "Socket Security: Pull Request Alerts",
+          "conclusion": "success"
+        },
+        {
+          "name": "Socket Security: Project Report",
+          "conclusion": "success"
+        },
+        {
+          "name": "cla-assistant",
+          "conclusion": "success"
+        }
+      ],
+      "wheel": "action_required"
+    },
+    {
+      "repo": "Comfy-Org/comfy-kitchen",
+      "number": 222,
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/222",
+      "title": "Add SM120 H3 QKV RMS RoPE and attention preparation fusion",
+      "state": "open",
+      "draft": false,
+      "merged": false,
+      "head": "bbfee43be7d9091c2e63cc4cf282b5c41c116af2",
+      "checks": [
+        {
+          "name": "Socket Security: Pull Request Alerts",
+          "conclusion": "success"
+        },
+        {
+          "name": "Socket Security: Project Report",
+          "conclusion": "success"
+        },
+        {
+          "name": "cla-assistant",
+          "conclusion": "success"
+        }
+      ],
+      "wheel": "action_required"
+    },
+    {
+      "repo": "Comfy-Org/comfy-kitchen",
+      "number": 223,
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/223",
+      "title": "Compose INT8 input quantization with indexed gate epilogue",
+      "state": "open",
+      "draft": false,
+      "merged": false,
+      "head": "6bf0cb0babea71e511b9da4bcf6f6ee663108b31",
+      "checks": [
+        {
+          "name": "Socket Security: Pull Request Alerts",
+          "conclusion": "success"
+        },
+        {
+          "name": "Socket Security: Project Report",
+          "conclusion": "success"
+        },
+        {
+          "name": "cla-assistant",
+          "conclusion": "success"
+        }
+      ],
+      "wheel": "action_required"
+    },
+    {
+      "repo": "Comfy-Org/comfy-kitchen",
+      "number": 224,
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/224",
+      "title": "Fix nonpositive scale ordering in CUDA INT8 attention",
+      "state": "open",
+      "draft": false,
+      "merged": false,
+      "head": "96b70626b4bdde4c6ad8827d51d1a125650d9abd",
+      "checks": [
+        {
+          "name": "Socket Security: Pull Request Alerts",
+          "conclusion": "success"
+        },
+        {
+          "name": "Socket Security: Project Report",
+          "conclusion": "success"
+        },
+        {
+          "name": "cla-assistant",
+          "conclusion": "success"
+        }
+      ],
+      "wheel": "action_required"
+    },
+    {
+      "repo": "Comfy-Org/comfy-kitchen",
+      "number": 227,
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/227",
+      "title": "Tune unmasked SM120 D64 attention with smaller query tiles",
+      "state": "open",
+      "draft": false,
+      "merged": false,
+      "head": "5ff2a31f5e5c5bbbaa1deb054d4a1e96f4f626ef",
+      "checks": [
+        {
+          "name": "Socket Security: Pull Request Alerts",
+          "conclusion": "success"
+        },
+        {
+          "name": "Socket Security: Project Report",
+          "conclusion": "success"
+        },
+        {
+          "name": "cla-assistant",
+          "conclusion": "success"
+        }
+      ],
+      "wheel": "action_required"
+    },
+    {
+      "repo": "Comfy-Org/ComfyUI",
+      "number": 16677,
+      "url": "https://github.com/Comfy-Org/ComfyUI/pull/16677",
+      "title": "Release packed MiniMax H3 embedding temporaries before blocks",
+      "state": "closed",
+      "draft": false,
+      "merged": true,
+      "head": "f539f042fc5c9692c081142574ff3c6b02a579f8",
+      "merge_blocker": null
+    },
+    {
+      "repo": "Comfy-Org/ComfyUI",
+      "number": 16678,
+      "url": "https://github.com/Comfy-Org/ComfyUI/pull/16678",
+      "title": "Consume projection-ready Kitchen INT8 attention output",
+      "state": "open",
+      "draft": false,
+      "merged": false,
+      "head": "c0ac30db4b40e5f455bf27fdb0b00ec9eab07df1",
+      "merge_blocker": "Kitchen API release and requirement pin"
+    },
+    {
+      "repo": "Comfy-Org/ComfyUI",
+      "number": 16681,
+      "url": "https://github.com/Comfy-Org/ComfyUI/pull/16681",
+      "title": "Fuse H3 MLP INT8 output with indexed modulation gate",
+      "state": "open",
+      "draft": false,
+      "merged": false,
+      "head": "251f911bcb80ac279d1172e43d8c0e9c83fd724a",
+      "merge_blocker": "Kitchen API release and requirement pin"
+    },
+    {
+      "repo": "Comfy-Org/comfy-kitchen",
+      "number": 231,
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/231",
+      "title": "Tune SM120 V quantization for large D128 inputs",
+      "state": "open",
+      "draft": false,
+      "merged": false,
+      "head": "6dd6f95a7d4b8fd9ea1d6b72a695b513c2ac045c",
+      "checks": [
+        {
+          "name": "Socket Security: Pull Request Alerts",
+          "conclusion": "success"
+        },
+        {
+          "name": "Socket Security: Project Report",
+          "conclusion": "success"
+        },
+        {
+          "name": "cla-assistant",
+          "conclusion": "success"
+        }
+      ],
+      "wheel": "action_required",
+      "review": "CodeRabbit review in progress, no published findings at this check"
+    }
+  ],
+  "updated_at": "2026-10-01T23:44:00+08:00"
+}
