@@ -5,7 +5,7 @@
 | PR | 内容 | 提交 | 合并条件 |
 |---|---|---|---|
 | [#16712](https://github.com/Comfy-Org/ComfyUI/pull/16712) | 条件/目标行直接拼接，移除布尔索引散写 | `6a9276f32653d3907fdde40394ffedc99627ecc0` | 正式 Ready；不依赖新增 Kitchen API |
-| [#16713](https://github.com/Comfy-Org/ComfyUI/pull/16713) | 固定视觉/音频参考行每次采样准备一次 | `560558678c49ea157fb6fc62d56a2ee606390226` | 正式 Ready；不依赖新增 Kitchen API |
+| [#16713](https://github.com/Comfy-Org/ComfyUI/pull/16713) | 固定视觉/音频参考行每次采样准备一次 | `5605586`，补充测试 `a58cb70` | 正式 Ready；不依赖新增 Kitchen API |
 | [#16681](https://github.com/Comfy-Org/ComfyUI/pull/16681) | indexed FC2 gate/residual 消费者；修复全局 hooks、FP32 residual、梯度资格 | `5fa0a87` | Ready for review；仍须 Kitchen #219/#223 正式发布并更新 pin，当前 0.2.36 不含 API |
 
 ## 完整 Ref2VA 采样结果
@@ -46,7 +46,7 @@ FC2 融合另用**相同 Kitchen gate 构建**对照，每侧 1 warmup + 2 正�
 
 直接拼接只依赖既有“参考行在前、目标行在后”的模态行顺序，projection 次数/形状不变。ControlNet 仍使用的 layout masks 保留。现有 H3 6 项回归通过；另有 96 组 helper CPU 对照及 32 组 layout/梯度对照逐位相同。
 
-参考预处理把 patchify/pack、确定性噪声增强和搬运移到 `extra_conds`；数据由本次条件 payload 持有，无模型全局缓存。目标 latent 和 projection 每步照常计算。启用梯度时保留逐次 helper 路径，避免跨步复用 autograd 图。10 项 H3 回归通过，包括增强系数 1/0.999/0.5、seed 变化、strided 输入和条件作用域。参考越长，额外驻留 tensor 越大；本例的 72 KiB 不代表所有输入的上限。
+参考预处理把 patchify/pack、确定性噪声增强和搬运移到 `extra_conds`；数据由本次条件 payload 持有，无模型全局缓存。目标 latent 和 projection 每步照常计算。启用梯度时保留逐次 helper 路径，避免跨步复用 autograd 图。10 项 H3 回归通过，包括增强系数 1/0.999/0.5、seed 变化、strided 输入和条件作用域。补充测试 `a58cb70` 验证同 seed 的 CONDConstant 可合批、不同 seed 不可合批，10 项再次通过。参考越长，额外驻留 tensor 越大；本例的 72 KiB 不代表所有输入的上限。
 
 ## #16681 的修复
 
@@ -88,5 +88,7 @@ python benchmarks/comfy_h3_sampler.py \
 ## 首轮 GitHub CI 核查
 
 - #16712：14 项 check run 全部成功，mergeable_state 为 clean。
-- #16713：13 项成功；Windows 2022 的既有 mixed-precision 测试在 `comfy/ops.py` 的 CPU `_forward` 原生运算处触发 `0xc000001d`（illegal instruction）。此 PR 未修改该代码，其他 Windows/macOS/Linux jobs 成功；日志尚未显示本次参考预处理测试断言失败。应先重跑失败 runner 验证，不能把这一条直接记为通过，也不能据此改坏无关 CPU kernel。
-- #16681：Kitchen 0.2.36 缺新增 API 的 release/pin 前置条件仍在，正式合并前必须补齐；本地含 #223 的测试通过不替代发布依赖下的 CI。
+- #16713：13 项成功；Windows 2022 的既有 mixed-precision 测试在 `comfy/ops.py` 的 CPU `_forward` 原生运算处触发 `0xc000001d`（illegal instruction）。此 PR 未修改该代码，其他 Windows/macOS/Linux jobs 成功；日志尚未显示本次参考预处理测试断言失败。已补充 `a58cb70` 条件合批测试并推送触发新 CI；未修改或跳过该 CPU 测试。新一轮结果须独立确认。
+- #16681：Kitchen 0.2.36 缺新增 API 的 release/pin 前置条件仍在，Linux 日志明确为 5 个测试因缺 `int8_linear_indexed_gate` 报 AttributeError。正式合并前必须补齐；本地含 #223 的测试通过不替代发布依赖下的 CI。
+
+SpeedKit 证据提交 `e3cb486` 的 GitHub `verify` 已通过；本地 10 项单测和 6 个离线验证脚本全部通过。
