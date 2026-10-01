@@ -1,0 +1,40 @@
+{
+  "scope": "SGLang Diffusion ComfyUI integrated H3 Larry8 DiT sampler; excludes VAE/export",
+  "split": 0,
+  "torch": "2.13.0+cu130",
+  "gpu": "NVIDIA GeForce RTX 5090 D v2",
+  "records": [
+    {
+      "repeat": -1,
+      "warmup": true,
+      "ms": 22844.28443107754,
+      "sha256": [
+        "76cd7ccb30a643f97e2bdbd6e92e8926bafdfcfdc20b62f5c001505dc0e36118",
+        "6c1590ab3980a0d8cecab34ca886ef6f88f8fb64599df77f0c916b21abb2d788"
+      ]
+    },
+    {
+      "repeat": 0,
+      "warmup": false,
+      "ms": 22122.726800036617,
+      "sha256": [
+        "76cd7ccb30a643f97e2bdbd6e92e8926bafdfcfdc20b62f5c001505dc0e36118",
+        "6c1590ab3980a0d8cecab34ca886ef6f88f8fb64599df77f0c916b21abb2d788"
+      ]
+    },
+    {
+      "repeat": 1,
+      "warmup": false,
+      "ms": 22123.45853401348,
+      "sha256": [
+        "76cd7ccb30a643f97e2bdbd6e92e8926bafdfcfdc20b62f5c001505dc0e36118",
+        "6c1590ab3980a0d8cecab34ca886ef6f88f8fb64599df77f0c916b21abb2d788"
+      ]
+    }
+  ],
+  "kitchen_attention": true,
+  "resident": 24,
+  "no_audio_slope": true,
+  "lifetime": "permanent",
+  "prefetch": 0.0
+}

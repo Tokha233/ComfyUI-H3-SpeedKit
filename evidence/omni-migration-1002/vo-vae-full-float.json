@@ -1,0 +1,138 @@
+{
+  "scope": "official full H3 video VAE through vLLM-Omni adapter, same sampled latent; no DiT or encoders",
+  "torch": "2.13.0+cu130",
+  "gpu": "NVIDIA GeForce RTX 5090 D v2",
+  "capability": [
+    12,
+    0
+  ],
+  "input_shape": [
+    1,
+    24,
+    37,
+    32,
+    48
+  ],
+  "records": [
+    {
+      "arm": "baseline",
+      "repeat": -1,
+      "warmup": true,
+      "ms": 6407.254840014502,
+      "installed": false,
+      "shape": [
+        1,
+        3,
+        124,
+        512,
+        768
+      ],
+      "dtype": "torch.float32",
+      "sha256": "904fd0ac28afabff75aabb050de8ae2ccd1d032c4e67cd1126d251f3a742eb80",
+      "exact": true,
+      "max_abs": 0.0,
+      "mae": 0.0,
+      "peak_bytes": 11099127296
+    },
+    {
+      "arm": "baseline",
+      "repeat": 0,
+      "warmup": false,
+      "ms": 6209.263844997622,
+      "installed": false,
+      "shape": [
+        1,
+        3,
+        124,
+        512,
+        768
+      ],
+      "dtype": "torch.float32",
+      "sha256": "904fd0ac28afabff75aabb050de8ae2ccd1d032c4e67cd1126d251f3a742eb80",
+      "exact": true,
+      "max_abs": 0.0,
+      "mae": 0.0,
+      "peak_bytes": 11099127296
+    },
+    {
+      "arm": "baseline",
+      "repeat": 1,
+      "warmup": false,
+      "ms": 6218.157269060612,
+      "installed": false,
+      "shape": [
+        1,
+        3,
+        124,
+        512,
+        768
+      ],
+      "dtype": "torch.float32",
+      "sha256": "904fd0ac28afabff75aabb050de8ae2ccd1d032c4e67cd1126d251f3a742eb80",
+      "exact": true,
+      "max_abs": 0.0,
+      "mae": 0.0,
+      "peak_bytes": 11099127296
+    },
+    {
+      "arm": "sm120",
+      "repeat": -1,
+      "warmup": true,
+      "ms": 4898.924113949761,
+      "installed": true,
+      "shape": [
+        1,
+        3,
+        124,
+        512,
+        768
+      ],
+      "dtype": "torch.float32",
+      "sha256": "904fd0ac28afabff75aabb050de8ae2ccd1d032c4e67cd1126d251f3a742eb80",
+      "exact": true,
+      "max_abs": 0.0,
+      "mae": 0.0,
+      "peak_bytes": 6263275008
+    },
+    {
+      "arm": "sm120",
+      "repeat": 0,
+      "warmup": false,
+      "ms": 4613.870849017985,
+      "installed": true,
+      "shape": [
+        1,
+        3,
+        124,
+        512,
+        768
+      ],
+      "dtype": "torch.float32",
+      "sha256": "904fd0ac28afabff75aabb050de8ae2ccd1d032c4e67cd1126d251f3a742eb80",
+      "exact": true,
+      "max_abs": 0.0,
+      "mae": 0.0,
+      "peak_bytes": 6263275008
+    },
+    {
+      "arm": "sm120",
+      "repeat": 1,
+      "warmup": false,
+      "ms": 4636.482689995319,
+      "installed": true,
+      "shape": [
+        1,
+        3,
+        124,
+        512,
+        768
+      ],
+      "dtype": "torch.float32",
+      "sha256": "904fd0ac28afabff75aabb050de8ae2ccd1d032c4e67cd1126d251f3a742eb80",
+      "exact": true,
+      "max_abs": 0.0,
+      "mae": 0.0,
+      "peak_bytes": 6263275008
+    }
+  ]
+}

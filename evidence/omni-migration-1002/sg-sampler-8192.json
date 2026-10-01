@@ -1,0 +1,44 @@
+{
+  "scope": "SGLang Diffusion ComfyUI integrated H3 Larry8 DiT sampler; excludes VAE/export",
+  "split": 8192,
+  "torch": "2.13.0+cu130",
+  "gpu": "NVIDIA GeForce RTX 5090 D v2",
+  "records": [
+    {
+      "repeat": -1,
+      "warmup": true,
+      "ms": 43436.90979399253,
+      "sha256": [
+        "4a895fb5aa97adfb5b4a29b2122bbdc7418c3e5da69eef0472a7ef70a451621f",
+        "0977ad1be06568efab37b534edb1294154eea9fe04ac8e820959bc84f7e59bd9"
+      ]
+    },
+    {
+      "repeat": 0,
+      "warmup": false,
+      "ms": 32904.75574799348,
+      "sha256": [
+        "4a895fb5aa97adfb5b4a29b2122bbdc7418c3e5da69eef0472a7ef70a451621f",
+        "0977ad1be06568efab37b534edb1294154eea9fe04ac8e820959bc84f7e59bd9"
+      ]
+    },
+    {
+      "repeat": 1,
+      "warmup": false,
+      "ms": 32915.95045698341,
+      "sha256": [
+        "4a895fb5aa97adfb5b4a29b2122bbdc7418c3e5da69eef0472a7ef70a451621f",
+        "0977ad1be06568efab37b534edb1294154eea9fe04ac8e820959bc84f7e59bd9"
+      ]
+    },
+    {
+      "repeat": 2,
+      "warmup": false,
+      "ms": 32947.31729698833,
+      "sha256": [
+        "4a895fb5aa97adfb5b4a29b2122bbdc7418c3e5da69eef0472a7ef70a451621f",
+        "0977ad1be06568efab37b534edb1294154eea9fe04ac8e820959bc84f7e59bd9"
+      ]
+    }
+  ]
+}

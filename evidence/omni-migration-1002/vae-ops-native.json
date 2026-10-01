@@ -1,0 +1,76 @@
+{
+  "scope": "vLLM-Omni actual runtime exact VAE operators on SM120; not full decoder",
+  "torch": "2.13.0+cu130",
+  "triton": "3.7.1",
+  "gpu": "NVIDIA GeForce RTX 5090 D v2",
+  "rows": [
+    {
+      "op": "scaled_residual",
+      "rows": 195,
+      "exact": true,
+      "max_abs": 0.0,
+      "base_ms": 0.010275200009346008,
+      "opt_ms": 0.01820159927010536
+    },
+    {
+      "op": "qk_norm_rope",
+      "rows": 195,
+      "exact": true,
+      "max_abs": 0.0,
+      "different_fraction": 0.0,
+      "base_ms": 0.10243200063705445,
+      "opt_ms": 0.031948800384998324
+    },
+    {
+      "op": "scaled_residual",
+      "rows": 1797,
+      "exact": true,
+      "max_abs": 0.0,
+      "base_ms": 0.019632000476121902,
+      "opt_ms": 0.018016000092029572
+    },
+    {
+      "op": "qk_norm_rope",
+      "rows": 1797,
+      "exact": true,
+      "max_abs": 0.0,
+      "different_fraction": 0.0,
+      "base_ms": 0.17289600372314454,
+      "opt_ms": 0.03173760026693344
+    },
+    {
+      "op": "scaled_residual",
+      "rows": 8192,
+      "exact": true,
+      "max_abs": 0.0,
+      "base_ms": 0.22379199266433714,
+      "opt_ms": 0.11955199837684631
+    },
+    {
+      "op": "qk_norm_rope",
+      "rows": 8192,
+      "exact": true,
+      "max_abs": 0.0,
+      "different_fraction": 0.0,
+      "base_ms": 0.8839168071746826,
+      "opt_ms": 0.1002303957939148
+    },
+    {
+      "op": "scaled_residual",
+      "rows": 32768,
+      "exact": true,
+      "max_abs": 0.0,
+      "base_ms": 1.0601567745208742,
+      "opt_ms": 0.5791743993759155
+    },
+    {
+      "op": "qk_norm_rope",
+      "rows": 32768,
+      "exact": true,
+      "max_abs": 0.0,
+      "different_fraction": 0.0,
+      "base_ms": 5.608380889892578,
+      "opt_ms": 0.5110111951828002
+    }
+  ]
+}

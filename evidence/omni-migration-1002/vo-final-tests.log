@@ -1,0 +1,19 @@
+.....................................................................    [100%]
+=============================== warnings summary ===============================
+../vo-env/lib/python3.12/site-packages/torch/jit/_script.py:365: 14 warnings
+  /tmp/h3-omni-1002/vo-env/lib/python3.12/site-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+vllm_omni/__init__.py:22
+  /tmp/h3-omni-1002/vllm-omni/vllm_omni/__init__.py:22: RuntimeWarning: Failed to import version from _version.py: No module named 'vllm_omni._version'
+  This typically happens in development mode before building.
+  Using fallback version 'dev'.
+    from .version import __version__, __version_tuple__  # isort:skip # noqa: F401
+
+../vo-env/lib/python3.12/site-packages/flashinfer/cute_dsl/availability.py:135
+  /tmp/h3-omni-1002/vo-env/lib/python3.12/site-packages/flashinfer/cute_dsl/availability.py:135: DeprecationWarning: Arch from arch.py is deprecated. Use Arch from enums.py instead.
+    from cutlass.base_dsl.arch import Arch
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+--- Running Summary
+69 passed, 16 warnings in 3.22s

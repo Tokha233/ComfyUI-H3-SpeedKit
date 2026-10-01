@@ -1,0 +1,113 @@
+{
+  "scope": "one public 768x512 124frame Larry8 Ref2VA fixture; same shared INT8 video VAE and FP32 audio VAE; no BF16 teacher run",
+  "records": [
+    {
+      "name": "comfy",
+      "decode_seconds": 4.037533130962402,
+      "latent_video": {
+        "exact": true,
+        "mae": 0.0,
+        "rmse": 0.0,
+        "max_abs": 0.0,
+        "cosine": 0.9999999999998108
+      },
+      "latent_audio": {
+        "exact": true,
+        "mae": 0.0,
+        "rmse": 0.0,
+        "max_abs": 0.0,
+        "cosine": 1.0000000000000018
+      },
+      "rgb": {
+        "exact": true,
+        "mae": 0.0,
+        "rmse": 0.0,
+        "max_abs": 0.0,
+        "cosine": 0.9999999999999999
+      },
+      "pcm": {
+        "exact": true,
+        "mae": 0.0,
+        "rmse": 0.0,
+        "max_abs": 0.0,
+        "cosine": 0.9999999999999574
+      },
+      "video_ssim_mean": 1.0,
+      "video_ssim_min": 1.0,
+      "video_psnr": "inf",
+      "audio_magnitude_spectral_cosine": 1.000000000000016
+    },
+    {
+      "name": "sg_original",
+      "decode_seconds": 2.3639882979914546,
+      "latent_video": {
+        "exact": false,
+        "mae": 0.3352808061110894,
+        "rmse": 0.5003137889464909,
+        "max_abs": 5.273582935333252,
+        "cosine": 0.9129078665469941
+      },
+      "latent_audio": {
+        "exact": false,
+        "mae": 0.6404221529072986,
+        "rmse": 0.8235332989731552,
+        "max_abs": 3.232961595058441,
+        "cosine": 0.2130902168278611
+      },
+      "rgb": {
+        "exact": false,
+        "mae": 23.277726156309942,
+        "rmse": 37.65701980113738,
+        "max_abs": 250.0,
+        "cosine": 0.9503525262756831
+      },
+      "pcm": {
+        "exact": false,
+        "mae": 0.17530775625576672,
+        "rmse": 0.27803943036609746,
+        "max_abs": 1.6390703916549683,
+        "cosine": 0.02767684193616324
+      },
+      "video_ssim_mean": 0.6553920076478662,
+      "video_ssim_min": 0.6123097491782112,
+      "video_psnr": 16.61388467431996,
+      "audio_magnitude_spectral_cosine": 0.12951387388923347
+    },
+    {
+      "name": "sg_no_slope",
+      "decode_seconds": 2.3989277119981125,
+      "latent_video": {
+        "exact": false,
+        "mae": 0.4790725959671159,
+        "rmse": 0.6808459681934735,
+        "max_abs": 4.949572563171387,
+        "cosine": 0.83800964765174
+      },
+      "latent_audio": {
+        "exact": false,
+        "mae": 0.49828222109947995,
+        "rmse": 0.6517779573626288,
+        "max_abs": 2.9686355590820312,
+        "cosine": 0.3632351357481183
+      },
+      "rgb": {
+        "exact": false,
+        "mae": 34.64953802648838,
+        "rmse": 52.44033821590095,
+        "max_abs": 255.0,
+        "cosine": 0.9041870047019274
+      },
+      "pcm": {
+        "exact": false,
+        "mae": 0.1715253118384604,
+        "rmse": 0.26408298734717595,
+        "max_abs": 1.5719284415245056,
+        "cosine": 0.03634436684362549
+      },
+      "video_ssim_mean": 0.523042052768709,
+      "video_ssim_min": 0.5033678647787589,
+      "video_psnr": 13.73749392817103,
+      "audio_magnitude_spectral_cosine": 0.1947364752996742
+    }
+  ]
+}

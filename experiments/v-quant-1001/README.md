@@ -4,7 +4,7 @@ These files preserve the actual 2026-10-01 laboratory scripts and outputs. They 
 
 - Kitchen Python and base attention/V source: `12389a30463c62c93670b049d59bf3fa56c0316d`.
 - Candidate V source: Kitchen #231 `6dd6f95a7d4b8fd9ea1d6b72a695b513c2ac045c`; both exact V source files are archived here.
-- Common object build: integration snapshot `8710121`, from the sibling `upstream-1001/build_combined_clean.py`; base attention launcher is separately rebuilt from `12389a3`.
+- Common object build: integration snapshot `8710121`, subsequently `2be5d18` (nonpositive-scale fix), from the sibling `upstream-1001/build_combined_clean.py`; base attention launcher is separately rebuilt from `12389a3`.
 - ComfyUI: `8cfe5e1ecb97512dea8deaac15e1228d7e6feeb1`.
 - GPU: RTX 5090 D v2; Torch 2.12.0+cu130; CUDA compiler 13.0.88; aimdo 0.5.5.
 - Weights SHA256: `422dffed547dbe9d1e693ace73ee66c85cdf7fc62bb5514973851aa6f84547dc`.
