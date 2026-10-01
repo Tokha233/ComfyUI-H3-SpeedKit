@@ -22,10 +22,10 @@ INT8 VAE 差异很小，但不是像素完全相同。DiT 融合保留的是**�
 
 **公开输入复验：** 768×512、124 帧、公开 Larry 合并权重，**19.31 → 16.76 秒（−13.19%）**，四项输出 SHA 一致。首次逐层验证不计入正式时间，见[单独数据](evidence/public-input-medium.json)。
 
-**上游贡献：** 已提交[三个独立 Kitchen PR](docs/KITCHEN-UPSTREAM-PRS-20260930.zh-CN.md)，
-附源码、回归测试和原始实测。新增的 [Indexed Gate 实验节点](docs/INDEXED-GATE.md)
+**上游贡献：** 当前[11 个 Kitchen/ComfyUI PR 开放中，9 个非 Draft、2 个等待依赖发布](docs/KITCHEN-H3-NEXT-20261001.zh-CN.md)，
+附源码、回归测试和原始实测。10/1 新审计包含 GEMM 调度、VAE 算子与最新少步模型；新候选尚无本项目新增 GPU 实测。新增的 [Indexed Gate 实验节点](docs/INDEXED-GATE.md)
 可以单独验证 #219 的完整 H3 收益；需源码编译尚未合并的 PR，与完整 Optimize DiT 节点二选一。
-三个 PR 仅覆盖部分优化；[整套 6.49% DiT 方案的上游拆分与剩余工作](docs/FULL-UPSTREAM-PLAN.zh-CN.md)。
+各 PR 的范围与收益不能相加；[整套 6.49% DiT 方案的上游拆分与剩余工作](docs/FULL-UPSTREAM-PLAN.zh-CN.md)。
 
 ## 安装与接入
 

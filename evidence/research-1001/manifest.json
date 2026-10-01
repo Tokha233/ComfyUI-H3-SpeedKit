@@ -1,0 +1,492 @@
+{
+  "checked_at": "2026-10-01T15:17:32+08:00",
+  "scope": "Source audit and public research; no new GPU benchmarks this turn. PR metadata updated; runtime code unchanged.",
+  "kitchen_main": "12389a30463c62c93670b049d59bf3fa56c0316d",
+  "miowtion_main": "45866c809db9167892b54915dbf9ef2ccc2dd56a",
+  "longlive_main": "fb16a879f46e604df4a0ca48ce2bf45adfa90352",
+  "libraries": [
+    {
+      "name": "comfy-kitchen",
+      "version": "0.2.36",
+      "first_upload_utc": "2026-09-29T00:46:45.064955Z",
+      "url": "https://pypi.org/project/comfy-kitchen/"
+    },
+    {
+      "name": "torch",
+      "version": "2.14.1",
+      "first_upload_utc": "2026-09-30T17:43:48.426734Z",
+      "url": "https://pypi.org/project/torch/"
+    },
+    {
+      "name": "triton",
+      "version": "3.8.0",
+      "first_upload_utc": "2026-08-28T15:55:34.877566Z",
+      "url": "https://pypi.org/project/triton/"
+    },
+    {
+      "name": "flashinfer-python",
+      "version": "0.7.0.post1",
+      "first_upload_utc": "2026-09-29T23:34:11.137532Z",
+      "url": "https://pypi.org/project/flashinfer-python/"
+    },
+    {
+      "name": "comfy-aimdo",
+      "version": "0.5.5",
+      "first_upload_utc": "2026-09-15T08:52:07.915241Z",
+      "url": "https://pypi.org/project/comfy-aimdo/"
+    }
+  ],
+  "models": [
+    {
+      "id": "Kijai/MiniMax-H3-experimental",
+      "revision": "294f771095af5b03c38a26aab3ad6498b88092b2",
+      "last_modified_utc": "2026-10-01T00:33:29.000Z",
+      "url": "https://huggingface.co/Kijai/MiniMax-H3-experimental",
+      "metadata_sha256": "a5621139b7ccefa7f2a137b239941c970683531e829762d7fdbb3dfed56e6019"
+    },
+    {
+      "id": "Iwannapose/minimax_h3_pdmd_2nfe_comfyui",
+      "revision": "3acb11d6f9bc65e68bb907a5c6b596cd719c4360",
+      "last_modified_utc": "2026-09-30T21:50:41.000Z",
+      "url": "https://huggingface.co/Iwannapose/minimax_h3_pdmd_2nfe_comfyui",
+      "metadata_sha256": "7b958e0d51461b73700cd5c2bbd5a372f3fc45faaf8978a350407dfbbcc889de"
+    },
+    {
+      "id": "Iwannapose/minimax_h3_pdmd_4nfe_comfyui",
+      "revision": "ae6ab62d28754b9ce052798b92d9567161568f28",
+      "last_modified_utc": "2026-09-30T19:45:44.000Z",
+      "url": "https://huggingface.co/Iwannapose/minimax_h3_pdmd_4nfe_comfyui",
+      "metadata_sha256": "e5316700ba4f1888180baea0980c3a963790af32d0d5f882c4dad6624fcf88a2"
+    },
+    {
+      "id": "Efficient-Large-Model/LongLive-Plug-MiniMax-H3-few-step",
+      "revision": "b3686f432d3f20d6d6462a91d4c09ba7f189c0a2",
+      "last_modified_utc": "2026-09-29T15:16:16.000Z",
+      "url": "https://huggingface.co/Efficient-Large-Model/LongLive-Plug-MiniMax-H3-few-step",
+      "metadata_sha256": "ad26edb7e84d3f8843de9ce9dcf9f27c74d2096ca6d65516857f39abfdd014c0"
+    },
+    {
+      "id": "Veda-Sparse/Minimax-H3-T2VA-Veda-8NFE-600Step-Preview",
+      "revision": "9a1fd3a41b4a754a7886e64e82edbddf599fd1bd",
+      "last_modified_utc": "2026-09-30T16:31:52.000Z",
+      "url": "https://huggingface.co/Veda-Sparse/Minimax-H3-T2VA-Veda-8NFE-600Step-Preview",
+      "metadata_sha256": "4afd3770eb5b90eb9160619f1d9136d88b84a1d61d3a5c668863fb828476ab98"
+    },
+    {
+      "id": "corechan/MiniMax-H3-LightVAE",
+      "revision": "84081676120e276393ef6eb4c62a5b6cb5320ca8",
+      "last_modified_utc": "2026-10-01T03:43:01.000Z",
+      "url": "https://huggingface.co/corechan/MiniMax-H3-LightVAE",
+      "metadata_sha256": "3f97abc7b479608832ed235676234cd1b9e40be65bdcd2ca104752cc8252141c"
+    },
+    {
+      "id": "zhangccccc/Minimax_h3_latent_Upscaler",
+      "revision": "ad466b5904c0d4b1c00f9e7b9331c0ff8bc50c59",
+      "last_modified_utc": "2026-09-29T06:03:11.000Z",
+      "url": "https://huggingface.co/zhangccccc/Minimax_h3_latent_Upscaler",
+      "metadata_sha256": "bd0fb9e3c4cd19d5c8f9c62e55e454c59667ead7bce13e59f7ba1e35ca3e91d8"
+    },
+    {
+      "id": "Efficient-Large-Model/SoL-Refiner-LTX-2.5-for-MiniMax-H3",
+      "revision": "4655337474c1c77fb52e9ac55111552e625e779c",
+      "last_modified_utc": "2026-09-28T13:06:09.000Z",
+      "url": "https://huggingface.co/Efficient-Large-Model/SoL-Refiner-LTX-2.5-for-MiniMax-H3",
+      "metadata_sha256": "1341e38e530e319a5091d25db6967dc92fb5d26ad383b9b0ad34a68c1f3e20e3"
+    },
+    {
+      "id": "fbjr/h3-mutant-distill",
+      "revision": "b087870f8fb7a1799a8d1ee64a945cfa16642133",
+      "last_modified_utc": "2026-09-28T20:45:53.000Z",
+      "url": "https://huggingface.co/fbjr/h3-mutant-distill",
+      "metadata_sha256": "95349d4e940a05b762787a2cf46a7abf31fa73d82e1089200e8ebea822d917ff"
+    },
+    {
+      "id": "Raretutor/vdn-minimax-h3-comfyui-int8-convrot",
+      "revision": "25f0d1568b30e784c7078ee30d4b420fff74b867",
+      "last_modified_utc": "2026-09-28T16:28:08.000Z",
+      "url": "https://huggingface.co/Raretutor/vdn-minimax-h3-comfyui-int8-convrot",
+      "metadata_sha256": "9b7dada342cc6756fa1c2de9dcc31cb8fa42e4d100f43714af1c9de90cd58d7a"
+    },
+    {
+      "id": "videorebirth/hyperflow",
+      "revision": "5bde94d7de3e78dafa2abc43ee2f280a1cb244e8",
+      "last_modified_utc": "2026-09-19T05:56:09.000Z",
+      "url": "https://huggingface.co/videorebirth/hyperflow",
+      "metadata_sha256": "03ec5f6875f745566bb80c41f9fd4ffde29b1640623e73761a25c3cf3bec8149"
+    },
+    {
+      "id": "pdmd2026/pdmd_2NFE_lora",
+      "revision": "81337b00001673e5385e72ef9664bf3d40450866",
+      "last_modified_utc": "2026-09-30T06:26:46.000Z",
+      "url": "https://huggingface.co/pdmd2026/pdmd_2NFE_lora",
+      "metadata_sha256": "92d4e07206aee6a9d1a62b422b48e24566cfb00000f30f8dc9b12817d67c3aec"
+    },
+    {
+      "id": "pdmd2026/pdmd_4NFE_lora",
+      "revision": "770549ddea40bdf37e455fa970271e16742844be",
+      "last_modified_utc": "2026-09-30T06:26:45.000Z",
+      "url": "https://huggingface.co/pdmd2026/pdmd_4NFE_lora",
+      "metadata_sha256": "d1e857645efd8d1b3b19283d8260d92ba353c2bed35e9c75ea0550901500cca9"
+    },
+    {
+      "id": "stdstu123/LynnReal-Onmi-light-vae",
+      "revision": "3af3330d1b467e4e919f5db691f3e8681999e2ec",
+      "last_modified_utc": "2026-09-22T06:52:55.000Z",
+      "url": "https://huggingface.co/stdstu123/LynnReal-Onmi-light-vae",
+      "metadata_sha256": "d2be9958064d61eebe9689c6c2660a2dbc03c66f0e42881546c495c2cfa56de9"
+    },
+    {
+      "id": "larryvrh/MiniMax-H3-Turbo-Lora",
+      "revision": "43a74557ac3f6539db8e0f2a959d03feb7a81480",
+      "last_modified_utc": "2026-08-08T20:07:30.000Z",
+      "url": "https://huggingface.co/larryvrh/MiniMax-H3-Turbo-Lora",
+      "metadata_sha256": "e2f3652803a223fd091183ad143764d41d430c7767c293a3a5f2cf735f0a23e0"
+    },
+    {
+      "id": "LBH-123-AI/Minimax_h3_latent_Upscaler",
+      "revision": "3f941d5d182014dd5c0a5e16330420ee2d4aa0c6",
+      "last_modified_utc": "2026-09-17T12:01:05.000Z",
+      "url": "https://huggingface.co/LBH-123-AI/Minimax_h3_latent_Upscaler",
+      "metadata_sha256": "76c3f96003b16ada5adee90bf913d033778f58e25ab89c228cd37931805ab831"
+    },
+    {
+      "id": "Beidouqixing/minimax-h3-4step-lora-flashgen",
+      "revision": "d0acd0f31dedf1adc2508a4e50c31a41329648c6",
+      "last_modified_utc": "2026-09-22T09:23:38.000Z",
+      "url": "https://huggingface.co/Beidouqixing/minimax-h3-4step-lora-flashgen",
+      "metadata_sha256": "bce9cfc2aa61e7099180c3b0c9920964d90a5b07f5e97e48f0ec85677381d029"
+    },
+    {
+      "id": "alibaba-pai/MiniMax-H3-Acc-LoRAs",
+      "revision": "335001fb9e5455d68a0caa18ec2e319072150328",
+      "last_modified_utc": "2026-08-27T06:13:51.000Z",
+      "url": "https://huggingface.co/alibaba-pai/MiniMax-H3-Acc-LoRAs",
+      "metadata_sha256": "461780b5be38f95c0ecb2eb4562f775712fd0657fb5a0b84e7fb8a2dcbf7f250"
+    },
+    {
+      "id": "OpenVDN/vdn-minimax-h3",
+      "revision": "50744d80bde8c1adbc5f37089f125e0e436bf7b0",
+      "last_modified_utc": "2026-09-19T21:40:23.000Z",
+      "url": "https://huggingface.co/OpenVDN/vdn-minimax-h3",
+      "metadata_sha256": "0ab3cf52a13101d374eacf32166c8e89d637b79044c635103bfef1380a82032e"
+    }
+  ],
+  "external_prs": [
+    {
+      "url": "https://github.com/sgl-project/sglang/pull/34784",
+      "title": "[Diffusion] Fuse indexed RMSNorm and AdaLN for MiniMax H3",
+      "state": "closed",
+      "draft": false,
+      "head": "bbecf83ddea87669f8d1b7b3828af488c7a8d2fb",
+      "merged_at": null,
+      "updated_at": "2026-09-28T08:11:27Z",
+      "snapshot_sha256": "e03c747af74641dc890a63be4340debb10167de031ba6009a30da3c30257139e"
+    },
+    {
+      "url": "https://github.com/sgl-project/sglang/pull/37662",
+      "title": "[diffusion] perf: FastH3 8-Step V2 native support, native Blackwell VSA, batched H3 VAE decode",
+      "state": "open",
+      "draft": false,
+      "head": "ead463aa2f7306ee7925d544286787fdf197cb84",
+      "merged_at": null,
+      "updated_at": "2026-10-01T06:55:07Z",
+      "snapshot_sha256": "0df364106acef5fd925b7be551ce833b501544123e4ab82947640d49d43ce354"
+    },
+    {
+      "url": "https://github.com/sgl-project/sglang/pull/41819",
+      "title": "[diffusion] Encode the MP4 while the VAE decodes (MiniMax-H3, Wan)",
+      "state": "open",
+      "draft": false,
+      "head": "1fc8506359664a49a006d7e9d6c8215b9d20b00a",
+      "merged_at": null,
+      "updated_at": "2026-10-01T04:33:51Z",
+      "snapshot_sha256": "92f36fada33ca73a0ae8cf454295a688f6cc6267be37ebc5fa765ec5636c2bea"
+    },
+    {
+      "url": "https://github.com/sgl-project/sglang/pull/41906",
+      "title": " [Diffusion] MiniMax-H3 fuse the video VAE decoder's RMSNorm and QK RoPE",
+      "state": "open",
+      "draft": false,
+      "head": "de9a38a4644b038df1802635483d4f1146c4c4b3",
+      "merged_at": null,
+      "updated_at": "2026-10-01T06:56:04Z",
+      "snapshot_sha256": "bf5f62571edfa3f48e00b6c2c51191e7ed8e89d79cf45f4c93c03596ce1cc1ab"
+    },
+    {
+      "url": "https://github.com/sgl-project/sglang/pull/41965",
+      "title": "[Diffusion][MiniMax-H3] Fix int32 offset overflow in SubBlock router kernels",
+      "state": "open",
+      "draft": false,
+      "head": "e79f2f6dd2200c39ed8adbdbb9adc1a34952b788",
+      "merged_at": null,
+      "updated_at": "2026-10-01T05:13:56Z",
+      "snapshot_sha256": "83192f828193d3d3f660f2daf7bf4c0a83078315605173ed81b51835c3892ba8"
+    },
+    {
+      "url": "https://github.com/sgl-project/sglang/pull/41985",
+      "title": "[Diffusion][MiniMax-H3] Route SubBlock sparse attention in head chunks",
+      "state": "open",
+      "draft": false,
+      "head": "e7f39c705982262182a0a3ce513413d3d5ed7f57",
+      "merged_at": null,
+      "updated_at": "2026-10-01T05:14:38Z",
+      "snapshot_sha256": "3b8c964acbb16dca2581613616f259233532e020a67eb4a754b37082ddc3d235"
+    },
+    {
+      "url": "https://github.com/vllm-project/vllm-omni/pull/6131",
+      "title": "[Perf][MiniMax-H3] Add online FP8 path for video VAE decoder",
+      "state": "open",
+      "draft": false,
+      "head": "9fa1bba2f216644a7396a04abb4a135cf54b8c38",
+      "merged_at": null,
+      "updated_at": "2026-10-01T00:15:02Z",
+      "snapshot_sha256": "e5e170ca2d726eb411bf5df4a919373fbb3208800e2073293721dbfef70e7d9a"
+    },
+    {
+      "url": "https://github.com/vllm-project/vllm-omni/pull/6894",
+      "title": "[Model] MiniMax-H3: Support Comfy INT8 ConvRot checkpoints",
+      "state": "open",
+      "draft": false,
+      "head": "d4e56d28d61b2bc218a5549bfe81f224ce2da964",
+      "merged_at": null,
+      "updated_at": "2026-09-30T23:05:37Z",
+      "snapshot_sha256": "56df5610a6824a0334df7af56864516489f03b26bd395654773231e3bf9dd7df"
+    },
+    {
+      "url": "https://github.com/vllm-project/vllm-omni/pull/7711",
+      "title": "[Kernel] Use fused SVDQuant kernels for MiniMax H3 inference",
+      "state": "open",
+      "draft": false,
+      "head": "cd4ebde60a20543d86d3ecb3a4edb78bb115fecb",
+      "merged_at": null,
+      "updated_at": "2026-10-01T03:50:39Z",
+      "snapshot_sha256": "b784055489531fa6523c442094e32b85f3b5bcf3dec4f0a6d024b6aa4a38b018"
+    },
+    {
+      "url": "https://github.com/vllm-project/vllm-omni/pull/8072",
+      "title": "[Model] Optimize MiniMax-H3 reference KV caching",
+      "state": "open",
+      "draft": false,
+      "head": "6de9a18572ba3211fc33f47c8e5beaea8d895e98",
+      "merged_at": null,
+      "updated_at": "2026-10-01T00:37:26Z",
+      "snapshot_sha256": "d297a88ca821ff51a003a4274bcd1303597025e104ce13f1406eacca68231803"
+    },
+    {
+      "url": "https://github.com/vllm-project/vllm-omni/pull/8268",
+      "title": "[Model] TaoMate-H3: real-time streaming MiniMax-H3 LoRA pipeline (two-GPU and four-GPU configs)",
+      "state": "open",
+      "draft": false,
+      "head": "14e6a7413e76b9cad93496caf0b433e869b6f99d",
+      "merged_at": null,
+      "updated_at": "2026-10-01T00:03:50Z",
+      "snapshot_sha256": "098ce228a5ef3aace33eb5c4c0d6af69a175a9ac682b88d360d5c7e5360a35e2"
+    },
+    {
+      "url": "https://github.com/vllm-project/vllm-omni/pull/8322",
+      "title": "[Model] Add MiniMax-H3 latent super-resolution and hi-res refinement",
+      "state": "closed",
+      "draft": false,
+      "head": "d8e693c4e56f6e169c08d30c313cfe569c61689f",
+      "merged_at": "2026-10-01T06:24:41Z",
+      "updated_at": "2026-10-01T06:24:41Z",
+      "snapshot_sha256": "0b33b3976071e5fd63d4898b7b663f6273282fe96345962bbf8decf16eba2f7e"
+    },
+    {
+      "url": "https://github.com/flashinfer-ai/flashinfer/pull/5660",
+      "title": "feat(cake_nvfp4_attn): opt-in uncompensated (nodelta) NVFP4 varlen attention variant for MiniMax-H3 SM120",
+      "state": "open",
+      "draft": false,
+      "head": "425126a23a63d993006de5da738fd945d7db911b",
+      "merged_at": null,
+      "updated_at": "2026-09-30T07:19:43Z",
+      "snapshot_sha256": "dc9d686562d6fdbd1bfc0adffae57cd60a30964b69d801b5e9ca5d23bcb22773"
+    },
+    {
+      "url": "https://github.com/ModelTC/LightX2V/pull/1528",
+      "title": "feat(minimax-h3): add VDN inference and parallel",
+      "state": "open",
+      "draft": false,
+      "head": "f47c841c651e32e07bcf0cccd46db2f334a30448",
+      "merged_at": null,
+      "updated_at": "2026-09-26T07:07:35Z",
+      "snapshot_sha256": "7f7a316a501a052b9238d0ac8fd725a92b09454fb14ab08def3b4d9245be0b3b"
+    },
+    {
+      "url": "https://github.com/ModelTC/LightX2V/pull/1570",
+      "title": "Refactor contiguous block offload and organize model launchers",
+      "state": "open",
+      "draft": false,
+      "head": "61aec061e5a75877897788b5eaf9abda1d0108d3",
+      "merged_at": null,
+      "updated_at": "2026-09-30T12:23:16Z",
+      "snapshot_sha256": "1942d0266e353bbb2d29ed0674cc5977e87d21b9b2e1afd5b431853dccf9ed24"
+    }
+  ],
+  "our_pr_status": [
+    {
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/217",
+      "state": "open",
+      "draft": false,
+      "converted_this_turn": false,
+      "verification": "public API snapshot"
+    },
+    {
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/218",
+      "state": "open",
+      "draft": false,
+      "converted_this_turn": false,
+      "verification": "public API snapshot"
+    },
+    {
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/219",
+      "state": "open",
+      "draft": false,
+      "converted_this_turn": false,
+      "verification": "public API snapshot"
+    },
+    {
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/220",
+      "state": "open",
+      "draft": false,
+      "converted_this_turn": true,
+      "verification": "public API snapshot"
+    },
+    {
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/221",
+      "state": "open",
+      "draft": false,
+      "converted_this_turn": true,
+      "verification": "public API snapshot"
+    },
+    {
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/222",
+      "state": "open",
+      "draft": false,
+      "converted_this_turn": true,
+      "verification": "authenticated GitHub page"
+    },
+    {
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/223",
+      "state": "open",
+      "draft": false,
+      "converted_this_turn": true,
+      "verification": "authenticated GitHub page"
+    },
+    {
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/224",
+      "state": "open",
+      "draft": false,
+      "converted_this_turn": false,
+      "verification": "public API snapshot"
+    },
+    {
+      "url": "https://github.com/Comfy-Org/ComfyUI/pull/16677",
+      "state": "open",
+      "draft": false,
+      "converted_this_turn": false,
+      "verification": "public API snapshot"
+    },
+    {
+      "url": "https://github.com/Comfy-Org/ComfyUI/pull/16678",
+      "state": "open",
+      "draft": true,
+      "converted_this_turn": false,
+      "verification": "public API snapshot"
+    },
+    {
+      "url": "https://github.com/Comfy-Org/ComfyUI/pull/16681",
+      "state": "open",
+      "draft": true,
+      "converted_this_turn": false,
+      "verification": "public API snapshot"
+    }
+  ],
+  "source_hashes": [
+    {
+      "file": "kitchen-prs.json",
+      "sha256": "ca7db3b2cb7dea87e6788144e20b95e22c71408a81910fd54c6229a0b33ea552"
+    },
+    {
+      "file": "pypi-kitchen.json",
+      "sha256": "46ccbc97eaf1e623ca86f2ee208c6849dc19d50006455b593e6172f4b10281fb"
+    },
+    {
+      "file": "pypi-torch.json",
+      "sha256": "8cf0a8e76b6d0faee13fa56c57937f36db68ca7bd5d1cdf17c3b4357a4b65f13"
+    },
+    {
+      "file": "pypi-triton.json",
+      "sha256": "670244849971df7101d486c5a6f30dc550a72d6f0ffee9b95e137a6d7d11ee33"
+    },
+    {
+      "file": "pypi-flashinfer.json",
+      "sha256": "0c171867277d66ba4b3d05bb3dcdbbe1fad2798c90bc1997198f60ce3d6d86c2"
+    },
+    {
+      "file": "pypi-aimdo.json",
+      "sha256": "86da42b162bc154ca6b09087e57cfa722b8b549e72c23ff802ec92034b552678"
+    },
+    {
+      "file": "original-0-info.json",
+      "sha256": "92d4e07206aee6a9d1a62b422b48e24566cfb00000f30f8dc9b12817d67c3aec"
+    },
+    {
+      "file": "original-1-info.json",
+      "sha256": "d1e857645efd8d1b3b19283d8260d92ba353c2bed35e9c75ea0550901500cca9"
+    },
+    {
+      "file": "model-3-info.json",
+      "sha256": "ad26edb7e84d3f8843de9ce9dcf9f27c74d2096ca6d65516857f39abfdd014c0"
+    },
+    {
+      "file": "model-4-info.json",
+      "sha256": "4afd3770eb5b90eb9160619f1d9136d88b84a1d61d3a5c668863fb828476ab98"
+    },
+    {
+      "file": "veda-pinned-fa4.py",
+      "sha256": "e7c9c397b907cf31a000f240782cb6cff0a8c59c9930b0a809f7888e0a9dd6f3"
+    },
+    {
+      "file": "veda-sm8x-init.py",
+      "sha256": "25c763c0018b6c39f97428a2c8214652faf4043579dce805ffd559b0ef4b2b3b"
+    },
+    {
+      "file": "longlive-pinned-readme.md",
+      "sha256": "2a270bdd265246237c733ec18d7da868ecf3aa95afda002d5b586ef86f97c2f3"
+    },
+    {
+      "file": "longlive-source_snapshot_minimax_h3_infer_student_4step.py",
+      "sha256": "3bbb180764ef744791065e172acf759b65f8ff7b8e85a3ac8cdc9ee59c738db3"
+    },
+    {
+      "file": "longlive-source_snapshot_minimax_h3_fresh_noise_scheduler_4step.py",
+      "sha256": "ae6d4887471edb94096be0d65dfcd850131f819620d35450a26289dd90a5dc8e"
+    },
+    {
+      "file": "sglang-41906.json",
+      "sha256": "bf5f62571edfa3f48e00b6c2c51191e7ed8e89d79cf45f4c93c03596ce1cc1ab"
+    },
+    {
+      "file": "sglang-41819.json",
+      "sha256": "92f36fada33ca73a0ae8cf454295a688f6cc6267be37ebc5fa765ec5636c2bea"
+    },
+    {
+      "file": "omni-8322.json",
+      "sha256": "0b33b3976071e5fd63d4898b7b663f6273282fe96345962bbf8decf16eba2f7e"
+    },
+    {
+      "file": "omni-8072.json",
+      "sha256": "d297a88ca821ff51a003a4274bcd1303597025e104ce13f1406eacca68231803"
+    },
+    {
+      "file": "flash-5660.json",
+      "sha256": "dc9d686562d6fdbd1bfc0adffae57cd60a30964b69d801b5e9ca5d23bcb22773"
+    }
+  ],
+  "limits": [
+    "Late GitHub public API requests were rate-limited; ready-state and saved descriptions of #222 and #223 verified in authenticated browser.",
+    "Repository lastModified is not proof of a new trained checkpoint.",
+    "Third-party speed measurements are not comparisons against this project baseline."
+  ]
+}
