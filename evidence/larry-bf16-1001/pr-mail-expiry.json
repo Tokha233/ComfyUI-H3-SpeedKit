@@ -1,0 +1,112 @@
+{
+  "checked_at": "2026-10-01T20:38:57.309611+08:00",
+  "merged_pr": {
+    "number": 16677,
+    "url": "https://github.com/Comfy-Org/ComfyUI/pull/16677",
+    "merged_at": "2026-10-01T12:04:56Z",
+    "merged_by": "kijai",
+    "merge_commit": "2d6b73283af2447bdd065ece4090b8c6b1784544"
+  },
+  "old_failures": [
+    {
+      "id": 36751114997,
+      "head": "20db23bf27795f2191dbeecce79be3c675838361",
+      "reason": "This workflow run required approval but was not approved before it expired.",
+      "job_count": 0,
+      "url": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36751114997"
+    },
+    {
+      "id": 36751114873,
+      "head": "20db23bf27795f2191dbeecce79be3c675838361",
+      "reason": "This workflow run required approval but was not approved before it expired.",
+      "job_count": 0,
+      "url": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36751114873"
+    },
+    {
+      "id": 36751114926,
+      "head": "20db23bf27795f2191dbeecce79be3c675838361",
+      "reason": "This workflow run required approval but was not approved before it expired.",
+      "job_count": 0,
+      "url": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36751114926"
+    },
+    {
+      "id": 36751114840,
+      "head": "20db23bf27795f2191dbeecce79be3c675838361",
+      "reason": "This workflow run required approval but was not approved before it expired.",
+      "job_count": 0,
+      "url": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36751114840"
+    },
+    {
+      "id": 36751114833,
+      "head": "20db23bf27795f2191dbeecce79be3c675838361",
+      "reason": "This workflow run required approval but was not approved before it expired.",
+      "job_count": 0,
+      "url": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36751114833"
+    },
+    {
+      "id": 36751114951,
+      "head": "20db23bf27795f2191dbeecce79be3c675838361",
+      "reason": "This workflow run required approval but was not approved before it expired.",
+      "job_count": 0,
+      "url": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36751114951"
+    }
+  ],
+  "newer_runs": [
+    {
+      "id": 36819536011,
+      "name": "CLA Assistant",
+      "head_sha": "6349f943237d2f7640eb5bbd02516aca437589e0",
+      "conclusion": "success",
+      "updated_at": "2026-10-01T05:23:37Z",
+      "html_url": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36819536011"
+    },
+    {
+      "id": 36819536795,
+      "name": "Execution Tests",
+      "head_sha": "6349f943237d2f7640eb5bbd02516aca437589e0",
+      "conclusion": "success",
+      "updated_at": "2026-10-01T11:49:34Z",
+      "html_url": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36819536795"
+    },
+    {
+      "id": 36819536779,
+      "name": "Check AI Co-Authors",
+      "head_sha": "6349f943237d2f7640eb5bbd02516aca437589e0",
+      "conclusion": "success",
+      "updated_at": "2026-10-01T11:43:52Z",
+      "html_url": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36819536779"
+    },
+    {
+      "id": 36819536747,
+      "name": "Check for Windows Line Endings",
+      "head_sha": "6349f943237d2f7640eb5bbd02516aca437589e0",
+      "conclusion": "success",
+      "updated_at": "2026-10-01T11:43:55Z",
+      "html_url": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36819536747"
+    },
+    {
+      "id": 36819536952,
+      "name": "Test server launches without errors",
+      "head_sha": "6349f943237d2f7640eb5bbd02516aca437589e0",
+      "conclusion": "success",
+      "updated_at": "2026-10-01T11:45:14Z",
+      "html_url": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36819536952"
+    },
+    {
+      "id": 36819536840,
+      "name": "Python Linting",
+      "head_sha": "6349f943237d2f7640eb5bbd02516aca437589e0",
+      "conclusion": "success",
+      "updated_at": "2026-10-01T11:45:32Z",
+      "html_url": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36819536840"
+    },
+    {
+      "id": 36819536830,
+      "name": "Unit Tests",
+      "head_sha": "6349f943237d2f7640eb5bbd02516aca437589e0",
+      "conclusion": "success",
+      "updated_at": "2026-10-01T11:50:36Z",
+      "html_url": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36819536830"
+    }
+  ]
+}

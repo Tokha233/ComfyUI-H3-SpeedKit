@@ -78,7 +78,12 @@ minimax_h3_ref2va_pruned_bf16.safetensors
 
 ## 4. PR 当前进度
 
-本次重新读取 GitHub 状态及讨论：12 个 PR 仍开放，10 个 Ready、2 个 Draft，无合并。部分详细 API 请求遇到匿名限流，已用 GitHub 页面核对相应讨论；缺少的新检查状态未用旧快照填补。
+**20:35 更新：[#16677](https://github.com/Comfy-Org/ComfyUI/pull/16677) 已于 2026-10-01 20:04:56（北京时间）由 kijai 合并，merge commit `2d6b73283af2447bdd065ece4090b8c6b02a579f8`。当前 1 个已合并、11 个仍开放（9 Ready、2 Draft）。** 下表保留先前查询时的 head，16677 状态以本更新为准。
+
+刚出现的六条失败通知对应旧提交 `20db23b` 的未批准工作流，GitHub 注释均为 `This workflow run required approval but was not approved before it expired.`；六条均无实际 job。新提交 `6349f94` 的执行测试、Unit Tests、Lint、启动、换行及 AI co-author 检查均 success，无需为这些旧通知修改代码。证据见 [PR 邮件核查](../evidence/larry-bf16-1001/pr-mail-expiry.json)。
+
+
+19:23 查询时 GitHub 状态及讨论：12 个 PR 仍开放，10 个 Ready、2 个 Draft，无合并。部分详细 API 请求遇到匿名限流，已用 GitHub 页面核对相应讨论；缺少的新检查状态未用旧快照填补。
 
 | PR | 最新已推送 head | 状态与反馈 |
 |---|---|---|
@@ -91,7 +96,7 @@ minimax_h3_ref2va_pruned_bf16.safetensors
 | [Kitchen #223](https://github.com/Comfy-Org/comfy-kitchen/pull/223) 输入量化＋gate | `6bf0cb0` | Ready，ConvRot 超界回退意见已标记解决 |
 | [Kitchen #224](https://github.com/Comfy-Org/comfy-kitchen/pull/224) 非正 scale | `96b7062` | Ready，机器人无新增可操作意见 |
 | [Kitchen #227](https://github.com/Comfy-Org/comfy-kitchen/pull/227) D64 小 query tile | `5ff2a31` | Ready；本轮复审已完成，无新增可操作意见 |
-| [ComfyUI #16677](https://github.com/Comfy-Org/ComfyUI/pull/16677) embedding 生命周期 | `6349f94` | Ready；kijai 要求 helper scope 和精简测试，两项均已修改推送，15 tests passed |
+| [ComfyUI #16677](https://github.com/Comfy-Org/ComfyUI/pull/16677) embedding 生命周期 | `6349f94`（后由维护者同步 master） | **已合并**；kijai 要求 helper scope 和精简测试，两项均已修改推送；新提交 CI 通过 |
 | [ComfyUI #16678](https://github.com/Comfy-Org/ComfyUI/pull/16678) BSHD consumer | `c0ac30d` | Draft，等待 #220 API 发布与依赖 pin 更新 |
 | [ComfyUI #16681](https://github.com/Comfy-Org/ComfyUI/pull/16681) gate consumer | `251f911` | Draft，等待 #223／#219 API 发布与依赖 pin 更新 |
 

@@ -1,5 +1,7 @@
 # 2026-10-01：PDMD 与 Kitchen D64 实测
 
+> 20:35 状态更新：[ComfyUI #16677](https://github.com/Comfy-Org/ComfyUI/pull/16677) 已由 kijai 合并。共 1 merged、11 open（9 Ready、2 Draft）。旧提交的六条失败通知是未批准工作流过期，新提交 CI 通过。详见 [核查记录](LARRY-WEIGHT-LINEAGE-20261001.zh-CN.md#4-pr-当前进度)。
+
 本文记录 RTX 5090 D v2 / 24 GB 上新增的 PDMD Ref2VA 实验及 Kitchen 算子贡献。原部署仍为 Larry v4 8 步、INT8 DiT、已验收的 INT8 视频 decoder。实验容器独立运行，未替换服务。
 
 > 已完成两条 INT8 路径各 15 片段，原 BF16 和 8 步外推各 2 片段。逐片段标量以 [results.json](../evidence/pdmd-kitchen-1001/results.json) 为准。新增 [Kitchen PR #227](https://github.com/Comfy-Org/comfy-kitchen/pull/227) 为 SM120 D64 attention 小查询块。

@@ -62,7 +62,7 @@ Need regular IMAGE nodes for grading or upscaling? Keep standard VAE Decode and 
 
 [Every optimization and its numerical contract →](docs/MIGRATION-036.md) · [Historical experiments, including rejected approaches →](docs/R85-EXPERIMENTS.md)
 
-**Upstream work:** [12 open Kitchen/ComfyUI PRs: 10 ready for review and 2 drafts awaiting API releases](docs/PDMD-KITCHEN-TESTS-20261001.zh-CN.md).
+**Upstream work:** [ComfyUI #16677 merged by kijai](https://github.com/Comfy-Org/ComfyUI/pull/16677). [1 merged ComfyUI PR and 11 open Kitchen/ComfyUI PRs: 9 ready, 2 awaiting API releases](docs/PDMD-KITCHEN-TESTS-20261001.zh-CN.md).
 The October 1 audit also covers new GEMM scheduling, VAE kernel opportunities and recent H3 adapters; these research candidates have no new SpeedKit GPU benchmark yet.
 [October 1 integration test](docs/UPSTREAM-RECOVERY-TESTS-20261001.zh-CN.md): **15.737 → 14.201 s (−9.76% sampler time)** on a newer fixed Kitchen/ComfyUI baseline, with identical video/audio latent, RGB8 and PCM hashes. This experimental integration is separate from the released plugin benchmarks above.
 An optional [Indexed Gate node](docs/INDEXED-GATE.md)
