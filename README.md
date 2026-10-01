@@ -91,6 +91,6 @@ Built on [ComfyUI](https://github.com/Comfy-Org/ComfyUI), [Comfy Kitchen](https:
 
 Combined plugin: [GPL-3.0-or-later](LICENSE). Kernel and other file-level licenses are preserved in [NOTICE](NOTICE) and the [provenance index](evidence/kernel-provenance.json). MiniMax H3 weights have a separate community license with geographic and commercial conditions; obtain them under upstream terms. Private prompts, business media and merged weights are not distributed.
 
-**Weight provenance:** [Current INT8 Larry merge and the BF16-first INT8 candidate](docs/LARRY-WEIGHT-LINEAGE-20261001.zh-CN.md). New checkpoint generation is verified separately from media quality.
+**Weight provenance:** [Current INT8 Larry merge and the BF16-first INT8 candidate](docs/LARRY-WEIGHT-LINEAGE-20261001.zh-CN.md). [Completed 15-clip evaluation](docs/LARRY-MERGE-TEST-20261001.zh-CN.md): small mean SSIM/audio gains, mixed per-clip results, and no meaningful speedup. The deployed weight baseline remains unchanged.
 
 **October 1 follow-up:** [PDMD quality and D64 attention experiments](docs/PDMD-KITCHEN-TESTS-20261001.zh-CN.md). Two PDMD INT8 weight paths were evaluated on all 15 business segments against BF16 50-step and frozen deployment media; neither met the current Larry8 quality target. [Kitchen #227](https://github.com/Comfy-Org/comfy-kitchen/pull/227) adds a narrow exact SM120 D64 tile: 4.6–5.8% direct attention time reduction, and 0.96% full-decoder reduction on one representative latent in independent-process testing. These are separate from the released plugin numbers.

@@ -1,0 +1,245 @@
+{
+  "protocol": "Secondary diagnostic: same 32k stereo log-STFT spectrum, report fixed 1-second windows and scan +/-0.5s in 8ms frame steps. Positive lag means candidate delayed. Best-lag result is diagnostic only, not a replacement for t0 benchmark. Historical old video used when common decoder old is not ready.",
+  "cases": {
+    "10": {
+      "current_historical": {
+        "t0_cosine": 0.4948851669356351,
+        "best_lag": {
+          "lag_ms": 0,
+          "cosine": 0.4948851669356351
+        },
+        "windows": [
+          {
+            "start_seconds": 0.0,
+            "end_seconds": 1.0,
+            "cosine": 0.8539445080696592
+          },
+          {
+            "start_seconds": 1.0,
+            "end_seconds": 2.0,
+            "cosine": 0.5862987820555493
+          },
+          {
+            "start_seconds": 2.0,
+            "end_seconds": 3.0,
+            "cosine": 0.6003155570934211
+          },
+          {
+            "start_seconds": 3.0,
+            "end_seconds": 4.0,
+            "cosine": 0.34588293832188033
+          },
+          {
+            "start_seconds": 4.0,
+            "end_seconds": 5.0,
+            "cosine": 0.5708102131261488
+          },
+          {
+            "start_seconds": 5.0,
+            "end_seconds": 6.0,
+            "cosine": 0.8820281959354503
+          },
+          {
+            "start_seconds": 6.0,
+            "end_seconds": 7.0,
+            "cosine": 0.5850480647351453
+          },
+          {
+            "start_seconds": 7.0,
+            "end_seconds": 8.0,
+            "cosine": 0.8141635587156076
+          },
+          {
+            "start_seconds": 8.0,
+            "end_seconds": 8.68,
+            "cosine": 0.6777665462813454
+          }
+        ]
+      },
+      "fresh": {
+        "t0_cosine": 0.7128361915673366,
+        "best_lag": {
+          "lag_ms": 0,
+          "cosine": 0.7128361915673366
+        },
+        "windows": [
+          {
+            "start_seconds": 0.0,
+            "end_seconds": 1.0,
+            "cosine": 0.8735186843970643
+          },
+          {
+            "start_seconds": 1.0,
+            "end_seconds": 2.0,
+            "cosine": 0.7375828969315679
+          },
+          {
+            "start_seconds": 2.0,
+            "end_seconds": 3.0,
+            "cosine": 0.9102828311932607
+          },
+          {
+            "start_seconds": 3.0,
+            "end_seconds": 4.0,
+            "cosine": 0.813047799787507
+          },
+          {
+            "start_seconds": 4.0,
+            "end_seconds": 5.0,
+            "cosine": 0.7566540794086553
+          },
+          {
+            "start_seconds": 5.0,
+            "end_seconds": 6.0,
+            "cosine": 0.3921544766886568
+          },
+          {
+            "start_seconds": 6.0,
+            "end_seconds": 7.0,
+            "cosine": 0.5957862104034074
+          },
+          {
+            "start_seconds": 7.0,
+            "end_seconds": 8.0,
+            "cosine": 0.8662483858100314
+          },
+          {
+            "start_seconds": 8.0,
+            "end_seconds": 8.68,
+            "cosine": 0.812019536267477
+          }
+        ]
+      }
+    },
+    "12": {
+      "current_historical": {
+        "t0_cosine": 0.9232328924922077,
+        "best_lag": {
+          "lag_ms": 0,
+          "cosine": 0.9232328924922077
+        },
+        "windows": [
+          {
+            "start_seconds": 0.0,
+            "end_seconds": 1.0,
+            "cosine": 0.7171168422712334
+          },
+          {
+            "start_seconds": 1.0,
+            "end_seconds": 2.0,
+            "cosine": 0.9253201359989788
+          },
+          {
+            "start_seconds": 2.0,
+            "end_seconds": 3.0,
+            "cosine": 0.899292398256434
+          },
+          {
+            "start_seconds": 3.0,
+            "end_seconds": 4.0,
+            "cosine": 0.9420857972283743
+          },
+          {
+            "start_seconds": 4.0,
+            "end_seconds": 5.0,
+            "cosine": 0.8930530692342449
+          },
+          {
+            "start_seconds": 5.0,
+            "end_seconds": 6.0,
+            "cosine": 0.9328265423477958
+          },
+          {
+            "start_seconds": 6.0,
+            "end_seconds": 7.0,
+            "cosine": 0.9423773730768782
+          },
+          {
+            "start_seconds": 7.0,
+            "end_seconds": 8.0,
+            "cosine": 0.9200123441380318
+          },
+          {
+            "start_seconds": 8.0,
+            "end_seconds": 9.0,
+            "cosine": 0.8742018454454681
+          },
+          {
+            "start_seconds": 9.0,
+            "end_seconds": 10.0,
+            "cosine": 0.94339961581189
+          },
+          {
+            "start_seconds": 10.0,
+            "end_seconds": 10.120000000000001,
+            "cosine": 0.8642281443601272
+          }
+        ]
+      },
+      "fresh": {
+        "t0_cosine": 0.6114945722690284,
+        "best_lag": {
+          "lag_ms": 184,
+          "cosine": 0.6519019158324123
+        },
+        "windows": [
+          {
+            "start_seconds": 0.0,
+            "end_seconds": 1.0,
+            "cosine": 0.7702630744363549
+          },
+          {
+            "start_seconds": 1.0,
+            "end_seconds": 2.0,
+            "cosine": 0.5368070171246405
+          },
+          {
+            "start_seconds": 2.0,
+            "end_seconds": 3.0,
+            "cosine": 0.23771933518031796
+          },
+          {
+            "start_seconds": 3.0,
+            "end_seconds": 4.0,
+            "cosine": 0.5976214150988025
+          },
+          {
+            "start_seconds": 4.0,
+            "end_seconds": 5.0,
+            "cosine": 0.892586067337217
+          },
+          {
+            "start_seconds": 5.0,
+            "end_seconds": 6.0,
+            "cosine": 0.730072208917202
+          },
+          {
+            "start_seconds": 6.0,
+            "end_seconds": 7.0,
+            "cosine": 0.9277837273519565
+          },
+          {
+            "start_seconds": 7.0,
+            "end_seconds": 8.0,
+            "cosine": 0.9038385375967799
+          },
+          {
+            "start_seconds": 8.0,
+            "end_seconds": 9.0,
+            "cosine": 0.8592101034448029
+          },
+          {
+            "start_seconds": 9.0,
+            "end_seconds": 10.0,
+            "cosine": 0.9353760886754302
+          },
+          {
+            "start_seconds": 10.0,
+            "end_seconds": 10.120000000000001,
+            "cosine": 0.9191301083979756
+          }
+        ]
+      }
+    }
+  }
+}

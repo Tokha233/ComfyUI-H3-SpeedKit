@@ -2,6 +2,8 @@
 
 核查日期：2026-10-01，Asia/Shanghai。本文区分已有部署权重与新的量化候选，不更新已发布的性能基线。
 
+> 后续业务实测已完成：[15片段质量与完整r85速度对照](LARRY-MERGE-TEST-20261001.zh-CN.md)。新配方SSIM/音频相似度均值小幅改善，但LPIPS略差，部分片段相似度下降；完整请求速度持平，继续保留原部署。
+
 ## 1. 当前权重到底如何生成
 
 历史部署权重 `minimax_h3_ref2va_larry8_v4_baked_int8_convrot.safetensors` 的 SHA256 为：
@@ -58,7 +60,7 @@ minimax_h3_ref2va_pruned_bf16.safetensors
 - 可以避免底模量化后再合并、再量化带来的额外误差来源。
 - 同样 INT8 格式、相同层数和 8 步，不应预先承诺更快推理；目标主要是改善权重精度。
 - 浮点误差更小不等同于视频、音频质量一定更好。扩散轨迹会放大变化，需要固定 condition、seed、采样和 decoder 做成片对照。
-- 本轮模型构建与加载验证不能替代 15 片段生成验收。此前 PDMD 一次量化的改善不直接证明 Larry 也改善。
+- 模型构建与加载验证不能替代 15 片段生成验收。后续验收已完成，结果见文首链接；此前 PDMD 的改善没有直接套用到 Larry。
 
 ## 3. `pruned` 不等于 2:4 稀疏加速
 
@@ -78,7 +80,7 @@ minimax_h3_ref2va_pruned_bf16.safetensors
 
 ## 4. PR 当前进度
 
-**20:35 更新：[#16677](https://github.com/Comfy-Org/ComfyUI/pull/16677) 已于 2026-10-01 20:04:56（北京时间）由 kijai 合并，merge commit `2d6b73283af2447bdd065ece4090b8c6b02a579f8`。当前 1 个已合并、11 个仍开放（9 Ready、2 Draft）。** 下表保留先前查询时的 head，16677 状态以本更新为准。
+**20:35 更新：[#16677](https://github.com/Comfy-Org/ComfyUI/pull/16677) 已于 2026-10-01 20:04:56（北京时间）由 kijai 合并，merge commit `2d6b73283af2447bdd065ece4090b8c6b1784544`。当前 1 个已合并、11 个仍开放（9 Ready、2 Draft）。** 下表保留先前查询时的 head，16677 状态以本更新为准。
 
 刚出现的六条失败通知对应旧提交 `20db23b` 的未批准工作流，GitHub 注释均为 `This workflow run required approval but was not approved before it expired.`；六条均无实际 job。新提交 `6349f94` 的执行测试、Unit Tests、Lint、启动、换行及 AI co-author 检查均 success，无需为这些旧通知修改代码。证据见 [PR 邮件核查](../evidence/larry-bf16-1001/pr-mail-expiry.json)。
 
@@ -92,7 +94,7 @@ minimax_h3_ref2va_pruned_bf16.safetensors
 | [Kitchen #219](https://github.com/Comfy-Org/comfy-kitchen/pull/219) indexed gate epilogue | `5f7290d` | Ready，待维护者审核 |
 | [Kitchen #220](https://github.com/Comfy-Org/comfy-kitchen/pull/220) BSHD | `13bbea6` | Ready，最新机器人复审无新增可操作意见 |
 | [Kitchen #221](https://github.com/Comfy-Org/comfy-kitchen/pull/221) norm/mod/quant | `f66dda5` | Ready，已推送修复，待维护者审核 |
-| [Kitchen #222](https://github.com/Comfy-Org/comfy-kitchen/pull/222) QKV 融合 | `bbfee43` | Ready；六项反馈已有代码／GPU 验证，本轮重新触发机器人复审 |
+| [Kitchen #222](https://github.com/Comfy-Org/comfy-kitchen/pull/222) QKV 融合 | `bbfee43` | Ready；六项反馈已有代码／GPU 验证，19:27 复审完成，无新增可操作意见 |
 | [Kitchen #223](https://github.com/Comfy-Org/comfy-kitchen/pull/223) 输入量化＋gate | `6bf0cb0` | Ready，ConvRot 超界回退意见已标记解决 |
 | [Kitchen #224](https://github.com/Comfy-Org/comfy-kitchen/pull/224) 非正 scale | `96b7062` | Ready，机器人无新增可操作意见 |
 | [Kitchen #227](https://github.com/Comfy-Org/comfy-kitchen/pull/227) D64 小 query tile | `5ff2a31` | Ready；本轮复审已完成，无新增可操作意见 |
@@ -118,7 +120,7 @@ minimax_h3_ref2va_pruned_bf16.safetensors
 
 208 个 adapter 完整覆盖，200 层 INT8，103 个 AdaLN tensor 与原 INT8 模板一致。BF16 底模 SHA 为 `37c0da793e20ca735272ec2be655f08a2e10f97a3ec8fdfb40f5b39a736ed6fe`。精确构建参数见 [manifest.json](../evidence/larry-bf16-1001/manifest.json)。权重文件不随代码仓库再分发。
 
-本轮完成的是权重构建、结构及加载验证；尚未完成该 Larry 新候选的业务生成质量和速度对照，不能宣称优于当前部署。
+本节记录构建时的结果。后续已完成两臂各15片段、共同decoder质量对照、同卡预热采样与完整r85请求复测；结果见[生成实测](LARRY-MERGE-TEST-20261001.zh-CN.md)。新方案未获得全面质量优势或实际加速，不替换原部署。
 
 
 ComfyUI 实际加载成功：200 个量化 Linear、`adaln_curve=true`、无运行时 LoRA patch；所有 key、shape、dtype 与既有 baked INT8 完全对应。

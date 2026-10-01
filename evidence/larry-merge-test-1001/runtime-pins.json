@@ -1,0 +1,45 @@
+{
+  "note": "Source checkout takes precedence over installed distribution metadata; paths anonymized. Hashes identify actual imports.",
+  "distribution_versions_observed": {
+    "torch": "2.12.0",
+    "triton": "3.7.0",
+    "comfy-kitchen": "0.2.33"
+  },
+  "pins": [
+    {
+      "file": "combined/comfy_kitchen/__init__.py",
+      "sha256": "36bd4ab5b2fef5dddd0183d6115487c305abdb3bb56be9abd322c342374ca824",
+      "bytes": 39459
+    },
+    {
+      "file": "combined/comfy_kitchen/backends/cuda/__init__.py",
+      "sha256": "b75e8672a40fa405985807f3249e6f8a4b893a831ac372f9858eb691c16901af",
+      "bytes": 177003
+    },
+    {
+      "file": "combined/comfy_kitchen/backends/cuda/_C.abi3.so",
+      "sha256": "3126b309ef02a07d8a4d56c8a37948c4a58af3fc4b86e3a631083aefe22542f7",
+      "bytes": 9345216
+    },
+    {
+      "file": "comfy-current/comfy/ldm/minimax/model.py",
+      "sha256": "8e4cdda6ffd6994baa29085fb6d6a826a399ed094f0ec8e85387083877a4d518",
+      "bytes": 40670
+    },
+    {
+      "file": "model-release-1001.py",
+      "sha256": "15f0395cf0dbe6e5c13fd859ff359eacc7761b4e15f60aa0038853985d0e599b",
+      "bytes": 40928
+    },
+    {
+      "file": "evaluate.py",
+      "sha256": "7026b8627f8499820624f279baa43b3c8f5aa74be25ca97d73f43e511886d023",
+      "bytes": 11230
+    },
+    {
+      "file": "audio_fullband.py",
+      "sha256": "37fd15065ed44bfdb253c21c6225465126c6b203c02f0b18b0d43de804556d04",
+      "bytes": 2449
+    }
+  ]
+}

@@ -1,0 +1,5700 @@
+{
+  "metadata": {
+    "date": "2026-10-01T14:25:40.096761+00:00",
+    "complete": true,
+    "case_count": 15,
+    "stories": 5,
+    "hardware": "RTX 5090 D v2 24GB",
+    "current_weight_sha256": "9eccf52e4fe6e764f4aac8cdb6045a58bc86d8458c783c35b7035edca71fec12",
+    "fresh_weight_sha256": "0fe2d7dad437e591373ab6912e9716eada5cd3c46d89ef0f09d6cfbb4784b055",
+    "reference": "Historical original BF16 50-step MP4. No raw teacher latent. Equal-weight 15 segments of 5 stories, one fixed seed per segment. Similarity is not MOS."
+  },
+  "states": {
+    "g0": {
+      "sequence.json": "success",
+      "full-r85/sequence.json": "success",
+      "metrics/results.json": "success"
+    },
+    "g3": {
+      "sequence.json": "success",
+      "full-r85/sequence.json": "success",
+      "metrics/results.json": "success"
+    }
+  },
+  "summary": [
+    {
+      "arm": "current",
+      "reference": "bf50",
+      "count": 15,
+      "mean": {
+        "ssim": 0.7344554666666667,
+        "lpips": 0.2835537822279522,
+        "audio8k_cosine": 0.8691266759448639,
+        "audio32k_cosine": 0.6963698891587333
+      }
+    },
+    {
+      "arm": "fresh",
+      "reference": "bf50",
+      "count": 15,
+      "mean": {
+        "ssim": 0.7361264666666667,
+        "lpips": 0.28393922666711496,
+        "audio8k_cosine": 0.8744159224177583,
+        "audio32k_cosine": 0.7081774194070649
+      }
+    },
+    {
+      "arm": "fresh",
+      "reference": "current",
+      "count": 15,
+      "mean": {
+        "ssim": 0.8118976666666666,
+        "lpips": 0.14505249161197625,
+        "audio8k_cosine": 0.9289669392564338,
+        "audio32k_cosine": 0.8410581714401716
+      }
+    },
+    {
+      "arm": "fresh",
+      "reference": "frozen_r85",
+      "count": 15,
+      "mean": {
+        "ssim": 0.8119324666666666,
+        "lpips": 0.14505441244820266,
+        "audio8k_cosine": 0.9289669392564338,
+        "audio32k_cosine": 0.8410581714401716
+      }
+    }
+  ],
+  "paired": {
+    "ssim": {
+      "count": 15,
+      "mean_delta": 0.0016709999999999854,
+      "median_delta": 0.0009900000000000464,
+      "improved": 8,
+      "equal": 0
+    },
+    "lpips": {
+      "count": 15,
+      "mean_delta": 0.000385444439162765,
+      "median_delta": -0.0004111765460534378,
+      "improved": 8,
+      "equal": 0
+    },
+    "audio8k_cosine": {
+      "count": 15,
+      "mean_delta": 0.005289246472894408,
+      "median_delta": 0.004708672248733281,
+      "improved": 11,
+      "equal": 0
+    },
+    "audio32k_cosine": {
+      "count": 15,
+      "mean_delta": 0.011807530248331592,
+      "median_delta": 0.0034351770147529326,
+      "improved": 10,
+      "equal": 0
+    }
+  },
+  "stories": [
+    {
+      "story": 1,
+      "arm": "current",
+      "count": 3,
+      "mean": {
+        "ssim": 0.7307826666666667,
+        "lpips": 0.30087677519472816,
+        "audio8k_cosine": 0.8193462685682616,
+        "audio32k_cosine": 0.6009777481574315
+      }
+    },
+    {
+      "story": 1,
+      "arm": "fresh",
+      "count": 3,
+      "mean": {
+        "ssim": 0.7280639999999999,
+        "lpips": 0.30826105768718415,
+        "audio8k_cosine": 0.8353510181773695,
+        "audio32k_cosine": 0.6422253306268804
+      }
+    },
+    {
+      "story": 2,
+      "arm": "current",
+      "count": 3,
+      "mean": {
+        "ssim": 0.6989233333333333,
+        "lpips": 0.2694919685286189,
+        "audio8k_cosine": 0.9015110872594525,
+        "audio32k_cosine": 0.6483543447476507
+      }
+    },
+    {
+      "story": 2,
+      "arm": "fresh",
+      "count": 3,
+      "mean": {
+        "ssim": 0.7020016666666666,
+        "lpips": 0.2648961908287472,
+        "audio8k_cosine": 0.9073000299872794,
+        "audio32k_cosine": 0.7191459609593754
+      }
+    },
+    {
+      "story": 3,
+      "arm": "current",
+      "count": 3,
+      "mean": {
+        "ssim": 0.7452093333333334,
+        "lpips": 0.2822032658960052,
+        "audio8k_cosine": 0.8862854892829753,
+        "audio32k_cosine": 0.7367861910419055
+      }
+    },
+    {
+      "story": 3,
+      "arm": "fresh",
+      "count": 3,
+      "mean": {
+        "ssim": 0.7442176666666667,
+        "lpips": 0.2910429937894554,
+        "audio8k_cosine": 0.8783985356268257,
+        "audio32k_cosine": 0.7119492172265711
+      }
+    },
+    {
+      "story": 4,
+      "arm": "current",
+      "count": 3,
+      "mean": {
+        "ssim": 0.7481256666666667,
+        "lpips": 0.2807874669710164,
+        "audio8k_cosine": 0.8667019400016832,
+        "audio32k_cosine": 0.7509497523485795
+      }
+    },
+    {
+      "story": 4,
+      "arm": "fresh",
+      "count": 3,
+      "mean": {
+        "ssim": 0.7582313333333334,
+        "lpips": 0.2706284735095564,
+        "audio8k_cosine": 0.8831340470803181,
+        "audio32k_cosine": 0.7185204761107808
+      }
+    },
+    {
+      "story": 5,
+      "arm": "current",
+      "count": 3,
+      "mean": {
+        "ssim": 0.7492363333333333,
+        "lpips": 0.2844094345493922,
+        "audio8k_cosine": 0.8717885946119471,
+        "audio32k_cosine": 0.7447814094980996
+      }
+    },
+    {
+      "story": 5,
+      "arm": "fresh",
+      "count": 3,
+      "mean": {
+        "ssim": 0.7481176666666667,
+        "lpips": 0.28486741752063155,
+        "audio8k_cosine": 0.8678959812169993,
+        "audio32k_cosine": 0.749046112111717
+      }
+    }
+  ],
+  "quality": [
+    {
+      "case": 1,
+      "story": 1,
+      "arm": "current",
+      "reference": "bf50",
+      "gpu_slot": "g0",
+      "ssim": 0.720675,
+      "psnr_db": 19.330722,
+      "lpips": 0.3370197493405569,
+      "audio8k_cosine": 0.7949635389439251,
+      "audio32k_cosine": 0.5868866627869053,
+      "audio32k_waveform_relative_l2": 1.2979144000292329,
+      "audio32k_spectral_convergence": 1.0824493598764726,
+      "audio32k_rms_db_change": 0.681561706318894,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9881297450138359,
+          "candidate_energy_share": 0.9847295234121358,
+          "candidate_vs_reference_db": 0.6668412538807684
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.009821639917065455,
+          "candidate_energy_share": 0.013092925152171047,
+          "candidate_vs_reference_db": 1.930338166302459
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0020486150690987542,
+          "candidate_energy_share": 0.002177551435693245,
+          "candidate_vs_reference_db": 0.9468919862325762
+        }
+      }
+    },
+    {
+      "case": 1,
+      "story": 1,
+      "arm": "fresh",
+      "reference": "bf50",
+      "gpu_slot": "g0",
+      "ssim": 0.721665,
+      "psnr_db": 19.24041,
+      "lpips": 0.3306165337562561,
+      "audio8k_cosine": 0.8047332241089414,
+      "audio32k_cosine": 0.5906935253711111,
+      "audio32k_waveform_relative_l2": 1.3481460765755033,
+      "audio32k_spectral_convergence": 1.1078864108882782,
+      "audio32k_rms_db_change": 1.0089261006562786,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9881297450138359,
+          "candidate_energy_share": 0.9851978700092492,
+          "candidate_vs_reference_db": 0.9960949399971961
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.009821639917065455,
+          "candidate_energy_share": 0.01258960647291534,
+          "candidate_vs_reference_db": 2.0872814975004665
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0020486150690987542,
+          "candidate_energy_share": 0.002212523517835587,
+          "candidate_vs_reference_db": 1.3432753528065717
+        }
+      }
+    },
+    {
+      "case": 1,
+      "story": 1,
+      "arm": "fresh",
+      "reference": "current",
+      "gpu_slot": "g0",
+      "ssim": 0.817183,
+      "psnr_db": 24.658699,
+      "lpips": 0.11896388268186933,
+      "audio8k_cosine": 0.9503938745147446,
+      "audio32k_cosine": 0.8125092767507628,
+      "audio32k_waveform_relative_l2": 0.9088274854708402,
+      "audio32k_spectral_convergence": 0.6177144363339087,
+      "audio32k_rms_db_change": 0.3273643943373862,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9847295234121358,
+          "candidate_energy_share": 0.9851978700092492,
+          "candidate_vs_reference_db": 0.32925368611642747
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.013092925152171047,
+          "candidate_energy_share": 0.01258960647291534,
+          "candidate_vs_reference_db": 0.15694333119800774
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.002177551435693245,
+          "candidate_energy_share": 0.002212523517835587,
+          "candidate_vs_reference_db": 0.39638336657399553
+        }
+      }
+    },
+    {
+      "case": 1,
+      "story": 1,
+      "arm": "fresh",
+      "reference": "frozen_r85",
+      "gpu_slot": "g0",
+      "ssim": 0.817212,
+      "psnr_db": 24.659218,
+      "lpips": 0.11905963364101592,
+      "audio8k_cosine": 0.9503938745147446,
+      "audio32k_cosine": 0.8125092767507628,
+      "audio32k_waveform_relative_l2": 0.9088274854708402,
+      "audio32k_spectral_convergence": 0.6177144363339087,
+      "audio32k_rms_db_change": 0.3273643943373862,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9847295234121358,
+          "candidate_energy_share": 0.9851978700092492,
+          "candidate_vs_reference_db": 0.32925368611642747
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.013092925152171047,
+          "candidate_energy_share": 0.01258960647291534,
+          "candidate_vs_reference_db": 0.15694333119800774
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.002177551435693245,
+          "candidate_energy_share": 0.002212523517835587,
+          "candidate_vs_reference_db": 0.39638336657399553
+        }
+      }
+    },
+    {
+      "case": 2,
+      "story": 1,
+      "arm": "current",
+      "reference": "bf50",
+      "gpu_slot": "g0",
+      "ssim": 0.736134,
+      "psnr_db": 19.943201,
+      "lpips": 0.2821509164004099,
+      "audio8k_cosine": 0.8260366765772396,
+      "audio32k_cosine": 0.6275012373383871,
+      "audio32k_waveform_relative_l2": 1.550055127821897,
+      "audio32k_spectral_convergence": 1.2712539433524332,
+      "audio32k_rms_db_change": 3.680327812204035,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9879408265635851,
+          "candidate_energy_share": 0.9917910695302851,
+          "candidate_vs_reference_db": 3.6972400506433614
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.01001688892394372,
+          "candidate_energy_share": 0.006457145074263073,
+          "candidate_vs_reference_db": 1.7734243058249994
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0020422845124711602,
+          "candidate_energy_share": 0.0017517853954517608,
+          "candidate_vs_reference_db": 3.0139940204263693
+        }
+      }
+    },
+    {
+      "case": 2,
+      "story": 1,
+      "arm": "fresh",
+      "reference": "bf50",
+      "gpu_slot": "g0",
+      "ssim": 0.731435,
+      "psnr_db": 19.682629,
+      "lpips": 0.30075226369358243,
+      "audio8k_cosine": 0.8508036363152819,
+      "audio32k_cosine": 0.6624331424685777,
+      "audio32k_waveform_relative_l2": 1.4340390970640995,
+      "audio32k_spectral_convergence": 1.1178985334512634,
+      "audio32k_rms_db_change": 2.8560899187243782,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9879408265635851,
+          "candidate_energy_share": 0.9904816673303862,
+          "candidate_vs_reference_db": 2.8672636878698543
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.01001688892394372,
+          "candidate_energy_share": 0.007661129325473271,
+          "candidate_vs_reference_db": 1.6917079575633551
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0020422845124711602,
+          "candidate_energy_share": 0.0018572033441406372,
+          "candidate_vs_reference_db": 2.4435407319184828
+        }
+      }
+    },
+    {
+      "case": 2,
+      "story": 1,
+      "arm": "fresh",
+      "reference": "current",
+      "gpu_slot": "g0",
+      "ssim": 0.793026,
+      "psnr_db": 23.229535,
+      "lpips": 0.17847969099169686,
+      "audio8k_cosine": 0.8928187984919196,
+      "audio32k_cosine": 0.808552075844459,
+      "audio32k_waveform_relative_l2": 0.8548433948929282,
+      "audio32k_spectral_convergence": 0.6711656581994966,
+      "audio32k_rms_db_change": -0.8242378934796567,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9917910695302851,
+          "candidate_energy_share": 0.9904816673303862,
+          "candidate_vs_reference_db": -0.8299763627735071
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.006457145074263073,
+          "candidate_energy_share": 0.007661129325473271,
+          "candidate_vs_reference_db": -0.08171634826164481
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0017517853954517608,
+          "candidate_energy_share": 0.0018572033441406372,
+          "candidate_vs_reference_db": -0.5704532885078862
+        }
+      }
+    },
+    {
+      "case": 2,
+      "story": 1,
+      "arm": "fresh",
+      "reference": "frozen_r85",
+      "gpu_slot": "g0",
+      "ssim": 0.793056,
+      "psnr_db": 23.231005,
+      "lpips": 0.17835893091701327,
+      "audio8k_cosine": 0.8928187984919196,
+      "audio32k_cosine": 0.808552075844459,
+      "audio32k_waveform_relative_l2": 0.8548433948929282,
+      "audio32k_spectral_convergence": 0.6711656581994966,
+      "audio32k_rms_db_change": -0.8242378934796567,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9917910695302851,
+          "candidate_energy_share": 0.9904816673303862,
+          "candidate_vs_reference_db": -0.8299763627735071
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.006457145074263073,
+          "candidate_energy_share": 0.007661129325473271,
+          "candidate_vs_reference_db": -0.08171634826164481
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0017517853954517608,
+          "candidate_energy_share": 0.0018572033441406372,
+          "candidate_vs_reference_db": -0.5704532885078862
+        }
+      }
+    },
+    {
+      "case": 3,
+      "story": 1,
+      "arm": "current",
+      "reference": "bf50",
+      "gpu_slot": "g0",
+      "ssim": 0.735539,
+      "psnr_db": 19.93799,
+      "lpips": 0.28345965984321775,
+      "audio8k_cosine": 0.8370385901836203,
+      "audio32k_cosine": 0.5885453443470022,
+      "audio32k_waveform_relative_l2": 1.5093791301050723,
+      "audio32k_spectral_convergence": 1.228033781838854,
+      "audio32k_rms_db_change": 2.0953714892041453,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9903253815527604,
+          "candidate_energy_share": 0.9913406981442673,
+          "candidate_vs_reference_db": 2.0998326617601077
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.008722950659301088,
+          "candidate_energy_share": 0.00767805293329906,
+          "candidate_vs_reference_db": 1.5412592614281002
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0009516677879384711,
+          "candidate_energy_share": 0.000981248922433793,
+          "candidate_vs_reference_db": 2.228320634827827
+        }
+      }
+    },
+    {
+      "case": 3,
+      "story": 1,
+      "arm": "fresh",
+      "reference": "bf50",
+      "gpu_slot": "g0",
+      "ssim": 0.731092,
+      "psnr_db": 19.50823,
+      "lpips": 0.29341437561171396,
+      "audio8k_cosine": 0.8505161941078849,
+      "audio32k_cosine": 0.6735493240409524,
+      "audio32k_waveform_relative_l2": 1.1732259710520478,
+      "audio32k_spectral_convergence": 0.9255085012423753,
+      "audio32k_rms_db_change": 1.479808619659534,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9903253815527604,
+          "candidate_energy_share": 0.9907794640538966,
+          "candidate_vs_reference_db": 1.4818025038674254
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.008722950659301088,
+          "candidate_energy_share": 0.008308500803368542,
+          "candidate_vs_reference_db": 1.2684041424032126
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0009516677879384711,
+          "candidate_energy_share": 0.000912035142734671,
+          "candidate_vs_reference_db": 1.2950736739792994
+        }
+      }
+    },
+    {
+      "case": 3,
+      "story": 1,
+      "arm": "fresh",
+      "reference": "current",
+      "gpu_slot": "g0",
+      "ssim": 0.796403,
+      "psnr_db": 22.363087,
+      "lpips": 0.15515577544768652,
+      "audio8k_cosine": 0.8877584328289014,
+      "audio32k_cosine": 0.5148351956735983,
+      "audio32k_waveform_relative_l2": 1.2600764158631856,
+      "audio32k_spectral_convergence": 1.0308843068564872,
+      "audio32k_rms_db_change": -0.6155628695446114,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9913406981442673,
+          "candidate_energy_share": 0.9907794640538966,
+          "candidate_vs_reference_db": -0.6180301578926826
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.00767805293329906,
+          "candidate_energy_share": 0.008308500803368542,
+          "candidate_vs_reference_db": -0.27285511902488724
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.000981248922433793,
+          "candidate_energy_share": 0.000912035142734671,
+          "candidate_vs_reference_db": -0.9332469608485272
+        }
+      }
+    },
+    {
+      "case": 3,
+      "story": 1,
+      "arm": "fresh",
+      "reference": "frozen_r85",
+      "gpu_slot": "g0",
+      "ssim": 0.796379,
+      "psnr_db": 22.360859,
+      "lpips": 0.1551141980148497,
+      "audio8k_cosine": 0.8877584328289014,
+      "audio32k_cosine": 0.5148351956735983,
+      "audio32k_waveform_relative_l2": 1.2600764158631856,
+      "audio32k_spectral_convergence": 1.0308843068564872,
+      "audio32k_rms_db_change": -0.6155628695446114,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9913406981442673,
+          "candidate_energy_share": 0.9907794640538966,
+          "candidate_vs_reference_db": -0.6180301578926826
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.00767805293329906,
+          "candidate_energy_share": 0.008308500803368542,
+          "candidate_vs_reference_db": -0.27285511902488724
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.000981248922433793,
+          "candidate_energy_share": 0.000912035142734671,
+          "candidate_vs_reference_db": -0.9332469608485272
+        }
+      }
+    },
+    {
+      "case": 4,
+      "story": 2,
+      "arm": "current",
+      "reference": "bf50",
+      "gpu_slot": "g0",
+      "ssim": 0.591356,
+      "psnr_db": 17.452361,
+      "lpips": 0.3076557623488562,
+      "audio8k_cosine": 0.9304046706988522,
+      "audio32k_cosine": 0.7771246617963529,
+      "audio32k_waveform_relative_l2": 1.2306380791657527,
+      "audio32k_spectral_convergence": 1.1602843084440138,
+      "audio32k_rms_db_change": 2.2594979274494458,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9859437606702132,
+          "candidate_energy_share": 0.9812478105078647,
+          "candidate_vs_reference_db": 2.2266270748410943
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.009522091313744317,
+          "candidate_energy_share": 0.0127411154648645,
+          "candidate_vs_reference_db": 3.512112593632975
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.004534148016042324,
+          "candidate_energy_share": 0.006011074027270862,
+          "candidate_vs_reference_db": 3.471925327472023
+        }
+      }
+    },
+    {
+      "case": 4,
+      "story": 2,
+      "arm": "fresh",
+      "reference": "bf50",
+      "gpu_slot": "g0",
+      "ssim": 0.58077,
+      "psnr_db": 17.253517,
+      "lpips": 0.3302647052776246,
+      "audio8k_cosine": 0.9189435806950679,
+      "audio32k_cosine": 0.7805598388111058,
+      "audio32k_waveform_relative_l2": 1.2449002733381236,
+      "audio32k_spectral_convergence": 1.175001359598684,
+      "audio32k_rms_db_change": 2.529203535926138,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9859437606702132,
+          "candidate_energy_share": 0.984173658808073,
+          "candidate_vs_reference_db": 2.508009210653652
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.009522091313744317,
+          "candidate_energy_share": 0.010791251098356047,
+          "candidate_vs_reference_db": 3.059207832371549
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.004534148016042324,
+          "candidate_energy_share": 0.005035090093570945,
+          "candidate_vs_reference_db": 2.970928794177628
+        }
+      }
+    },
+    {
+      "case": 4,
+      "story": 2,
+      "arm": "fresh",
+      "reference": "current",
+      "gpu_slot": "g0",
+      "ssim": 0.6726,
+      "psnr_db": 20.031234,
+      "lpips": 0.19882973106134505,
+      "audio8k_cosine": 0.9763245442101034,
+      "audio32k_cosine": 0.9586522111915894,
+      "audio32k_waveform_relative_l2": 0.2962502774078187,
+      "audio32k_spectral_convergence": 0.21077326213823203,
+      "audio32k_rms_db_change": 0.26970560847669284,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9812478105078647,
+          "candidate_energy_share": 0.984173658808073,
+          "candidate_vs_reference_db": 0.28138213581255733
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.0127411154648645,
+          "candidate_energy_share": 0.010791251098356047,
+          "candidate_vs_reference_db": -0.452904761261426
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.006011074027270862,
+          "candidate_energy_share": 0.005035090093570945,
+          "candidate_vs_reference_db": -0.5009965332943955
+        }
+      }
+    },
+    {
+      "case": 4,
+      "story": 2,
+      "arm": "fresh",
+      "reference": "frozen_r85",
+      "gpu_slot": "g0",
+      "ssim": 0.672656,
+      "psnr_db": 20.031856,
+      "lpips": 0.1989582557053793,
+      "audio8k_cosine": 0.9763245442101034,
+      "audio32k_cosine": 0.9586522111915894,
+      "audio32k_waveform_relative_l2": 0.2962502774078187,
+      "audio32k_spectral_convergence": 0.21077326213823203,
+      "audio32k_rms_db_change": 0.26970560847669284,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9812478105078647,
+          "candidate_energy_share": 0.984173658808073,
+          "candidate_vs_reference_db": 0.28138213581255733
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.0127411154648645,
+          "candidate_energy_share": 0.010791251098356047,
+          "candidate_vs_reference_db": -0.452904761261426
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.006011074027270862,
+          "candidate_energy_share": 0.005035090093570945,
+          "candidate_vs_reference_db": -0.5009965332943955
+        }
+      }
+    },
+    {
+      "case": 5,
+      "story": 2,
+      "arm": "current",
+      "reference": "bf50",
+      "gpu_slot": "g0",
+      "ssim": 0.772667,
+      "psnr_db": 19.810159,
+      "lpips": 0.20853978856688454,
+      "audio8k_cosine": 0.905941282608361,
+      "audio32k_cosine": 0.7520364053962887,
+      "audio32k_waveform_relative_l2": 1.1334204540144865,
+      "audio32k_spectral_convergence": 0.6211559555994478,
+      "audio32k_rms_db_change": -0.14060811941400905,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9859861649263426,
+          "candidate_energy_share": 0.9834544955704655,
+          "candidate_vs_reference_db": -0.1514744263461864
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.008958940930879384,
+          "candidate_energy_share": 0.010808117879559796,
+          "candidate_vs_reference_db": 0.674625080811158
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.005054894142777784,
+          "candidate_energy_share": 0.005737386549974617,
+          "candidate_vs_reference_db": 0.4097115427558215
+        }
+      }
+    },
+    {
+      "case": 5,
+      "story": 2,
+      "arm": "fresh",
+      "reference": "bf50",
+      "gpu_slot": "g0",
+      "ssim": 0.776027,
+      "psnr_db": 20.027976,
+      "lpips": 0.2036543729759398,
+      "audio8k_cosine": 0.9179740915169224,
+      "audio32k_cosine": 0.8861210611569684,
+      "audio32k_waveform_relative_l2": 0.8400306195762343,
+      "audio32k_spectral_convergence": 0.35203706984762956,
+      "audio32k_rms_db_change": -0.08117752362708519,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9859861649263426,
+          "candidate_energy_share": 0.9847811709373557,
+          "candidate_vs_reference_db": -0.08567159928054996
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.008958940930879384,
+          "candidate_energy_share": 0.010182765073031346,
+          "candidate_vs_reference_db": 0.47572975987759364
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.005054894142777784,
+          "candidate_energy_share": 0.005036063989612886,
+          "candidate_vs_reference_db": -0.09656900605648006
+        }
+      }
+    },
+    {
+      "case": 5,
+      "story": 2,
+      "arm": "fresh",
+      "reference": "current",
+      "gpu_slot": "g0",
+      "ssim": 0.863881,
+      "psnr_db": 23.855917,
+      "lpips": 0.10201346945194971,
+      "audio8k_cosine": 0.9314997879384102,
+      "audio32k_cosine": 0.824436785785732,
+      "audio32k_waveform_relative_l2": 1.0601260283708127,
+      "audio32k_spectral_convergence": 0.5514600977563492,
+      "audio32k_rms_db_change": 0.059430595786924355,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9834544955704655,
+          "candidate_energy_share": 0.9847811709373557,
+          "candidate_vs_reference_db": 0.0658028270656359
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.010808117879559796,
+          "candidate_energy_share": 0.010182765073031346,
+          "candidate_vs_reference_db": -0.19889532093356432
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.005737386549974617,
+          "candidate_energy_share": 0.005036063989612886,
+          "candidate_vs_reference_db": -0.506280548812302
+        }
+      }
+    },
+    {
+      "case": 5,
+      "story": 2,
+      "arm": "fresh",
+      "reference": "frozen_r85",
+      "gpu_slot": "g0",
+      "ssim": 0.863891,
+      "psnr_db": 23.856209,
+      "lpips": 0.10192848866184552,
+      "audio8k_cosine": 0.9314997879384102,
+      "audio32k_cosine": 0.824436785785732,
+      "audio32k_waveform_relative_l2": 1.0601260283708127,
+      "audio32k_spectral_convergence": 0.5514600977563492,
+      "audio32k_rms_db_change": 0.059430595786924355,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9834544955704655,
+          "candidate_energy_share": 0.9847811709373557,
+          "candidate_vs_reference_db": 0.0658028270656359
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.010808117879559796,
+          "candidate_energy_share": 0.010182765073031346,
+          "candidate_vs_reference_db": -0.19889532093356432
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.005737386549974617,
+          "candidate_energy_share": 0.005036063989612886,
+          "candidate_vs_reference_db": -0.506280548812302
+        }
+      }
+    },
+    {
+      "case": 6,
+      "story": 2,
+      "arm": "current",
+      "reference": "bf50",
+      "gpu_slot": "g0",
+      "ssim": 0.732747,
+      "psnr_db": 18.608838,
+      "lpips": 0.29228035467011587,
+      "audio8k_cosine": 0.8681873084711442,
+      "audio32k_cosine": 0.4159019670503108,
+      "audio32k_waveform_relative_l2": 1.2960409256999506,
+      "audio32k_spectral_convergence": 1.1204934265765774,
+      "audio32k_rms_db_change": 0.6848625740719048,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9827463790192512,
+          "candidate_energy_share": 0.9799955171089255,
+          "candidate_vs_reference_db": 0.6734480383335004
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.013498537155337229,
+          "candidate_energy_share": 0.015606533986345685,
+          "candidate_vs_reference_db": 1.3158192326242242
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0037550838254115145,
+          "candidate_energy_share": 0.0043979489047286475,
+          "candidate_vs_reference_db": 1.3719271023535735
+        }
+      }
+    },
+    {
+      "case": 6,
+      "story": 2,
+      "arm": "fresh",
+      "reference": "bf50",
+      "gpu_slot": "g0",
+      "ssim": 0.749208,
+      "psnr_db": 19.149008,
+      "lpips": 0.26076949423267726,
+      "audio8k_cosine": 0.884982417749848,
+      "audio32k_cosine": 0.49075698291005204,
+      "audio32k_waveform_relative_l2": 1.1873026647881375,
+      "audio32k_spectral_convergence": 1.0079990315996685,
+      "audio32k_rms_db_change": 0.2991829131846955,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9827463790192512,
+          "candidate_energy_share": 0.9816737100973767,
+          "candidate_vs_reference_db": 0.2949448223222339
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.013498537155337229,
+          "candidate_energy_share": 0.013926260914805897,
+          "candidate_vs_reference_db": 0.43516595434573196
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0037550838254115145,
+          "candidate_energy_share": 0.004400028987817359,
+          "candidate_vs_reference_db": 0.9880467549098643
+        }
+      }
+    },
+    {
+      "case": 6,
+      "story": 2,
+      "arm": "fresh",
+      "reference": "current",
+      "gpu_slot": "g0",
+      "ssim": 0.800285,
+      "psnr_db": 21.657183,
+      "lpips": 0.15952473595028832,
+      "audio8k_cosine": 0.9494407947404488,
+      "audio32k_cosine": 0.854886684123491,
+      "audio32k_waveform_relative_l2": 0.8385522162209138,
+      "audio32k_spectral_convergence": 0.48439837526888585,
+      "audio32k_rms_db_change": -0.3856796608872084,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9799955171089255,
+          "candidate_energy_share": 0.9816737100973767,
+          "candidate_vs_reference_db": -0.37850321601126713
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.015606533986345685,
+          "candidate_energy_share": 0.013926260914805897,
+          "candidate_vs_reference_db": -0.8806532782784924
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0043979489047286475,
+          "candidate_energy_share": 0.004400028987817359,
+          "candidate_vs_reference_db": -0.38388034744370947
+        }
+      }
+    },
+    {
+      "case": 6,
+      "story": 2,
+      "arm": "fresh",
+      "reference": "frozen_r85",
+      "gpu_slot": "g0",
+      "ssim": 0.800268,
+      "psnr_db": 21.65695,
+      "lpips": 0.15954448282718658,
+      "audio8k_cosine": 0.9494407947404488,
+      "audio32k_cosine": 0.854886684123491,
+      "audio32k_waveform_relative_l2": 0.8385522162209138,
+      "audio32k_spectral_convergence": 0.48439837526888585,
+      "audio32k_rms_db_change": -0.3856796608872084,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9799955171089255,
+          "candidate_energy_share": 0.9816737100973767,
+          "candidate_vs_reference_db": -0.37850321601126713
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.015606533986345685,
+          "candidate_energy_share": 0.013926260914805897,
+          "candidate_vs_reference_db": -0.8806532782784924
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0043979489047286475,
+          "candidate_energy_share": 0.004400028987817359,
+          "candidate_vs_reference_db": -0.38388034744370947
+        }
+      }
+    },
+    {
+      "case": 7,
+      "story": 3,
+      "arm": "current",
+      "reference": "bf50",
+      "gpu_slot": "g0",
+      "ssim": 0.725976,
+      "psnr_db": 18.030189,
+      "lpips": 0.28070105896109626,
+      "audio8k_cosine": 0.8766817056386982,
+      "audio32k_cosine": 0.6091135877984766,
+      "audio32k_waveform_relative_l2": 1.534665295475814,
+      "audio32k_spectral_convergence": 1.2588778183034526,
+      "audio32k_rms_db_change": 2.7718443538883246,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9756643395474057,
+          "candidate_energy_share": 0.9850323700555756,
+          "candidate_vs_reference_db": 2.8134078933282334
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.01733725412281083,
+          "candidate_energy_share": 0.011535486561581512,
+          "candidate_vs_reference_db": 1.002463213347752
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.006998406329783575,
+          "candidate_energy_share": 0.003432143382842614,
+          "candidate_vs_reference_db": -0.32243012611211197
+        }
+      }
+    },
+    {
+      "case": 7,
+      "story": 3,
+      "arm": "fresh",
+      "reference": "bf50",
+      "gpu_slot": "g0",
+      "ssim": 0.73054,
+      "psnr_db": 17.977513,
+      "lpips": 0.2753142558393024,
+      "audio8k_cosine": 0.8813903778874315,
+      "audio32k_cosine": 0.603721585160075,
+      "audio32k_waveform_relative_l2": 1.4736480277402177,
+      "audio32k_spectral_convergence": 1.2092432775034263,
+      "audio32k_rms_db_change": 2.337461785025071,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9756643395474057,
+          "candidate_energy_share": 0.9831918961821277,
+          "candidate_vs_reference_db": 2.3710042938779767
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.01733725412281083,
+          "candidate_energy_share": 0.012871898680014386,
+          "candidate_vs_reference_db": 1.044248685967091
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.006998406329783575,
+          "candidate_energy_share": 0.003936205137857849,
+          "candidate_vs_reference_db": -0.16158859318790442
+        }
+      }
+    },
+    {
+      "case": 7,
+      "story": 3,
+      "arm": "fresh",
+      "reference": "current",
+      "gpu_slot": "g0",
+      "ssim": 0.830727,
+      "psnr_db": 22.884452,
+      "lpips": 0.1267331104193415,
+      "audio8k_cosine": 0.9697443896944857,
+      "audio32k_cosine": 0.9589565326191446,
+      "audio32k_waveform_relative_l2": 0.40472017683609707,
+      "audio32k_spectral_convergence": 0.23836103657528238,
+      "audio32k_rms_db_change": -0.43438256886325244,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9850323700555756,
+          "candidate_energy_share": 0.9831918961821277,
+          "candidate_vs_reference_db": -0.442403599450257
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.011535486561581512,
+          "candidate_energy_share": 0.012871898680014386,
+          "candidate_vs_reference_db": 0.04178547261933967
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.003432143382842614,
+          "candidate_energy_share": 0.003936205137857849,
+          "candidate_vs_reference_db": 0.1608415329242074
+        }
+      }
+    },
+    {
+      "case": 7,
+      "story": 3,
+      "arm": "fresh",
+      "reference": "frozen_r85",
+      "gpu_slot": "g0",
+      "ssim": 0.83074,
+      "psnr_db": 22.884547,
+      "lpips": 0.12681674708922705,
+      "audio8k_cosine": 0.9697443896944857,
+      "audio32k_cosine": 0.9589565326191446,
+      "audio32k_waveform_relative_l2": 0.40472017683609707,
+      "audio32k_spectral_convergence": 0.23836103657528238,
+      "audio32k_rms_db_change": -0.43438256886325244,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9850323700555756,
+          "candidate_energy_share": 0.9831918961821277,
+          "candidate_vs_reference_db": -0.442403599450257
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.011535486561581512,
+          "candidate_energy_share": 0.012871898680014386,
+          "candidate_vs_reference_db": 0.04178547261933967
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.003432143382842614,
+          "candidate_energy_share": 0.003936205137857849,
+          "candidate_vs_reference_db": 0.1608415329242074
+        }
+      }
+    },
+    {
+      "case": 8,
+      "story": 3,
+      "arm": "current",
+      "reference": "bf50",
+      "gpu_slot": "g3",
+      "ssim": 0.729157,
+      "psnr_db": 19.84833,
+      "lpips": 0.3461012521928007,
+      "audio8k_cosine": 0.8387985221884229,
+      "audio32k_cosine": 0.681683043855302,
+      "audio32k_waveform_relative_l2": 1.5846127578705902,
+      "audio32k_spectral_convergence": 1.196246648014391,
+      "audio32k_rms_db_change": 2.8784938619009264,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9925515591953749,
+          "candidate_energy_share": 0.9934270820519587,
+          "candidate_vs_reference_db": 2.886165110497201
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.006295255336836897,
+          "candidate_energy_share": 0.005718182373021934,
+          "candidate_vs_reference_db": 2.4647824430865586
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.001153185467788283,
+          "candidate_energy_share": 0.0008547355750193565,
+          "candidate_vs_reference_db": 1.58166211038007
+        }
+      }
+    },
+    {
+      "case": 8,
+      "story": 3,
+      "arm": "fresh",
+      "reference": "bf50",
+      "gpu_slot": "g3",
+      "ssim": 0.732235,
+      "psnr_db": 19.980138,
+      "lpips": 0.34569007564674725,
+      "audio8k_cosine": 0.8422104192607888,
+      "audio32k_cosine": 0.6823007693698252,
+      "audio32k_waveform_relative_l2": 1.541201428770248,
+      "audio32k_spectral_convergence": 1.1925293533409898,
+      "audio32k_rms_db_change": 2.7382792251696215,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9925515591953749,
+          "candidate_energy_share": 0.9939673665015435,
+          "candidate_vs_reference_db": 2.7472696120053035
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.006295255336836897,
+          "candidate_energy_share": 0.0053184300454768045,
+          "candidate_vs_reference_db": 2.008780124322898
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.001153185467788283,
+          "candidate_energy_share": 0.0007142034529795793,
+          "candidate_vs_reference_db": 0.6603069576430485
+        }
+      }
+    },
+    {
+      "case": 8,
+      "story": 3,
+      "arm": "fresh",
+      "reference": "current",
+      "gpu_slot": "g3",
+      "ssim": 0.84598,
+      "psnr_db": 26.344677,
+      "lpips": 0.1209313114258376,
+      "audio8k_cosine": 0.9449384993544736,
+      "audio32k_cosine": 0.9281489073097399,
+      "audio32k_waveform_relative_l2": 0.8714754885226403,
+      "audio32k_spectral_convergence": 0.4743120775987213,
+      "audio32k_rms_db_change": -0.14021463673130463,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9934270820519587,
+          "candidate_energy_share": 0.9939673665015435,
+          "candidate_vs_reference_db": -0.13889549849189714
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.005718182373021934,
+          "candidate_energy_share": 0.0053184300454768045,
+          "candidate_vs_reference_db": -0.45600231876366054
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0008547355750193565,
+          "candidate_energy_share": 0.0007142034529795793,
+          "candidate_vs_reference_db": -0.9213551527370216
+        }
+      }
+    },
+    {
+      "case": 8,
+      "story": 3,
+      "arm": "fresh",
+      "reference": "frozen_r85",
+      "gpu_slot": "g3",
+      "ssim": 0.846033,
+      "psnr_db": 26.347358,
+      "lpips": 0.12093641405755823,
+      "audio8k_cosine": 0.9449384993544736,
+      "audio32k_cosine": 0.9281489073097399,
+      "audio32k_waveform_relative_l2": 0.8714754885226403,
+      "audio32k_spectral_convergence": 0.4743120775987213,
+      "audio32k_rms_db_change": -0.14021463673130463,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9934270820519587,
+          "candidate_energy_share": 0.9939673665015435,
+          "candidate_vs_reference_db": -0.13889549849189714
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.005718182373021934,
+          "candidate_energy_share": 0.0053184300454768045,
+          "candidate_vs_reference_db": -0.45600231876366054
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0008547355750193565,
+          "candidate_energy_share": 0.0007142034529795793,
+          "candidate_vs_reference_db": -0.9213551527370216
+        }
+      }
+    },
+    {
+      "case": 9,
+      "story": 3,
+      "arm": "current",
+      "reference": "bf50",
+      "gpu_slot": "g3",
+      "ssim": 0.780495,
+      "psnr_db": 22.382692,
+      "lpips": 0.21980748653411866,
+      "audio8k_cosine": 0.9433762400218049,
+      "audio32k_cosine": 0.9195619414719378,
+      "audio32k_waveform_relative_l2": 0.8807868325566852,
+      "audio32k_spectral_convergence": 0.6445778318502363,
+      "audio32k_rms_db_change": 1.9794970586363596,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9664572835796145,
+          "candidate_energy_share": 0.9745974801402963,
+          "candidate_vs_reference_db": 2.02418827111467
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.024938840379781176,
+          "candidate_energy_share": 0.01862853110071072,
+          "candidate_vs_reference_db": 0.7207856202812915
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.008603876040604279,
+          "candidate_energy_share": 0.0067739887589929985,
+          "candidate_vs_reference_db": 0.9492653328255202
+        }
+      }
+    },
+    {
+      "case": 9,
+      "story": 3,
+      "arm": "fresh",
+      "reference": "bf50",
+      "gpu_slot": "g3",
+      "ssim": 0.769878,
+      "psnr_db": 21.965608,
+      "lpips": 0.2521246498823166,
+      "audio8k_cosine": 0.9115948097322567,
+      "audio32k_cosine": 0.849825297149813,
+      "audio32k_waveform_relative_l2": 1.1324614272082825,
+      "audio32k_spectral_convergence": 0.9577973067207198,
+      "audio32k_rms_db_change": 1.6949996582113158,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9664572835796145,
+          "candidate_energy_share": 0.9741353201449997,
+          "candidate_vs_reference_db": 1.7303407172876515
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.024938840379781176,
+          "candidate_energy_share": 0.01876215205325378,
+          "candidate_vs_reference_db": 0.46003840621117703
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.008603876040604279,
+          "candidate_energy_share": 0.007102527801746429,
+          "candidate_vs_reference_db": 0.8631624255661258
+        }
+      }
+    },
+    {
+      "case": 9,
+      "story": 3,
+      "arm": "fresh",
+      "reference": "current",
+      "gpu_slot": "g3",
+      "ssim": 0.836031,
+      "psnr_db": 25.00716,
+      "lpips": 0.15435750663280487,
+      "audio8k_cosine": 0.9307955507456721,
+      "audio32k_cosine": 0.8782760303539412,
+      "audio32k_waveform_relative_l2": 0.9419659134550997,
+      "audio32k_spectral_convergence": 0.7812166228070391,
+      "audio32k_rms_db_change": -0.28449740042504346,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9745974801402963,
+          "candidate_energy_share": 0.9741353201449997,
+          "candidate_vs_reference_db": -0.29384755382701794
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.01862853110071072,
+          "candidate_energy_share": 0.01876215205325378,
+          "candidate_vs_reference_db": -0.2607472140701151
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0067739887589929985,
+          "candidate_energy_share": 0.007102527801746429,
+          "candidate_vs_reference_db": -0.08610290725939404
+        }
+      }
+    },
+    {
+      "case": 9,
+      "story": 3,
+      "arm": "fresh",
+      "reference": "frozen_r85",
+      "gpu_slot": "g3",
+      "ssim": 0.835992,
+      "psnr_db": 25.007364,
+      "lpips": 0.15445502802729608,
+      "audio8k_cosine": 0.9307955507456721,
+      "audio32k_cosine": 0.8782760303539412,
+      "audio32k_waveform_relative_l2": 0.9419659134550997,
+      "audio32k_spectral_convergence": 0.7812166228070391,
+      "audio32k_rms_db_change": -0.28449740042504346,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9745974801402963,
+          "candidate_energy_share": 0.9741353201449997,
+          "candidate_vs_reference_db": -0.29384755382701794
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.01862853110071072,
+          "candidate_energy_share": 0.01876215205325378,
+          "candidate_vs_reference_db": -0.2607472140701151
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0067739887589929985,
+          "candidate_energy_share": 0.007102527801746429,
+          "candidate_vs_reference_db": -0.08610290725939404
+        }
+      }
+    },
+    {
+      "case": 10,
+      "story": 4,
+      "arm": "current",
+      "reference": "bf50",
+      "gpu_slot": "g3",
+      "ssim": 0.734168,
+      "psnr_db": 18.791711,
+      "lpips": 0.28100284851259655,
+      "audio8k_cosine": 0.801603443770345,
+      "audio32k_cosine": 0.4948851669356351,
+      "audio32k_waveform_relative_l2": 1.131317100352225,
+      "audio32k_spectral_convergence": 1.06199808423258,
+      "audio32k_rms_db_change": -1.2843451211490464,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.895112241032157,
+          "candidate_energy_share": 0.9236015077622578,
+          "candidate_vs_reference_db": -1.1442712239624866
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.0614496150485825,
+          "candidate_energy_share": 0.0342980764443298,
+          "candidate_vs_reference_db": -3.8128366190654543
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.04343814391926044,
+          "candidate_energy_share": 0.04210041579341228,
+          "candidate_vs_reference_db": -1.4161913412918472
+        }
+      }
+    },
+    {
+      "case": 10,
+      "story": 4,
+      "arm": "fresh",
+      "reference": "bf50",
+      "gpu_slot": "g3",
+      "ssim": 0.755969,
+      "psnr_db": 19.457119,
+      "lpips": 0.25781531466378105,
+      "audio8k_cosine": 0.864966323000018,
+      "audio32k_cosine": 0.7128361915673366,
+      "audio32k_waveform_relative_l2": 0.9374339978382723,
+      "audio32k_spectral_convergence": 0.7957429049711557,
+      "audio32k_rms_db_change": -0.18167937459702768,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.895112241032157,
+          "candidate_energy_share": 0.9194787446957745,
+          "candidate_vs_reference_db": -0.06051294247369393
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.0614496150485825,
+          "candidate_energy_share": 0.0397944263584939,
+          "candidate_vs_reference_db": -2.0641241007620077
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.04343814391926044,
+          "candidate_energy_share": 0.04072682894573142,
+          "candidate_vs_reference_db": -0.45706155487564565
+        }
+      }
+    },
+    {
+      "case": 10,
+      "story": 4,
+      "arm": "fresh",
+      "reference": "current",
+      "gpu_slot": "g3",
+      "ssim": 0.808928,
+      "psnr_db": 23.522391,
+      "lpips": 0.11534267705347803,
+      "audio8k_cosine": 0.8817466699866388,
+      "audio32k_cosine": 0.651962158411211,
+      "audio32k_waveform_relative_l2": 0.8817756056388496,
+      "audio32k_spectral_convergence": 0.7994555558830948,
+      "audio32k_rms_db_change": 1.1026657465520178,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9236015077622578,
+          "candidate_energy_share": 0.9194787446957745,
+          "candidate_vs_reference_db": 1.0837582814887932
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.0342980764443298,
+          "candidate_energy_share": 0.0397944263584939,
+          "candidate_vs_reference_db": 1.7487125183034462
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.04210041579341228,
+          "candidate_energy_share": 0.04072682894573142,
+          "candidate_vs_reference_db": 0.9591297864162014
+        }
+      }
+    },
+    {
+      "case": 10,
+      "story": 4,
+      "arm": "fresh",
+      "reference": "frozen_r85",
+      "gpu_slot": "g3",
+      "ssim": 0.808984,
+      "psnr_db": 23.52316,
+      "lpips": 0.11537127362357245,
+      "audio8k_cosine": 0.8817466699866388,
+      "audio32k_cosine": 0.651962158411211,
+      "audio32k_waveform_relative_l2": 0.8817756056388496,
+      "audio32k_spectral_convergence": 0.7994555558830948,
+      "audio32k_rms_db_change": 1.1026657465520178,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9236015077622578,
+          "candidate_energy_share": 0.9194787446957745,
+          "candidate_vs_reference_db": 1.0837582814887932
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.0342980764443298,
+          "candidate_energy_share": 0.0397944263584939,
+          "candidate_vs_reference_db": 1.7487125183034462
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.04210041579341228,
+          "candidate_energy_share": 0.04072682894573142,
+          "candidate_vs_reference_db": 0.9591297864162014
+        }
+      }
+    },
+    {
+      "case": 11,
+      "story": 4,
+      "arm": "current",
+      "reference": "bf50",
+      "gpu_slot": "g3",
+      "ssim": 0.705187,
+      "psnr_db": 17.601439,
+      "lpips": 0.31329383168901714,
+      "audio8k_cosine": 0.885618285488843,
+      "audio32k_cosine": 0.8347311976178956,
+      "audio32k_waveform_relative_l2": 1.1576796990210925,
+      "audio32k_spectral_convergence": 0.6787312043864846,
+      "audio32k_rms_db_change": 2.625647870775081,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9812603993284355,
+          "candidate_energy_share": 0.9853528492539168,
+          "candidate_vs_reference_db": 2.644540607519397
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.013154960280929651,
+          "candidate_energy_share": 0.009219667633532554,
+          "candidate_vs_reference_db": 1.0827228040875505
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.005584640390634719,
+          "candidate_energy_share": 0.0054274831125508795,
+          "candidate_vs_reference_db": 2.5024982423906588
+        }
+      }
+    },
+    {
+      "case": 11,
+      "story": 4,
+      "arm": "fresh",
+      "reference": "bf50",
+      "gpu_slot": "g3",
+      "ssim": 0.715371,
+      "psnr_db": 17.51533,
+      "lpips": 0.29891705371084665,
+      "audio8k_cosine": 0.8898177730028154,
+      "audio32k_cosine": 0.8312306644959776,
+      "audio32k_waveform_relative_l2": 1.1734604088264113,
+      "audio32k_spectral_convergence": 0.7118947419100797,
+      "audio32k_rms_db_change": 2.893017903289107,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9812603993284355,
+          "candidate_energy_share": 0.9864774634742722,
+          "candidate_vs_reference_db": 2.917286462961379
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.013154960280929651,
+          "candidate_energy_share": 0.008703942339580113,
+          "candidate_vs_reference_db": 1.1005221482301388
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.005584640390634719,
+          "candidate_energy_share": 0.0048185941861477585,
+          "candidate_vs_reference_db": 2.253508899310961
+        }
+      }
+    },
+    {
+      "case": 11,
+      "story": 4,
+      "arm": "fresh",
+      "reference": "current",
+      "gpu_slot": "g3",
+      "ssim": 0.802409,
+      "psnr_db": 22.448216,
+      "lpips": 0.1385228866267772,
+      "audio8k_cosine": 0.9466619367385893,
+      "audio32k_cosine": 0.9798230466250198,
+      "audio32k_waveform_relative_l2": 0.2734888220204099,
+      "audio32k_spectral_convergence": 0.1305796905162288,
+      "audio32k_rms_db_change": 0.26737003251402625,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9853528492539168,
+          "candidate_energy_share": 0.9864774634742722,
+          "candidate_vs_reference_db": 0.2727458554419816
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.009219667633532554,
+          "candidate_energy_share": 0.008703942339580113,
+          "candidate_vs_reference_db": 0.01779934414258838
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0054274831125508795,
+          "candidate_energy_share": 0.0048185941861477585,
+          "candidate_vs_reference_db": -0.24898934307969814
+        }
+      }
+    },
+    {
+      "case": 11,
+      "story": 4,
+      "arm": "fresh",
+      "reference": "frozen_r85",
+      "gpu_slot": "g3",
+      "ssim": 0.802511,
+      "psnr_db": 22.448832,
+      "lpips": 0.13859271648384275,
+      "audio8k_cosine": 0.9466619367385893,
+      "audio32k_cosine": 0.9798230466250198,
+      "audio32k_waveform_relative_l2": 0.2734888220204099,
+      "audio32k_spectral_convergence": 0.1305796905162288,
+      "audio32k_rms_db_change": 0.26737003251402625,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9853528492539168,
+          "candidate_energy_share": 0.9864774634742722,
+          "candidate_vs_reference_db": 0.2727458554419816
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.009219667633532554,
+          "candidate_energy_share": 0.008703942339580113,
+          "candidate_vs_reference_db": 0.01779934414258838
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0054274831125508795,
+          "candidate_energy_share": 0.0048185941861477585,
+          "candidate_vs_reference_db": -0.24898934307969814
+        }
+      }
+    },
+    {
+      "case": 12,
+      "story": 4,
+      "arm": "current",
+      "reference": "bf50",
+      "gpu_slot": "g3",
+      "ssim": 0.805022,
+      "psnr_db": 20.663728,
+      "lpips": 0.2480657207114356,
+      "audio8k_cosine": 0.9128840907458615,
+      "audio32k_cosine": 0.9232328924922077,
+      "audio32k_waveform_relative_l2": 0.697901853774796,
+      "audio32k_spectral_convergence": 0.5930187400490883,
+      "audio32k_rms_db_change": 1.829160076321692,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9862454893985643,
+          "candidate_energy_share": 0.9887161784925297,
+          "candidate_vs_reference_db": 1.850407784976893
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.012865547172173765,
+          "candidate_energy_share": 0.010552917384982494,
+          "candidate_vs_reference_db": 0.9789844455653541
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0008889634292621292,
+          "candidate_energy_share": 0.0007309041224875336,
+          "candidate_vs_reference_db": 0.9893068420471414
+        }
+      }
+    },
+    {
+      "case": 12,
+      "story": 4,
+      "arm": "fresh",
+      "reference": "bf50",
+      "gpu_slot": "g3",
+      "ssim": 0.803354,
+      "psnr_db": 20.452857,
+      "lpips": 0.2551530521540415,
+      "audio8k_cosine": 0.8946180452381208,
+      "audio32k_cosine": 0.6114945722690284,
+      "audio32k_waveform_relative_l2": 1.4881659455014014,
+      "audio32k_spectral_convergence": 1.312465378653555,
+      "audio32k_rms_db_change": 2.4399569674500463,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9862454893985643,
+          "candidate_energy_share": 0.9903615648890712,
+          "candidate_vs_reference_db": 2.520100357377879
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.012865547172173765,
+          "candidate_energy_share": 0.008815040579637284,
+          "candidate_vs_reference_db": 0.8599734271219462
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0008889634292621292,
+          "candidate_energy_share": 0.0008233945312915718,
+          "candidate_vs_reference_db": 2.1692537149234155
+        }
+      }
+    },
+    {
+      "case": 12,
+      "story": 4,
+      "arm": "fresh",
+      "reference": "current",
+      "gpu_slot": "g3",
+      "ssim": 0.82356,
+      "psnr_db": 21.930316,
+      "lpips": 0.214098283577533,
+      "audio8k_cosine": 0.9126618418891027,
+      "audio32k_cosine": 0.7027067705453776,
+      "audio32k_waveform_relative_l2": 1.2093712865331172,
+      "audio32k_spectral_convergence": 1.0460228845914519,
+      "audio32k_rms_db_change": 0.6107968911283548,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9887161784925297,
+          "candidate_energy_share": 0.9903615648890712,
+          "candidate_vs_reference_db": 0.6696925724009863
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.010552917384982494,
+          "candidate_energy_share": 0.008815040579637284,
+          "candidate_vs_reference_db": -0.11901101844340851
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0007309041224875336,
+          "candidate_energy_share": 0.0008233945312915718,
+          "candidate_vs_reference_db": 1.1799468728762743
+        }
+      }
+    },
+    {
+      "case": 12,
+      "story": 4,
+      "arm": "fresh",
+      "reference": "frozen_r85",
+      "gpu_slot": "g3",
+      "ssim": 0.823619,
+      "psnr_db": 21.931536,
+      "lpips": 0.21375414019539243,
+      "audio8k_cosine": 0.9126618418891027,
+      "audio32k_cosine": 0.7027067705453776,
+      "audio32k_waveform_relative_l2": 1.2093712865331172,
+      "audio32k_spectral_convergence": 1.0460228845914519,
+      "audio32k_rms_db_change": 0.6107968911283548,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9887161784925297,
+          "candidate_energy_share": 0.9903615648890712,
+          "candidate_vs_reference_db": 0.6696925724009863
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.010552917384982494,
+          "candidate_energy_share": 0.008815040579637284,
+          "candidate_vs_reference_db": -0.11901101844340851
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0007309041224875336,
+          "candidate_energy_share": 0.0008233945312915718,
+          "candidate_vs_reference_db": 1.1799468728762743
+        }
+      }
+    },
+    {
+      "case": 13,
+      "story": 5,
+      "arm": "current",
+      "reference": "bf50",
+      "gpu_slot": "g3",
+      "ssim": 0.728723,
+      "psnr_db": 19.800827,
+      "lpips": 0.2733963736229473,
+      "audio8k_cosine": 0.9207071498333339,
+      "audio32k_cosine": 0.89514257598999,
+      "audio32k_waveform_relative_l2": 1.0503825172765267,
+      "audio32k_spectral_convergence": 0.4835336133771345,
+      "audio32k_rms_db_change": 1.5656229515101994,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9947739403507962,
+          "candidate_energy_share": 0.9929897336324376,
+          "candidate_vs_reference_db": 1.5578575802333783
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.0037913686474730078,
+          "candidate_energy_share": 0.004772315170400464,
+          "candidate_vs_reference_db": 2.564985023130497
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0014346910017307103,
+          "candidate_energy_share": 0.002237951197161816,
+          "candidate_vs_reference_db": 3.496576365497214
+        }
+      }
+    },
+    {
+      "case": 13,
+      "story": 5,
+      "arm": "fresh",
+      "reference": "bf50",
+      "gpu_slot": "g3",
+      "ssim": 0.734833,
+      "psnr_db": 20.056471,
+      "lpips": 0.2570267385906643,
+      "audio8k_cosine": 0.9248853334903984,
+      "audio32k_cosine": 0.9127822821604384,
+      "audio32k_waveform_relative_l2": 1.104727479093348,
+      "audio32k_spectral_convergence": 0.4801214556830254,
+      "audio32k_rms_db_change": 1.6011005534460248,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9947739403507962,
+          "candidate_energy_share": 0.9946058444618474,
+          "candidate_vs_reference_db": 1.6004067027213345
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.0037913686474730078,
+          "candidate_energy_share": 0.004200871515871692,
+          "candidate_vs_reference_db": 2.046574475219621
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0014346910017307103,
+          "candidate_energy_share": 0.0011932840222809785,
+          "candidate_vs_reference_db": 0.8009951424757751
+        }
+      }
+    },
+    {
+      "case": 13,
+      "story": 5,
+      "arm": "fresh",
+      "reference": "current",
+      "gpu_slot": "g3",
+      "ssim": 0.811287,
+      "psnr_db": 23.991685,
+      "lpips": 0.12609905170069802,
+      "audio8k_cosine": 0.9489919885029768,
+      "audio32k_cosine": 0.9347782829441367,
+      "audio32k_waveform_relative_l2": 0.6156878905302751,
+      "audio32k_spectral_convergence": 0.3050305020016278,
+      "audio32k_rms_db_change": 0.03547760193582582,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9929897336324376,
+          "candidate_energy_share": 0.9946058444618474,
+          "candidate_vs_reference_db": 0.04254912248795601
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.004772315170400464,
+          "candidate_energy_share": 0.004200871515871692,
+          "candidate_vs_reference_db": -0.5184105479108762
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.002237951197161816,
+          "candidate_energy_share": 0.0011932840222809785,
+          "candidate_vs_reference_db": -2.6955812230214384
+        }
+      }
+    },
+    {
+      "case": 13,
+      "story": 5,
+      "arm": "fresh",
+      "reference": "frozen_r85",
+      "gpu_slot": "g3",
+      "ssim": 0.811507,
+      "psnr_db": 23.995122,
+      "lpips": 0.12614588936169943,
+      "audio8k_cosine": 0.9489919885029768,
+      "audio32k_cosine": 0.9347782829441367,
+      "audio32k_waveform_relative_l2": 0.6156878905302751,
+      "audio32k_spectral_convergence": 0.3050305020016278,
+      "audio32k_rms_db_change": 0.03547760193582582,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9929897336324376,
+          "candidate_energy_share": 0.9946058444618474,
+          "candidate_vs_reference_db": 0.04254912248795601
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.004772315170400464,
+          "candidate_energy_share": 0.004200871515871692,
+          "candidate_vs_reference_db": -0.5184105479108762
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.002237951197161816,
+          "candidate_energy_share": 0.0011932840222809785,
+          "candidate_vs_reference_db": -2.6955812230214384
+        }
+      }
+    },
+    {
+      "case": 14,
+      "story": 5,
+      "arm": "current",
+      "reference": "bf50",
+      "gpu_slot": "g3",
+      "ssim": 0.78611,
+      "psnr_db": 20.613448,
+      "lpips": 0.22854099458172208,
+      "audio8k_cosine": 0.9022530054971168,
+      "audio32k_cosine": 0.7586044297359402,
+      "audio32k_waveform_relative_l2": 1.3028963775087972,
+      "audio32k_spectral_convergence": 0.9011625050789924,
+      "audio32k_rms_db_change": 2.2219519598230337,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9907730508996384,
+          "candidate_energy_share": 0.9903520125494994,
+          "candidate_vs_reference_db": 2.2201687777209886
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.007748034386484251,
+          "candidate_energy_share": 0.007844824315937665,
+          "candidate_vs_reference_db": 2.2759315709315695
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0014789147138774303,
+          "candidate_energy_share": 0.001803163134562978,
+          "candidate_vs_reference_db": 3.082933644267481
+        }
+      }
+    },
+    {
+      "case": 14,
+      "story": 5,
+      "arm": "fresh",
+      "reference": "bf50",
+      "gpu_slot": "g3",
+      "ssim": 0.77914,
+      "psnr_db": 19.621667,
+      "lpips": 0.23601752448649632,
+      "audio8k_cosine": 0.8505257526383799,
+      "audio32k_cosine": 0.7529480417136881,
+      "audio32k_waveform_relative_l2": 1.5818741333653907,
+      "audio32k_spectral_convergence": 1.0320537602249726,
+      "audio32k_rms_db_change": 2.605984418554091,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9907730508996384,
+          "candidate_energy_share": 0.9909950342153732,
+          "candidate_vs_reference_db": 2.607005345404168
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.007748034386484251,
+          "candidate_energy_share": 0.007691986102178401,
+          "candidate_vs_reference_db": 2.5745019288890343
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.0014789147138774303,
+          "candidate_energy_share": 0.0013129796824484703,
+          "candidate_vs_reference_db": 2.0891811738899384
+        }
+      }
+    },
+    {
+      "case": 14,
+      "story": 5,
+      "arm": "fresh",
+      "reference": "current",
+      "gpu_slot": "g3",
+      "ssim": 0.82383,
+      "psnr_db": 22.641667,
+      "lpips": 0.15094704269653275,
+      "audio8k_cosine": 0.8907531664617879,
+      "audio32k_cosine": 0.8751087699626655,
+      "audio32k_waveform_relative_l2": 1.1472759705254931,
+      "audio32k_spectral_convergence": 0.5756104407488812,
+      "audio32k_rms_db_change": 0.38403245873105696,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9903520125494994,
+          "candidate_energy_share": 0.9909950342153732,
+          "candidate_vs_reference_db": 0.38683656768317914
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.007844824315937665,
+          "candidate_energy_share": 0.007691986102178401,
+          "candidate_vs_reference_db": 0.2985703579574645
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.001803163134562978,
+          "candidate_energy_share": 0.0013129796824484703,
+          "candidate_vs_reference_db": -0.9937524703775427
+        }
+      }
+    },
+    {
+      "case": 14,
+      "story": 5,
+      "arm": "fresh",
+      "reference": "frozen_r85",
+      "gpu_slot": "g3",
+      "ssim": 0.823811,
+      "psnr_db": 22.642037,
+      "lpips": 0.1508684087367285,
+      "audio8k_cosine": 0.8907531664617879,
+      "audio32k_cosine": 0.8751087699626655,
+      "audio32k_waveform_relative_l2": 1.1472759705254931,
+      "audio32k_spectral_convergence": 0.5756104407488812,
+      "audio32k_rms_db_change": 0.38403245873105696,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9903520125494994,
+          "candidate_energy_share": 0.9909950342153732,
+          "candidate_vs_reference_db": 0.38683656768317914
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.007844824315937665,
+          "candidate_energy_share": 0.007691986102178401,
+          "candidate_vs_reference_db": 0.2985703579574645
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.001803163134562978,
+          "candidate_energy_share": 0.0013129796824484703,
+          "candidate_vs_reference_db": -0.9937524703775427
+        }
+      }
+    },
+    {
+      "case": 15,
+      "story": 5,
+      "arm": "current",
+      "reference": "bf50",
+      "gpu_slot": "g3",
+      "ssim": 0.732876,
+      "psnr_db": 18.725267,
+      "lpips": 0.3512909354435073,
+      "audio8k_cosine": 0.7924056285053906,
+      "audio32k_cosine": 0.5805972227683683,
+      "audio32k_waveform_relative_l2": 1.658574619210829,
+      "audio32k_spectral_convergence": 1.2773489095969344,
+      "audio32k_rms_db_change": 3.3028780754129388,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9781613062176627,
+          "candidate_energy_share": 0.9746043433353652,
+          "candidate_vs_reference_db": 3.287104908642654
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.016436123272739432,
+          "candidate_energy_share": 0.0204657472864885,
+          "candidate_vs_reference_db": 4.255208447685213
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.005402570509597786,
+          "candidate_energy_share": 0.004929909378146213,
+          "candidate_vs_reference_db": 2.905311200283007
+        }
+      }
+    },
+    {
+      "case": 15,
+      "story": 5,
+      "arm": "fresh",
+      "reference": "bf50",
+      "gpu_slot": "g3",
+      "ssim": 0.73038,
+      "psnr_db": 18.509159,
+      "lpips": 0.361557989484734,
+      "audio8k_cosine": 0.8282768575222195,
+      "audio32k_cosine": 0.5814080124610246,
+      "audio32k_waveform_relative_l2": 1.7261123083499728,
+      "audio32k_spectral_convergence": 1.3587218288128844,
+      "audio32k_rms_db_change": 3.8694044281452475,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9781613062176627,
+          "candidate_energy_share": 0.9747058642206059,
+          "candidate_vs_reference_db": 3.854054595893998
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.016436123272739432,
+          "candidate_energy_share": 0.02026552289076624,
+          "candidate_vs_reference_db": 4.779007837990453
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.005402570509597786,
+          "candidate_energy_share": 0.005028612888627832,
+          "candidate_vs_reference_db": 3.5579012031546537
+        }
+      }
+    },
+    {
+      "case": 15,
+      "story": 5,
+      "arm": "fresh",
+      "reference": "current",
+      "gpu_slot": "g3",
+      "ssim": 0.852335,
+      "psnr_db": 24.42068,
+      "lpips": 0.11578821846180493,
+      "audio8k_cosine": 0.9199738127482526,
+      "audio32k_cosine": 0.9322398434617049,
+      "audio32k_waveform_relative_l2": 0.919160948301039,
+      "audio32k_spectral_convergence": 0.44390616823885354,
+      "audio32k_rms_db_change": 0.5665263527323094,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9746043433353652,
+          "candidate_energy_share": 0.9747058642206059,
+          "candidate_vs_reference_db": 0.5669496872513444
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.0204657472864885,
+          "candidate_energy_share": 0.02026552289076624,
+          "candidate_vs_reference_db": 0.5237993903052396
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.004929909378146213,
+          "candidate_energy_share": 0.005028612888627832,
+          "candidate_vs_reference_db": 0.652590002871647
+        }
+      }
+    },
+    {
+      "case": 15,
+      "story": 5,
+      "arm": "fresh",
+      "reference": "frozen_r85",
+      "gpu_slot": "g3",
+      "ssim": 0.852328,
+      "psnr_db": 24.421148,
+      "lpips": 0.11591157938043277,
+      "audio8k_cosine": 0.9199738127482526,
+      "audio32k_cosine": 0.9322398434617049,
+      "audio32k_waveform_relative_l2": 0.919160948301039,
+      "audio32k_spectral_convergence": 0.44390616823885354,
+      "audio32k_rms_db_change": 0.5665263527323094,
+      "audio32k_bands": {
+        "0-4000Hz": {
+          "reference_energy_share": 0.9746043433353652,
+          "candidate_energy_share": 0.9747058642206059,
+          "candidate_vs_reference_db": 0.5669496872513444
+        },
+        "4000-8000Hz": {
+          "reference_energy_share": 0.0204657472864885,
+          "candidate_energy_share": 0.02026552289076624,
+          "candidate_vs_reference_db": 0.5237993903052396
+        },
+        "8000-16000Hz": {
+          "reference_energy_share": 0.004929909378146213,
+          "candidate_energy_share": 0.005028612888627832,
+          "candidate_vs_reference_db": 0.652590002871647
+        }
+      }
+    }
+  ],
+  "case_deltas": [
+    {
+      "case": 1,
+      "story": 1,
+      "delta": {
+        "ssim": 0.0009900000000000464,
+        "lpips": -0.006403215584300792,
+        "audio8k_cosine": 0.009769685165016306,
+        "audio32k_cosine": 0.003806862584205817
+      }
+    },
+    {
+      "case": 2,
+      "story": 1,
+      "delta": {
+        "ssim": -0.004699000000000009,
+        "lpips": 0.018601347293172532,
+        "audio8k_cosine": 0.024766959738042327,
+        "audio32k_cosine": 0.03493190513019051
+      }
+    },
+    {
+      "case": 3,
+      "story": 1,
+      "delta": {
+        "ssim": -0.00444700000000009,
+        "lpips": 0.009954715768496214,
+        "audio8k_cosine": 0.01347760392426467,
+        "audio32k_cosine": 0.08500397969395013
+      }
+    },
+    {
+      "case": 4,
+      "story": 2,
+      "delta": {
+        "ssim": -0.010585999999999984,
+        "lpips": 0.02260894292876836,
+        "audio8k_cosine": -0.011461090003784369,
+        "audio32k_cosine": 0.0034351770147529326
+      }
+    },
+    {
+      "case": 5,
+      "story": 2,
+      "delta": {
+        "ssim": 0.0033600000000000296,
+        "lpips": -0.004885415590944742,
+        "audio8k_cosine": 0.012032808908561399,
+        "audio32k_cosine": 0.13408465576067974
+      }
+    },
+    {
+      "case": 6,
+      "story": 2,
+      "delta": {
+        "ssim": 0.016460999999999948,
+        "lpips": -0.031510860437438615,
+        "audio8k_cosine": 0.016795109278703757,
+        "audio32k_cosine": 0.07485501585974125
+      }
+    },
+    {
+      "case": 7,
+      "story": 3,
+      "delta": {
+        "ssim": 0.0045640000000000125,
+        "lpips": -0.005386803121793848,
+        "audio8k_cosine": 0.004708672248733281,
+        "audio32k_cosine": -0.005392002638401561
+      }
+    },
+    {
+      "case": 8,
+      "story": 3,
+      "delta": {
+        "ssim": 0.003077999999999914,
+        "lpips": -0.0004111765460534378,
+        "audio8k_cosine": 0.003411897072365888,
+        "audio32k_cosine": 0.0006177255145232152
+      }
+    },
+    {
+      "case": 9,
+      "story": 3,
+      "delta": {
+        "ssim": -0.010617000000000099,
+        "lpips": 0.032317163348197925,
+        "audio8k_cosine": -0.03178143028954816,
+        "audio32k_cosine": -0.06973664432212479
+      }
+    },
+    {
+      "case": 10,
+      "story": 4,
+      "delta": {
+        "ssim": 0.02180099999999996,
+        "lpips": -0.0231875338488155,
+        "audio8k_cosine": 0.06336287922967299,
+        "audio32k_cosine": 0.21795102463170146
+      }
+    },
+    {
+      "case": 11,
+      "story": 4,
+      "delta": {
+        "ssim": 0.01018399999999997,
+        "lpips": -0.014376777978170496,
+        "audio8k_cosine": 0.004199487513972366,
+        "audio32k_cosine": -0.0035005331219180036
+      }
+    },
+    {
+      "case": 12,
+      "story": 4,
+      "delta": {
+        "ssim": -0.0016680000000000028,
+        "lpips": 0.007087331442605899,
+        "audio8k_cosine": -0.01826604550774069,
+        "audio32k_cosine": -0.3117383202231794
+      }
+    },
+    {
+      "case": 13,
+      "story": 5,
+      "delta": {
+        "ssim": 0.006109999999999949,
+        "lpips": -0.016369635032282948,
+        "audio8k_cosine": 0.00417818365706446,
+        "audio32k_cosine": 0.01763970617044841
+      }
+    },
+    {
+      "case": 14,
+      "story": 5,
+      "delta": {
+        "ssim": -0.006969999999999921,
+        "lpips": 0.007476529904774237,
+        "audio8k_cosine": -0.051727252858736916,
+        "audio32k_cosine": -0.005656388022252101
+      }
+    },
+    {
+      "case": 15,
+      "story": 5,
+      "delta": {
+        "ssim": -0.0024959999999999427,
+        "lpips": 0.010267054041226686,
+        "audio8k_cosine": 0.03587122901682882,
+        "audio32k_cosine": 0.0008107896926562441
+      }
+    }
+  ],
+  "sampler_timing": [
+    {
+      "gpu_slot": "g0",
+      "case": 1,
+      "seconds": {
+        "current": [
+          229.3182549100602,
+          229.23169907403644
+        ],
+        "fresh": [
+          229.24355504498817,
+          229.218412723043
+        ]
+      },
+      "mean": {
+        "current": 229.27497699204832,
+        "fresh": 229.2309838840156
+      },
+      "time_reduction_percent": 0.019187923867625134,
+      "speedup": 1.0001919160633843
+    },
+    {
+      "gpu_slot": "g3",
+      "case": 8,
+      "seconds": {
+        "current": [
+          215.31154490693007,
+          215.2833270749543
+        ],
+        "fresh": [
+          215.31403655407485,
+          215.26642143307254
+        ]
+      },
+      "mean": {
+        "current": 215.29743599094218,
+        "fresh": 215.2902289935737
+      },
+      "time_reduction_percent": 0.003347460844260741,
+      "speedup": 1.0000334757290295
+    }
+  ],
+  "full_timing": [
+    {
+      "gpu_slot": "g0",
+      "case": 1,
+      "count": {
+        "current": 2,
+        "fresh": 2
+      },
+      "mean": {
+        "current": {
+          "dit_seconds": 225.55184418597491,
+          "video_seconds": 9.64642253157217,
+          "audio_seconds": 0.11713112151483074,
+          "export_seconds": 4.377361505990848,
+          "service_seconds": 239.74544125801185,
+          "group_seconds": 239.74547319707926
+        },
+        "fresh": {
+          "dit_seconds": 225.5409104580176,
+          "video_seconds": 9.774920763040427,
+          "audio_seconds": 0.11882355849957094,
+          "export_seconds": 4.358584591478575,
+          "service_seconds": 239.8501815565396,
+          "group_seconds": 239.8502148455009
+        }
+      },
+      "time_reduction_percent": -0.043688129366770134,
+      "speedup": 0.9995633094882479
+    },
+    {
+      "gpu_slot": "g3",
+      "case": 8,
+      "count": {
+        "current": 2,
+        "fresh": 2
+      },
+      "mean": {
+        "current": {
+          "dit_seconds": 212.07052592997206,
+          "video_seconds": 10.487424204999115,
+          "audio_seconds": 0.12301963253412396,
+          "export_seconds": 4.840087838470936,
+          "service_seconds": 227.59367008897243,
+          "group_seconds": 227.5937091980013
+        },
+        "fresh": {
+          "dit_seconds": 212.07078247651225,
+          "video_seconds": 10.563036362465937,
+          "audio_seconds": 0.12206258752848953,
+          "export_seconds": 4.874949511489831,
+          "service_seconds": 227.68697432946647,
+          "group_seconds": 227.68701460852753
+        }
+      },
+      "time_reduction_percent": -0.040995973419444276,
+      "speedup": 0.9995902082639166
+    }
+  ],
+  "sampling": [
+    {
+      "gpu_slot": "g0",
+      "arm": "current",
+      "run": "quality",
+      "case": 1,
+      "repeat": -1,
+      "warmup": true,
+      "sampler_seconds": 229.93861469405238,
+      "nfe": 8,
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "sigmas": [
+        1.0,
+        0.9949881434440613,
+        0.9825119376182556,
+        0.9607445001602173,
+        0.9233605265617371,
+        0.8552915453910828,
+        0.7207329869270325,
+        0.4249083995819092,
+        0.0
+      ],
+      "latent_sha256": [
+        "d7f6b67bed376e4fc8b805474f5d8ab1ac961de9a5a98ea778cd8fccc590f8bf",
+        "5973eeb3722428b4af01ea3dc4fbc275ac601b020bb82391167aaf4d0e68ee04"
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "peak_allocated": 10143806976
+    },
+    {
+      "gpu_slot": "g0",
+      "arm": "current",
+      "run": "quality",
+      "case": 1,
+      "repeat": 0,
+      "warmup": false,
+      "sampler_seconds": 229.3182549100602,
+      "nfe": 8,
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "sigmas": [
+        1.0,
+        0.9949881434440613,
+        0.9825119376182556,
+        0.9607445001602173,
+        0.9233605265617371,
+        0.8552915453910828,
+        0.7207329869270325,
+        0.4249083995819092,
+        0.0
+      ],
+      "latent_sha256": [
+        "d7f6b67bed376e4fc8b805474f5d8ab1ac961de9a5a98ea778cd8fccc590f8bf",
+        "5973eeb3722428b4af01ea3dc4fbc275ac601b020bb82391167aaf4d0e68ee04"
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "peak_allocated": 10144483840
+    },
+    {
+      "gpu_slot": "g0",
+      "arm": "current",
+      "run": "quality",
+      "case": 2,
+      "repeat": 0,
+      "warmup": false,
+      "sampler_seconds": 229.92694128095172,
+      "nfe": 8,
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "sigmas": [
+        1.0,
+        0.9949881434440613,
+        0.9825119376182556,
+        0.9607445001602173,
+        0.9233605265617371,
+        0.8552915453910828,
+        0.7207329869270325,
+        0.4249083995819092,
+        0.0
+      ],
+      "latent_sha256": [
+        "2a0205e18ee930d69bb3f5ff51833b7d632cb7fdde3d97adf4177f235b074771",
+        "10cbe58b003c99cb5d6a0272d3b034bbe9b295c11129a537bec7a1fbf91f4e28"
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "peak_allocated": 10147419648
+    },
+    {
+      "gpu_slot": "g0",
+      "arm": "current",
+      "run": "quality",
+      "case": 3,
+      "repeat": 0,
+      "warmup": false,
+      "sampler_seconds": 230.25321955501568,
+      "nfe": 8,
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "sigmas": [
+        1.0,
+        0.9949881434440613,
+        0.9825119376182556,
+        0.9607445001602173,
+        0.9233605265617371,
+        0.8552915453910828,
+        0.7207329869270325,
+        0.4249083995819092,
+        0.0
+      ],
+      "latent_sha256": [
+        "e65b740e01ec7792ae6a95197d3f9398e67a905e4ebb523ab07a656d5bc78e1a",
+        "6c5835fc4c65975db6c0a7750f40bf8b60306de9ef72d1e828b6858e096518df"
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "peak_allocated": 10159784448
+    },
+    {
+      "gpu_slot": "g0",
+      "arm": "current",
+      "run": "quality",
+      "case": 4,
+      "repeat": 0,
+      "warmup": false,
+      "sampler_seconds": 194.33857544499915,
+      "nfe": 8,
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "sigmas": [
+        1.0,
+        0.9949881434440613,
+        0.9825119376182556,
+        0.9607445001602173,
+        0.9233605265617371,
+        0.8552915453910828,
+        0.7207329869270325,
+        0.4249083995819092,
+        0.0
+      ],
+      "latent_sha256": [
+        "ce44fd8709d6b5cb53a7d52623d7f06109128713b84bb9ac3a78d70df0938fcb",
+        "620c312b12b5cce8a9c5672ada82d5eec77945dfd8362d688aa383dfe06b975d"
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "peak_allocated": 9146951680
+    },
+    {
+      "gpu_slot": "g0",
+      "arm": "current",
+      "run": "quality",
+      "case": 5,
+      "repeat": 0,
+      "warmup": false,
+      "sampler_seconds": 203.17611790797673,
+      "nfe": 8,
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "sigmas": [
+        1.0,
+        0.9949881434440613,
+        0.9825119376182556,
+        0.9607445001602173,
+        0.9233605265617371,
+        0.8552915453910828,
+        0.7207329869270325,
+        0.4249083995819092,
+        0.0
+      ],
+      "latent_sha256": [
+        "3fce3191fb3cac70139cf408edda313bece39308d4975290780e76b3cc588566",
+        "7bf439136b661424a562243a0cf1f01abc023f49eb0341cdb6814ac1375fa393"
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "peak_allocated": 9393602560
+    },
+    {
+      "gpu_slot": "g0",
+      "arm": "current",
+      "run": "quality",
+      "case": 6,
+      "repeat": 0,
+      "warmup": false,
+      "sampler_seconds": 203.19077221502084,
+      "nfe": 8,
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "sigmas": [
+        1.0,
+        0.9949881434440613,
+        0.9825119376182556,
+        0.9607445001602173,
+        0.9233605265617371,
+        0.8552915453910828,
+        0.7207329869270325,
+        0.4249083995819092,
+        0.0
+      ],
+      "latent_sha256": [
+        "15984c775e8996fecc69bbdd616429608f4880ec128e8a4cd259b4e3feceb42b",
+        "7e1d0d95f47cd5f29c2b575084c0233dd38246b4a11f85cbf37d2350fb7f1d65"
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "peak_allocated": 9393054720
+    },
+    {
+      "gpu_slot": "g0",
+      "arm": "current",
+      "run": "quality",
+      "case": 7,
+      "repeat": 0,
+      "warmup": false,
+      "sampler_seconds": 201.92198757804,
+      "nfe": 8,
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "sigmas": [
+        1.0,
+        0.9949881434440613,
+        0.9825119376182556,
+        0.9607445001602173,
+        0.9233605265617371,
+        0.8552915453910828,
+        0.7207329869270325,
+        0.4249083995819092,
+        0.0
+      ],
+      "latent_sha256": [
+        "43a8b0b5929ce55e0f8c619ab175f8a77822a32b6e39dfe7a4a230a069b0280f",
+        "046a17be99dff6aaac7611644ec726474631ee696d1a5f9fcbe8956ac55ded1c"
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "peak_allocated": 9369547776
+    },
+    {
+      "gpu_slot": "g0",
+      "arm": "fresh",
+      "run": "quality",
+      "case": 1,
+      "repeat": -1,
+      "warmup": true,
+      "sampler_seconds": 230.04757024196442,
+      "nfe": 8,
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "sigmas": [
+        1.0,
+        0.9949881434440613,
+        0.9825119376182556,
+        0.9607445001602173,
+        0.9233605265617371,
+        0.8552915453910828,
+        0.7207329869270325,
+        0.4249083995819092,
+        0.0
+      ],
+      "latent_sha256": [
+        "b225cf690b32815558723800849555d8f2cd3ee6dddb89c6cd147832b1db7913",
+        "3f738363409e7a5a7efa8e8f75e0057d62b7264cc83b61f2ce025de1afde7869"
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "peak_allocated": 10143806976
+    },
+    {
+      "gpu_slot": "g0",
+      "arm": "fresh",
+      "run": "quality",
+      "case": 1,
+      "repeat": 0,
+      "warmup": false,
+      "sampler_seconds": 229.24355504498817,
+      "nfe": 8,
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "sigmas": [
+        1.0,
+        0.9949881434440613,
+        0.9825119376182556,
+        0.9607445001602173,
+        0.9233605265617371,
+        0.8552915453910828,
+        0.7207329869270325,
+        0.4249083995819092,
+        0.0
+      ],
+      "latent_sha256": [
+        "b225cf690b32815558723800849555d8f2cd3ee6dddb89c6cd147832b1db7913",
+        "3f738363409e7a5a7efa8e8f75e0057d62b7264cc83b61f2ce025de1afde7869"
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "peak_allocated": 10144483840
+    },
+    {
+      "gpu_slot": "g0",
+      "arm": "fresh",
+      "run": "quality",
+      "case": 2,
+      "repeat": 0,
+      "warmup": false,
+      "sampler_seconds": 229.98758270801045,
+      "nfe": 8,
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "sigmas": [
+        1.0,
+        0.9949881434440613,
+        0.9825119376182556,
+        0.9607445001602173,
+        0.9233605265617371,
+        0.8552915453910828,
+        0.7207329869270325,
+        0.4249083995819092,
+        0.0
+      ],
+      "latent_sha256": [
+        "88508b41d455f3077448d584f351943cec3be7436a9f5cbcb08df7ec5a49ac23",
+        "84b85d6326f308f8b32e5eed1562b1014eec00492f73ebe7bafaa107abc4efdf"
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "peak_allocated": 10147419648
+    },
+    {
+      "gpu_slot": "g0",
+      "arm": "fresh",
+      "run": "quality",
+      "case": 3,
+      "repeat": 0,
+      "warmup": false,
+      "sampler_seconds": 230.2288931160001,
+      "nfe": 8,
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "sigmas": [
+        1.0,
+        0.9949881434440613,
+        0.9825119376182556,
+        0.9607445001602173,
+        0.9233605265617371,
+        0.8552915453910828,
+        0.7207329869270325,
+        0.4249083995819092,
+        0.0
+      ],
+      "latent_sha256": [
+        "dcc8bd4d2e47caabe026abce55ce2b8dda6261dc0d9b8ba73c00eebf8964c66c",
+        "569973ddb205b2ec6bbcfd434d4d02430507669d62c8742dcdea5c8671c8c8dd"
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "peak_allocated": 10159784448
+    },
+    {
+      "gpu_slot": "g0",
+      "arm": "fresh",
+      "run": "quality",
+      "case": 4,
+      "repeat": 0,
+      "warmup": false,
+      "sampler_seconds": 194.3306363900192,
+      "nfe": 8,
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "sigmas": [
+        1.0,
+        0.9949881434440613,
+        0.9825119376182556,
+        0.9607445001602173,
+        0.9233605265617371,
+        0.8552915453910828,
+        0.7207329869270325,
+        0.4249083995819092,
+        0.0
+      ],
+      "latent_sha256": [
+        "8e84105c31ac72bf3146538882d16a28aa5d1eebb6441e30c91feff80337aff4",
+        "02a5cee69d8ff7bd1a817533485f890e768293c9f9ee611bc39ff5c7c3e8838e"
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "peak_allocated": 9146951680
+    },
+    {
+      "gpu_slot": "g0",
+      "arm": "fresh",
+      "run": "quality",
+      "case": 5,
+      "repeat": 0,
+      "warmup": false,
+      "sampler_seconds": 203.17773518001195,
+      "nfe": 8,
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "sigmas": [
+        1.0,
+        0.9949881434440613,
+        0.9825119376182556,
+        0.9607445001602173,
+        0.9233605265617371,
+        0.8552915453910828,
+        0.7207329869270325,
+        0.4249083995819092,
+        0.0
+      ],
+      "latent_sha256": [
+        "3b149f64cda65c32565d191cd4eb8043db69717468fb63753ec6473c363a87a3",
+        "645cd188ec0f1dd7fdd4b883d896f8f8337af8ada53c0963c4fa8a3e53de8e1d"
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "peak_allocated": 9393602560
+    },
+    {
+      "gpu_slot": "g0",
+      "arm": "fresh",
+      "run": "quality",
+      "case": 6,
+      "repeat": 0,
+      "warmup": false,
+      "sampler_seconds": 203.14654420409352,
+      "nfe": 8,
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "sigmas": [
+        1.0,
+        0.9949881434440613,
+        0.9825119376182556,
+        0.9607445001602173,
+        0.9233605265617371,
+        0.8552915453910828,
+        0.7207329869270325,
+        0.4249083995819092,
+        0.0
+      ],
+      "latent_sha256": [
+        "4897e0871dd1e1206dcf10f9de23f383f42a075288a70e47830b133d4835cd16",
+        "43d40c9ef5ce10a590300953cd589a35c60e98cae8df24c28d0a26d53d31ecf0"
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "peak_allocated": 9393054720
+    },
+    {
+      "gpu_slot": "g0",
+      "arm": "fresh",
+      "run": "quality",
+      "case": 7,
+      "repeat": 0,
+      "warmup": false,
+      "sampler_seconds": 201.93840943300165,
+      "nfe": 8,
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "sigmas": [
+        1.0,
+        0.9949881434440613,
+        0.9825119376182556,
+        0.9607445001602173,
+        0.9233605265617371,
+        0.8552915453910828,
+        0.7207329869270325,
+        0.4249083995819092,
+        0.0
+      ],
+      "latent_sha256": [
+        "3568b39188a903477dc28033a3d3f7a9a286747c8f399f9ccb5c07c87f3cc930",
+        "cb621021a838dde6fb1826332a5ca49e5f1e72c70b158f1be318fa5c93706e68"
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "peak_allocated": 9369547776
+    },
+    {
+      "gpu_slot": "g0",
+      "arm": "current",
+      "run": "timing-repeat",
+      "case": 1,
+      "repeat": -1,
+      "warmup": true,
+      "sampler_seconds": 229.85156746592838,
+      "nfe": 8,
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "sigmas": [
+        1.0,
+        0.9949881434440613,
+        0.9825119376182556,
+        0.9607445001602173,
+        0.9233605265617371,
+        0.8552915453910828,
+        0.7207329869270325,
+        0.4249083995819092,
+        0.0
+      ],
+      "latent_sha256": [
+        "d7f6b67bed376e4fc8b805474f5d8ab1ac961de9a5a98ea778cd8fccc590f8bf",
+        "5973eeb3722428b4af01ea3dc4fbc275ac601b020bb82391167aaf4d0e68ee04"
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "peak_allocated": 10143806976
+    },
+    {
+      "gpu_slot": "g0",
+      "arm": "current",
+      "run": "timing-repeat",
+      "case": 1,
+      "repeat": 0,
+      "warmup": false,
+      "sampler_seconds": 229.23169907403644,
+      "nfe": 8,
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "sigmas": [
+        1.0,
+        0.9949881434440613,
+        0.9825119376182556,
+        0.9607445001602173,
+        0.9233605265617371,
+        0.8552915453910828,
+        0.7207329869270325,
+        0.4249083995819092,
+        0.0
+      ],
+      "latent_sha256": [
+        "d7f6b67bed376e4fc8b805474f5d8ab1ac961de9a5a98ea778cd8fccc590f8bf",
+        "5973eeb3722428b4af01ea3dc4fbc275ac601b020bb82391167aaf4d0e68ee04"
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "peak_allocated": 10144483840
+    },
+    {
+      "gpu_slot": "g0",
+      "arm": "fresh",
+      "run": "timing-repeat",
+      "case": 1,
+      "repeat": -1,
+      "warmup": true,
+      "sampler_seconds": 230.02325943496544,
+      "nfe": 8,
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "sigmas": [
+        1.0,
+        0.9949881434440613,
+        0.9825119376182556,
+        0.9607445001602173,
+        0.9233605265617371,
+        0.8552915453910828,
+        0.7207329869270325,
+        0.4249083995819092,
+        0.0
+      ],
+      "latent_sha256": [
+        "b225cf690b32815558723800849555d8f2cd3ee6dddb89c6cd147832b1db7913",
+        "3f738363409e7a5a7efa8e8f75e0057d62b7264cc83b61f2ce025de1afde7869"
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "peak_allocated": 10143806976
+    },
+    {
+      "gpu_slot": "g0",
+      "arm": "fresh",
+      "run": "timing-repeat",
+      "case": 1,
+      "repeat": 0,
+      "warmup": false,
+      "sampler_seconds": 229.218412723043,
+      "nfe": 8,
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "sigmas": [
+        1.0,
+        0.9949881434440613,
+        0.9825119376182556,
+        0.9607445001602173,
+        0.9233605265617371,
+        0.8552915453910828,
+        0.7207329869270325,
+        0.4249083995819092,
+        0.0
+      ],
+      "latent_sha256": [
+        "b225cf690b32815558723800849555d8f2cd3ee6dddb89c6cd147832b1db7913",
+        "3f738363409e7a5a7efa8e8f75e0057d62b7264cc83b61f2ce025de1afde7869"
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "peak_allocated": 10144483840
+    },
+    {
+      "gpu_slot": "g3",
+      "arm": "current",
+      "run": "quality",
+      "case": 8,
+      "repeat": -1,
+      "warmup": true,
+      "sampler_seconds": 215.8364980869228,
+      "nfe": 8,
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "sigmas": [
+        1.0,
+        0.9949881434440613,
+        0.9825119376182556,
+        0.9607445001602173,
+        0.9233605265617371,
+        0.8552915453910828,
+        0.7207329869270325,
+        0.4249083995819092,
+        0.0
+      ],
+      "latent_sha256": [
+        "71d58b454e5e8eea5cbd513516c8cce86fcdef8c83e198cafeecdd9bb437dcd0",
+        "e95f269243f0c41bdde9a9b176b73c087a74f20917317c05204fca4bb89a0226"
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          77,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          433
+        ]
+      ],
+      "peak_allocated": 9682924544
+    },
+    {
+      "gpu_slot": "g3",
+      "arm": "current",
+      "run": "quality",
+      "case": 8,
+      "repeat": 0,
+      "warmup": false,
+      "sampler_seconds": 215.31154490693007,
+      "nfe": 8,
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "sigmas": [
+        1.0,
+        0.9949881434440613,
+        0.9825119376182556,
+        0.9607445001602173,
+        0.9233605265617371,
+        0.8552915453910828,
+        0.7207329869270325,
+        0.4249083995819092,
+        0.0
+      ],
+      "latent_sha256": [
+        "71d58b454e5e8eea5cbd513516c8cce86fcdef8c83e198cafeecdd9bb437dcd0",
+        "e95f269243f0c41bdde9a9b176b73c087a74f20917317c05204fca4bb89a0226"
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          77,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          433
+        ]
+      ],
+      "peak_allocated": 9682924544
+    },
+    {
+      "gpu_slot": "g3",
+      "arm": "current",
+      "run": "quality",
+      "case": 9,
+      "repeat": 0,
+      "warmup": false,
+      "sampler_seconds": 271.7368571150582,
+      "nfe": 8,
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "sigmas": [
+        1.0,
+        0.9949881434440613,
+        0.9825119376182556,
+        0.9607445001602173,
+        0.9233605265617371,
+        0.8552915453910828,
+        0.7207329869270325,
+        0.4249083995819092,
+        0.0
+      ],
+      "latent_sha256": [
+        "f3932a58c8a8e25ac6228831dad8e4194fe97cd3742343221ca8842410e1d8e8",
+        "7964c68d88f91b6a0fcb087fd2e9ee371e48e7018b41457abcf0e84aec205289"
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          87,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          490
+        ]
+      ],
+      "peak_allocated": 11047580160
+    },
+    {
+      "gpu_slot": "g3",
+      "arm": "current",
+      "run": "quality",
+      "case": 10,
+      "repeat": 0,
+      "warmup": false,
+      "sampler_seconds": 139.89792535698507,
+      "nfe": 8,
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "sigmas": [
+        1.0,
+        0.9949881434440613,
+        0.9825119376182556,
+        0.9607445001602173,
+        0.9233605265617371,
+        0.8552915453910828,
+        0.7207329869270325,
+        0.4249083995819092,
+        0.0
+      ],
+      "latent_sha256": [
+        "6d86f0709016d317ee8c6559e98d7080ef58347c1521a3e415902ff9b33fd107",
+        "130cb4800fcef878be5e23f177537fdbf004c819cbbb61de390bf6336cc62e7f"
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          62,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          348
+        ]
+      ],
+      "peak_allocated": 7511145984
+    },
+    {
+      "gpu_slot": "g3",
+      "arm": "current",
+      "run": "quality",
+      "case": 11,
+      "repeat": 0,
+      "warmup": false,
+      "sampler_seconds": 185.31235722498968,
+      "nfe": 8,
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "sigmas": [
+        1.0,
+        0.9949881434440613,
+        0.9825119376182556,
+        0.9607445001602173,
+        0.9233605265617371,
+        0.8552915453910828,
+        0.7207329869270325,
+        0.4249083995819092,
+        0.0
+      ],
+      "latent_sha256": [
+        "f9cd396c1256055b97313b1f2237add62478492d42157566e733185046599847",
+        "8b1c7b7a4e3d5f4cf383f57e15ef50310f8c9c05e9d83bd7dac0fd6995e88fc7"
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "peak_allocated": 8870684672
+    },
+    {
+      "gpu_slot": "g3",
+      "arm": "current",
+      "run": "quality",
+      "case": 12,
+      "repeat": 0,
+      "warmup": false,
+      "sampler_seconds": 193.95553947298322,
+      "nfe": 8,
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "sigmas": [
+        1.0,
+        0.9949881434440613,
+        0.9825119376182556,
+        0.9607445001602173,
+        0.9233605265617371,
+        0.8552915453910828,
+        0.7207329869270325,
+        0.4249083995819092,
+        0.0
+      ],
+      "latent_sha256": [
+        "6de665f4e46b89a192ee661a2d2841e94b7f902394dd20363968beda003cd138",
+        "fe2caa43d5c942d0872650514f5e4f8aee731459adac66bd8c64d128d91e5c76"
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "peak_allocated": 9121561088
+    },
+    {
+      "gpu_slot": "g3",
+      "arm": "current",
+      "run": "quality",
+      "case": 13,
+      "repeat": 0,
+      "warmup": false,
+      "sampler_seconds": 186.25924916402437,
+      "nfe": 8,
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "sigmas": [
+        1.0,
+        0.9949881434440613,
+        0.9825119376182556,
+        0.9607445001602173,
+        0.9233605265617371,
+        0.8552915453910828,
+        0.7207329869270325,
+        0.4249083995819092,
+        0.0
+      ],
+      "latent_sha256": [
+        "bb333e98af6752529b8b64422c8f1c496d1691b66b2626dd0e27f8397c5de686",
+        "9001f8fc2f9b8e81d58b96dba48f5c293bbb18a5024abf9ef799b601fb93ec15"
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          62,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          348
+        ]
+      ],
+      "peak_allocated": 8998162432
+    },
+    {
+      "gpu_slot": "g3",
+      "arm": "current",
+      "run": "quality",
+      "case": 14,
+      "repeat": 0,
+      "warmup": false,
+      "sampler_seconds": 229.40102570608724,
+      "nfe": 8,
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "sigmas": [
+        1.0,
+        0.9949881434440613,
+        0.9825119376182556,
+        0.9607445001602173,
+        0.9233605265617371,
+        0.8552915453910828,
+        0.7207329869270325,
+        0.4249083995819092,
+        0.0
+      ],
+      "latent_sha256": [
+        "212dacbb8b7a316c37d262cf118d98e6b14a75f08d400510af17a3b2a9fbf5e1",
+        "30a27ce53fc4d0af39cb0c1f9d623087cc6711185a97eb9ce58278dac9a1a1d5"
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "peak_allocated": 10120802304
+    },
+    {
+      "gpu_slot": "g3",
+      "arm": "current",
+      "run": "quality",
+      "case": 15,
+      "repeat": 0,
+      "warmup": false,
+      "sampler_seconds": 186.23448448593263,
+      "nfe": 8,
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "sigmas": [
+        1.0,
+        0.9949881434440613,
+        0.9825119376182556,
+        0.9607445001602173,
+        0.9233605265617371,
+        0.8552915453910828,
+        0.7207329869270325,
+        0.4249083995819092,
+        0.0
+      ],
+      "latent_sha256": [
+        "e358af2ae71d6eade1e9bba3a3b1d74d02111c49882de0f97240339c0597a91b",
+        "d92ad40af0b80966bb690fc7cf0d785a78ad032736976b695b36fa4a44310e06"
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          62,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          348
+        ]
+      ],
+      "peak_allocated": 8998539776
+    },
+    {
+      "gpu_slot": "g3",
+      "arm": "fresh",
+      "run": "quality",
+      "case": 8,
+      "repeat": -1,
+      "warmup": true,
+      "sampler_seconds": 216.0801308240043,
+      "nfe": 8,
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "sigmas": [
+        1.0,
+        0.9949881434440613,
+        0.9825119376182556,
+        0.9607445001602173,
+        0.9233605265617371,
+        0.8552915453910828,
+        0.7207329869270325,
+        0.4249083995819092,
+        0.0
+      ],
+      "latent_sha256": [
+        "197ba3fbd9664843cc9cc1024d7ea7bc604366cc9055bac5a5e75e6d25123ab3",
+        "e3e45cbfa7e0a04239c749c5347d5a8836811da721c2964dc817f4b7230648e2"
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          77,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          433
+        ]
+      ],
+      "peak_allocated": 9682924544
+    },
+    {
+      "gpu_slot": "g3",
+      "arm": "fresh",
+      "run": "quality",
+      "case": 8,
+      "repeat": 0,
+      "warmup": false,
+      "sampler_seconds": 215.31403655407485,
+      "nfe": 8,
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "sigmas": [
+        1.0,
+        0.9949881434440613,
+        0.9825119376182556,
+        0.9607445001602173,
+        0.9233605265617371,
+        0.8552915453910828,
+        0.7207329869270325,
+        0.4249083995819092,
+        0.0
+      ],
+      "latent_sha256": [
+        "197ba3fbd9664843cc9cc1024d7ea7bc604366cc9055bac5a5e75e6d25123ab3",
+        "e3e45cbfa7e0a04239c749c5347d5a8836811da721c2964dc817f4b7230648e2"
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          77,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          433
+        ]
+      ],
+      "peak_allocated": 9682924544
+    },
+    {
+      "gpu_slot": "g3",
+      "arm": "fresh",
+      "run": "quality",
+      "case": 9,
+      "repeat": 0,
+      "warmup": false,
+      "sampler_seconds": 271.70885988196824,
+      "nfe": 8,
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "sigmas": [
+        1.0,
+        0.9949881434440613,
+        0.9825119376182556,
+        0.9607445001602173,
+        0.9233605265617371,
+        0.8552915453910828,
+        0.7207329869270325,
+        0.4249083995819092,
+        0.0
+      ],
+      "latent_sha256": [
+        "8e156bc05854510108f6f07df948d3b5450d1bb7d25fdeae12f66ca132f4448f",
+        "5a7cf9a4c9ebb979a195b2e097ff8cf1cffa7816bdc4888fefc77308aa620665"
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          87,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          490
+        ]
+      ],
+      "peak_allocated": 11047580160
+    },
+    {
+      "gpu_slot": "g3",
+      "arm": "fresh",
+      "run": "quality",
+      "case": 10,
+      "repeat": 0,
+      "warmup": false,
+      "sampler_seconds": 139.86042217095383,
+      "nfe": 8,
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "sigmas": [
+        1.0,
+        0.9949881434440613,
+        0.9825119376182556,
+        0.9607445001602173,
+        0.9233605265617371,
+        0.8552915453910828,
+        0.7207329869270325,
+        0.4249083995819092,
+        0.0
+      ],
+      "latent_sha256": [
+        "e9539c35e199520ba73dcb3857df001ebc02a2e43a1a547cdc0ba8936386a7cf",
+        "ddc11e75a3c94f314b82ff2861b89cdcf0da6254c03e3ad40590892c719e4f39"
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          62,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          348
+        ]
+      ],
+      "peak_allocated": 7511145984
+    },
+    {
+      "gpu_slot": "g3",
+      "arm": "fresh",
+      "run": "quality",
+      "case": 11,
+      "repeat": 0,
+      "warmup": false,
+      "sampler_seconds": 185.26047859503888,
+      "nfe": 8,
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "sigmas": [
+        1.0,
+        0.9949881434440613,
+        0.9825119376182556,
+        0.9607445001602173,
+        0.9233605265617371,
+        0.8552915453910828,
+        0.7207329869270325,
+        0.4249083995819092,
+        0.0
+      ],
+      "latent_sha256": [
+        "482fc08db9e0eb6f10d996ad4dc01600b6307b83212492cef21989933487f9a7",
+        "33abc45a6608c321a6cffec89af14e0d8f68b1a226e20cc217a331f45e24ab98"
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "peak_allocated": 8870684672
+    },
+    {
+      "gpu_slot": "g3",
+      "arm": "fresh",
+      "run": "quality",
+      "case": 12,
+      "repeat": 0,
+      "warmup": false,
+      "sampler_seconds": 193.93073244101834,
+      "nfe": 8,
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "sigmas": [
+        1.0,
+        0.9949881434440613,
+        0.9825119376182556,
+        0.9607445001602173,
+        0.9233605265617371,
+        0.8552915453910828,
+        0.7207329869270325,
+        0.4249083995819092,
+        0.0
+      ],
+      "latent_sha256": [
+        "023a260b7d46a4637edf30b3e4f09a033743588d8a325b815bfb53f95a187e7f",
+        "da8c3d43deeb7a175317c30fc85634dc5c737c4065ed3ad04fbbae28b8a3a49b"
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "peak_allocated": 9121561088
+    },
+    {
+      "gpu_slot": "g3",
+      "arm": "fresh",
+      "run": "quality",
+      "case": 13,
+      "repeat": 0,
+      "warmup": false,
+      "sampler_seconds": 186.19272106105927,
+      "nfe": 8,
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "sigmas": [
+        1.0,
+        0.9949881434440613,
+        0.9825119376182556,
+        0.9607445001602173,
+        0.9233605265617371,
+        0.8552915453910828,
+        0.7207329869270325,
+        0.4249083995819092,
+        0.0
+      ],
+      "latent_sha256": [
+        "48906787aff671f9991f3f5b4d16440bcab70b43b2fcd2b86dae29e05dc5e1c8",
+        "0a0e333e9f56c26d1617b682aa8e14111fd30be17523e766535266fff38b5de5"
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          62,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          348
+        ]
+      ],
+      "peak_allocated": 8998162432
+    },
+    {
+      "gpu_slot": "g3",
+      "arm": "fresh",
+      "run": "quality",
+      "case": 14,
+      "repeat": 0,
+      "warmup": false,
+      "sampler_seconds": 229.36495156702586,
+      "nfe": 8,
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "sigmas": [
+        1.0,
+        0.9949881434440613,
+        0.9825119376182556,
+        0.9607445001602173,
+        0.9233605265617371,
+        0.8552915453910828,
+        0.7207329869270325,
+        0.4249083995819092,
+        0.0
+      ],
+      "latent_sha256": [
+        "d5c46b779092b33162ccd928f83b4eaad8780108d554f6155c3431389d5e7daf",
+        "eeb144c5904e9072a88dcd0a80bd270689efb3a1aca7edaece582bbc1a49f0ba"
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          72,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          405
+        ]
+      ],
+      "peak_allocated": 10120802304
+    },
+    {
+      "gpu_slot": "g3",
+      "arm": "fresh",
+      "run": "quality",
+      "case": 15,
+      "repeat": 0,
+      "warmup": false,
+      "sampler_seconds": 186.18113451101817,
+      "nfe": 8,
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "sigmas": [
+        1.0,
+        0.9949881434440613,
+        0.9825119376182556,
+        0.9607445001602173,
+        0.9233605265617371,
+        0.8552915453910828,
+        0.7207329869270325,
+        0.4249083995819092,
+        0.0
+      ],
+      "latent_sha256": [
+        "4b01b63cb32833c4f91dbe29dfd36a0108c28a8e49a813126d77ff8467cd2fdf",
+        "1776b8e7e9a4bb25f8f0aed944b2735cee74ee5f0e55c6a778fa12735a6ea2d7"
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          62,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          348
+        ]
+      ],
+      "peak_allocated": 8998539776
+    },
+    {
+      "gpu_slot": "g3",
+      "arm": "current",
+      "run": "timing-repeat",
+      "case": 8,
+      "repeat": -1,
+      "warmup": true,
+      "sampler_seconds": 216.1288070420269,
+      "nfe": 8,
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "sigmas": [
+        1.0,
+        0.9949881434440613,
+        0.9825119376182556,
+        0.9607445001602173,
+        0.9233605265617371,
+        0.8552915453910828,
+        0.7207329869270325,
+        0.4249083995819092,
+        0.0
+      ],
+      "latent_sha256": [
+        "71d58b454e5e8eea5cbd513516c8cce86fcdef8c83e198cafeecdd9bb437dcd0",
+        "e95f269243f0c41bdde9a9b176b73c087a74f20917317c05204fca4bb89a0226"
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          77,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          433
+        ]
+      ],
+      "peak_allocated": 9682924544
+    },
+    {
+      "gpu_slot": "g3",
+      "arm": "current",
+      "run": "timing-repeat",
+      "case": 8,
+      "repeat": 0,
+      "warmup": false,
+      "sampler_seconds": 215.2833270749543,
+      "nfe": 8,
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "sigmas": [
+        1.0,
+        0.9949881434440613,
+        0.9825119376182556,
+        0.9607445001602173,
+        0.9233605265617371,
+        0.8552915453910828,
+        0.7207329869270325,
+        0.4249083995819092,
+        0.0
+      ],
+      "latent_sha256": [
+        "71d58b454e5e8eea5cbd513516c8cce86fcdef8c83e198cafeecdd9bb437dcd0",
+        "e95f269243f0c41bdde9a9b176b73c087a74f20917317c05204fca4bb89a0226"
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          77,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          433
+        ]
+      ],
+      "peak_allocated": 9682924544
+    },
+    {
+      "gpu_slot": "g3",
+      "arm": "fresh",
+      "run": "timing-repeat",
+      "case": 8,
+      "repeat": -1,
+      "warmup": true,
+      "sampler_seconds": 215.90550186799373,
+      "nfe": 8,
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "sigmas": [
+        1.0,
+        0.9949881434440613,
+        0.9825119376182556,
+        0.9607445001602173,
+        0.9233605265617371,
+        0.8552915453910828,
+        0.7207329869270325,
+        0.4249083995819092,
+        0.0
+      ],
+      "latent_sha256": [
+        "197ba3fbd9664843cc9cc1024d7ea7bc604366cc9055bac5a5e75e6d25123ab3",
+        "e3e45cbfa7e0a04239c749c5347d5a8836811da721c2964dc817f4b7230648e2"
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          77,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          433
+        ]
+      ],
+      "peak_allocated": 9682924544
+    },
+    {
+      "gpu_slot": "g3",
+      "arm": "fresh",
+      "run": "timing-repeat",
+      "case": 8,
+      "repeat": 0,
+      "warmup": false,
+      "sampler_seconds": 215.26642143307254,
+      "nfe": 8,
+      "counts": {
+        "norm": 800,
+        "qkv": 400,
+        "gate": 800
+      },
+      "sigmas": [
+        1.0,
+        0.9949881434440613,
+        0.9825119376182556,
+        0.9607445001602173,
+        0.9233605265617371,
+        0.8552915453910828,
+        0.7207329869270325,
+        0.4249083995819092,
+        0.0
+      ],
+      "latent_sha256": [
+        "197ba3fbd9664843cc9cc1024d7ea7bc604366cc9055bac5a5e75e6d25123ab3",
+        "e3e45cbfa7e0a04239c749c5347d5a8836811da721c2964dc817f4b7230648e2"
+      ],
+      "shape": [
+        [
+          1,
+          24,
+          77,
+          84,
+          48
+        ],
+        [
+          1,
+          32,
+          2,
+          433
+        ]
+      ],
+      "peak_allocated": 9682924544
+    }
+  ],
+  "decoding": [
+    {
+      "gpu_slot": "g0",
+      "arm": "current",
+      "case": 1,
+      "tag": "c01-r0",
+      "video_seconds": 11.181988202035427,
+      "audio_seconds": 0.35957629699259996,
+      "export_seconds": 4.611896174028516,
+      "rgb_sha256": "d71121c9c4f85e69bddba4bd4194643b00a6bb3f28ccc0ca74de16b16fe1537d",
+      "pcm_sha256": "122d47f4b48601a8b88d6847634e6455ad61c8bb8d10fb42613c15fabe688dce",
+      "shapes": [
+        [
+          243,
+          1344,
+          768,
+          3
+        ],
+        [
+          1,
+          2,
+          324000
+        ]
+      ]
+    },
+    {
+      "gpu_slot": "g0",
+      "arm": "current",
+      "case": 2,
+      "tag": "c02-r0",
+      "video_seconds": 9.86506116297096,
+      "audio_seconds": 0.1168344629695639,
+      "export_seconds": 4.495230825967155,
+      "rgb_sha256": "34cd3e8487cdabed47419c390ec501436fab2be30f4d73f17960e7c1b5542b4b",
+      "pcm_sha256": "a922241449aa1c2691bbab2c32953ef4a847e36170a0d0190762676088cc7812",
+      "shapes": [
+        [
+          243,
+          1344,
+          768,
+          3
+        ],
+        [
+          1,
+          2,
+          324000
+        ]
+      ]
+    },
+    {
+      "gpu_slot": "g0",
+      "arm": "current",
+      "case": 3,
+      "tag": "c03-r0",
+      "video_seconds": 9.96989615703933,
+      "audio_seconds": 0.11536565702408552,
+      "export_seconds": 4.408393637975678,
+      "rgb_sha256": "0c178b0125fe29e4c01eb14f7280fdc627de6dd7c0b86bda944863594a85c7f1",
+      "pcm_sha256": "3506db7881d6359f79113d36fe8847c7e188ad46d14e46b39ce5de90212a9be3",
+      "shapes": [
+        [
+          243,
+          1344,
+          768,
+          3
+        ],
+        [
+          1,
+          2,
+          324000
+        ]
+      ]
+    },
+    {
+      "gpu_slot": "g0",
+      "arm": "current",
+      "case": 4,
+      "tag": "c04-r0",
+      "video_seconds": 9.89366148004774,
+      "audio_seconds": 0.1156088609714061,
+      "export_seconds": 5.188583090901375,
+      "rgb_sha256": "cdb55eb10bafe272c821c948dbdd5ce6583b4400d56c7efecea990c7c7512156",
+      "pcm_sha256": "cfd2f6d69d9e0657d635455d3617cc4f9e194fe644615adf07687e8d689496f2",
+      "shapes": [
+        [
+          243,
+          1344,
+          768,
+          3
+        ],
+        [
+          1,
+          2,
+          324000
+        ]
+      ]
+    },
+    {
+      "gpu_slot": "g0",
+      "arm": "current",
+      "case": 5,
+      "tag": "c05-r0",
+      "video_seconds": 9.894336756085977,
+      "audio_seconds": 0.11809501005336642,
+      "export_seconds": 4.753789502079599,
+      "rgb_sha256": "456002891713d07ab91210f102afc38813394e3179f0aebd75a7428ea5417927",
+      "pcm_sha256": "338d5a736bb694aa2547da2d235630b3a5242fdad3cb5a7193482e7d631bde2e",
+      "shapes": [
+        [
+          243,
+          1344,
+          768,
+          3
+        ],
+        [
+          1,
+          2,
+          324000
+        ]
+      ]
+    },
+    {
+      "gpu_slot": "g0",
+      "arm": "current",
+      "case": 6,
+      "tag": "c06-r0",
+      "video_seconds": 9.861507321009412,
+      "audio_seconds": 0.1161775520304218,
+      "export_seconds": 4.6379355530953035,
+      "rgb_sha256": "0bb4cdf5d76c9e50a574d9958680cf7847d930fc6b324a1b593e88e3a573f8b0",
+      "pcm_sha256": "5093418642d72c99b911c384415b2f40bfe2ed4393822301adcba2660ebc6ab7",
+      "shapes": [
+        [
+          243,
+          1344,
+          768,
+          3
+        ],
+        [
+          1,
+          2,
+          324000
+        ]
+      ]
+    },
+    {
+      "gpu_slot": "g0",
+      "arm": "current",
+      "case": 7,
+      "tag": "c07-r0",
+      "video_seconds": 9.969924703007564,
+      "audio_seconds": 0.11653327301610261,
+      "export_seconds": 5.083801554981619,
+      "rgb_sha256": "27660925e5ac1f70cceb5fd076fe6a8381a98eebd58e878c2d5a3fe8f8f997c2",
+      "pcm_sha256": "a0e426604476ceb083f9267bd6914abeb74f30026d6b60a4634747ce02135e57",
+      "shapes": [
+        [
+          243,
+          1344,
+          768,
+          3
+        ],
+        [
+          1,
+          2,
+          324000
+        ]
+      ]
+    },
+    {
+      "gpu_slot": "g0",
+      "arm": "fresh",
+      "case": 1,
+      "tag": "c01-r0",
+      "video_seconds": 11.193906635977328,
+      "audio_seconds": 0.36566152796149254,
+      "export_seconds": 4.5996038550511,
+      "rgb_sha256": "092f0ec04c93e5ebb902943c18ea2cf90cc5f8e66be307b6982374aabed7efdd",
+      "pcm_sha256": "d5ebbfcac0e27f5a2d88a5f776ef371f9a7d74b6474f6b394468864ebba69291",
+      "shapes": [
+        [
+          243,
+          1344,
+          768,
+          3
+        ],
+        [
+          1,
+          2,
+          324000
+        ]
+      ]
+    },
+    {
+      "gpu_slot": "g0",
+      "arm": "fresh",
+      "case": 2,
+      "tag": "c02-r0",
+      "video_seconds": 9.949137688032351,
+      "audio_seconds": 0.11461880896240473,
+      "export_seconds": 4.53219460695982,
+      "rgb_sha256": "2ecc5b11dcb653147f5dce90fd5163d53e4347019469232ec739799468c56b32",
+      "pcm_sha256": "2f3fb7b13543dc22fc9d09f72003f50287ea62e2c369fb8d60fdb86956e2c63a",
+      "shapes": [
+        [
+          243,
+          1344,
+          768,
+          3
+        ],
+        [
+          1,
+          2,
+          324000
+        ]
+      ]
+    },
+    {
+      "gpu_slot": "g0",
+      "arm": "fresh",
+      "case": 3,
+      "tag": "c03-r0",
+      "video_seconds": 9.984300088952295,
+      "audio_seconds": 0.11377369798719883,
+      "export_seconds": 4.4722574120387435,
+      "rgb_sha256": "7b78e12355eaf9f1240c3632496661cfe410cb2e045f0268cea1117648e1250a",
+      "pcm_sha256": "6b97a14906b6ad17c5954da7050dc3431addd26b374839db55d496fee0091004",
+      "shapes": [
+        [
+          243,
+          1344,
+          768,
+          3
+        ],
+        [
+          1,
+          2,
+          324000
+        ]
+      ]
+    },
+    {
+      "gpu_slot": "g0",
+      "arm": "fresh",
+      "case": 4,
+      "tag": "c04-r0",
+      "video_seconds": 9.986845311010256,
+      "audio_seconds": 0.11541723099071532,
+      "export_seconds": 4.951696935924701,
+      "rgb_sha256": "d3ca3d70f61aa08b3c8c2504702dc92d622ceb83bde25f1df5e9a3655ce2ed93",
+      "pcm_sha256": "db7f35c59d23badd56cbea801dc64f45a68469c24317cefafc478f4c5d39236f",
+      "shapes": [
+        [
+          243,
+          1344,
+          768,
+          3
+        ],
+        [
+          1,
+          2,
+          324000
+        ]
+      ]
+    },
+    {
+      "gpu_slot": "g0",
+      "arm": "fresh",
+      "case": 5,
+      "tag": "c05-r0",
+      "video_seconds": 10.054518744000234,
+      "audio_seconds": 0.11550645902752876,
+      "export_seconds": 4.779368293005973,
+      "rgb_sha256": "a038951902fb4a65f5b86bb1b571dc613d354ceb585c0df58115de3601ee52e4",
+      "pcm_sha256": "5f1477edd12e3c401f167620b504c56eaf8663af24b4142858cf4cc362faea3c",
+      "shapes": [
+        [
+          243,
+          1344,
+          768,
+          3
+        ],
+        [
+          1,
+          2,
+          324000
+        ]
+      ]
+    },
+    {
+      "gpu_slot": "g0",
+      "arm": "fresh",
+      "case": 6,
+      "tag": "c06-r0",
+      "video_seconds": 9.983929157955572,
+      "audio_seconds": 0.11514608794823289,
+      "export_seconds": 4.458689315943047,
+      "rgb_sha256": "64b0a9fc7ce4988ffbf00c43b51f3f84ea07db2b495393d1d9d374236fd8dc0d",
+      "pcm_sha256": "f545562488c3f77990a6273ebe0d24eee4a0793af530635ee4bf8e0f56ec4e59",
+      "shapes": [
+        [
+          243,
+          1344,
+          768,
+          3
+        ],
+        [
+          1,
+          2,
+          324000
+        ]
+      ]
+    },
+    {
+      "gpu_slot": "g0",
+      "arm": "fresh",
+      "case": 7,
+      "tag": "c07-r0",
+      "video_seconds": 9.981738546048291,
+      "audio_seconds": 0.11520974501036108,
+      "export_seconds": 5.28753987303935,
+      "rgb_sha256": "84e4734b48426b1e667fd3ff9cfd4baf3bd526ee9be19f9ebe8a0f36e9f392bd",
+      "pcm_sha256": "97773bf7053e36cf17cbd886445fa7de4bb2466221bc303a6e4dc09161f56d5a",
+      "shapes": [
+        [
+          243,
+          1344,
+          768,
+          3
+        ],
+        [
+          1,
+          2,
+          324000
+        ]
+      ]
+    },
+    {
+      "gpu_slot": "g3",
+      "arm": "current",
+      "case": 8,
+      "tag": "c08-r0",
+      "video_seconds": 12.015783249982633,
+      "audio_seconds": 0.3717395910061896,
+      "export_seconds": 4.780675763031468,
+      "rgb_sha256": "430e77ffaad7fb2004ad8a63996edd8b98733b129f90c8cffd98ae5d39edf483",
+      "pcm_sha256": "3402341092c55f2c8f78de8332732b84ed2bfc9d38da4bde3525476b5125f6af",
+      "shapes": [
+        [
+          260,
+          1344,
+          768,
+          3
+        ],
+        [
+          1,
+          2,
+          346400
+        ]
+      ]
+    },
+    {
+      "gpu_slot": "g3",
+      "arm": "current",
+      "case": 9,
+      "tag": "c09-r0",
+      "video_seconds": 12.301662208046764,
+      "audio_seconds": 0.13235125201754272,
+      "export_seconds": 6.6588198349345475,
+      "rgb_sha256": "aeab24f6cd99e9efb570a0e86a47f75c5724c6595cfc2e11a7395a8b2a18ebf7",
+      "pcm_sha256": "eb37c10292fd99b3d60f17f3541e81ef48f28f6512d11417c829c7a7dce3b4ae",
+      "shapes": [
+        [
+          294,
+          1344,
+          768,
+          3
+        ],
+        [
+          1,
+          2,
+          392000
+        ]
+      ]
+    },
+    {
+      "gpu_slot": "g3",
+      "arm": "current",
+      "case": 10,
+      "tag": "c10-r0",
+      "video_seconds": 8.681121442001313,
+      "audio_seconds": 0.11301481502596289,
+      "export_seconds": 4.175265986006707,
+      "rgb_sha256": "61ccb29e22f9030e908a88be42b148526fa73e7499870cf0e7564fbd121b8ea1",
+      "pcm_sha256": "3c30112dcf21da0e1fca89896f236865f68758ee9245e427c812783f4622db29",
+      "shapes": [
+        [
+          209,
+          1344,
+          768,
+          3
+        ],
+        [
+          1,
+          2,
+          278400
+        ]
+      ]
+    },
+    {
+      "gpu_slot": "g3",
+      "arm": "current",
+      "case": 11,
+      "tag": "c11-r0",
+      "video_seconds": 10.120295668020844,
+      "audio_seconds": 0.11822840210516006,
+      "export_seconds": 4.750903291977011,
+      "rgb_sha256": "076a6cb5354960d26b10bd47b7a32a8492aedb2705cfa5cf1b303c4e741ddcc8",
+      "pcm_sha256": "43cb55505ee151fba654c38e0cbb6e9aab0340323a3b473aee06d02308e63a97",
+      "shapes": [
+        [
+          243,
+          1344,
+          768,
+          3
+        ],
+        [
+          1,
+          2,
+          324000
+        ]
+      ]
+    },
+    {
+      "gpu_slot": "g3",
+      "arm": "current",
+      "case": 12,
+      "tag": "c12-r0",
+      "video_seconds": 9.989985857973807,
+      "audio_seconds": 0.12112635502126068,
+      "export_seconds": 4.767234040074982,
+      "rgb_sha256": "5eee10ac85421d5888b4a260ab9b0d3147d0e3464c6ca0fcb0ac0787837220ba",
+      "pcm_sha256": "843e795992071e46d535ea7771307490da1becb7c4140058d204f21789589de9",
+      "shapes": [
+        [
+          243,
+          1344,
+          768,
+          3
+        ],
+        [
+          1,
+          2,
+          324000
+        ]
+      ]
+    },
+    {
+      "gpu_slot": "g3",
+      "arm": "current",
+      "case": 13,
+      "tag": "c13-r0",
+      "video_seconds": 8.579953911015764,
+      "audio_seconds": 0.1065115979872644,
+      "export_seconds": 4.343408550019376,
+      "rgb_sha256": "5b35ecde5c5b584641a6932ddecdb2a1e45e5054fb45362a9e914ad8b07e4c89",
+      "pcm_sha256": "59717800c63f72e195646d009676182ef24fc0225793312d43fda33fb3fd5d2a",
+      "shapes": [
+        [
+          209,
+          1344,
+          768,
+          3
+        ],
+        [
+          1,
+          2,
+          278400
+        ]
+      ]
+    },
+    {
+      "gpu_slot": "g3",
+      "arm": "current",
+      "case": 14,
+      "tag": "c14-r0",
+      "video_seconds": 10.153509399970062,
+      "audio_seconds": 0.12117777403909713,
+      "export_seconds": 4.5338995810598135,
+      "rgb_sha256": "eab9aff442e5dbea71278bd2c8f22be07bb7407a542ccde5b351f6b407ee0918",
+      "pcm_sha256": "fbb69ebfa86e06fd874d45aaa3682cef004aceda057d626e4a40360e58c94eb4",
+      "shapes": [
+        [
+          243,
+          1344,
+          768,
+          3
+        ],
+        [
+          1,
+          2,
+          324000
+        ]
+      ]
+    },
+    {
+      "gpu_slot": "g3",
+      "arm": "current",
+      "case": 15,
+      "tag": "c15-r0",
+      "video_seconds": 8.692357989959419,
+      "audio_seconds": 0.11284767801407725,
+      "export_seconds": 4.002834070939571,
+      "rgb_sha256": "25619b4ba589b0c5a32c2716d5b434b6a12480d6c54296bbdfab2df6c6f29e69",
+      "pcm_sha256": "7d0ffca220641e706a03a9a4b802046675e85f0636e6a0e91b99c9f8360cd4f6",
+      "shapes": [
+        [
+          209,
+          1344,
+          768,
+          3
+        ],
+        [
+          1,
+          2,
+          278400
+        ]
+      ]
+    },
+    {
+      "gpu_slot": "g3",
+      "arm": "fresh",
+      "case": 8,
+      "tag": "c08-r0",
+      "video_seconds": 11.802841633092612,
+      "audio_seconds": 0.360314236022532,
+      "export_seconds": 4.897725983057171,
+      "rgb_sha256": "7921016e715239c651de04f5d859c7bd9f26adb17a20bc0f792a39d768c8b506",
+      "pcm_sha256": "448723cc4333cb6023f0b4b9e5b4498e7a577cf5ff251c5cb8b78179d753ed91",
+      "shapes": [
+        [
+          260,
+          1344,
+          768,
+          3
+        ],
+        [
+          1,
+          2,
+          346400
+        ]
+      ]
+    },
+    {
+      "gpu_slot": "g3",
+      "arm": "fresh",
+      "case": 9,
+      "tag": "c09-r0",
+      "video_seconds": 12.259956807014532,
+      "audio_seconds": 0.13504086702596396,
+      "export_seconds": 6.548356274957769,
+      "rgb_sha256": "a85c97b092737effa71b2c8694eca7d2c340e01b94f23b78030e32f801b2309f",
+      "pcm_sha256": "2ec9a235436e1769f9a1ce93ff8fbfb481b5a1eae21ba4183169d40b39994b3c",
+      "shapes": [
+        [
+          294,
+          1344,
+          768,
+          3
+        ],
+        [
+          1,
+          2,
+          392000
+        ]
+      ]
+    },
+    {
+      "gpu_slot": "g3",
+      "arm": "fresh",
+      "case": 10,
+      "tag": "c10-r0",
+      "video_seconds": 8.745365518028848,
+      "audio_seconds": 0.11328824609518051,
+      "export_seconds": 4.120199203956872,
+      "rgb_sha256": "be698671e19e558096f749429a4dd6d83eb73ce3bf57b5170930d096e95854a6",
+      "pcm_sha256": "93a068f61dcaeff861d8b937b7424c093bd74e2f19e2d419174b6b6230439ad1",
+      "shapes": [
+        [
+          209,
+          1344,
+          768,
+          3
+        ],
+        [
+          1,
+          2,
+          278400
+        ]
+      ]
+    },
+    {
+      "gpu_slot": "g3",
+      "arm": "fresh",
+      "case": 11,
+      "tag": "c11-r0",
+      "video_seconds": 10.180259451037273,
+      "audio_seconds": 0.11922444391530007,
+      "export_seconds": 4.560363941011019,
+      "rgb_sha256": "ee0219460377f256c15c6900252203a8aa4c5ffb4f7fd24200dad62a1896b5c2",
+      "pcm_sha256": "eada39d819b85116ed573a264a795ad688817112a8d79fcb59f00e3fbe081099",
+      "shapes": [
+        [
+          243,
+          1344,
+          768,
+          3
+        ],
+        [
+          1,
+          2,
+          324000
+        ]
+      ]
+    },
+    {
+      "gpu_slot": "g3",
+      "arm": "fresh",
+      "case": 12,
+      "tag": "c12-r0",
+      "video_seconds": 10.107803347054869,
+      "audio_seconds": 0.11774484696798027,
+      "export_seconds": 5.027145622996613,
+      "rgb_sha256": "e4b87cea5f2a8e4b27927247aab8ad0624f8f49f402e36287ce5c5c00cddf80f",
+      "pcm_sha256": "d00c96c41eb08e19509eb73b6aba02b7d2a179d629d7d329cf3e78bdc218da99",
+      "shapes": [
+        [
+          243,
+          1344,
+          768,
+          3
+        ],
+        [
+          1,
+          2,
+          324000
+        ]
+      ]
+    },
+    {
+      "gpu_slot": "g3",
+      "arm": "fresh",
+      "case": 13,
+      "tag": "c13-r0",
+      "video_seconds": 8.622248416999355,
+      "audio_seconds": 0.1061374950222671,
+      "export_seconds": 4.4086651999969035,
+      "rgb_sha256": "79529ee78d068f32ef06090d9fed583c68f45b5f5a726a0b20c267e1bbc8f45b",
+      "pcm_sha256": "b59687e7b42658104fed41d1bea88c8a2ba7be343d52fc8aba26aa7b78584c34",
+      "shapes": [
+        [
+          209,
+          1344,
+          768,
+          3
+        ],
+        [
+          1,
+          2,
+          278400
+        ]
+      ]
+    },
+    {
+      "gpu_slot": "g3",
+      "arm": "fresh",
+      "case": 14,
+      "tag": "c14-r0",
+      "video_seconds": 10.008359228959307,
+      "audio_seconds": 0.11453199002426118,
+      "export_seconds": 4.73154753097333,
+      "rgb_sha256": "049cf237d54ce416b0e0e63c65326cde454860e9c1cffce8570c63842d9d6abd",
+      "pcm_sha256": "a965918cd90f903edab4886bbc2c6013f1c5c1814c22b645b81c0f4a53ac50b8",
+      "shapes": [
+        [
+          243,
+          1344,
+          768,
+          3
+        ],
+        [
+          1,
+          2,
+          324000
+        ]
+      ]
+    },
+    {
+      "gpu_slot": "g3",
+      "arm": "fresh",
+      "case": 15,
+      "tag": "c15-r0",
+      "video_seconds": 8.660402100067586,
+      "audio_seconds": 0.10857894795481116,
+      "export_seconds": 4.089236818952486,
+      "rgb_sha256": "427458cec90d1df41a708c0b075be2a9f5c8364f38e9fc94fb0bc610b3c7d1af",
+      "pcm_sha256": "492b9376203b9a4cfc20bf058e4d0e804570db6cfcd770b08c2dd84f29677fb4",
+      "shapes": [
+        [
+          209,
+          1344,
+          768,
+          3
+        ],
+        [
+          1,
+          2,
+          278400
+        ]
+      ]
+    }
+  ],
+  "full_requests": [
+    {
+      "gpu_slot": "g0",
+      "arm": "current",
+      "case": 1,
+      "group": 0,
+      "dit_seconds": 225.52289542998187,
+      "video_seconds": 9.70136565703433,
+      "audio_seconds": 0.11672266700770706,
+      "export_seconds": 4.339691100991331,
+      "service_seconds": 239.73299212101847,
+      "group_seconds": 239.73302588006482,
+      "requests_per_hour": 15.016704464411305,
+      "nfe": 8,
+      "latent_equal_independent": true,
+      "latent_equal_historical": true,
+      "rgb_equal": true,
+      "pcm_equal": true
+    },
+    {
+      "gpu_slot": "g0",
+      "arm": "current",
+      "case": 1,
+      "group": 1,
+      "dit_seconds": 225.58079294196796,
+      "video_seconds": 9.591479406110011,
+      "audio_seconds": 0.11753957602195442,
+      "export_seconds": 4.415031910990365,
+      "service_seconds": 239.75789039500523,
+      "group_seconds": 239.7579205140937,
+      "requests_per_hour": 15.015145244339825,
+      "nfe": 8,
+      "latent_equal_independent": true,
+      "latent_equal_historical": true,
+      "rgb_equal": true,
+      "pcm_equal": true
+    },
+    {
+      "gpu_slot": "g0",
+      "arm": "fresh",
+      "case": 1,
+      "group": 0,
+      "dit_seconds": 225.52104496804532,
+      "video_seconds": 9.786607059999369,
+      "audio_seconds": 0.11840419797226787,
+      "export_seconds": 4.347265920951031,
+      "service_seconds": 239.8289709420642,
+      "group_seconds": 239.82900665106717,
+      "requests_per_hour": 15.010694703988513,
+      "nfe": 8,
+      "latent_equal_independent": true,
+      "latent_equal_historical": false,
+      "rgb_equal": true,
+      "pcm_equal": true
+    },
+    {
+      "gpu_slot": "g0",
+      "arm": "fresh",
+      "case": 1,
+      "group": 1,
+      "dit_seconds": 225.5607759479899,
+      "video_seconds": 9.763234466081485,
+      "audio_seconds": 0.119242919026874,
+      "export_seconds": 4.369903262006119,
+      "service_seconds": 239.87139217101503,
+      "group_seconds": 239.8714230399346,
+      "requests_per_hour": 15.00804036752915,
+      "nfe": 8,
+      "latent_equal_independent": true,
+      "latent_equal_historical": false,
+      "rgb_equal": true,
+      "pcm_equal": true
+    },
+    {
+      "gpu_slot": "g3",
+      "arm": "current",
+      "case": 8,
+      "group": 0,
+      "dit_seconds": 212.05182845098898,
+      "video_seconds": 10.410019522998482,
+      "audio_seconds": 0.12151612702291459,
+      "export_seconds": 4.831145457923412,
+      "service_seconds": 227.47473510098644,
+      "group_seconds": 227.4747760599712,
+      "requests_per_hour": 15.825930515702101,
+      "nfe": 8,
+      "latent_equal_independent": true,
+      "latent_equal_historical": true,
+      "rgb_equal": true,
+      "pcm_equal": true
+    },
+    {
+      "gpu_slot": "g3",
+      "arm": "current",
+      "case": 8,
+      "group": 1,
+      "dit_seconds": 212.08922340895515,
+      "video_seconds": 10.564828886999749,
+      "audio_seconds": 0.12452313804533333,
+      "export_seconds": 4.849030219018459,
+      "service_seconds": 227.71260507695843,
+      "group_seconds": 227.71264233603142,
+      "requests_per_hour": 15.809398912018004,
+      "nfe": 8,
+      "latent_equal_independent": true,
+      "latent_equal_historical": true,
+      "rgb_equal": true,
+      "pcm_equal": true
+    },
+    {
+      "gpu_slot": "g3",
+      "arm": "fresh",
+      "case": 8,
+      "group": 0,
+      "dit_seconds": 212.06447907700203,
+      "video_seconds": 10.610465898993425,
+      "audio_seconds": 0.12217435007914901,
+      "export_seconds": 4.941503950976767,
+      "service_seconds": 227.79329545598011,
+      "group_seconds": 227.79333798505832,
+      "requests_per_hour": 15.803798442235985,
+      "nfe": 8,
+      "latent_equal_independent": true,
+      "latent_equal_historical": false,
+      "rgb_equal": true,
+      "pcm_equal": true
+    },
+    {
+      "gpu_slot": "g3",
+      "arm": "fresh",
+      "case": 8,
+      "group": 1,
+      "dit_seconds": 212.07708587602247,
+      "video_seconds": 10.515606825938448,
+      "audio_seconds": 0.12195082497783005,
+      "export_seconds": 4.808395072002895,
+      "service_seconds": 227.58065320295282,
+      "group_seconds": 227.58069123199675,
+      "requests_per_hour": 15.818565188951572,
+      "nfe": 8,
+      "latent_equal_independent": true,
+      "latent_equal_historical": false,
+      "rgb_equal": true,
+      "pcm_equal": true
+    }
+  ],
+  "scalar_diff": [
+    {
+      "case": 1,
+      "video_latent": {
+        "numel": 6967296,
+        "exact": false,
+        "max_abs": 5.156705379486084,
+        "mean_abs": 0.2860996127128601,
+        "rmse": 0.4222484827041626,
+        "reference_rms": 0.9836482405662537,
+        "normalized_rmse": 0.4292677640914917,
+        "cosine": 0.9081627726554871
+      },
+      "audio_latent": {
+        "numel": 25920,
+        "exact": false,
+        "max_abs": 2.603044033050537,
+        "mean_abs": 0.1432734578847885,
+        "rmse": 0.26328375935554504,
+        "reference_rms": 0.5258008241653442,
+        "normalized_rmse": 0.5007290840148926,
+        "cosine": 0.8743088841438293
+      },
+      "pcm": {
+        "numel": 648000,
+        "exact": false,
+        "max_abs": 1.3726081848144531,
+        "mean_abs": 0.03778138756752014,
+        "rmse": 0.10324118286371231,
+        "reference_rms": 0.11355558782815933,
+        "normalized_rmse": 0.9091686606407166,
+        "cosine": 0.6021450161933899,
+        "sample_rate": 32000
+      }
+    },
+    {
+      "case": 2,
+      "video_latent": {
+        "numel": 6967296,
+        "exact": false,
+        "max_abs": 4.67857027053833,
+        "mean_abs": 0.3334317207336426,
+        "rmse": 0.483090341091156,
+        "reference_rms": 1.0052812099456787,
+        "normalized_rmse": 0.48055243492126465,
+        "cosine": 0.8852121233940125
+      },
+      "audio_latent": {
+        "numel": 25920,
+        "exact": false,
+        "max_abs": 3.0035290718078613,
+        "mean_abs": 0.2000916600227356,
+        "rmse": 0.368630975484848,
+        "reference_rms": 0.5784148573875427,
+        "normalized_rmse": 0.6373124122619629,
+        "cosine": 0.7954465746879578
+      },
+      "pcm": {
+        "numel": 648000,
+        "exact": false,
+        "max_abs": 1.2611613273620605,
+        "mean_abs": 0.062362413853406906,
+        "rmse": 0.13089467585086823,
+        "reference_rms": 0.15336965024471283,
+        "normalized_rmse": 0.8534587621688843,
+        "cosine": 0.6049394011497498,
+        "sample_rate": 32000
+      }
+    },
+    {
+      "case": 3,
+      "video_latent": {
+        "numel": 6967296,
+        "exact": false,
+        "max_abs": 5.250786781311035,
+        "mean_abs": 0.3253999948501587,
+        "rmse": 0.4848645329475403,
+        "reference_rms": 1.0037938356399536,
+        "normalized_rmse": 0.4830319881439209,
+        "cosine": 0.883311927318573
+      },
+      "audio_latent": {
+        "numel": 25920,
+        "exact": false,
+        "max_abs": 3.0975229740142822,
+        "mean_abs": 0.36556389927864075,
+        "rmse": 0.5614421367645264,
+        "reference_rms": 0.5418712496757507,
+        "normalized_rmse": 1.0361171960830688,
+        "cosine": 0.4632892310619354
+      },
+      "pcm": {
+        "numel": 648000,
+        "exact": false,
+        "max_abs": 1.3909645080566406,
+        "mean_abs": 0.10937367379665375,
+        "rmse": 0.19837476313114166,
+        "reference_rms": 0.15748505294322968,
+        "normalized_rmse": 1.2596418857574463,
+        "cosine": 0.15072870254516602,
+        "sample_rate": 32000
+      }
+    },
+    {
+      "case": 4,
+      "video_latent": {
+        "numel": 6967296,
+        "exact": false,
+        "max_abs": 4.7644243240356445,
+        "mean_abs": 0.36753618717193604,
+        "rmse": 0.5172927379608154,
+        "reference_rms": 0.9954851269721985,
+        "normalized_rmse": 0.5196388363838196,
+        "cosine": 0.865312397480011
+      },
+      "audio_latent": {
+        "numel": 25920,
+        "exact": false,
+        "max_abs": 0.47813570499420166,
+        "mean_abs": 0.032831721007823944,
+        "rmse": 0.04558008536696434,
+        "reference_rms": 0.44596490263938904,
+        "normalized_rmse": 0.1022055447101593,
+        "cosine": 0.9949905872344971
+      },
+      "pcm": {
+        "numel": 648000,
+        "exact": false,
+        "max_abs": 0.49928247928619385,
+        "mean_abs": 0.003995141945779324,
+        "rmse": 0.013187329284846783,
+        "reference_rms": 0.045342281460762024,
+        "normalized_rmse": 0.2908395528793335,
+        "cosine": 0.9590369462966919,
+        "sample_rate": 32000
+      }
+    },
+    {
+      "case": 5,
+      "video_latent": {
+        "numel": 6967296,
+        "exact": false,
+        "max_abs": 4.875763893127441,
+        "mean_abs": 0.23136596381664276,
+        "rmse": 0.357289582490921,
+        "reference_rms": 0.993611216545105,
+        "normalized_rmse": 0.3595868945121765,
+        "cosine": 0.9356963038444519
+      },
+      "audio_latent": {
+        "numel": 25920,
+        "exact": false,
+        "max_abs": 2.528873920440674,
+        "mean_abs": 0.16456973552703857,
+        "rmse": 0.2805253863334656,
+        "reference_rms": 0.5247009992599487,
+        "normalized_rmse": 0.5346385836601257,
+        "cosine": 0.8589658737182617
+      },
+      "pcm": {
+        "numel": 648000,
+        "exact": false,
+        "max_abs": 1.6640145778656006,
+        "mean_abs": 0.061929814517498016,
+        "rmse": 0.17746473848819733,
+        "reference_rms": 0.16740348935127258,
+        "normalized_rmse": 1.0601017475128174,
+        "cosine": 0.4414220154285431,
+        "sample_rate": 32000
+      }
+    },
+    {
+      "case": 6,
+      "video_latent": {
+        "numel": 6967296,
+        "exact": false,
+        "max_abs": 5.212952136993408,
+        "mean_abs": 0.3279889225959778,
+        "rmse": 0.47858721017837524,
+        "reference_rms": 1.025981068611145,
+        "normalized_rmse": 0.46646788716316223,
+        "cosine": 0.8913220167160034
+      },
+      "audio_latent": {
+        "numel": 25920,
+        "exact": false,
+        "max_abs": 2.4848384857177734,
+        "mean_abs": 0.1442675143480301,
+        "rmse": 0.2693427801132202,
+        "reference_rms": 0.5264207720756531,
+        "normalized_rmse": 0.5116492509841919,
+        "cosine": 0.8676810264587402
+      },
+      "pcm": {
+        "numel": 648000,
+        "exact": false,
+        "max_abs": 1.8014413118362427,
+        "mean_abs": 0.05963721126317978,
+        "rmse": 0.16072970628738403,
+        "reference_rms": 0.19089306890964508,
+        "normalized_rmse": 0.8419881463050842,
+        "cosine": 0.6289204359054565,
+        "sample_rate": 32000
+      }
+    },
+    {
+      "case": 7,
+      "video_latent": {
+        "numel": 6967296,
+        "exact": false,
+        "max_abs": 5.587015151977539,
+        "mean_abs": 0.2614695727825165,
+        "rmse": 0.3992653489112854,
+        "reference_rms": 0.9735361337661743,
+        "normalized_rmse": 0.4101186692714691,
+        "cosine": 0.9160191416740417
+      },
+      "audio_latent": {
+        "numel": 25920,
+        "exact": false,
+        "max_abs": 1.3628064393997192,
+        "mean_abs": 0.06594006717205048,
+        "rmse": 0.10666465014219284,
+        "reference_rms": 0.4770257771015167,
+        "normalized_rmse": 0.2236035317182541,
+        "cosine": 0.9750673770904541
+      },
+      "pcm": {
+        "numel": 648000,
+        "exact": false,
+        "max_abs": 0.5565324425697327,
+        "mean_abs": 0.011663025245070457,
+        "rmse": 0.031154880300164223,
+        "reference_rms": 0.07758695632219315,
+        "normalized_rmse": 0.401547908782959,
+        "cosine": 0.9166169762611389,
+        "sample_rate": 32000
+      }
+    },
+    {
+      "case": 8,
+      "video_latent": {
+        "numel": 7451136,
+        "exact": false,
+        "max_abs": 4.888513088226318,
+        "mean_abs": 0.27047425508499146,
+        "rmse": 0.4015600085258484,
+        "reference_rms": 0.9932398200035095,
+        "normalized_rmse": 0.40429309010505676,
+        "cosine": 0.9183153510093689
+      },
+      "audio_latent": {
+        "numel": 27712,
+        "exact": false,
+        "max_abs": 1.8845105171203613,
+        "mean_abs": 0.10887087881565094,
+        "rmse": 0.17679327726364136,
+        "reference_rms": 0.5385770797729492,
+        "normalized_rmse": 0.3282599449157715,
+        "cosine": 0.9459616541862488
+      },
+      "pcm": {
+        "numel": 692800,
+        "exact": false,
+        "max_abs": 1.1854078769683838,
+        "mean_abs": 0.03362142667174339,
+        "rmse": 0.08764055371284485,
+        "reference_rms": 0.10063597559928894,
+        "normalized_rmse": 0.8708670139312744,
+        "cosine": 0.6147105693817139,
+        "sample_rate": 32000
+      }
+    },
+    {
+      "case": 9,
+      "video_latent": {
+        "numel": 8418816,
+        "exact": false,
+        "max_abs": 5.727458953857422,
+        "mean_abs": 0.2959814667701721,
+        "rmse": 0.4587002396583557,
+        "reference_rms": 1.0086389780044556,
+        "normalized_rmse": 0.454771488904953,
+        "cosine": 0.8970162868499756
+      },
+      "audio_latent": {
+        "numel": 31360,
+        "exact": false,
+        "max_abs": 2.2118663787841797,
+        "mean_abs": 0.16414570808410645,
+        "rmse": 0.2901143431663513,
+        "reference_rms": 0.458233118057251,
+        "normalized_rmse": 0.6331151723861694,
+        "cosine": 0.8045381903648376
+      },
+      "pcm": {
+        "numel": 784000,
+        "exact": false,
+        "max_abs": 1.0007331371307373,
+        "mean_abs": 0.04960922524333,
+        "rmse": 0.09798300266265869,
+        "reference_rms": 0.10479040443897247,
+        "normalized_rmse": 0.9350379109382629,
+        "cosine": 0.5492186546325684,
+        "sample_rate": 32000
+      }
+    },
+    {
+      "case": 10,
+      "video_latent": {
+        "numel": 5999616,
+        "exact": false,
+        "max_abs": 4.867177963256836,
+        "mean_abs": 0.2821069359779358,
+        "rmse": 0.4277903437614441,
+        "reference_rms": 0.9942231178283691,
+        "normalized_rmse": 0.4302760064601898,
+        "cosine": 0.9075906872749329
+      },
+      "audio_latent": {
+        "numel": 22272,
+        "exact": false,
+        "max_abs": 1.937567949295044,
+        "mean_abs": 0.1307428777217865,
+        "rmse": 0.1935073435306549,
+        "reference_rms": 0.4795231521129608,
+        "normalized_rmse": 0.4035411775112152,
+        "cosine": 0.9210505485534668
+      },
+      "pcm": {
+        "numel": 556800,
+        "exact": false,
+        "max_abs": 0.9082146883010864,
+        "mean_abs": 0.0051990682259202,
+        "rmse": 0.020480871200561523,
+        "reference_rms": 0.02308749593794346,
+        "normalized_rmse": 0.8870980143547058,
+        "cosine": 0.6641653180122375,
+        "sample_rate": 32000
+      }
+    },
+    {
+      "case": 11,
+      "video_latent": {
+        "numel": 6967296,
+        "exact": false,
+        "max_abs": 4.745268821716309,
+        "mean_abs": 0.302266389131546,
+        "rmse": 0.44493263959884644,
+        "reference_rms": 0.9820632338523865,
+        "normalized_rmse": 0.45305904746055603,
+        "cosine": 0.8974165916442871
+      },
+      "audio_latent": {
+        "numel": 25920,
+        "exact": false,
+        "max_abs": 1.2100234031677246,
+        "mean_abs": 0.08737005293369293,
+        "rmse": 0.13862073421478271,
+        "reference_rms": 0.5073155164718628,
+        "normalized_rmse": 0.27324363589286804,
+        "cosine": 0.9631338715553284
+      },
+      "pcm": {
+        "numel": 648000,
+        "exact": false,
+        "max_abs": 0.6403137445449829,
+        "mean_abs": 0.006208150181919336,
+        "rmse": 0.019815577194094658,
+        "reference_rms": 0.07294236868619919,
+        "normalized_rmse": 0.2716607451438904,
+        "cosine": 0.9649839997291565,
+        "sample_rate": 32000
+      }
+    },
+    {
+      "case": 12,
+      "video_latent": {
+        "numel": 6967296,
+        "exact": false,
+        "max_abs": 6.141384124755859,
+        "mean_abs": 0.40218615531921387,
+        "rmse": 0.5631859302520752,
+        "reference_rms": 1.0057823657989502,
+        "normalized_rmse": 0.5599480867385864,
+        "cosine": 0.8427819013595581
+      },
+      "audio_latent": {
+        "numel": 25920,
+        "exact": false,
+        "max_abs": 2.1879100799560547,
+        "mean_abs": 0.10510274767875671,
+        "rmse": 0.16782760620117188,
+        "reference_rms": 0.43946459889411926,
+        "normalized_rmse": 0.38189107179641724,
+        "cosine": 0.9270024299621582
+      },
+      "pcm": {
+        "numel": 648000,
+        "exact": false,
+        "max_abs": 0.7513028383255005,
+        "mean_abs": 0.012485633604228497,
+        "rmse": 0.044344499707221985,
+        "reference_rms": 0.036644358187913895,
+        "normalized_rmse": 1.2101317644119263,
+        "cosine": 0.3216192126274109,
+        "sample_rate": 32000
+      }
+    },
+    {
+      "case": 13,
+      "video_latent": {
+        "numel": 5999616,
+        "exact": false,
+        "max_abs": 5.028621196746826,
+        "mean_abs": 0.3054598271846771,
+        "rmse": 0.45737290382385254,
+        "reference_rms": 1.0083099603652954,
+        "normalized_rmse": 0.45360347628593445,
+        "cosine": 0.8974894881248474
+      },
+      "audio_latent": {
+        "numel": 22272,
+        "exact": false,
+        "max_abs": 2.096860647201538,
+        "mean_abs": 0.11380892992019653,
+        "rmse": 0.19676898419857025,
+        "reference_rms": 0.5299738645553589,
+        "normalized_rmse": 0.3712805509567261,
+        "cosine": 0.9314139485359192
+      },
+      "pcm": {
+        "numel": 556800,
+        "exact": false,
+        "max_abs": 0.9532637596130371,
+        "mean_abs": 0.025650018826127052,
+        "rmse": 0.0632878914475441,
+        "reference_rms": 0.10295528173446655,
+        "normalized_rmse": 0.6147124171257019,
+        "cosine": 0.8117713928222656,
+        "sample_rate": 32000
+      }
+    },
+    {
+      "case": 14,
+      "video_latent": {
+        "numel": 6967296,
+        "exact": false,
+        "max_abs": 5.119253635406494,
+        "mean_abs": 0.32676181197166443,
+        "rmse": 0.49504461884498596,
+        "reference_rms": 1.0211372375488281,
+        "normalized_rmse": 0.48479732871055603,
+        "cosine": 0.8830239772796631
+      },
+      "audio_latent": {
+        "numel": 25920,
+        "exact": false,
+        "max_abs": 2.546983242034912,
+        "mean_abs": 0.20042049884796143,
+        "rmse": 0.3334924876689911,
+        "reference_rms": 0.5458630919456482,
+        "normalized_rmse": 0.6109452843666077,
+        "cosine": 0.8151507377624512
+      },
+      "pcm": {
+        "numel": 648000,
+        "exact": false,
+        "max_abs": 1.3818159103393555,
+        "mean_abs": 0.05784202739596367,
+        "rmse": 0.1325618475675583,
+        "reference_rms": 0.11567828804254532,
+        "normalized_rmse": 1.1459527015686035,
+        "cosine": 0.37229928374290466,
+        "sample_rate": 32000
+      }
+    },
+    {
+      "case": 15,
+      "video_latent": {
+        "numel": 5999616,
+        "exact": false,
+        "max_abs": 4.825401306152344,
+        "mean_abs": 0.2573383152484894,
+        "rmse": 0.3877927362918854,
+        "reference_rms": 1.024827480316162,
+        "normalized_rmse": 0.378398060798645,
+        "cosine": 0.92847740650177
+      },
+      "audio_latent": {
+        "numel": 22272,
+        "exact": false,
+        "max_abs": 2.104649305343628,
+        "mean_abs": 0.10462488234043121,
+        "rmse": 0.20742444694042206,
+        "reference_rms": 0.5550705790519714,
+        "normalized_rmse": 0.3736902177333832,
+        "cosine": 0.9311837553977966
+      },
+      "pcm": {
+        "numel": 556800,
+        "exact": false,
+        "max_abs": 0.9958685636520386,
+        "mean_abs": 0.030647309496998787,
+        "rmse": 0.09278744459152222,
+        "reference_rms": 0.1011618822813034,
+        "normalized_rmse": 0.9172174334526062,
+        "cosine": 0.6078956723213196,
+        "sample_rate": 32000
+      }
+    }
+  ]
+}

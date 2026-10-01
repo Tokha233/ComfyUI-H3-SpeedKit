@@ -1,0 +1,781 @@
+{
+  "reference": {
+    "status": "success",
+    "origin": "A800 BF16 DiT + BF16 Qwen / 50 forward",
+    "rows": [
+      {
+        "case": 1,
+        "sha256": "e0dad71a39506a2664c114163a2182dac0f26c6d99c64bc20859db059662da77",
+        "actual_nfe": 50,
+        "telemetry_nfe": 50,
+        "models": {
+          "UNETLoader": {
+            "unet_name": "minimax_h3_ref2va_bf16.safetensors",
+            "weight_dtype": "default"
+          },
+          "CLIPLoader": {
+            "clip_name": "qwen3vl_32b_minimax_h3_bf16.safetensors",
+            "type": "minimax",
+            "device": "default"
+          }
+        },
+        "vaes": [
+          "minimax_h3_video_vae_fp16.safetensors",
+          "minimax_h3_audio_vae_fp32.safetensors"
+        ]
+      },
+      {
+        "case": 2,
+        "sha256": "b51364f7d4aa07fa75604cd99c93326bd2229e63d830279c17b008fe30c220e5",
+        "actual_nfe": 50,
+        "telemetry_nfe": 50,
+        "models": {
+          "UNETLoader": {
+            "unet_name": "minimax_h3_ref2va_bf16.safetensors",
+            "weight_dtype": "default"
+          },
+          "CLIPLoader": {
+            "clip_name": "qwen3vl_32b_minimax_h3_bf16.safetensors",
+            "type": "minimax",
+            "device": "default"
+          }
+        },
+        "vaes": [
+          "minimax_h3_video_vae_fp16.safetensors",
+          "minimax_h3_audio_vae_fp32.safetensors"
+        ]
+      },
+      {
+        "case": 3,
+        "sha256": "d8f8bf4ab9d08eb04a7b124a1168a95c83980ead461733ff82d9e265caf81f6b",
+        "actual_nfe": 50,
+        "telemetry_nfe": 50,
+        "models": {
+          "UNETLoader": {
+            "unet_name": "minimax_h3_ref2va_bf16.safetensors",
+            "weight_dtype": "default"
+          },
+          "CLIPLoader": {
+            "clip_name": "qwen3vl_32b_minimax_h3_bf16.safetensors",
+            "type": "minimax",
+            "device": "default"
+          }
+        },
+        "vaes": [
+          "minimax_h3_video_vae_fp16.safetensors",
+          "minimax_h3_audio_vae_fp32.safetensors"
+        ]
+      },
+      {
+        "case": 4,
+        "sha256": "64c66b50d333132db313639b393f9f82cb391e7e57397cb860f9de34dbfa5e6e",
+        "actual_nfe": 50,
+        "telemetry_nfe": 50,
+        "models": {
+          "UNETLoader": {
+            "unet_name": "minimax_h3_ref2va_bf16.safetensors",
+            "weight_dtype": "default"
+          },
+          "CLIPLoader": {
+            "clip_name": "qwen3vl_32b_minimax_h3_bf16.safetensors",
+            "type": "minimax",
+            "device": "default"
+          }
+        },
+        "vaes": [
+          "minimax_h3_video_vae_fp16.safetensors",
+          "minimax_h3_audio_vae_fp32.safetensors"
+        ]
+      },
+      {
+        "case": 5,
+        "sha256": "df24db9074e6048fb75f0d7224775b50961e8458c35dab0c91fbe1ea3b38ec7b",
+        "actual_nfe": 50,
+        "telemetry_nfe": 50,
+        "models": {
+          "UNETLoader": {
+            "unet_name": "minimax_h3_ref2va_bf16.safetensors",
+            "weight_dtype": "default"
+          },
+          "CLIPLoader": {
+            "clip_name": "qwen3vl_32b_minimax_h3_bf16.safetensors",
+            "type": "minimax",
+            "device": "default"
+          }
+        },
+        "vaes": [
+          "minimax_h3_video_vae_fp16.safetensors",
+          "minimax_h3_audio_vae_fp32.safetensors"
+        ]
+      },
+      {
+        "case": 6,
+        "sha256": "5a61d3e2de21c3fda42a478b339bca94cb17b1bfe701095c05d5a2aef6911579",
+        "actual_nfe": 50,
+        "telemetry_nfe": 50,
+        "models": {
+          "UNETLoader": {
+            "unet_name": "minimax_h3_ref2va_bf16.safetensors",
+            "weight_dtype": "default"
+          },
+          "CLIPLoader": {
+            "clip_name": "qwen3vl_32b_minimax_h3_bf16.safetensors",
+            "type": "minimax",
+            "device": "default"
+          }
+        },
+        "vaes": [
+          "minimax_h3_video_vae_fp16.safetensors",
+          "minimax_h3_audio_vae_fp32.safetensors"
+        ]
+      },
+      {
+        "case": 7,
+        "sha256": "254c6ca126d7b21a1aaec260a677c35e8f09997cd7bf704e4b62c25729e00463",
+        "actual_nfe": 50,
+        "telemetry_nfe": 50,
+        "models": {
+          "UNETLoader": {
+            "unet_name": "minimax_h3_ref2va_bf16.safetensors",
+            "weight_dtype": "default"
+          },
+          "CLIPLoader": {
+            "clip_name": "qwen3vl_32b_minimax_h3_bf16.safetensors",
+            "type": "minimax",
+            "device": "default"
+          }
+        },
+        "vaes": [
+          "minimax_h3_video_vae_fp16.safetensors",
+          "minimax_h3_audio_vae_fp32.safetensors"
+        ]
+      },
+      {
+        "case": 8,
+        "sha256": "e83ed4338556c7975794969a8191c08781cc1b087ac03150b3bcfe1ae4abe38f",
+        "actual_nfe": 50,
+        "telemetry_nfe": 50,
+        "models": {
+          "UNETLoader": {
+            "unet_name": "minimax_h3_ref2va_bf16.safetensors",
+            "weight_dtype": "default"
+          },
+          "CLIPLoader": {
+            "clip_name": "qwen3vl_32b_minimax_h3_bf16.safetensors",
+            "type": "minimax",
+            "device": "default"
+          }
+        },
+        "vaes": [
+          "minimax_h3_video_vae_fp16.safetensors",
+          "minimax_h3_audio_vae_fp32.safetensors"
+        ]
+      },
+      {
+        "case": 9,
+        "sha256": "6b0a4eacf25edf8fdffed5276cb96890843c6387f477e82eeed1a92923a00619",
+        "actual_nfe": 50,
+        "telemetry_nfe": 50,
+        "models": {
+          "UNETLoader": {
+            "unet_name": "minimax_h3_ref2va_bf16.safetensors",
+            "weight_dtype": "default"
+          },
+          "CLIPLoader": {
+            "clip_name": "qwen3vl_32b_minimax_h3_bf16.safetensors",
+            "type": "minimax",
+            "device": "default"
+          }
+        },
+        "vaes": [
+          "minimax_h3_video_vae_fp16.safetensors",
+          "minimax_h3_audio_vae_fp32.safetensors"
+        ]
+      },
+      {
+        "case": 10,
+        "sha256": "9d2d4aa81205e55dd4157af6c93cc1f9a3d4885267047e8d5363dfbf41fe0214",
+        "actual_nfe": 50,
+        "telemetry_nfe": 50,
+        "models": {
+          "UNETLoader": {
+            "unet_name": "minimax_h3_ref2va_bf16.safetensors",
+            "weight_dtype": "default"
+          },
+          "CLIPLoader": {
+            "clip_name": "qwen3vl_32b_minimax_h3_bf16.safetensors",
+            "type": "minimax",
+            "device": "default"
+          }
+        },
+        "vaes": [
+          "minimax_h3_video_vae_fp16.safetensors",
+          "minimax_h3_audio_vae_fp32.safetensors"
+        ]
+      },
+      {
+        "case": 11,
+        "sha256": "f09e4a320fc524018ac49a571c900dbfceb7ee50ff52c3994e86c813ee66a49a",
+        "actual_nfe": 50,
+        "telemetry_nfe": 50,
+        "models": {
+          "UNETLoader": {
+            "unet_name": "minimax_h3_ref2va_bf16.safetensors",
+            "weight_dtype": "default"
+          },
+          "CLIPLoader": {
+            "clip_name": "qwen3vl_32b_minimax_h3_bf16.safetensors",
+            "type": "minimax",
+            "device": "default"
+          }
+        },
+        "vaes": [
+          "minimax_h3_video_vae_fp16.safetensors",
+          "minimax_h3_audio_vae_fp32.safetensors"
+        ]
+      },
+      {
+        "case": 12,
+        "sha256": "44efdeb7f47d8d93a698bd6793f02b27eff217b73d223b82e0c2bea06505e038",
+        "actual_nfe": 50,
+        "telemetry_nfe": 50,
+        "models": {
+          "UNETLoader": {
+            "unet_name": "minimax_h3_ref2va_bf16.safetensors",
+            "weight_dtype": "default"
+          },
+          "CLIPLoader": {
+            "clip_name": "qwen3vl_32b_minimax_h3_bf16.safetensors",
+            "type": "minimax",
+            "device": "default"
+          }
+        },
+        "vaes": [
+          "minimax_h3_video_vae_fp16.safetensors",
+          "minimax_h3_audio_vae_fp32.safetensors"
+        ]
+      },
+      {
+        "case": 13,
+        "sha256": "df2bef36ddf27aaee25ad8cc557642bd0f3465ffc981aff3abc2525f93e15f31",
+        "actual_nfe": 50,
+        "telemetry_nfe": 50,
+        "models": {
+          "UNETLoader": {
+            "unet_name": "minimax_h3_ref2va_bf16.safetensors",
+            "weight_dtype": "default"
+          },
+          "CLIPLoader": {
+            "clip_name": "qwen3vl_32b_minimax_h3_bf16.safetensors",
+            "type": "minimax",
+            "device": "default"
+          }
+        },
+        "vaes": [
+          "minimax_h3_video_vae_fp16.safetensors",
+          "minimax_h3_audio_vae_fp32.safetensors"
+        ]
+      },
+      {
+        "case": 14,
+        "sha256": "d77ab64607a8d27d475432f9be1da35509855d5287de9bb27ae86e8b7760a148",
+        "actual_nfe": 50,
+        "telemetry_nfe": 50,
+        "models": {
+          "UNETLoader": {
+            "unet_name": "minimax_h3_ref2va_bf16.safetensors",
+            "weight_dtype": "default"
+          },
+          "CLIPLoader": {
+            "clip_name": "qwen3vl_32b_minimax_h3_bf16.safetensors",
+            "type": "minimax",
+            "device": "default"
+          }
+        },
+        "vaes": [
+          "minimax_h3_video_vae_fp16.safetensors",
+          "minimax_h3_audio_vae_fp32.safetensors"
+        ]
+      },
+      {
+        "case": 15,
+        "sha256": "6bb70cd72d1f5b6cd9e2ae4d40ce5303568ab1811784585615434a55bcc0e91d",
+        "actual_nfe": 50,
+        "telemetry_nfe": 50,
+        "models": {
+          "UNETLoader": {
+            "unet_name": "minimax_h3_ref2va_bf16.safetensors",
+            "weight_dtype": "default"
+          },
+          "CLIPLoader": {
+            "clip_name": "qwen3vl_32b_minimax_h3_bf16.safetensors",
+            "type": "minimax",
+            "device": "default"
+          }
+        },
+        "vaes": [
+          "minimax_h3_video_vae_fp16.safetensors",
+          "minimax_h3_audio_vae_fp32.safetensors"
+        ]
+      }
+    ]
+  },
+  "inputs": {
+    "status": "success",
+    "note": "Metadata matches original teacher inputs; this does not assert encoded conditioning tensors were numerically identical across teacher and production runtimes.",
+    "rows": [
+      {
+        "case": 1,
+        "fields_equal_to_teacher_input": {
+          "prompt": true,
+          "seed": true,
+          "duration": true,
+          "images": true,
+          "ratio": true,
+          "resolution": true
+        },
+        "latent_shapes": [
+          [
+            1,
+            24,
+            72,
+            84,
+            48
+          ],
+          [
+            1,
+            32,
+            2,
+            405
+          ]
+        ]
+      },
+      {
+        "case": 2,
+        "fields_equal_to_teacher_input": {
+          "prompt": true,
+          "seed": true,
+          "duration": true,
+          "images": true,
+          "ratio": true,
+          "resolution": true
+        },
+        "latent_shapes": [
+          [
+            1,
+            24,
+            72,
+            84,
+            48
+          ],
+          [
+            1,
+            32,
+            2,
+            405
+          ]
+        ]
+      },
+      {
+        "case": 3,
+        "fields_equal_to_teacher_input": {
+          "prompt": true,
+          "seed": true,
+          "duration": true,
+          "images": true,
+          "ratio": true,
+          "resolution": true
+        },
+        "latent_shapes": [
+          [
+            1,
+            24,
+            72,
+            84,
+            48
+          ],
+          [
+            1,
+            32,
+            2,
+            405
+          ]
+        ]
+      },
+      {
+        "case": 4,
+        "fields_equal_to_teacher_input": {
+          "prompt": true,
+          "seed": true,
+          "duration": true,
+          "images": true,
+          "ratio": true,
+          "resolution": true
+        },
+        "latent_shapes": [
+          [
+            1,
+            24,
+            72,
+            84,
+            48
+          ],
+          [
+            1,
+            32,
+            2,
+            405
+          ]
+        ]
+      },
+      {
+        "case": 5,
+        "fields_equal_to_teacher_input": {
+          "prompt": true,
+          "seed": true,
+          "duration": true,
+          "images": true,
+          "ratio": true,
+          "resolution": true
+        },
+        "latent_shapes": [
+          [
+            1,
+            24,
+            72,
+            84,
+            48
+          ],
+          [
+            1,
+            32,
+            2,
+            405
+          ]
+        ]
+      },
+      {
+        "case": 6,
+        "fields_equal_to_teacher_input": {
+          "prompt": true,
+          "seed": true,
+          "duration": true,
+          "images": true,
+          "ratio": true,
+          "resolution": true
+        },
+        "latent_shapes": [
+          [
+            1,
+            24,
+            72,
+            84,
+            48
+          ],
+          [
+            1,
+            32,
+            2,
+            405
+          ]
+        ]
+      },
+      {
+        "case": 7,
+        "fields_equal_to_teacher_input": {
+          "prompt": true,
+          "seed": true,
+          "duration": true,
+          "images": true,
+          "ratio": true,
+          "resolution": true
+        },
+        "latent_shapes": [
+          [
+            1,
+            24,
+            72,
+            84,
+            48
+          ],
+          [
+            1,
+            32,
+            2,
+            405
+          ]
+        ]
+      },
+      {
+        "case": 8,
+        "fields_equal_to_teacher_input": {
+          "prompt": true,
+          "seed": true,
+          "duration": true,
+          "images": true,
+          "ratio": true,
+          "resolution": true
+        },
+        "latent_shapes": [
+          [
+            1,
+            24,
+            77,
+            84,
+            48
+          ],
+          [
+            1,
+            32,
+            2,
+            433
+          ]
+        ]
+      },
+      {
+        "case": 9,
+        "fields_equal_to_teacher_input": {
+          "prompt": true,
+          "seed": true,
+          "duration": true,
+          "images": true,
+          "ratio": true,
+          "resolution": true
+        },
+        "latent_shapes": [
+          [
+            1,
+            24,
+            87,
+            84,
+            48
+          ],
+          [
+            1,
+            32,
+            2,
+            490
+          ]
+        ]
+      },
+      {
+        "case": 10,
+        "fields_equal_to_teacher_input": {
+          "prompt": true,
+          "seed": true,
+          "duration": true,
+          "images": true,
+          "ratio": true,
+          "resolution": true
+        },
+        "latent_shapes": [
+          [
+            1,
+            24,
+            62,
+            84,
+            48
+          ],
+          [
+            1,
+            32,
+            2,
+            348
+          ]
+        ]
+      },
+      {
+        "case": 11,
+        "fields_equal_to_teacher_input": {
+          "prompt": true,
+          "seed": true,
+          "duration": true,
+          "images": true,
+          "ratio": true,
+          "resolution": true
+        },
+        "latent_shapes": [
+          [
+            1,
+            24,
+            72,
+            84,
+            48
+          ],
+          [
+            1,
+            32,
+            2,
+            405
+          ]
+        ]
+      },
+      {
+        "case": 12,
+        "fields_equal_to_teacher_input": {
+          "prompt": true,
+          "seed": true,
+          "duration": true,
+          "images": true,
+          "ratio": true,
+          "resolution": true
+        },
+        "latent_shapes": [
+          [
+            1,
+            24,
+            72,
+            84,
+            48
+          ],
+          [
+            1,
+            32,
+            2,
+            405
+          ]
+        ]
+      },
+      {
+        "case": 13,
+        "fields_equal_to_teacher_input": {
+          "prompt": true,
+          "seed": true,
+          "duration": true,
+          "images": true,
+          "ratio": true,
+          "resolution": true
+        },
+        "latent_shapes": [
+          [
+            1,
+            24,
+            62,
+            84,
+            48
+          ],
+          [
+            1,
+            32,
+            2,
+            348
+          ]
+        ]
+      },
+      {
+        "case": 14,
+        "fields_equal_to_teacher_input": {
+          "prompt": true,
+          "seed": true,
+          "duration": true,
+          "images": true,
+          "ratio": true,
+          "resolution": true
+        },
+        "latent_shapes": [
+          [
+            1,
+            24,
+            72,
+            84,
+            48
+          ],
+          [
+            1,
+            32,
+            2,
+            405
+          ]
+        ]
+      },
+      {
+        "case": 15,
+        "fields_equal_to_teacher_input": {
+          "prompt": true,
+          "seed": true,
+          "duration": true,
+          "images": true,
+          "ratio": true,
+          "resolution": true
+        },
+        "latent_shapes": [
+          [
+            1,
+            24,
+            62,
+            84,
+            48
+          ],
+          [
+            1,
+            32,
+            2,
+            348
+          ]
+        ]
+      }
+    ]
+  },
+  "pcm": [
+    {
+      "case": 1,
+      "pcm_exact_historical": true
+    },
+    {
+      "case": 2,
+      "pcm_exact_historical": true
+    },
+    {
+      "case": 3,
+      "pcm_exact_historical": true
+    },
+    {
+      "case": 4,
+      "pcm_exact_historical": true
+    },
+    {
+      "case": 5,
+      "pcm_exact_historical": true
+    },
+    {
+      "case": 6,
+      "pcm_exact_historical": true
+    },
+    {
+      "case": 7,
+      "pcm_exact_historical": true
+    },
+    {
+      "case": 8,
+      "pcm_exact_historical": true
+    },
+    {
+      "case": 9,
+      "pcm_exact_historical": true
+    },
+    {
+      "case": 10,
+      "pcm_exact_historical": true
+    },
+    {
+      "case": 11,
+      "pcm_exact_historical": true
+    },
+    {
+      "case": 12,
+      "pcm_exact_historical": true
+    },
+    {
+      "case": 13,
+      "pcm_exact_historical": true
+    },
+    {
+      "case": 14,
+      "pcm_exact_historical": true
+    },
+    {
+      "case": 15,
+      "pcm_exact_historical": true
+    }
+  ]
+}

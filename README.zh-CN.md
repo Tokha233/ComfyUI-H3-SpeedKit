@@ -87,3 +87,5 @@ python benchmarks/run.py --help
 **10 月 1 日上游组合实测：** [完整报告与复现证据](docs/UPSTREAM-RECOVERY-TESTS-20261001.zh-CN.md)。在更新的固定 Kitchen/ComfyUI 基线上，完整 8 步采样 **15.737→14.201 s（−9.76%）**，视频/音频 latent、RGB8 和 PCM 哈希一致。此实验集成与上述已发布插件的历史口径分别统计。
 
 **10 月 1 日后续实测：** [PDMD 与 D64 attention 完整报告](docs/PDMD-KITCHEN-TESTS-20261001.zh-CN.md)。PDMD 两条 INT8 路径各完成 15 个业务片段，对比 BF16 50 步与当前部署，均未达到 Larry8 的质量目标。[Kitchen #227](https://github.com/Comfy-Org/comfy-kitchen/pull/227) 新增窄范围 SM120 D64 精确调度：attention 内核耗时约减少 4.6%–5.8%，单代表 latent 的独立进程完整 decoder 耗时减少 0.96%。与上述已发布插件口径分别统计。
+
+**Larry 合并方式实测：** [BF16 先合并、再一次 INT8 的 15 片段对照](docs/LARRY-MERGE-TEST-20261001.zh-CN.md)。相对原 50 步参考，新配方 SSIM 和音频相似度均值小幅提高，但 LPIPS 略差，部分片段相似度下降；保留全部 r85 优化后的请求速度基本持平。继续保留现有部署权重。
