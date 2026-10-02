@@ -1,0 +1,158 @@
+[
+  {
+    "scope": "SGLang Diffusion ComfyUI integrated H3 Larry8 DiT sampler; excludes VAE/export",
+    "split": 8192,
+    "torch": "2.13.0+cu130",
+    "gpu": "NVIDIA GeForce RTX 5090 D v2",
+    "records": [
+      {
+        "repeat": -1,
+        "warmup": true,
+        "ms": 34394.21990897972,
+        "sha256": [
+          "4a895fb5aa97adfb5b4a29b2122bbdc7418c3e5da69eef0472a7ef70a451621f",
+          "0977ad1be06568efab37b534edb1294154eea9fe04ac8e820959bc84f7e59bd9"
+        ]
+      },
+      {
+        "repeat": 0,
+        "warmup": false,
+        "ms": 33960.21578204818,
+        "sha256": [
+          "4a895fb5aa97adfb5b4a29b2122bbdc7418c3e5da69eef0472a7ef70a451621f",
+          "0977ad1be06568efab37b534edb1294154eea9fe04ac8e820959bc84f7e59bd9"
+        ]
+      },
+      {
+        "repeat": 1,
+        "warmup": false,
+        "ms": 33967.19193703029,
+        "sha256": [
+          "4a895fb5aa97adfb5b4a29b2122bbdc7418c3e5da69eef0472a7ef70a451621f",
+          "0977ad1be06568efab37b534edb1294154eea9fe04ac8e820959bc84f7e59bd9"
+        ]
+      }
+    ],
+    "kitchen_attention": false,
+    "resident": 0,
+    "lifetime": "forward",
+    "prefetch": 0.0
+  },
+  {
+    "scope": "SGLang Diffusion ComfyUI integrated H3 Larry8 DiT sampler; excludes VAE/export",
+    "split": -1,
+    "torch": "2.13.0+cu130",
+    "gpu": "NVIDIA GeForce RTX 5090 D v2",
+    "records": [
+      {
+        "repeat": -1,
+        "warmup": true,
+        "ms": 33800.11596495751,
+        "sha256": [
+          "4a895fb5aa97adfb5b4a29b2122bbdc7418c3e5da69eef0472a7ef70a451621f",
+          "0977ad1be06568efab37b534edb1294154eea9fe04ac8e820959bc84f7e59bd9"
+        ]
+      },
+      {
+        "repeat": 0,
+        "warmup": false,
+        "ms": 33365.07249099668,
+        "sha256": [
+          "4a895fb5aa97adfb5b4a29b2122bbdc7418c3e5da69eef0472a7ef70a451621f",
+          "0977ad1be06568efab37b534edb1294154eea9fe04ac8e820959bc84f7e59bd9"
+        ]
+      },
+      {
+        "repeat": 1,
+        "warmup": false,
+        "ms": 33370.35142397508,
+        "sha256": [
+          "4a895fb5aa97adfb5b4a29b2122bbdc7418c3e5da69eef0472a7ef70a451621f",
+          "0977ad1be06568efab37b534edb1294154eea9fe04ac8e820959bc84f7e59bd9"
+        ]
+      }
+    ],
+    "kitchen_attention": false,
+    "resident": 0,
+    "lifetime": "forward",
+    "prefetch": 0.0
+  },
+  {
+    "scope": "SGLang Diffusion ComfyUI integrated H3 Larry8 DiT sampler; excludes VAE/export",
+    "split": -1,
+    "torch": "2.13.0+cu130",
+    "gpu": "NVIDIA GeForce RTX 5090 D v2",
+    "records": [
+      {
+        "repeat": -1,
+        "warmup": true,
+        "ms": 33855.83676898386,
+        "sha256": [
+          "4a895fb5aa97adfb5b4a29b2122bbdc7418c3e5da69eef0472a7ef70a451621f",
+          "0977ad1be06568efab37b534edb1294154eea9fe04ac8e820959bc84f7e59bd9"
+        ]
+      },
+      {
+        "repeat": 0,
+        "warmup": false,
+        "ms": 33421.80630099028,
+        "sha256": [
+          "4a895fb5aa97adfb5b4a29b2122bbdc7418c3e5da69eef0472a7ef70a451621f",
+          "0977ad1be06568efab37b534edb1294154eea9fe04ac8e820959bc84f7e59bd9"
+        ]
+      },
+      {
+        "repeat": 1,
+        "warmup": false,
+        "ms": 33426.85203906149,
+        "sha256": [
+          "4a895fb5aa97adfb5b4a29b2122bbdc7418c3e5da69eef0472a7ef70a451621f",
+          "0977ad1be06568efab37b534edb1294154eea9fe04ac8e820959bc84f7e59bd9"
+        ]
+      }
+    ],
+    "kitchen_attention": false,
+    "resident": 0,
+    "lifetime": "forward",
+    "prefetch": 0.0
+  },
+  {
+    "scope": "SGLang Diffusion ComfyUI integrated H3 Larry8 DiT sampler; excludes VAE/export",
+    "split": 8192,
+    "torch": "2.13.0+cu130",
+    "gpu": "NVIDIA GeForce RTX 5090 D v2",
+    "records": [
+      {
+        "repeat": -1,
+        "warmup": true,
+        "ms": 33564.59294189699,
+        "sha256": [
+          "4a895fb5aa97adfb5b4a29b2122bbdc7418c3e5da69eef0472a7ef70a451621f",
+          "0977ad1be06568efab37b534edb1294154eea9fe04ac8e820959bc84f7e59bd9"
+        ]
+      },
+      {
+        "repeat": 0,
+        "warmup": false,
+        "ms": 33140.68746997509,
+        "sha256": [
+          "4a895fb5aa97adfb5b4a29b2122bbdc7418c3e5da69eef0472a7ef70a451621f",
+          "0977ad1be06568efab37b534edb1294154eea9fe04ac8e820959bc84f7e59bd9"
+        ]
+      },
+      {
+        "repeat": 1,
+        "warmup": false,
+        "ms": 33165.232668980025,
+        "sha256": [
+          "4a895fb5aa97adfb5b4a29b2122bbdc7418c3e5da69eef0472a7ef70a451621f",
+          "0977ad1be06568efab37b534edb1294154eea9fe04ac8e820959bc84f7e59bd9"
+        ]
+      }
+    ],
+    "kitchen_attention": false,
+    "resident": 0,
+    "lifetime": "forward",
+    "prefetch": 0.0
+  }
+]

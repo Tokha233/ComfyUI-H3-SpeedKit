@@ -1,0 +1,49 @@
+..............                                                           [100%]
+=============================== warnings summary ===============================
+sg-env/lib/python3.12/site-packages/torch/jit/_script.py:365: 14 warnings
+  /tmp/h3-omni-1002/sg-env/lib/python3.12/site-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+14 passed, 14 warnings in 0.06s
+.............................................                            [100%]
+=============================== warnings summary ===============================
+../vo-env/lib/python3.12/site-packages/torch/jit/_script.py:365: 14 warnings
+  /tmp/h3-omni-1002/vo-env/lib/python3.12/site-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+vllm_omni/__init__.py:22
+  /tmp/h3-omni-1002/vllm-timesteps/vllm_omni/__init__.py:22: RuntimeWarning: Failed to import version from _version.py: No module named 'vllm_omni._version'
+  This typically happens in development mode before building.
+  Using fallback version 'dev'.
+    from .version import __version__, __version_tuple__  # isort:skip # noqa: F401
+
+../vo-env/lib/python3.12/site-packages/flashinfer/cute_dsl/availability.py:135
+  /tmp/h3-omni-1002/vo-env/lib/python3.12/site-packages/flashinfer/cute_dsl/availability.py:135: DeprecationWarning: Arch from arch.py is deprecated. Use Arch from enums.py instead.
+    from cutlass.base_dsl.arch import Arch
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+--- Running Summary
+45 passed, 16 warnings in 2.51s
+/tmp/h3-omni-1002/vllm-timesteps/vllm_omni/__init__.py:22: RuntimeWarning: Failed to import version from _version.py: No module named 'vllm_omni._version'
+This typically happens in development mode before building.
+Using fallback version 'dev'.
+  from .version import __version__, __version_tuple__  # isort:skip # noqa: F401
+INFO 10-02 12:36:55 [patch.py:253] NVFP4 W4A4 weight_scale NaN-clamp: skipped — upstream serves ModelOpt linears through the generic ModelOptLinearMethod and rejects any NaN weight_scale (unloaded-scale sentinel), so a load-time error replaces the `!!!!` decode-time collapse.
+INFO 10-02 12:36:55 [patch.py:565] inductor factorable-divisibility patch: installed.
+INFO 10-02 12:36:55 [patch.py:630] [cumem-cuda] CuMemAllocator._python_free_callback patched: asleep guard extended to all platforms.
+USDT:2026-10-02 12:37:05 1117005:1117005 SyncActivityProfilerHandler.cpp:52] profiler_start
+USDT:2026-10-02 12:37:05 1117005:1117005 SyncActivityProfilerHandler.cpp:59] profiler_stop
+USDT:2026-10-02 12:37:05 1117005:1117005 SyncActivityProfilerHandler.cpp:52] profiler_start
+USDT:2026-10-02 12:37:05 1117005:1117005 SyncActivityProfilerHandler.cpp:59] profiler_stop
+4672 [('baseline', 18.47424838342704), ('candidate', 0.2933941868832335), ('candidate', 0.29330424877116457), ('baseline', 0.16671819321345538)] {'baseline': [{'key': 'aten::nonzero', 'count': 4}, {'key': 'cudaStreamSynchronize', 'count': 8}, {'key': 'cudaDeviceSynchronize', 'count': 2}], 'candidate': [{'key': 'cudaDeviceSynchronize', 'count': 2}]}
+USDT:2026-10-02 12:37:06 1117005:1117005 SyncActivityProfilerHandler.cpp:52] profiler_start
+USDT:2026-10-02 12:37:06 1117005:1117005 SyncActivityProfilerHandler.cpp:59] profiler_stop
+USDT:2026-10-02 12:37:06 1117005:1117005 SyncActivityProfilerHandler.cpp:52] profiler_start
+USDT:2026-10-02 12:37:06 1117005:1117005 SyncActivityProfilerHandler.cpp:59] profiler_stop
+15040 [('baseline', 0.2289930562255904), ('candidate', 0.02960743586299941), ('candidate', 0.029646878829225898), ('baseline', 0.22666375298285857)] {'baseline': [{'key': 'aten::nonzero', 'count': 4}, {'key': 'cudaStreamSynchronize', 'count': 8}, {'key': 'cudaDeviceSynchronize', 'count': 2}], 'candidate': [{'key': 'cudaDeviceSynchronize', 'count': 2}]}
+USDT:2026-10-02 12:37:06 1117005:1117005 SyncActivityProfilerHandler.cpp:52] profiler_start
+USDT:2026-10-02 12:37:06 1117005:1117005 SyncActivityProfilerHandler.cpp:59] profiler_stop
+USDT:2026-10-02 12:37:06 1117005:1117005 SyncActivityProfilerHandler.cpp:52] profiler_start
+USDT:2026-10-02 12:37:06 1117005:1117005 SyncActivityProfilerHandler.cpp:59] profiler_stop
+32320 [('baseline', 0.22743999579688534), ('candidate', 0.029450005968101323), ('candidate', 0.02932750794570893), ('baseline', 0.22743181034456939)] {'baseline': [{'key': 'aten::nonzero', 'count': 4}, {'key': 'cudaStreamSynchronize', 'count': 8}, {'key': 'cudaDeviceSynchronize', 'count': 2}], 'candidate': [{'key': 'cudaDeviceSynchronize', 'count': 2}]}

@@ -1,0 +1,426 @@
+{
+  "torch": "2.13.0+cu130",
+  "gpu": "NVIDIA GeForce RTX 5090 D v2",
+  "rows": [
+    {
+      "rows": 1,
+      "name": "ref",
+      "ms": 0.009145599976181983,
+      "exact": true
+    },
+    {
+      "rows": 1,
+      "name": "row4",
+      "ms": 0.009995999932289123,
+      "exact": true
+    },
+    {
+      "rows": 1,
+      "name": "row8",
+      "ms": 0.009982400014996529,
+      "exact": true
+    },
+    {
+      "rows": 1,
+      "name": "row16",
+      "ms": 0.009833599999547004,
+      "exact": true
+    },
+    {
+      "rows": 1,
+      "name": "flat1024w4",
+      "ms": 0.010645600035786629,
+      "exact": true
+    },
+    {
+      "rows": 1,
+      "name": "flat2048w4",
+      "ms": 0.01061279997229576,
+      "exact": true
+    },
+    {
+      "rows": 1,
+      "name": "flat4096w4",
+      "ms": 0.010695200040936471,
+      "exact": true
+    },
+    {
+      "rows": 1,
+      "name": "flat4096w8",
+      "ms": 0.01074719987809658,
+      "exact": true
+    },
+    {
+      "rows": 1,
+      "name": "flat8192w4",
+      "ms": 0.010639199987053871,
+      "exact": true
+    },
+    {
+      "rows": 1,
+      "name": "flat8192w8",
+      "ms": 0.010654399916529656,
+      "exact": true
+    },
+    {
+      "rows": 32,
+      "name": "ref",
+      "ms": 0.009115999937057494,
+      "exact": true
+    },
+    {
+      "rows": 32,
+      "name": "row4",
+      "ms": 0.009677600115537643,
+      "exact": true
+    },
+    {
+      "rows": 32,
+      "name": "row8",
+      "ms": 0.009608799964189528,
+      "exact": true
+    },
+    {
+      "rows": 32,
+      "name": "row16",
+      "ms": 0.009599199891090392,
+      "exact": true
+    },
+    {
+      "rows": 32,
+      "name": "flat1024w4",
+      "ms": 0.010568800196051598,
+      "exact": true
+    },
+    {
+      "rows": 32,
+      "name": "flat2048w4",
+      "ms": 0.010627999901771545,
+      "exact": true
+    },
+    {
+      "rows": 32,
+      "name": "flat4096w4",
+      "ms": 0.010608800128102301,
+      "exact": true
+    },
+    {
+      "rows": 32,
+      "name": "flat4096w8",
+      "ms": 0.010544800013303757,
+      "exact": true
+    },
+    {
+      "rows": 32,
+      "name": "flat8192w4",
+      "ms": 0.010655200108885765,
+      "exact": true
+    },
+    {
+      "rows": 32,
+      "name": "flat8192w8",
+      "ms": 0.01061439998447895,
+      "exact": true
+    },
+    {
+      "rows": 195,
+      "name": "ref",
+      "ms": 0.009081599861383438,
+      "exact": true
+    },
+    {
+      "rows": 195,
+      "name": "row4",
+      "ms": 0.009727999940514565,
+      "exact": true
+    },
+    {
+      "rows": 195,
+      "name": "row8",
+      "ms": 0.009665600210428237,
+      "exact": true
+    },
+    {
+      "rows": 195,
+      "name": "row16",
+      "ms": 0.009662400186061858,
+      "exact": true
+    },
+    {
+      "rows": 195,
+      "name": "flat1024w4",
+      "ms": 0.010600800067186354,
+      "exact": true
+    },
+    {
+      "rows": 195,
+      "name": "flat2048w4",
+      "ms": 0.010617600008845329,
+      "exact": true
+    },
+    {
+      "rows": 195,
+      "name": "flat4096w4",
+      "ms": 0.010681600123643876,
+      "exact": true
+    },
+    {
+      "rows": 195,
+      "name": "flat4096w8",
+      "ms": 0.010657600313425063,
+      "exact": true
+    },
+    {
+      "rows": 195,
+      "name": "flat8192w4",
+      "ms": 0.010713599994778633,
+      "exact": true
+    },
+    {
+      "rows": 195,
+      "name": "flat8192w8",
+      "ms": 0.010627999901771545,
+      "exact": true
+    },
+    {
+      "rows": 1797,
+      "name": "ref",
+      "ms": 0.01874319985508919,
+      "exact": true
+    },
+    {
+      "rows": 1797,
+      "name": "row4",
+      "ms": 0.0100832000374794,
+      "exact": true
+    },
+    {
+      "rows": 1797,
+      "name": "row8",
+      "ms": 0.010045599937438966,
+      "exact": true
+    },
+    {
+      "rows": 1797,
+      "name": "row16",
+      "ms": 0.009959999844431877,
+      "exact": true
+    },
+    {
+      "rows": 1797,
+      "name": "flat1024w4",
+      "ms": 0.010781599953770638,
+      "exact": true
+    },
+    {
+      "rows": 1797,
+      "name": "flat2048w4",
+      "ms": 0.010860000178217886,
+      "exact": true
+    },
+    {
+      "rows": 1797,
+      "name": "flat4096w4",
+      "ms": 0.012808800488710404,
+      "exact": true
+    },
+    {
+      "rows": 1797,
+      "name": "flat4096w8",
+      "ms": 0.010949599742889404,
+      "exact": true
+    },
+    {
+      "rows": 1797,
+      "name": "flat8192w4",
+      "ms": 0.010805599763989447,
+      "exact": true
+    },
+    {
+      "rows": 1797,
+      "name": "flat8192w8",
+      "ms": 0.010965599864721298,
+      "exact": true
+    },
+    {
+      "rows": 7188,
+      "name": "ref",
+      "ms": 0.186516797542572,
+      "exact": true
+    },
+    {
+      "rows": 7188,
+      "name": "row4",
+      "ms": 0.10053359866142272,
+      "exact": true
+    },
+    {
+      "rows": 7188,
+      "name": "row8",
+      "ms": 0.10017679929733277,
+      "exact": true
+    },
+    {
+      "rows": 7188,
+      "name": "row16",
+      "ms": 0.09980399906635284,
+      "exact": true
+    },
+    {
+      "rows": 7188,
+      "name": "flat1024w4",
+      "ms": 0.10012560486793518,
+      "exact": true
+    },
+    {
+      "rows": 7188,
+      "name": "flat2048w4",
+      "ms": 0.10052959918975829,
+      "exact": true
+    },
+    {
+      "rows": 7188,
+      "name": "flat4096w4",
+      "ms": 0.1047055959701538,
+      "exact": true
+    },
+    {
+      "rows": 7188,
+      "name": "flat4096w8",
+      "ms": 0.10288559794425964,
+      "exact": true
+    },
+    {
+      "rows": 7188,
+      "name": "flat8192w4",
+      "ms": 0.0988392025232315,
+      "exact": true
+    },
+    {
+      "rows": 7188,
+      "name": "flat8192w8",
+      "ms": 0.10067040324211121,
+      "exact": true
+    },
+    {
+      "rows": 8192,
+      "name": "ref",
+      "ms": 0.22152159214019773,
+      "exact": true
+    },
+    {
+      "rows": 8192,
+      "name": "row4",
+      "ms": 0.124236798286438,
+      "exact": true
+    },
+    {
+      "rows": 8192,
+      "name": "row8",
+      "ms": 0.1234055995941162,
+      "exact": true
+    },
+    {
+      "rows": 8192,
+      "name": "row16",
+      "ms": 0.12520880103111268,
+      "exact": true
+    },
+    {
+      "rows": 8192,
+      "name": "flat1024w4",
+      "ms": 0.11647359728813172,
+      "exact": true
+    },
+    {
+      "rows": 8192,
+      "name": "flat2048w4",
+      "ms": 0.12439839839935303,
+      "exact": true
+    },
+    {
+      "rows": 8192,
+      "name": "flat4096w4",
+      "ms": 0.12487440109252929,
+      "exact": true
+    },
+    {
+      "rows": 8192,
+      "name": "flat4096w8",
+      "ms": 0.12502240538597106,
+      "exact": true
+    },
+    {
+      "rows": 8192,
+      "name": "flat8192w4",
+      "ms": 0.12070959806442261,
+      "exact": true
+    },
+    {
+      "rows": 8192,
+      "name": "flat8192w8",
+      "ms": 0.12441520094871521,
+      "exact": true
+    },
+    {
+      "rows": 32768,
+      "name": "ref",
+      "ms": 1.0579823970794677,
+      "exact": true
+    },
+    {
+      "rows": 32768,
+      "name": "row4",
+      "ms": 0.5789680004119873,
+      "exact": true
+    },
+    {
+      "rows": 32768,
+      "name": "row8",
+      "ms": 0.5768447875976563,
+      "exact": true
+    },
+    {
+      "rows": 32768,
+      "name": "row16",
+      "ms": 0.5754735946655274,
+      "exact": true
+    },
+    {
+      "rows": 32768,
+      "name": "flat1024w4",
+      "ms": 0.5777184009552001,
+      "exact": true
+    },
+    {
+      "rows": 32768,
+      "name": "flat2048w4",
+      "ms": 0.5775023937225341,
+      "exact": true
+    },
+    {
+      "rows": 32768,
+      "name": "flat4096w4",
+      "ms": 0.5769455909729004,
+      "exact": true
+    },
+    {
+      "rows": 32768,
+      "name": "flat4096w8",
+      "ms": 0.5774168014526366,
+      "exact": true
+    },
+    {
+      "rows": 32768,
+      "name": "flat8192w4",
+      "ms": 0.5744256019592285,
+      "exact": true
+    },
+    {
+      "rows": 32768,
+      "name": "flat8192w8",
+      "ms": 0.5767151832580566,
+      "exact": true
+    }
+  ]
+}
