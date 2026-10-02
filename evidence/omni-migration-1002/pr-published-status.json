@@ -1,0 +1,872 @@
+{
+  "checkedAt": "2026-10-02T03:15:29.568503+00:00",
+  "prs": [
+    {
+      "headRefOid": "f851045c948692b44d5998bd337476a3f7709428",
+      "isDraft": false,
+      "mergeable": "MERGEABLE",
+      "number": 42121,
+      "reviewDecision": "REVIEW_REQUIRED",
+      "state": "OPEN",
+      "statusCheckRollup": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T20:02:20Z",
+          "conclusion": "FAILURE",
+          "detailsUrl": "https://github.com/sgl-project/sglang/actions/runs/36918637016/job/110558813468",
+          "name": "call-gate / pr-gate",
+          "startedAt": "2026-10-01T20:02:15Z",
+          "status": "COMPLETED",
+          "workflowName": "PR Test (AMD)"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T20:02:22Z",
+          "conclusion": "FAILURE",
+          "detailsUrl": "https://github.com/sgl-project/sglang/actions/runs/36918636663/job/110558812091",
+          "name": "call-gate / pr-gate",
+          "startedAt": "2026-10-01T20:02:16Z",
+          "status": "COMPLETED",
+          "workflowName": "PR Test Extra (AMD)"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T20:02:17Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/sgl-project/sglang/actions/runs/36918631330/job/110558796106",
+          "name": "label",
+          "startedAt": "2026-10-01T20:02:11Z",
+          "status": "COMPLETED",
+          "workflowName": "Auto Label PRs"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T20:06:05Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/sgl-project/sglang/actions/runs/36918636003/job/110558808412",
+          "name": "lint",
+          "startedAt": "2026-10-01T20:02:15Z",
+          "status": "COMPLETED",
+          "workflowName": "Lint"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T20:02:17Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/sgl-project/sglang/actions/runs/36918631365/job/110558796329",
+          "name": "update-pr-body",
+          "startedAt": "2026-10-01T20:02:13Z",
+          "status": "COMPLETED",
+          "workflowName": "PR States"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T20:02:38Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/sgl-project/sglang/actions/runs/36918636634/job/110558811480",
+          "name": "check-changes",
+          "startedAt": "2026-10-01T20:02:15Z",
+          "status": "COMPLETED",
+          "workflowName": "PR Test (Arm64)"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T20:02:25Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/sgl-project/sglang/actions/runs/36918636767/job/110558812351",
+          "name": "check-changes",
+          "startedAt": "2026-10-01T20:02:14Z",
+          "status": "COMPLETED",
+          "workflowName": "PR Test (MLX)"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T20:02:27Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/sgl-project/sglang/actions/runs/36918636759/job/110558811915",
+          "name": "check-changes",
+          "startedAt": "2026-10-01T20:02:15Z",
+          "status": "COMPLETED",
+          "workflowName": "PR Test (MUSA)"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T20:02:35Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/sgl-project/sglang/actions/runs/36918636613/job/110558812096",
+          "name": "check-changes",
+          "startedAt": "2026-10-01T20:02:14Z",
+          "status": "COMPLETED",
+          "workflowName": "PR Test (NPU)"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T20:02:26Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/sgl-project/sglang/actions/runs/36918636737/job/110558811744",
+          "name": "check-changes",
+          "startedAt": "2026-10-01T20:02:14Z",
+          "status": "COMPLETED",
+          "workflowName": "PR Test (PPU)"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T20:02:27Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/sgl-project/sglang/actions/runs/36918636659/job/110558811524",
+          "name": "check-changes",
+          "startedAt": "2026-10-01T20:02:14Z",
+          "status": "COMPLETED",
+          "workflowName": "PR Test (XPU)"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T20:02:27Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/sgl-project/sglang/actions/runs/36918636702/job/110558811164",
+          "name": "check-changes",
+          "startedAt": "2026-10-01T20:02:14Z",
+          "status": "COMPLETED",
+          "workflowName": "PR Test (Xeon)"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T20:03:11Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/sgl-project/sglang/actions/runs/36918636213/job/110558810126",
+          "name": "gate",
+          "startedAt": "2026-10-01T20:02:50Z",
+          "status": "COMPLETED",
+          "workflowName": "PR Test (sgl-router)"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T20:02:42Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/sgl-project/sglang/actions/runs/36918637044/job/110558816892",
+          "name": "check-changes / check-changes",
+          "startedAt": "2026-10-01T20:02:16Z",
+          "status": "COMPLETED",
+          "workflowName": "PR Test Base"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T20:02:37Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/sgl-project/sglang/actions/runs/36918636803/job/110558812512",
+          "name": "check-changes / check-changes",
+          "startedAt": "2026-10-01T20:02:14Z",
+          "status": "COMPLETED",
+          "workflowName": "PR Test Extra"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T20:02:39Z",
+          "conclusion": "FAILURE",
+          "detailsUrl": "https://github.com/sgl-project/sglang/actions/runs/36918636659/job/110558927693",
+          "name": "pr-gate / pr-gate",
+          "startedAt": "2026-10-01T20:02:33Z",
+          "status": "COMPLETED",
+          "workflowName": "PR Test (XPU)"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T20:02:44Z",
+          "conclusion": "FAILURE",
+          "detailsUrl": "https://github.com/sgl-project/sglang/actions/runs/36918636803/job/110558994899",
+          "name": "call-gate / pr-gate",
+          "startedAt": "2026-10-01T20:02:40Z",
+          "status": "COMPLETED",
+          "workflowName": "PR Test Extra"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T20:02:37Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/sgl-project/sglang/actions/runs/36918637016/job/110558882560",
+          "name": "check-changes",
+          "startedAt": "2026-10-01T20:02:25Z",
+          "status": "COMPLETED",
+          "workflowName": "PR Test (AMD)"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T20:02:19Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/sgl-project/sglang/actions/runs/36918636613/job/110558811917",
+          "name": "set-image-config",
+          "startedAt": "2026-10-01T20:02:16Z",
+          "status": "COMPLETED",
+          "workflowName": "PR Test (NPU)"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T20:02:45Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/sgl-project/sglang/actions/runs/36918636613/job/110558812269",
+          "name": "Recommend tests from coverage",
+          "startedAt": "2026-10-01T20:02:14Z",
+          "status": "COMPLETED",
+          "workflowName": "PR Test (NPU)"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T20:02:47Z",
+          "conclusion": "FAILURE",
+          "detailsUrl": "https://github.com/sgl-project/sglang/actions/runs/36918636613/job/110558983579",
+          "name": "pr-gate / pr-gate",
+          "startedAt": "2026-10-01T20:02:39Z",
+          "status": "COMPLETED",
+          "workflowName": "PR Test (NPU)"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T20:02:33Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/sgl-project/sglang/actions/runs/36918636737/job/110558925652",
+          "name": "pr-test-ppu-finish",
+          "startedAt": "2026-10-01T20:02:31Z",
+          "status": "COMPLETED",
+          "workflowName": "PR Test (PPU)"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T20:02:30Z",
+          "conclusion": "FAILURE",
+          "detailsUrl": "https://github.com/sgl-project/sglang/actions/runs/36918636663/job/110558894885",
+          "name": "pr-test-amd-extra-finish",
+          "startedAt": "2026-10-01T20:02:27Z",
+          "status": "COMPLETED",
+          "workflowName": "PR Test Extra (AMD)"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T20:02:33Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/sgl-project/sglang/actions/runs/36918636767/job/110558918146",
+          "name": "pr-test-mlx-finish",
+          "startedAt": "2026-10-01T20:02:30Z",
+          "status": "COMPLETED",
+          "workflowName": "PR Test (MLX)"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T20:02:45Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/sgl-project/sglang/actions/runs/36918636659/job/110559008491",
+          "name": "finish",
+          "startedAt": "2026-10-01T20:02:42Z",
+          "status": "COMPLETED",
+          "workflowName": "PR Test (XPU)"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T20:02:38Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/sgl-project/sglang/actions/runs/36918636759/job/110558934904",
+          "name": "pr-test-musa-finish",
+          "startedAt": "2026-10-01T20:02:34Z",
+          "status": "COMPLETED",
+          "workflowName": "PR Test (MUSA)"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T20:03:23Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/sgl-project/sglang/actions/runs/36918636213/job/110559231404",
+          "name": "finish",
+          "startedAt": "2026-10-01T20:03:16Z",
+          "status": "COMPLETED",
+          "workflowName": "PR Test (sgl-router)"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T20:02:51Z",
+          "conclusion": "FAILURE",
+          "detailsUrl": "https://github.com/sgl-project/sglang/actions/runs/36918636803/job/110559042908",
+          "name": "pr-test-extra-finish",
+          "startedAt": "2026-10-01T20:02:48Z",
+          "status": "COMPLETED",
+          "workflowName": "PR Test Extra"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T20:02:50Z",
+          "conclusion": "FAILURE",
+          "detailsUrl": "https://github.com/sgl-project/sglang/actions/runs/36918637044/job/110559028580",
+          "name": "call-gate / pr-gate",
+          "startedAt": "2026-10-01T20:02:45Z",
+          "status": "COMPLETED",
+          "workflowName": "PR Test Base"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T20:03:17Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/sgl-project/sglang/actions/runs/36918636613/job/110559065136",
+          "name": "Analyze failure report / cross-reference failures with recommendations",
+          "startedAt": "2026-10-01T20:02:51Z",
+          "status": "COMPLETED",
+          "workflowName": "PR Test (NPU)"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T20:02:58Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/sgl-project/sglang/actions/runs/36918636613/job/110559065715",
+          "name": "pr-test-npu-finish",
+          "startedAt": "2026-10-01T20:02:52Z",
+          "status": "COMPLETED",
+          "workflowName": "PR Test (NPU)"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T20:02:46Z",
+          "conclusion": "FAILURE",
+          "detailsUrl": "https://github.com/sgl-project/sglang/actions/runs/36918637016/job/110559006475",
+          "name": "pr-test-amd-finish",
+          "startedAt": "2026-10-01T20:02:43Z",
+          "status": "COMPLETED",
+          "workflowName": "PR Test (AMD)"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T20:02:58Z",
+          "conclusion": "FAILURE",
+          "detailsUrl": "https://github.com/sgl-project/sglang/actions/runs/36918637044/job/110559088681",
+          "name": "pr-test-finish",
+          "startedAt": "2026-10-01T20:02:54Z",
+          "status": "COMPLETED",
+          "workflowName": "PR Test Base"
+        }
+      ],
+      "url": "https://github.com/sgl-project/sglang/pull/42121",
+      "repository": "sgl-project/sglang",
+      "workflows": [
+        {
+          "conclusion": "success",
+          "databaseId": 36918636767,
+          "name": "PR Test (MLX)",
+          "status": "completed",
+          "url": "https://github.com/sgl-project/sglang/actions/runs/36918636767"
+        },
+        {
+          "conclusion": "success",
+          "databaseId": 36918636737,
+          "name": "PR Test (PPU)",
+          "status": "completed",
+          "url": "https://github.com/sgl-project/sglang/actions/runs/36918636737"
+        },
+        {
+          "conclusion": "failure",
+          "databaseId": 36918636659,
+          "name": "PR Test (XPU)",
+          "status": "completed",
+          "url": "https://github.com/sgl-project/sglang/actions/runs/36918636659"
+        },
+        {
+          "conclusion": "success",
+          "databaseId": 36918636759,
+          "name": "PR Test (MUSA)",
+          "status": "completed",
+          "url": "https://github.com/sgl-project/sglang/actions/runs/36918636759"
+        },
+        {
+          "conclusion": "success",
+          "databaseId": 36918636634,
+          "name": "PR Test (Arm64)",
+          "status": "completed",
+          "url": "https://github.com/sgl-project/sglang/actions/runs/36918636634"
+        },
+        {
+          "conclusion": "success",
+          "databaseId": 36918636702,
+          "name": "PR Test (Xeon)",
+          "status": "completed",
+          "url": "https://github.com/sgl-project/sglang/actions/runs/36918636702"
+        },
+        {
+          "conclusion": "failure",
+          "databaseId": 36918637016,
+          "name": "PR Test (AMD)",
+          "status": "completed",
+          "url": "https://github.com/sgl-project/sglang/actions/runs/36918637016"
+        },
+        {
+          "conclusion": "failure",
+          "databaseId": 36918636803,
+          "name": "PR Test Extra",
+          "status": "completed",
+          "url": "https://github.com/sgl-project/sglang/actions/runs/36918636803"
+        },
+        {
+          "conclusion": "failure",
+          "databaseId": 36918636663,
+          "name": "PR Test Extra (AMD)",
+          "status": "completed",
+          "url": "https://github.com/sgl-project/sglang/actions/runs/36918636663"
+        },
+        {
+          "conclusion": "failure",
+          "databaseId": 36918637044,
+          "name": "PR #42121 - fix(diffusion): load serialized H3 INT8 in ComfyUI integrated mode",
+          "status": "completed",
+          "url": "https://github.com/sgl-project/sglang/actions/runs/36918637044"
+        },
+        {
+          "conclusion": "failure",
+          "databaseId": 36918636613,
+          "name": "PR Test (NPU)",
+          "status": "completed",
+          "url": "https://github.com/sgl-project/sglang/actions/runs/36918636613"
+        },
+        {
+          "conclusion": "success",
+          "databaseId": 36918636213,
+          "name": "PR Test (sgl-router)",
+          "status": "completed",
+          "url": "https://github.com/sgl-project/sglang/actions/runs/36918636213"
+        },
+        {
+          "conclusion": "success",
+          "databaseId": 36918636003,
+          "name": "Lint",
+          "status": "completed",
+          "url": "https://github.com/sgl-project/sglang/actions/runs/36918636003"
+        },
+        {
+          "conclusion": "skipped",
+          "databaseId": 36918635899,
+          "name": "PR Test Mori (AMD)",
+          "status": "completed",
+          "url": "https://github.com/sgl-project/sglang/actions/runs/36918635899"
+        },
+        {
+          "conclusion": "success",
+          "databaseId": 36918631330,
+          "name": "Auto Label PRs",
+          "status": "completed",
+          "url": "https://github.com/sgl-project/sglang/actions/runs/36918631330"
+        },
+        {
+          "conclusion": "success",
+          "databaseId": 36918631365,
+          "name": "PR States",
+          "status": "completed",
+          "url": "https://github.com/sgl-project/sglang/actions/runs/36918631365"
+        }
+      ]
+    },
+    {
+      "headRefOid": "98975010dd5ff0a616c2b3a86cf44fc03a2eca13",
+      "isDraft": false,
+      "mergeable": "MERGEABLE",
+      "number": 2481,
+      "reviewDecision": "REVIEW_REQUIRED",
+      "state": "OPEN",
+      "statusCheckRollup": [],
+      "url": "https://github.com/sgl-project/sglang-omni/pull/2481",
+      "repository": "sgl-project/sglang-omni",
+      "workflows": [
+        {
+          "conclusion": "action_required",
+          "databaseId": 36959153242,
+          "name": "Test Layout",
+          "status": "completed",
+          "url": "https://github.com/sgl-project/sglang-omni/actions/runs/36959153242"
+        },
+        {
+          "conclusion": "action_required",
+          "databaseId": 36959153256,
+          "name": "Lint",
+          "status": "completed",
+          "url": "https://github.com/sgl-project/sglang-omni/actions/runs/36959153256"
+        },
+        {
+          "conclusion": "action_required",
+          "databaseId": 36959153264,
+          "name": "Docs Check",
+          "status": "completed",
+          "url": "https://github.com/sgl-project/sglang-omni/actions/runs/36959153264"
+        },
+        {
+          "conclusion": "action_required",
+          "databaseId": 36959153276,
+          "name": "XPU CI",
+          "status": "completed",
+          "url": "https://github.com/sgl-project/sglang-omni/actions/runs/36959153276"
+        },
+        {
+          "conclusion": "action_required",
+          "databaseId": 36959153321,
+          "name": "CPU CI",
+          "status": "completed",
+          "url": "https://github.com/sgl-project/sglang-omni/actions/runs/36959153321"
+        },
+        {
+          "conclusion": "action_required",
+          "databaseId": 36959153427,
+          "name": "Omni CI",
+          "status": "completed",
+          "url": "https://github.com/sgl-project/sglang-omni/actions/runs/36959153427"
+        }
+      ]
+    },
+    {
+      "headRefOid": "ce3039e4a48b6026302b6b9dec107dec8ac69fd9",
+      "isDraft": false,
+      "mergeable": "MERGEABLE",
+      "number": 8414,
+      "reviewDecision": "REVIEW_REQUIRED",
+      "state": "OPEN",
+      "statusCheckRollup": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-02T03:13:56Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/vllm-project/vllm-omni/actions/runs/36959196279/job/110688864510",
+          "name": "build (3.11)",
+          "startedAt": "2026-10-02T03:13:17Z",
+          "status": "COMPLETED",
+          "workflowName": "Build Wheel"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-02T03:14:16Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/vllm-project/vllm-omni/actions/runs/36959196225/job/110688864081",
+          "name": "pre-commit",
+          "startedAt": "2026-10-02T03:13:24Z",
+          "status": "COMPLETED",
+          "workflowName": "pre-commit"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-02T03:13:56Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/vllm-project/vllm-omni/actions/runs/36959196279/job/110688864103",
+          "name": "build (3.12)",
+          "startedAt": "2026-10-02T03:13:16Z",
+          "status": "COMPLETED",
+          "workflowName": "Build Wheel"
+        },
+        {
+          "__typename": "StatusContext",
+          "context": "docs/readthedocs.org:vllm-omni",
+          "startedAt": "2026-10-02T03:13:13Z",
+          "state": "PENDING",
+          "targetUrl": "https://app.readthedocs.org/projects/vllm-omni/builds/34891284/"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-02T03:13:13Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://probot.github.io/apps/dco/",
+          "name": "DCO",
+          "startedAt": "2026-10-02T03:13:13Z",
+          "status": "COMPLETED",
+          "workflowName": ""
+        }
+      ],
+      "url": "https://github.com/vllm-project/vllm-omni/pull/8414",
+      "repository": "vllm-project/vllm-omni",
+      "workflows": [
+        {
+          "conclusion": "success",
+          "databaseId": 36959196279,
+          "name": "Build Wheel",
+          "status": "completed",
+          "url": "https://github.com/vllm-project/vllm-omni/actions/runs/36959196279"
+        },
+        {
+          "conclusion": "success",
+          "databaseId": 36959196225,
+          "name": "pre-commit",
+          "status": "completed",
+          "url": "https://github.com/vllm-project/vllm-omni/actions/runs/36959196225"
+        }
+      ]
+    },
+    {
+      "headRefOid": "85f21d224f39800cdf566dc9d89221d5305d3d29",
+      "isDraft": false,
+      "mergeable": "MERGEABLE",
+      "number": 16681,
+      "reviewDecision": "CHANGES_REQUESTED",
+      "state": "OPEN",
+      "statusCheckRollup": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T21:00:15Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36925634027/job/110582155458",
+          "name": "cla-assistant",
+          "startedAt": "2026-10-01T21:00:05Z",
+          "status": "COMPLETED",
+          "workflowName": "CLA Assistant"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T21:00:19Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36925638621/job/110582166977",
+          "name": "Check for AI agent co-author trailers",
+          "startedAt": "2026-10-01T21:00:08Z",
+          "status": "COMPLETED",
+          "workflowName": "Check AI Co-Authors"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T21:00:17Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36925638737/job/110582166860",
+          "name": "check-line-endings",
+          "startedAt": "2026-10-01T21:00:07Z",
+          "status": "COMPLETED",
+          "workflowName": "Check for Windows Line Endings"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T21:03:28Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36925638425/job/110582166126",
+          "name": "test (ubuntu-latest)",
+          "startedAt": "2026-10-01T21:00:07Z",
+          "status": "COMPLETED",
+          "workflowName": "Execution Tests"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T21:00:16Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36925639093/job/110582168297",
+          "name": "Run Ruff",
+          "startedAt": "2026-10-01T21:00:07Z",
+          "status": "COMPLETED",
+          "workflowName": "Python Linting"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T21:02:02Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36925638450/job/110582165738",
+          "name": "test",
+          "startedAt": "2026-10-01T21:00:07Z",
+          "status": "COMPLETED",
+          "workflowName": "Test server launches without errors"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T21:02:39Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36925638557/job/110582166855",
+          "name": "test (ubuntu-latest)",
+          "startedAt": "2026-10-01T21:00:08Z",
+          "status": "COMPLETED",
+          "workflowName": "Unit Tests"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T21:06:04Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36925638425/job/110582166656",
+          "name": "test (windows-latest)",
+          "startedAt": "2026-10-01T21:00:10Z",
+          "status": "COMPLETED",
+          "workflowName": "Execution Tests"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T21:06:06Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36925638557/job/110582166922",
+          "name": "test (windows-2022)",
+          "startedAt": "2026-10-01T21:00:06Z",
+          "status": "COMPLETED",
+          "workflowName": "Unit Tests"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T21:04:40Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36925638425/job/110582165907",
+          "name": "test (macos-latest)",
+          "startedAt": "2026-10-01T21:00:12Z",
+          "status": "COMPLETED",
+          "workflowName": "Execution Tests"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T21:03:12Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36925638557/job/110582166453",
+          "name": "test (macos-latest)",
+          "startedAt": "2026-10-01T21:00:12Z",
+          "status": "COMPLETED",
+          "workflowName": "Unit Tests"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T21:02:03Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36925639093/job/110582168747",
+          "name": "Run Pylint",
+          "startedAt": "2026-10-01T21:00:07Z",
+          "status": "COMPLETED",
+          "workflowName": "Python Linting"
+        },
+        {
+          "__typename": "StatusContext",
+          "context": "CodeRabbit",
+          "startedAt": "2026-10-01T21:11:46Z",
+          "state": "SUCCESS",
+          "targetUrl": ""
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T21:00:16Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://socket.dev/dashboard/org/Comfy-Org/sbom/2bb82553-7702-49aa-9e10-0db41a0d3e0c",
+          "name": "Socket Security: Project Report",
+          "startedAt": "2026-10-01T21:00:03Z",
+          "status": "COMPLETED",
+          "workflowName": ""
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T21:00:20Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://socket.dev",
+          "name": "Socket Security: Pull Request Alerts",
+          "startedAt": "2026-10-01T21:00:16Z",
+          "status": "COMPLETED",
+          "workflowName": ""
+        }
+      ],
+      "url": "https://github.com/Comfy-Org/ComfyUI/pull/16681",
+      "repository": "Comfy-Org/ComfyUI",
+      "workflows": [
+        {
+          "conclusion": "success",
+          "databaseId": 36925638450,
+          "name": "Test server launches without errors",
+          "status": "completed",
+          "url": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36925638450"
+        },
+        {
+          "conclusion": "success",
+          "databaseId": 36925639093,
+          "name": "Python Linting",
+          "status": "completed",
+          "url": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36925639093"
+        },
+        {
+          "conclusion": "success",
+          "databaseId": 36925638737,
+          "name": "Check for Windows Line Endings",
+          "status": "completed",
+          "url": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36925638737"
+        },
+        {
+          "conclusion": "success",
+          "databaseId": 36925638621,
+          "name": "Check AI Co-Authors",
+          "status": "completed",
+          "url": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36925638621"
+        },
+        {
+          "conclusion": "success",
+          "databaseId": 36925638425,
+          "name": "Execution Tests",
+          "status": "completed",
+          "url": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36925638425"
+        },
+        {
+          "conclusion": "success",
+          "databaseId": 36925638557,
+          "name": "Unit Tests",
+          "status": "completed",
+          "url": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36925638557"
+        },
+        {
+          "conclusion": "success",
+          "databaseId": 36925634027,
+          "name": "CLA Assistant",
+          "status": "completed",
+          "url": "https://github.com/Comfy-Org/ComfyUI/actions/runs/36925634027"
+        }
+      ]
+    },
+    {
+      "headRefOid": "98f7fb96aed08aada468d9daf49f2757a99178bf",
+      "isDraft": false,
+      "mergeable": "MERGEABLE",
+      "number": 231,
+      "reviewDecision": "",
+      "state": "OPEN",
+      "statusCheckRollup": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T21:27:52Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/Comfy-Org/comfy-kitchen/actions/runs/36928824524/job/110592734726",
+          "name": "cla-assistant",
+          "startedAt": "2026-10-01T21:27:45Z",
+          "status": "COMPLETED",
+          "workflowName": "CLA Assistant"
+        },
+        {
+          "__typename": "StatusContext",
+          "context": "CodeRabbit",
+          "startedAt": "2026-10-01T21:30:43Z",
+          "state": "SUCCESS",
+          "targetUrl": ""
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T21:27:53Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://socket.dev/dashboard/org/Comfy-Org/sbom/79f9253a-0575-4b92-a5f9-6ad562a9015b",
+          "name": "Socket Security: Project Report",
+          "startedAt": "2026-10-01T21:27:42Z",
+          "status": "COMPLETED",
+          "workflowName": ""
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-01T21:27:55Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://socket.dev",
+          "name": "Socket Security: Pull Request Alerts",
+          "startedAt": "2026-10-01T21:27:53Z",
+          "status": "COMPLETED",
+          "workflowName": ""
+        }
+      ],
+      "url": "https://github.com/Comfy-Org/comfy-kitchen/pull/231",
+      "repository": "Comfy-Org/comfy-kitchen",
+      "workflows": [
+        {
+          "conclusion": "action_required",
+          "databaseId": 36928829866,
+          "name": "Build Wheels",
+          "status": "completed",
+          "url": "https://github.com/Comfy-Org/comfy-kitchen/actions/runs/36928829866"
+        },
+        {
+          "conclusion": "success",
+          "databaseId": 36928824524,
+          "name": "CLA Assistant",
+          "status": "completed",
+          "url": "https://github.com/Comfy-Org/comfy-kitchen/actions/runs/36928824524"
+        }
+      ]
+    }
+  ],
+  "publication": {
+    "sglang_comment": "https://github.com/sgl-project/sglang/pull/42121#issuecomment-5944930250",
+    "comfy_comment": "https://github.com/Comfy-Org/ComfyUI/pull/16681#issuecomment-5944932706",
+    "sgomni_comment": "https://github.com/sgl-project/sglang-omni/pull/2481#issuecomment-5944947178",
+    "kitchen_comment": "https://github.com/Comfy-Org/comfy-kitchen/pull/231#issuecomment-5944947556"
+  }
+}

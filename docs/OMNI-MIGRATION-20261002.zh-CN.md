@@ -2,7 +2,7 @@
 
 ## 当前结论
 
-本轮已修复 ComfyUI #16681 的正式依赖兼容问题，提交 `85f21d224f39800cdf566dc9d89221d5305d3d29` 已推送，14 项 GitHub CI 全部通过，包含 Windows、macOS、Linux。Kitchen #231 的复现资料评审意见也已修复并推送。
+本轮已修复 ComfyUI #16681 的正式依赖兼容问题，提交 `85f21d224f39800cdf566dc9d89221d5305d3d29` 已推送，14 项 GitHub CI 全部通过，包含 Windows、macOS、Linux。Kitchen #231 的复现资料评审意见也已修复并推送。GitHub 发布通道已恢复，新增 [SGLang-Omni #2481](https://github.com/sgl-project/sglang-omni/pull/2481) 和 [vLLM-Omni #8414](https://github.com/vllm-project/vllm-omni/pull/8414)，均为正式 PR。
 
 新框架中最明确的可迁移收益是 **vLLM-Omni H3 视频 VAE 的 SM120 支持：6.202 → 4.632 秒，解码耗时减少 25.32%，FP32 解码输出逐字节一致**。这是该框架内参考路径对比，不能算作当前线上 INT8 VAE 的额外收益。
 
@@ -26,14 +26,16 @@ SGLang 原生 H3 的 Larry8 采样可以跑通，但优化后仍比当前 ComfyU
 |---|---|---|---|
 | [ComfyUI #16681](https://github.com/Comfy-Org/ComfyUI/pull/16681) | CI 固定 Kitchen 0.2.36 没有 `int8_linear_indexed_gate` | 接口存在才融合；不存在用已有 INT8 linear 与 segmented gate；真实 0.2.36 下 30 项测试通过 | `85f21d2` 已推送，14 项 CI 全绿 |
 | [Kitchen #231](https://github.com/Comfy-Org/comfy-kitchen/pull/231) | 评审指出 smoke 命令不能复现 attention / sampler 数据 | 补原始测试脚本、完整编译链接参数、固定版本、输入 hash 和精确命令 | `98f7fb9` 已推送；3 项检查通过，Build Wheels 为 action_required，待维护者批准运行 |
-| [SGLang #42121](https://github.com/sgl-project/sglang/pull/42121) | `Require run-ci label` 门禁失败，后续汇总作业连带失败 | 不改工作流绕过门禁；本地真实 loader 回归和 GPU 采样已验证 | PR 已存在；需要维护者加 `run-ci` |
+| [SGLang #42121](https://github.com/sgl-project/sglang/pull/42121) | `Require run-ci label` 门禁失败，后续汇总作业连带失败 | 正文已补齐真实 loader 回归和 GPU 采样结果，保留机器人 CI 状态区 | 已留言申请维护者加 `run-ci` |
 | [ComfyUI #16712](https://github.com/Comfy-Org/ComfyUI/pull/16712)、[#16713](https://github.com/Comfy-Org/ComfyUI/pull/16713) | 当前无失败项 | 各 14 项检查通过 | 等审核 |
+| [SGLang-Omni #2481](https://github.com/sgl-project/sglang-omni/pull/2481) | 新贡献者工作流为 `action_required` | CUDA 环境 32 passed、1 skipped；全仓 pre-commit 通过 | 正式 PR，无合并冲突；已留言申请工作流授权和 `run-ci` |
+| [vLLM-Omni #8414](https://github.com/vllm-project/vllm-omni/pull/8414) | 新提交，正在运行上游检查 | 69 项相关测试及 changed-file pre-commit 已通过 | 正式 PR，无合并冲突；DCO、Python 3.11/3.12 构建、pre-commit 通过，文档构建进行中 |
 
 最后一次 API 核对：#16681 全部 workflow 成功、mergeable_state=clean；旧机器评审的 changes requested 记录仍在，需要评审方重新确认，不等于已批准合并。#231 当前没有新提交对应的新增评审意见；Build Wheels 尚未获得运行授权。
 
 ComfyUI #16681 的新旧消费者使用相同 Kitchen #223 构建复测：每侧 1 次 warmup + 2 次正式请求，采样中位数 15.738291 → 15.580160 秒，约 1.00%。全部视频、音频 latent SHA256 一致。该次结果只证明当前修复保持正确性和原有小幅收益，不替换此前更大样本测试。
 
-GitHub PR 描述和新 PR 的发布通道尚需恢复：当前 `gh` 未认证，Chrome 页面可读但提交动作未生效。因此 #42121 的正文尚未成功更新，SGLang-Omni 传输 PR 和 vLLM-Omni SM120 VAE PR 尚未创建；不能将已经推送的代码分支称作已提交 PR。
+GitHub CLI 已以 Tokha233 完成认证。#42121 正文已更新并[请求 CI 授权](https://github.com/sgl-project/sglang/pull/42121#issuecomment-5944930250)；#16681 正文已改为当前兼容逻辑，并[补充验证回复](https://github.com/Comfy-Org/ComfyUI/pull/16681#issuecomment-5944932706)。#16681 最新 CodeRabbit 评论没有新增可执行问题，旧的正式 `CHANGES_REQUESTED` 记录仍需评审方确认。维护者的工作流授权与合并审核不会因本机登录而自动完成。
 
 ## vLLM-Omni：视频 VAE 精确算子迁移
 
@@ -72,7 +74,7 @@ GitHub PR 描述和新 PR 的发布通道尚需恢复：当前 `gh` 未认证，
 
 没有隐藏小形状 residual 退化；最终资格以完整 decode 的收益为依据。原生测试共 69 passed，覆盖新增大形状、支持/不支持 capability、安装契约、temporal patch 和 split residency。完整 changed-file pre-commit 通过，包含 mypy、CI markers、SPDX 和禁止新增 `torch.cuda` 等本地检查。
 
-待提交分支 `perf/h3-vae-sm120`，本地提交 `ce3039e`；补丁、PR 正文与最终 pre-commit 日志均已归档。当前尚无该仓库 fork，不能把本地提交称作远程 PR。
+分支 `perf/h3-vae-sm120`、提交 `ce3039e` 已推送至 Tokha233/vllm-omni，并创建正式 [PR #8414](https://github.com/vllm-project/vllm-omni/pull/8414)。补丁、PR 正文与最终 pre-commit 日志均已归档。提交前已确认可与新上游 `bbee488` 无冲突合并；性能测量仍对应上文固定基线，没有混用版本重新计算收益。
 
 最初缺少 autocast 的 19 秒试跑、dtype 不匹配报错，以及测试环境缺 pytest/xdist 的准备失败均已排除，不计入速度统计。
 
@@ -94,7 +96,7 @@ SGLang-Omni 是多阶段语音/全模态运行时；H3 的原生扩散实现位�
 
 小载荷与 CPU 路径没有实质收益，不能宣传统一加速。此前独立一轮的大 GPU 载荷也有约 11% / 15.6% 收益；不同轮次主机负载影响绝对时间，所以只在每轮内部比较。
 
-32 passed，1 skipped；包含 11 种 dtype、strided/empty tensor、device 保持、背压期间 producer 复用、取消后 credit 回收。所有 round-trip 值精确相等。分支 `perf/direct-multi-tensor-host-pack`，提交 `9897501` 已推送。与 #2368 的单 tensor 打包优化互补。
+32 passed，1 skipped；包含 11 种 dtype、strided/empty tensor、device 保持、背压期间 producer 复用、取消后 credit 回收。所有 round-trip 值精确相等。分支 `perf/direct-multi-tensor-host-pack`、提交 `9897501` 已推送并创建正式 [PR #2481](https://github.com/sgl-project/sglang-omni/pull/2481)。与 #2368 的单 tensor 打包优化互补；提交前确认可与新上游 `fd8369e` 无冲突合并。
 
 ## SGLang：完整 8 步采样
 
@@ -126,6 +128,6 @@ SGLang-Omni 是多阶段语音/全模态运行时；H3 的原生扩散实现位�
 
 ## 后续门槛
 
-1. 恢复 GitHub 发布通道，更新 #42121 正文并请求维护者 `run-ci`；提交已验证的 SGLang-Omni 传输和 vLLM-Omni VAE PR。
+1. 跟踪已提交的 #42121、SGLang-Omni #2481、vLLM-Omni #8414：维护者授权后完成上游 CI，对实际失败继续修复。发布通道恢复、正文更新和两个新 PR 创建均已完成。
 2. 继续观察 #16681 新 head 的审核；Kitchen release 后才能使普通用户实际启用新融合接口，现有 pin 下先保证不报错。
 3. 完整 H3 框架迁移必须先解决输出差异，再补 5 个 30 秒业务 case、BF16 teacher 和服务并发测量。当前不宣称端到端服务吞吐提升，也不替换生产基线。
