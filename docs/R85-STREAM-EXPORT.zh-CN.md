@@ -78,3 +78,5 @@ python -m unittest discover -s tests -v
 - Kitchen 当前已有十个开放的相关 PR；现有核心算子不重复拆 PR。ComfyUI #16678 仍须等 Kitchen #220 的接口发行与 pin。
 
 这些状态是本次检查的快照，不代表已合并或持续自动监控。
+
+公开复现 CLI 也已在 case8 独立进程 BAAB 跑完 12 次（8 正式）：同一 SpeedKit decoder 的 serial **12.395756s** → stream **9.949752s**，该阶段减少 **19.73%**，三项 SHA 仍与历史一致。[原始记录](../evidence/r85-stream-1002/public-cli-c8-baab.json)。这组同时验证最终提交源码和可公开执行的 CLI；未计入上面的冻结 runner 表格。
