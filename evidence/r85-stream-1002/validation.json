@@ -1,0 +1,19 @@
+{
+  "cpu_tests": {
+    "passed": 16,
+    "skipped": 0,
+    "environment": "remote Torch 2.12.0 cu130 / PyAV 18.1.0"
+  },
+  "cuda_sink": {
+    "chunk_layouts": 5,
+    "concurrent_sinks": 2,
+    "callback_failure_propagated": true,
+    "threads_cleaned": true
+  },
+  "node": [
+    "full_helper_historical_mp4",
+    "actual_comfy_output_node_historical_mp4",
+    "interrupt_cleanup"
+  ],
+  "final_source_change": "Moved initial latent denormalization inside existing try/finally for exception cleanup; successful arithmetic unchanged. Final code checked through full helper and actual Comfy output node."
+}
