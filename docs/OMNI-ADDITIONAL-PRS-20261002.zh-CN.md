@@ -10,7 +10,7 @@
 | [SGLang #42186](https://github.com/sgl-project/sglang/pull/42186) | SM120 BF16 INT8 linear 调整分块默认值 | 32700×5376×16128 的公开复测约 12.484 → 10.557 ms，减少 15.44% | 完整 Larry8 中位数 33.563→33.396 s，约 0.50%，基线波动大，尚不能证明稳定端到端加速 |
 | [vLLM-Omni #8414](https://github.com/vllm-project/vllm-omni/pull/8414) | 补充既有 VAE PR 的逐项消融及 profile | 见下节 | 不是新增的第三个 PR |
 
-两项新 PR 均已正式提交、不是 draft。#8416 的 DCO、pre-commit、Python3.11/3.12 构建通过；#42186 的 GPU CI 门禁缺少维护者 run-ci 标签，已留言申请。此表是时间点快照，不代表已获人工批准或合入。
+两项新 PR 均已正式提交、不是 draft。#8416 的 DCO、pre-commit、Python3.11/3.12 构建通过；#8416 文档构建尚在等待；#42186 的 lint 通过，GPU CI 门禁缺少维护者 run-ci 标签，已留言申请。此表是时间点快照，不代表已获人工批准或合入。
 
 ## SGLang：只改变已测范围的策略
 

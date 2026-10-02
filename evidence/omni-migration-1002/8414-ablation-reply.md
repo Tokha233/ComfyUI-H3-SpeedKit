@@ -20,4 +20,8 @@ All 36 warmup/timed RGB8 outputs are bit-exact, SHA256 `689397e3869f4a5ad30518d0
 
 The first ablation harness retained the last loop variable pointing to a decoder block, adding ~133 MB to later allocator measurements. The final harness explicitly releases it, reruns every arm in both orders, and verifies stable per-arm memory. Only that corrected run is reported above; original PR full-decode ABBA did not contain that loop variable.
 
-EVIDENCE_LINK_PENDING
+Corrected raw ablation, diagnostic trace and report: https://github.com/Tokha233/ComfyUI-H3-SpeedKit/tree/4b3e3c339fee3a6578de7365c0a18e9448903b3c/evidence/omni-migration-1002
+
+Reproduction harness: https://github.com/Tokha233/ComfyUI-H3-SpeedKit/blob/4b3e3c339fee3a6578de7365c0a18e9448903b3c/experiments/omni-migration-1002/vo_vae_ablation.py
+
+@vllm-omni-review-bot the requested bottleneck, value and per-item evidence is above.
