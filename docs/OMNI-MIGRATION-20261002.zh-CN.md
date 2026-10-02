@@ -37,6 +37,8 @@ ComfyUI #16681 的新旧消费者使用相同 Kitchen #223 构建复测：每侧
 
 GitHub CLI 已以 Tokha233 完成认证。#42121 正文已更新并[请求 CI 授权](https://github.com/sgl-project/sglang/pull/42121#issuecomment-5944930250)；#16681 正文已改为当前兼容逻辑，并[补充验证回复](https://github.com/Comfy-Org/ComfyUI/pull/16681#issuecomment-5944932706)。#16681 最新 CodeRabbit 评论没有新增可执行问题，旧的正式 `CHANGES_REQUESTED` 记录仍需评审方确认。维护者的工作流授权与合并审核不会因本机登录而自动完成。
 
+vLLM-Omni 的分派机器人要求补充自查说明；已[回复完整代码检查、69 项测试、精确性验证与性能边界](https://github.com/vllm-project/vllm-omni/pull/8414#issuecomment-5944977170)，明确标注 Codex 辅助自查，并请求机器人评审。目前尚未获得人工批准。
+
 ## vLLM-Omni：视频 VAE 精确算子迁移
 
 ### 改动

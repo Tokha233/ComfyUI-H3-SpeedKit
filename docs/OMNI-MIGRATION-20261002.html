@@ -66,6 +66,7 @@
 <p>最后一次 API 核对：#16681 全部 workflow 成功、mergeable_state=clean；旧机器评审的 changes requested 记录仍在，需要评审方重新确认，不等于已批准合并。#231 当前没有新提交对应的新增评审意见；Build Wheels 尚未获得运行授权。</p>
 <p>ComfyUI #16681 的新旧消费者使用相同 Kitchen #223 构建复测：每侧 1 次 warmup + 2 次正式请求，采样中位数 15.738291 → 15.580160 秒，约 1.00%。全部视频、音频 latent SHA256 一致。该次结果只证明当前修复保持正确性和原有小幅收益，不替换此前更大样本测试。</p>
 <p>GitHub CLI 已以 Tokha233 完成认证。#42121 正文已更新并<a href="https://github.com/sgl-project/sglang/pull/42121#issuecomment-5944930250">请求 CI 授权</a>；#16681 正文已改为当前兼容逻辑，并<a href="https://github.com/Comfy-Org/ComfyUI/pull/16681#issuecomment-5944932706">补充验证回复</a>。#16681 最新 CodeRabbit 评论没有新增可执行问题，旧的正式 <code>CHANGES_REQUESTED</code> 记录仍需评审方确认。维护者的工作流授权与合并审核不会因本机登录而自动完成。</p>
+<p>vLLM-Omni 的分派机器人要求补充自查说明；已<a href="https://github.com/vllm-project/vllm-omni/pull/8414#issuecomment-5944977170">回复完整代码检查、69 项测试、精确性验证与性能边界</a>，明确标注 Codex 辅助自查，并请求机器人评审。目前尚未获得人工批准。</p>
 <h2>vLLM-Omni：视频 VAE 精确算子迁移</h2>
 <h3>改动</h3>
 <p>在已有 <code>H3_VAE_OPERATOR_TABLE</code> 增加 SM120。复用框架已有的 QK RMSNorm＋RoPE 精确融合、FP32 residual 精确融合、SiluAndMul 和 decoder block Linear 的 FP16 权重预转换。没有新增量化、改权重数值精度策略或改变时间分块。FP16 权重预转换匹配原 decode autocast 使用的计算 dtype。</p>
