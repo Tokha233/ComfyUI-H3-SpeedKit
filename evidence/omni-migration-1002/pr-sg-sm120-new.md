@@ -50,3 +50,5 @@ Implementation and verification used Codex assistance. No independent human revi
 - [x] Policy regression tests.
 - [x] GPU correctness and benchmark, including negative controls.
 - [x] Preserve explicit configuration and other hardware defaults.
+
+Raw timings, profiler counts, tests and audit: https://github.com/Tokha233/ComfyUI-H3-SpeedKit/tree/8650e87/evidence/omni-migration-1002

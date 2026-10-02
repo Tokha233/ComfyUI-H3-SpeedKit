@@ -1,5 +1,7 @@
 # 2026-10-02：Omni 迁移实验与 PR 修复
 
+后续扩展已新增两个正式 PR，详见 [新增提交与消融报告](OMNI-ADDITIONAL-PRS-20261002.zh-CN.md)。
+
 ## 当前结论
 
 本轮已修复 ComfyUI #16681 的正式依赖兼容问题，提交 `85f21d224f39800cdf566dc9d89221d5305d3d29` 已推送，14 项 GitHub CI 全部通过，包含 Windows、macOS、Linux。Kitchen #231 的复现资料评审意见也已修复并推送。GitHub 发布通道已恢复，新增 [SGLang-Omni #2481](https://github.com/sgl-project/sglang-omni/pull/2481) 和 [vLLM-Omni #8414](https://github.com/vllm-project/vllm-omni/pull/8414)，均为正式 PR。
@@ -29,7 +31,7 @@ SGLang 原生 H3 的 Larry8 采样可以跑通，但优化后仍比当前 ComfyU
 | [SGLang #42121](https://github.com/sgl-project/sglang/pull/42121) | `Require run-ci label` 门禁失败，后续汇总作业连带失败 | 正文已补齐真实 loader 回归和 GPU 采样结果，保留机器人 CI 状态区 | 已留言申请维护者加 `run-ci` |
 | [ComfyUI #16712](https://github.com/Comfy-Org/ComfyUI/pull/16712)、[#16713](https://github.com/Comfy-Org/ComfyUI/pull/16713) | 当前无失败项 | 各 14 项检查通过 | 等审核 |
 | [SGLang-Omni #2481](https://github.com/sgl-project/sglang-omni/pull/2481) | 新贡献者工作流为 `action_required` | CUDA 环境 32 passed、1 skipped；全仓 pre-commit 通过 | 正式 PR，无合并冲突；已留言申请工作流授权和 `run-ci` |
-| [vLLM-Omni #8414](https://github.com/vllm-project/vllm-omni/pull/8414) | 新提交，正在运行上游检查 | 69 项相关测试及 changed-file pre-commit 已通过 | 正式 PR，无合并冲突；DCO、Python 3.11/3.12 构建、pre-commit 通过，文档构建进行中 |
+| [vLLM-Omni #8414](https://github.com/vllm-project/vllm-omni/pull/8414) | 新提交，正在运行上游检查 | 69 项相关测试及 changed-file pre-commit 已通过 | 正式 PR，无合并冲突；DCO、Python 3.11/3.12 构建、pre-commit 通过，文档构建通过 |
 
 最后一次 API 核对：#16681 全部 workflow 成功、mergeable_state=clean；旧机器评审的 changes requested 记录仍在，需要评审方重新确认，不等于已批准合并。#231 当前没有新提交对应的新增评审意见；Build Wheels 尚未获得运行授权。
 

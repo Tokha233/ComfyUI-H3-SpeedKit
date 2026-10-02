@@ -16,7 +16,7 @@ python -m pytest -q \
   tests/diffusion/models/minimax_h3/test_minimax_h3_parallel.py \
   tests/diffusion/models/minimax_h3/test_minimax_h3_latent_mask.py
 # CI-like CPU selection:
-python -m pytest -q --run-level L1 -m 'core_model and cpu' \
+python -m pytest -q --run-level=core_model -m 'core_model and cpu' \
   tests/diffusion/models/minimax_h3/test_minimax_h3_step_execution.py
 ```
 
@@ -44,3 +44,5 @@ The single-call profiler shows `aten::nonzero` 4 → 0 and `cudaStreamSynchroniz
 The additional request-local indices cost eight bytes per video/audio row (about 251 KiB at the largest measured layout). They are released with the branch; there is no cross-request cache. Timestep values and validation results are exact. This is a small preparation-stage optimization, not a claim of faster GEMMs, full DiT inference or serving QPS. The model-weight path was not benchmarked in this PR.
 
 Self-review covered immutable layout ownership, both fill consumers, edit/locked-audio paths, all changed code, simplification and examples policy. Codex assisted implementation and testing; no independent human review is claimed.
+
+Raw timings, profiler counts, tests and audit: https://github.com/Tokha233/ComfyUI-H3-SpeedKit/tree/8650e87/evidence/omni-migration-1002

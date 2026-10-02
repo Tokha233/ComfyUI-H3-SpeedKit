@@ -1,0 +1,8 @@
+{
+  "sglang-sm120/python/sglang/multimodal_gen/benchmarks/bench_kitchen_int8_row_split.py": "c5cf39450e0da3e1848301758b2a3f1970bfd9986917cb28131634035a5e9ded",
+  "sglang-sm120/python/sglang/multimodal_gen/runtime/layers/quantization/kitchen_int8.py": "09f4b6c42d1c8c129d3e8c4e235ba192fa0fc2009fbdf0ccdb48d6eb047caea3",
+  "sglang-sm120/python/sglang/multimodal_gen/test/unit/test_kitchen_int8_row_split.py": "e53cbaff46dabd21bd90f2323245366f5a09bac0caa08c7bc4fa9765209f8f41",
+  "vllm-timesteps/benchmarks/minimax_h3/benchmark_timestep_preparation.py": "0942600b384ed527bf78dee94c055c906ba7e34d271597f5f384116592adf16f",
+  "vllm-timesteps/tests/diffusion/models/minimax_h3/test_minimax_h3_step_execution.py": "ce8378d0a0453ffe833aed0708a9175394bd54da9aaeed1b04a7bf25d1e44760",
+  "vllm-timesteps/vllm_omni/diffusion/models/minimax_h3/denoise_loop.py": "4f136b63b3f349fc85771a0c308fb9c12e7b4f8892868c4832ab3593d34fe936"
+}
