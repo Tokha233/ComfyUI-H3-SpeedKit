@@ -1,0 +1,212 @@
+diff --git a/python/sglang/multimodal_gen/runtime/layers/quantization/__init__.py b/python/sglang/multimodal_gen/runtime/layers/quantization/__init__.py
+index bc68dccf..de9d4ecc 100644
+--- a/python/sglang/multimodal_gen/runtime/layers/quantization/__init__.py
++++ b/python/sglang/multimodal_gen/runtime/layers/quantization/__init__.py
+@@ -1,5 +1,6 @@
+ # Copied and adapted from: https://github.com/hao-ai-lab/FastVideo
+ 
++from importlib import import_module
+ from typing import Literal, get_args
+ 
+ from sglang.multimodal_gen.runtime.layers.quantization.configs.base_config import (
+@@ -9,6 +10,33 @@ from sglang.multimodal_gen.runtime.layers.quantization.method_names import (
+     canonical_quantization_method,
+ )
+ 
++# Importing linear loads this package before LinearBase has been defined.
++# Resolve implementations only when requested, after that import can finish.
++_CONFIG_IMPORTS = {
++    "AutoRoundConfig": ("auto_round", "AutoRoundConfig"),
++    "BitsAndBytesConfig": ("bitsandbytes", "BitsAndBytesConfig"),
++    "ConvRotInt8Config": ("configs.convrot_int8_config", "ConvRotInt8Config"),
++    "Fp8Config": ("fp8", "Fp8Config"),
++    "ModelOptFp8DiffusionConfig": ("modelopt_fp8", "ModelOptFp8Config"),
++    "ModelOptFp4Config": ("modelopt_quant", "ModelOptFp4Config"),
++    "ModelOptFp8Config": ("modelopt_quant", "ModelOptFp8Config"),
++    "ModelSlimConfig": ("modelslim", "ModelSlimConfig"),
++    "Mxfp4Config": ("mxfp4", "Mxfp4Config"),
++    "NPUMXFP4Config": ("mxfp4_npu", "NPUMXFP4Config"),
++    "MXFP8Config": ("mxfp8", "MXFP8Config"),
++}
++
++
++def __getattr__(name: str):
++    # Preserve direct imports of configuration classes from this package.
++    if name not in _CONFIG_IMPORTS:
++        raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
++    module_name, class_name = _CONFIG_IMPORTS[name]
++    config = getattr(import_module(f"{__name__}.{module_name}"), class_name)
++    globals()[name] = config
++    return config
++
++
+ QuantizationMethods = Literal[
+     "auto-round",
+     "fp8",
+@@ -27,7 +55,19 @@ QuantizationMethods = Literal[
+ 
+ QUANTIZATION_METHODS: list[str] = list(get_args(QuantizationMethods))
+ 
+-# The customized quantization methods which will be added to this dict.
++_BUILTIN_CONFIG_NAMES = {
++    "auto-round": "AutoRoundConfig",
++    "bitsandbytes": "BitsAndBytesConfig",
++    "modelopt": "ModelOptFp8DiffusionConfig",
++    "modelopt_fp8": "ModelOptFp8Config",
++    "modelopt_fp4": "ModelOptFp4Config",
++    "modelslim": "ModelSlimConfig",
++    "fp8": "Fp8Config",
++    "mxfp4": "Mxfp4Config",
++    "mxfp8": "MXFP8Config",
++    "mxfp4_npu": "NPUMXFP4Config",
++    "convrot_int8": "ConvRotInt8Config",
++}
+ _CUSTOMIZED_METHOD_TO_QUANT_CONFIG: dict[str, type[QuantizationConfig]] = {}
+ 
+ 
+@@ -64,50 +104,12 @@ def get_quantization_config(quantization: str) -> type[QuantizationConfig]:
+     if quantization not in QUANTIZATION_METHODS:
+         raise ValueError(f"Invalid quantization method: {quantization}")
+ 
+-    # Quantized linear methods import LinearBase; load them after module initialization.
+-    from sglang.multimodal_gen.runtime.layers.quantization.auto_round import (
+-        AutoRoundConfig,
+-    )
+-    from sglang.multimodal_gen.runtime.layers.quantization.bitsandbytes import (
+-        BitsAndBytesConfig,
+-    )
+-    from sglang.multimodal_gen.runtime.layers.quantization.configs.convrot_int8_config import (
+-        ConvRotInt8Config,
+-    )
+-    from sglang.multimodal_gen.runtime.layers.quantization.fp8 import Fp8Config
+-    from sglang.multimodal_gen.runtime.layers.quantization.modelopt_fp8 import (
+-        ModelOptFp8Config as ModelOptFp8DiffusionConfig,
+-    )
+-    from sglang.multimodal_gen.runtime.layers.quantization.modelopt_quant import (
+-        ModelOptFp4Config,
+-        ModelOptFp8Config,
+-    )
+-    from sglang.multimodal_gen.runtime.layers.quantization.modelslim import (
+-        ModelSlimConfig,
+-    )
+-    from sglang.multimodal_gen.runtime.layers.quantization.mxfp4 import Mxfp4Config
+-    from sglang.multimodal_gen.runtime.layers.quantization.mxfp4_npu import (
+-        NPUMXFP4Config,
+-    )
+-    from sglang.multimodal_gen.runtime.layers.quantization.mxfp8 import MXFP8Config
+-
+-    method_to_config: dict[str, type[QuantizationConfig]] = {
+-        "auto-round": AutoRoundConfig,
+-        "modelopt": ModelOptFp8DiffusionConfig,
+-        "modelopt_fp8": ModelOptFp8Config,
+-        "modelopt_fp4": ModelOptFp4Config,
+-        "bitsandbytes": BitsAndBytesConfig,
+-        "modelslim": ModelSlimConfig,
+-        "fp8": Fp8Config,
+-        "mxfp4": Mxfp4Config,
+-        "mxfp8": MXFP8Config,
+-        "mxfp4_npu": NPUMXFP4Config,
+-        "convrot_int8": ConvRotInt8Config,
+-    }
+-    # Update the `method_to_config` with customized quantization methods.
+-    method_to_config.update(_CUSTOMIZED_METHOD_TO_QUANT_CONFIG)
+-
+-    return method_to_config[quantization]
++    if quantization in _CUSTOMIZED_METHOD_TO_QUANT_CONFIG:
++        return _CUSTOMIZED_METHOD_TO_QUANT_CONFIG[quantization]
++    name = _BUILTIN_CONFIG_NAMES[quantization]
++    if name in globals():
++        return globals()[name]
++    return __getattr__(name)
+ 
+ 
+ __all__ = [
+diff --git a/python/sglang/multimodal_gen/test/unit/test_quantization_imports.py b/python/sglang/multimodal_gen/test/unit/test_quantization_imports.py
+new file mode 100644
+index 00000000..c4a15c30
+--- /dev/null
++++ b/python/sglang/multimodal_gen/test/unit/test_quantization_imports.py
+@@ -0,0 +1,83 @@
++"""Regression coverage for cold diffusion imports and quantization dispatch."""
++
++import os
++import subprocess
++import sys
++
++import pytest
++
++from sglang.multimodal_gen.runtime.layers import quantization
++
++
++@pytest.mark.parametrize(
++    "module",
++    [
++        "runtime.layers.linear",
++        "runtime.utils.hf_diffusers_utils",
++        "test.single_test_file.test_ar_models",
++        "runtime.layers.quantization.configs.convrot_int8_config",
++    ],
++)
++def test_cold_import(module):
++    # A new interpreter is necessary: pytest's conftest imports the registry first.
++    completed = subprocess.run(
++        [
++            sys.executable,
++            "-c",
++            f"import importlib; importlib.import_module('sglang.multimodal_gen.{module}')",
++        ],
++        capture_output=True,
++        text=True,
++        timeout=60,
++        env={**os.environ, "HF_HUB_OFFLINE": "1"},
++    )
++    assert completed.returncode == 0, completed.stdout + completed.stderr
++
++
++@pytest.mark.parametrize(
++    "method,name",
++    [
++        ("auto-round", "AutoRoundConfig"),
++        ("bitsandbytes", "BitsAndBytesConfig"),
++        ("modelopt", "ModelOptFp8DiffusionConfig"),
++        ("modelopt_fp8", "ModelOptFp8Config"),
++        ("modelopt_fp4", "ModelOptFp4Config"),
++        ("modelslim", "ModelSlimConfig"),
++        ("fp8", "Fp8Config"),
++        ("mxfp4", "Mxfp4Config"),
++        ("mxfp8", "MXFP8Config"),
++        ("mxfp4_npu", "NPUMXFP4Config"),
++        ("convrot_int8", "ConvRotInt8Config"),
++        ("kitchen_int8", "ConvRotInt8Config"),
++    ],
++)
++def test_builtin_config_and_package_export(method, name):
++    config = quantization.get_quantization_config(method)
++    assert issubclass(config, quantization.QuantizationConfig)
++    assert config is getattr(quantization, name)
++    assert quantization.get_quantization_config(method) is config
++
++
++def test_custom_registration(monkeypatch):
++    monkeypatch.setattr(quantization, "_CUSTOMIZED_METHOD_TO_QUANT_CONFIG", {})
++    monkeypatch.setattr(
++        quantization, "QUANTIZATION_METHODS", list(quantization.QUANTIZATION_METHODS)
++    )
++
++    class CustomConfig(quantization.QuantizationConfig):
++        pass
++
++    assert (
++        quantization.register_quantization_config("test-custom")(CustomConfig)
++        is CustomConfig
++    )
++    assert quantization.get_quantization_config("test-custom") is CustomConfig
++    for name in ("test-custom", "fp8", "kitchen_int8"):
++        with pytest.raises(ValueError, match="already exists"):
++            quantization.register_quantization_config(name)(CustomConfig)
++    with pytest.raises(ValueError, match="subclass"):
++        quantization.register_quantization_config("invalid-config")(object)
++    with pytest.raises(ValueError, match="Invalid quantization method"):
++        quantization.get_quantization_config("unknown")
++    with pytest.raises(AttributeError, match="no attribute"):
++        getattr(quantization, "UnknownConfig")

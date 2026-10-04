@@ -1,0 +1,56 @@
+[
+  {
+    "source": "cpu",
+    "count": 3,
+    "bytes": 1351696,
+    "baseline_ms": 0.9097805013880134,
+    "candidate_ms": 0.9017800912261009,
+    "reduction_pct": 0.8793780642370942,
+    "bit_exact": true
+  },
+  {
+    "source": "cpu",
+    "count": 6,
+    "bytes": 41943056,
+    "baseline_ms": 36.99884796515107,
+    "candidate_ms": 37.24099788814783,
+    "reduction_pct": -0.6544796292707237,
+    "bit_exact": true
+  },
+  {
+    "source": "cpu",
+    "count": 18,
+    "bytes": 167772176,
+    "baseline_ms": 155.14008491300046,
+    "candidate_ms": 155.20792349707335,
+    "reduction_pct": -0.04372730884537704,
+    "bit_exact": true
+  },
+  {
+    "source": "cuda",
+    "count": 3,
+    "bytes": 1351696,
+    "baseline_ms": 1.1381794465705752,
+    "candidate_ms": 1.1374250752851367,
+    "reduction_pct": 0.0662787654188905,
+    "bit_exact": true
+  },
+  {
+    "source": "cuda",
+    "count": 6,
+    "bytes": 41943056,
+    "baseline_ms": 53.70914901141077,
+    "candidate_ms": 45.87470239493996,
+    "reduction_pct": 14.586800872243103,
+    "bit_exact": true
+  },
+  {
+    "source": "cuda",
+    "count": 18,
+    "bytes": 167772176,
+    "baseline_ms": 229.53074297402054,
+    "candidate_ms": 194.06681088730693,
+    "reduction_pct": 15.450624011062258,
+    "bit_exact": true
+  }
+]

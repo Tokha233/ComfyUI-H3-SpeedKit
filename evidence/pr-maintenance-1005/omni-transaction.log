@@ -1,0 +1,9 @@
+Failed to import mooncake: No module named 'mooncake'. MooncakeRelay will not work. Install with: pip install mooncake-transfer-engine
+Failed to import nixl: No module named 'nixl'. NixlRelay will not work.
+Failed to import torchada: No module named 'torchada'. MUSA platform compatibility will not work.
+{"source": "cpu", "count": 3, "bytes": 1351696, "bit_exact": true} [0.9181590285152197, 0.9008301421999931, 0.9027300402522087, 0.9014401584863663]
+{"source": "cpu", "count": 6, "bytes": 41943056, "bit_exact": true} [36.94862383417785, 37.300735944882035, 37.238217890262604, 37.01784322038293]
+{"source": "cpu", "count": 18, "bytes": 167772176, "bit_exact": true} [155.83299100399017, 155.57081601582468, 155.0866060424596, 154.71772500313818]
+{"source": "cuda", "count": 3, "bytes": 1351696, "bit_exact": true} [1.143614063039422, 1.157255144789815, 1.1265450157225132, 1.129884971305728]
+{"source": "cuda", "count": 6, "bytes": 41943056, "bit_exact": true} [53.03886905312538, 45.72782083414495, 46.02158395573497, 53.88550087809563]
+{"source": "cuda", "count": 18, "bytes": 167772176, "bit_exact": true} [220.7768470980227, 194.6539629716426, 193.71333392336965, 229.91246497258544]

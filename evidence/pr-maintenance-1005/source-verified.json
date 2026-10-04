@@ -1,0 +1,18 @@
+{
+  "sglang-perf-ci": {
+    "count": 8469,
+    "sha256": "34b0509c675128beae3a31ef0974a4a998ba41b1518a0ee573e0f59c66a3cef5"
+  },
+  "sglang-residual-ci": {
+    "count": 8470,
+    "sha256": "cf0f48925929195056fcbbb0322b64ca37c78ac5c3c722ffb87196fa78cedaa9"
+  },
+  "sglang-import-ci": {
+    "count": 8470,
+    "sha256": "cebc70fee5fc001857578a542a1acf2a1a944732de1e20d2c2ccce4100e21572"
+  },
+  "sglang-omni": {
+    "count": 1491,
+    "sha256": "6141fca3c4a6e9fa645a8e69d82aa87bae7a52e81f7b84452e29bd8070ae92cd"
+  }
+}

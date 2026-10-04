@@ -1,0 +1,9 @@
+........................................................................ [ 75%]
+.......................                                                  [100%]
+=============================== warnings summary ===============================
+../../h3-kitchen-prs-0930/build-deps/_pytest/config/__init__.py:1345
+  /tmp/h3-kitchen-prs-0930/build-deps/_pytest/config/__init__.py:1345: PytestAssertRewriteWarning: Module already imported so cannot be rewritten; anyio
+    self._mark_plugins_for_rewrite(hook, disable_autoload)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+95 passed, 1 warning in 18.02s

@@ -1,0 +1,9 @@
+.................................................................. [ 56%]
+...................................................    [100%]
+=============================== warnings summary ===============================
+../../h3-omni-1002/sg-env/lib/python3.12/site-packages/torch/jit/_script.py:365: 14 warnings
+  /tmp/h3-omni-1002/sg-env/lib/python3.12/site-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+117 passed, 14 warnings, 24 subtests passed in 78.48s (0:01:18)
