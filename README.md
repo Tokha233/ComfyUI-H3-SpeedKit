@@ -20,6 +20,13 @@ INT8 VAE has a very small measured difference from FP16; it is not pixel-identic
 
 **Public-input check:** 768×512, 124 frames, public merged Larry: **19.31 → 16.76 s (−13.19%)**, all four output signatures equal. First-use verification excluded; [separate records](evidence/public-input-medium.json).
 
+**Optional output improvement over frozen R85:** decode while encoding the MP4,
+**11.509 → 9.311 s** and **12.474 → 9.965 s** on two saved business latents.
+These are **video decode-to-file** timings, not whole-request or serving throughput.
+RGB, PCM and MP4 bytes match the historical baseline. The experimental
+**Decode and Save Video** node and [reproduction details](docs/R85-STREAM-EXPORT.zh-CN.md)
+keep the existing DiT, VAE precision and codec settings.
+
 ## Quick start
 
 Initial source release: **Linux, RTX 5090 D v2 (SM120), Torch 2.12.0+cu130, Triton 3.7.0, Kitchen 0.2.36 and the pinned ComfyUI H3 revision**. See the [exact compatibility matrix](configs/compatibility.json). Use a separate environment; this package does not upgrade Torch automatically.
@@ -62,7 +69,7 @@ Need regular IMAGE nodes for grading or upscaling? Keep standard VAE Decode and 
 
 [Every optimization and its numerical contract →](docs/MIGRATION-036.md) · [Historical experiments, including rejected approaches →](docs/R85-EXPERIMENTS.md)
 
-**Upstream work:** [ComfyUI #16677 merged by kijai](https://github.com/Comfy-Org/ComfyUI/pull/16677). [1 merged ComfyUI PR and 11 open Kitchen/ComfyUI PRs: 9 ready, 2 awaiting API releases](docs/PDMD-KITCHEN-TESTS-20261001.zh-CN.md).
+**Upstream work:** [ComfyUI #16677 merged by kijai](https://github.com/Comfy-Org/ComfyUI/pull/16677). [October 2 status: 19 related open PRs, no drafts; SGLang #42121 human-approved](docs/R85-STREAM-EXPORT.zh-CN.md).
 The October 1 audit also covers new GEMM scheduling, VAE kernel opportunities and recent H3 adapters; these research candidates have no new SpeedKit GPU benchmark yet.
 [October 1 integration test](docs/UPSTREAM-RECOVERY-TESTS-20261001.zh-CN.md): **15.737 → 14.201 s (−9.76% sampler time)** on a newer fixed Kitchen/ComfyUI baseline, with identical video/audio latent, RGB8 and PCM hashes. This experimental integration is separate from the released plugin benchmarks above.
 An optional [Indexed Gate node](docs/INDEXED-GATE.md)

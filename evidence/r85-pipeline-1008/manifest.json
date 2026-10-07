@@ -1,0 +1,18 @@
+{
+  "evidence/r85-pipeline-1008/g0-base-1008.json": "9ee9bde1458284ae2ff3e69ad9e191814130410112437b4ca0c95ce7bcb9592c",
+  "evidence/r85-pipeline-1008/summary.json": "6dc3d051cf3630c2c3330e21cfdf2d328db9f40fc1910d0b23ab09657b72bee3",
+  "evidence/r85-pipeline-1008/g1-base-1008.json": "15015ef6e3140f9be91d4b023fa4880d20211c1f90d1bff5ea07f8c1f3a40e02",
+  "evidence/r85-pipeline-1008/g2-stream-1008.json": "0686e14ee854da0682e1d2f23ca18e0dbc04cb18a60997840d3fc8352266f12c",
+  "evidence/r85-pipeline-1008/g2-direct-1008.json": "81b3db5662b557a4dcab64db4cb8e818996f72daef7676aef4eec1767c2062ac",
+  "evidence/r85-pipeline-1008/README.md": "8efc24f2b13ae834d44a56dc051566e84af05767a0b4649c40cad3307dc63880",
+  "evidence/r85-pipeline-1008/g1-stream-1008.json": "5c3f5db0ce7e12ac8f9fa7e048281fa66b4441f2adfd85a7bfc1cf8296b51792",
+  "evidence/r85-pipeline-1008/g0-stream-1008.json": "613d716df5666c28b5e91c000700c2487733f47bbe0de02414337137a59eb5c3",
+  "evidence/pr-maintenance-1008/source-verified-final.json": "506b0a3cd93525108ea705a178153713305648525763ab69c9c066e2c32c9b6d",
+  "evidence/pr-maintenance-1008/comfy-grad-after.log": "f7a2ff63b9f473eba92db43593ee996e986189f4ba18134fd8d5bb6d7744ace8",
+  "evidence/pr-maintenance-1008/comfy-grad-hashes.json": "d9ea4ca01d599658672c8a4cfb8539ad71d14b12eff065e73b5071511e21505d",
+  "evidence/pr-maintenance-1008/README.md": "0cfd7009e96bce8685d357adb60acca5f18f4b6c0fe633b8bec7c6dee4095d09",
+  "evidence/pr-maintenance-1008/comfy-grad-before.log": "9308a84b4650ad381323b09750f1cad8f69bfecd0fdd1bec4449468ffaf1b6dd",
+  "evidence/pr-maintenance-1008/comfy-grad-gpu.log": "d15bed780204442b43248a31ee1bbc1de489be31cccd017ee2d6bf161a70c648",
+  "evidence/pr-maintenance-1008/sglang-gpu-tests.log": "58ad4b9871350c9cf3568bef6f0beac4d088f367c4d646785964c29bce72841c",
+  "evidence/pr-maintenance-1008/comfy-sampler-exactbase.json": "3691062e1d52f2b0f7a2ac75459aa75aed3b0a474ea89c0f69c318c75b8b9586"
+}

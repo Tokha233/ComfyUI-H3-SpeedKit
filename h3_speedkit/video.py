@@ -2,6 +2,7 @@
 # Temporal decode sequence derived from ComfyUI's MiniMax H3 VAE.
 """INT8 decode with fused RGB8 finalization and bounded asynchronous D2H."""
 from dataclasses import dataclass
+from concurrent.futures import ThreadPoolExecutor
 import threading
 import torch
 import comfy.model_management as mm
@@ -16,7 +17,7 @@ class RGBFrames:
 
 
 class RGBSink:
-    def __init__(self, shape, device):
+    def __init__(self, shape, device, on_frames=None):
         if shape[0] != 1 or shape[1] != 3:
             raise ValueError("RGB output requires a single H3 video")
         self.shape = shape
@@ -25,8 +26,16 @@ class RGBSink:
         self.stream = torch.cuda.Stream(device=device)
         self.slots = [None, None]
         self.index = self.position = 0
+        self.on_frames = on_frames
+        self.worker = ThreadPoolExecutor(max_workers=1, thread_name_prefix="h3-rgb-drain") if on_frames else None
+        self.pending = [None, None]
 
     def drain(self, index):
+        if self.worker is not None:
+            if self.pending[index] is not None:
+                self.pending[index].result()
+                self.pending[index] = None
+            return
         slot = self.slots[index]
         if slot is not None and slot.get("event") is not None:
             slot["event"].synchronize()
@@ -49,25 +58,39 @@ class RGBSink:
             event = torch.cuda.Event()
             event.record(self.stream)
         slot.update(start=self.position, stop=self.position + count, event=event)
+        if self.worker is not None:
+            self.pending[index] = self.worker.submit(
+                self.deliver, event, slot["pinned"], self.position, self.position + count)
         self.position += count
         self.index += 1
 
+    def deliver(self, event, pinned, start, stop):
+        import numpy as np
+        event.synchronize()
+        # The callback owns an immutable output view, never a reusable pinned slot.
+        np.copyto(self.output[start:stop].numpy(), pinned[:stop-start].numpy())
+        self.on_frames(start, self.output[start:stop])
+
+    def close(self):
+        try:
+            self.stream.synchronize()
+        finally:
+            if self.worker is not None:
+                self.worker.shutdown(wait=True)
+
     def finish(self):
-        for index in range(2):
+        for index in sorted(range(2), key=lambda i: self.slots[i]["start"] if self.slots[i] else -1):
             self.drain(index)
         if self.position != len(self.output):
             raise RuntimeError("Incomplete RGB frame sequence")
         return self.output
 
 
-def decode_rgb(model, latent):
+def decode_rgb(model, latent, *, on_frames=None):
     """Return CPU FHWC uint8. Blending finishes before quantization."""
     if type(model) is not MiniMaxH3VideoVAE:
         raise ValueError("Use the H3 SpeedKit Video VAE Loader")
-    sink = RGBSink(model.decode_output_shape(latent.shape), latent.device)
-    z = latent * model.latents_std.view(1, -1, 1, 1, 1).to(latent)
-    z = z + model.latents_mean.view(1, -1, 1, 1, 1).to(latent)
-
+    sink = RGBSink(model.decode_output_shape(latent.shape), latent.device, on_frames)
     def write(part):
         count = min(part.shape[2], len(sink.output) - sink.position)
         if count > 0:
@@ -75,6 +98,8 @@ def decode_rgb(model, latent):
             sink.write(quantize_raw(frames, model.pixel_std, model.pixel_mean))
 
     try:
+        z = latent * model.latents_std.view(1, -1, 1, 1, 1).to(latent)
+        z = z + model.latents_mean.view(1, -1, 1, 1, 1).to(latent)
         if z.shape[2] == 1:
             write(model._adaptive_decode(z)[:, :, -1:])
         else:
@@ -84,6 +109,7 @@ def decode_rgb(model, latent):
             previous = None
             chunk_frames = model.tokens_chunk_size * model.vae_ratio_t
             for index in range(chunks):
+                mm.throw_exception_if_processing_interrupted()
                 start = index * model.tokens_chunk_size
                 clip = model._adaptive_decode(z[:, :, start:start + model.tokens_chunk_size + model.token_overlap])
                 for half in range(int(model.token_drop > 0) + 1):
@@ -102,7 +128,7 @@ def decode_rgb(model, latent):
                 del clip, part
         return sink.finish()
     finally:
-        sink.stream.synchronize()
+        sink.close()
 
 
 def load_video_vae(filename):
@@ -129,12 +155,28 @@ def load_video_vae(filename):
     return wrapper
 
 
-def decode_samples(samples, vae, fps=24.0):
+def decode_samples(samples, vae, fps=24.0, *, on_frames=None):
     parts = samples["samples"]
     latent = parts if isinstance(parts, torch.Tensor) and parts.ndim == 5 else parts.unbind()[0]
     if latent.ndim != 5 or latent.shape[1] != 24:
         raise ValueError("Expected H3 video latent [1,24,T,H,W]")
     with vae._speedkit_lock, torch.inference_mode():
         mm.load_models_gpu([vae.patcher], memory_required=6 * 1024 ** 3, force_full_load=True)
-        pixels = decode_rgb(vae.first_stage_model, latent.to(device=vae.device, dtype=torch.float16))
+        pixels = decode_rgb(vae.first_stage_model, latent.to(device=vae.device, dtype=torch.float16),
+                            on_frames=on_frames)
     return RGBFrames(pixels, float(fps))
+
+
+def decode_to_mp4(samples, vae, path, audio=None, *, fps=24.0, crf=23):
+    """Overlap CPU encoding with decode; return only a completed local MP4."""
+    from .stream_export import StreamExport
+    parts = samples["samples"]
+    latent = parts if isinstance(parts, torch.Tensor) and parts.ndim == 5 else parts.unbind()[0]
+    if latent.ndim != 5 or latent.shape[1] != 24:
+        raise ValueError("Expected H3 video latent [1,24,T,H,W]")
+    if audio is not None:
+        audio = {**audio, "waveform": audio["waveform"].detach().float().cpu()}
+    b, c, t, h, w = vae.first_stage_model.decode_output_shape(latent.shape)
+    with StreamExport((t, h, w, c), fps, path, audio, crf=crf) as exporter:
+        decode_samples(samples, vae, fps, on_frames=exporter.write)
+    return exporter.result

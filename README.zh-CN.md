@@ -22,10 +22,13 @@ INT8 VAE 差异很小，但不是像素完全相同。DiT 融合保留的是**�
 
 **公开输入复验：** 768×512、124 帧、公开 Larry 合并权重，**19.31 → 16.76 秒（−13.19%）**，四项输出 SHA 一致。首次逐层验证不计入正式时间，见[单独数据](evidence/public-input-medium.json)。
 
-**上游贡献：** 当前[12 个 Kitchen/ComfyUI PR 开放中，10 个非 Draft、2 个等待依赖发布](docs/PDMD-KITCHEN-TESTS-20261001.zh-CN.md)，
-附源码、回归测试和原始实测。10/1 新审计包含 GEMM 调度、VAE 算子与最新少步模型；新候选尚无本项目新增 GPU 实测。新增的 [Indexed Gate 实验节点](docs/INDEXED-GATE.md)
+**上游贡献：** ComfyUI #16677 已合并；截至 10/2 本次检查，另有 19 个相关 PR 开放中，均已非 Draft。SGLang #42121 新获人工 APPROVED；部分 CI 仍等待授权/执行或被依赖下载阻断。[当前进展](docs/R85-STREAM-EXPORT.zh-CN.md)。
+新增的 [Indexed Gate 实验节点](docs/INDEXED-GATE.md)
 可以单独验证 #219 的完整 H3 收益；需源码编译尚未合并的 PR，与完整 Optimize DiT 节点二选一。
 各 PR 的范围与收益不能相加；[整套 6.49% DiT 方案的上游拆分与剩余工作](docs/FULL-UPSTREAM-PLAN.zh-CN.md)。
+
+
+**R85 之后的可选输出优化：**新增实验节点 **Decode and Save Video**，让 VAE 解码与 MP4 编码重叠。两个保存 latent 的后处理实测 **11.509→9.311 秒**、**12.474→9.965 秒**，RGB/PCM/成片字节与历史 R85 一致。这是视频 decode 到文件完成的收益，不能当作整请求或服务吞吐提升。[实现、原始数据和复现](docs/R85-STREAM-EXPORT.zh-CN.md)。
 
 ## 安装与接入
 

@@ -1,0 +1,12 @@
+.........................                                                [100%]
+=============================== warnings summary ===============================
+../../../tmp/h3-omni-1002/sg-env/lib/python3.12/site-packages/torch/jit/_script.py:365: 14 warnings
+  /tmp/h3-omni-1002/sg-env/lib/python3.12/site-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+sglang/multimodal_gen/test/unit/test_lora_inference_mode.py::test_request_lora_scale_preserves_delta_offset_and_base[cuda-linear]
+  /tmp/h3-omni-1002/sg-env/lib/python3.12/site-packages/torch/_inductor/compile_fx.py:321: UserWarning: TensorFloat32 tensor cores for float32 matrix multiplication available but not enabled. Consider setting `torch.set_float32_matmul_precision('high')` for better performance.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+25 passed, 15 warnings in 8.26s
