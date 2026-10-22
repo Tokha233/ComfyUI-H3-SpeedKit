@@ -1,0 +1,17 @@
+{
+  "persistent_gpu": {
+    "persistent_cuda_bytes": 197285888,
+    "prep_peak_cuda_bytes": 393740288,
+    "prep_ms": 396.84666506946087,
+    "rows_ms_median": 0.004960224032402039,
+    "exact": true
+  },
+  "prepared_cpu": {
+    "persistent_cuda_bytes": 0,
+    "prep_peak_cuda_bytes": 0,
+    "prep_ms": 411.78970830515027,
+    "rows_ms_median": 7.3785982094705105,
+    "exact": true
+  },
+  "extra_conds_persistent_cuda_bytes": 0
+}

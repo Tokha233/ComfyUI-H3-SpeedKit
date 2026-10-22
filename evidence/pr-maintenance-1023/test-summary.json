@@ -1,0 +1,116 @@
+{
+  "tests-16681.xml": {
+    "passed": 53,
+    "failed": 0,
+    "skipped": 0,
+    "failures": []
+  },
+  "tests-16712.xml": {
+    "passed": 9,
+    "failed": 0,
+    "skipped": 2,
+    "failures": []
+  },
+  "tests-16713-transfer.xml": {
+    "passed": 12,
+    "failed": 0,
+    "skipped": 0,
+    "failures": []
+  },
+  "tests-219.xml": {
+    "passed": 54,
+    "failed": 0,
+    "skipped": 1,
+    "failures": []
+  },
+  "tests-223.xml": {
+    "passed": 37,
+    "failed": 0,
+    "skipped": 0,
+    "failures": []
+  },
+  "tests-224.xml": {
+    "passed": 523,
+    "failed": 0,
+    "skipped": 594,
+    "failures": []
+  },
+  "tests-227.xml": {
+    "passed": 435,
+    "failed": 2,
+    "skipped": 594,
+    "failures": [
+      {
+        "name": "test_int8_attention_long_sequence_and_partial_tile[0.0]",
+        "message": "AssertionError: assert nan < 0.03\n +  where nan = _nrmse(tensor([[[[ 0.0126,  0.0172, -0.0139,  ..., -0.0292, -0.0032, -0.0029],\\n          [ 0.0126,  0.0172, -0.0139,  ..., -0...         [ 0.0065,  0.0002,  0.0023,  ...,  0.0123, -0.0156,  0.0031]]]],\\n       device='cuda:0', dtype=torch.bfloat16), tensor([[[[nan, nan, nan,  ..., nan, nan, nan],\\n          [nan, nan, nan,  ..., nan, nan, nan],\\n          [nan, nan, n...  ..., nan, nan, nan],\\n          [nan, nan, nan,  ..., nan, nan, nan]]]], device='cuda:0',\\n       dtype=torch.bfloat16))"
+      },
+      {
+        "name": "test_int8_attention_long_sequence_and_partial_tile[-0.08838834764831845]",
+        "message": "AssertionError: assert nan < 0.03\n +  where nan = _nrmse(tensor([[[[0., 0., -0.,  ..., -0., -0., -0.],\\n          [0., 0., -0.,  ..., -0., -0., -0.],\\n          [0., 0., -0.,  ....., -0.,  ..., 0., -0., 0.],\\n          [0., 0., 0.,  ..., 0., -0., 0.]]]], device='cuda:0',\\n       dtype=torch.bfloat16), tensor([[[[nan, nan, nan,  ..., nan, nan, nan],\\n          [nan, nan, nan,  ..., nan, nan, nan],\\n          [nan, nan, n...  ..., nan, nan, nan],\\n          [nan, nan, nan,  ..., nan, nan, nan]]]], device='cuda:0',\\n       dtype=torch.bfloat16))"
+      }
+    ]
+  },
+  "tests-227-torch213.xml": {
+    "passed": 435,
+    "failed": 2,
+    "skipped": 594,
+    "failures": [
+      {
+        "name": "test_int8_attention_long_sequence_and_partial_tile[0.0]",
+        "message": "AssertionError: assert nan < 0.03\n +  where nan = _nrmse(tensor([[[[ 0.0126,  0.0172, -0.0139,  ..., -0.0292, -0.0032, -0.0029],\\n          [ 0.0126,  0.0172, -0.0139,  ..., -0...         [ 0.0065,  0.0002,  0.0023,  ...,  0.0123, -0.0156,  0.0031]]]],\\n       device='cuda:0', dtype=torch.bfloat16), tensor([[[[nan, nan, nan,  ..., nan, nan, nan],\\n          [nan, nan, nan,  ..., nan, nan, nan],\\n          [nan, nan, n...  ..., nan, nan, nan],\\n          [nan, nan, nan,  ..., nan, nan, nan]]]], device='cuda:0',\\n       dtype=torch.bfloat16))"
+      },
+      {
+        "name": "test_int8_attention_long_sequence_and_partial_tile[-0.08838834764831845]",
+        "message": "AssertionError: assert nan < 0.03\n +  where nan = _nrmse(tensor([[[[0., 0., -0.,  ..., -0., -0., -0.],\\n          [0., 0., -0.,  ..., -0., -0., -0.],\\n          [0., 0., -0.,  ....., -0.,  ..., 0., -0., 0.],\\n          [0., 0., 0.,  ..., 0., -0., 0.]]]], device='cuda:0',\\n       dtype=torch.bfloat16), tensor([[[[nan, nan, nan,  ..., nan, nan, nan],\\n          [nan, nan, nan,  ..., nan, nan, nan],\\n          [nan, nan, n...  ..., nan, nan, nan],\\n          [nan, nan, nan,  ..., nan, nan, nan]]]], device='cuda:0',\\n       dtype=torch.bfloat16))"
+      }
+    ]
+  },
+  "tests-42249.xml": {
+    "passed": 17,
+    "failed": 0,
+    "skipped": 0,
+    "failures": []
+  },
+  "tests-42257.xml": {
+    "passed": 114,
+    "failed": 0,
+    "skipped": 0,
+    "failures": []
+  },
+  "tests-42359.xml": {
+    "passed": 26,
+    "failed": 0,
+    "skipped": 0,
+    "failures": []
+  },
+  "tests-42359-deadline.xml": {
+    "passed": 26,
+    "failed": 0,
+    "skipped": 0,
+    "failures": []
+  },
+  "tests-42186.xml": {
+    "passed": 38,
+    "failed": 0,
+    "skipped": 0,
+    "failures": []
+  },
+  "tests-8414-audited.xml": {
+    "passed": 68,
+    "failed": 0,
+    "skipped": 0,
+    "failures": []
+  },
+  "tests-8416-audited.xml": {
+    "passed": 53,
+    "failed": 0,
+    "skipped": 0,
+    "failures": []
+  },
+  "tests-2481.xml": {
+    "passed": 25,
+    "failed": 0,
+    "skipped": 0,
+    "failures": []
+  }
+}

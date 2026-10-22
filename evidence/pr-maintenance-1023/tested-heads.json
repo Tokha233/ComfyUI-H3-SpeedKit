@@ -1,0 +1,77 @@
+{
+  "16681": {
+    "head": "44efaa71f6f23bf20e7f3a8b99c363748cad4baf",
+    "imported_file_count": 156,
+    "pytest_rc": 0,
+    "mismatch": []
+  },
+  "16712": {
+    "head": "badc747373f84559c40288fdf7bc85eb9ae0cf0b",
+    "imported_file_count": 26,
+    "pytest_rc": 0,
+    "mismatch": []
+  },
+  "16713": {
+    "head": "1fe12c4db5c7cb6d99743b475e2b4b0f36aa42aa",
+    "imported_file_count": 139,
+    "pytest_rc": 0,
+    "mismatch": [],
+    "final_test_file_sha256": "52d257e56bc381fd2a86d4989d817622b3d87c0d0134ca9c518a7e62e0cdae19",
+    "note": "Imported source audit predates final test-only commit; final CUDA-transfer test matched the stated SHA-256 and passed all 12 cases."
+  },
+  "219": {
+    "head": "62609cc84910d66ae4237e1a23332fa2c71574f3"
+  },
+  "223": {
+    "head": "4c363e7998fced90bd252a695b96940b9aaf1733"
+  },
+  "224": {
+    "head": "c664daefd1bda70cbe2cb7993297181f7e451e73"
+  },
+  "227": {
+    "head": "fee9b942f0b03b1c4e24f2b537e9a730ee47d21d"
+  },
+  "42249": {
+    "head": "6f0ebb2d06927cfaafaf23437600e09beeba85d5",
+    "imported_file_count": 594,
+    "pytest_rc": 0,
+    "mismatch": []
+  },
+  "42257": {
+    "head": "1b43c169b7aa11c52b47cbec6fe980c45c98a2d3",
+    "imported_file_count": 958,
+    "mismatch": [],
+    "pytest_rc": 0
+  },
+  "8414": {
+    "head": "1b55c8320f09857231a5fadcefe1298d17aaf7d5",
+    "imported_file_count": 431,
+    "pytest_rc": 0,
+    "mismatch": []
+  },
+  "8416": {
+    "head": "8682a4312f58ea7b59a013d2011586d5e8610e76",
+    "imported_file_count": 418,
+    "pytest_rc": 0,
+    "mismatch": []
+  },
+  "42186": {
+    "head": "f9bae2fb0d54025bcc6a8399c28b04535132b101",
+    "imported_file_count": 975,
+    "mismatch": [],
+    "pytest_rc": 0
+  },
+  "42359": {
+    "head": "5c553e5c3190b7e478aab995dcceabbefbce9cab",
+    "imported_file_count": 1089,
+    "mismatch": [],
+    "pytest_rc": 0
+  },
+  "2481": {
+    "head": "c2fa515e3b6088f125fc533fcca332ba4b651ec8",
+    "imported_file_count": 109,
+    "mismatch": [],
+    "pytest_rc": 0,
+    "torch": "2.13.0+cu130; repository full-stack pin 2.14.1 not installed"
+  }
+}
