@@ -1,0 +1,80 @@
+{
+  "status": "success",
+  "arm": "stream",
+  "torch": "2.12.0+cu130",
+  "gpu": "NVIDIA GeForce RTX 5090 D v2",
+  "records": [
+    {
+      "case": 1,
+      "warmup": true,
+      "index": -2,
+      "start": 1335833.286284904,
+      "dit_seconds": 227.40225624199957,
+      "audio_seconds": 0.36508608399890363,
+      "video_seconds": 10.075709880096838,
+      "gpu_done": 1336071.129706361,
+      "completed": 1336071.606673396,
+      "export": {
+        "video": "video.mp4"
+      },
+      "mp4_sha256": "9ba0b14b14ccfdf935dfdef4e7929cb40804ea39aa0fde4ef4ad0afb0f895461",
+      "signature": [
+        "d7f6b67bed376e4fc8b805474f5d8ab1ac961de9a5a98ea778cd8fccc590f8bf",
+        "5973eeb3722428b4af01ea3dc4fbc275ac601b020bb82391167aaf4d0e68ee04",
+        "fa0a22a4cb29b4bd4f606824d86be60500e55b838fdcdb17c810f751b143cbe2",
+        "122d47f4b48601a8b88d6847634e6455ad61c8bb8d10fb42613c15fabe688dce"
+      ],
+      "exact": true
+    },
+    {
+      "case": 1,
+      "warmup": false,
+      "index": 0,
+      "start": 1336072.284643519,
+      "dit_seconds": 226.08192522614263,
+      "audio_seconds": 0.13675958500243723,
+      "video_seconds": 9.528095174115151,
+      "gpu_done": 1336308.031769516,
+      "completed": 1336308.517842957,
+      "export": {
+        "video": "video.mp4"
+      },
+      "signature": [
+        "d7f6b67bed376e4fc8b805474f5d8ab1ac961de9a5a98ea778cd8fccc590f8bf",
+        "5973eeb3722428b4af01ea3dc4fbc275ac601b020bb82391167aaf4d0e68ee04",
+        "fa0a22a4cb29b4bd4f606824d86be60500e55b838fdcdb17c810f751b143cbe2",
+        "122d47f4b48601a8b88d6847634e6455ad61c8bb8d10fb42613c15fabe688dce"
+      ],
+      "exact": true,
+      "mp4_sha256": "9ba0b14b14ccfdf935dfdef4e7929cb40804ea39aa0fde4ef4ad0afb0f895461"
+    },
+    {
+      "case": 8,
+      "warmup": false,
+      "index": 1,
+      "start": 1336308.032212136,
+      "dit_seconds": 212.28678391082212,
+      "audio_seconds": 0.15331646497361362,
+      "video_seconds": 10.002682460937649,
+      "gpu_done": 1336530.478221691,
+      "completed": 1336530.946550338,
+      "export": {
+        "video": "video.mp4"
+      },
+      "signature": [
+        "71d58b454e5e8eea5cbd513516c8cce86fcdef8c83e198cafeecdd9bb437dcd0",
+        "e95f269243f0c41bdde9a9b176b73c087a74f20917317c05204fca4bb89a0226",
+        "86113c37439276adc259ad00f0d33fe25c2295c6a85e6ee775a1b750eca56aab",
+        "3402341092c55f2c8f78de8332732b84ed2bfc9d38da4bde3525476b5125f6af"
+      ],
+      "exact": true,
+      "mp4_sha256": "c9e01e778aae5724f1c52c01e5e6a9e36c4bf46568329bde73a9a989b66bbe4f"
+    }
+  ],
+  "kitchen_file": "/usr/local/lib/python3.12/site-packages/comfy_kitchen/__init__.py",
+  "kitchen_version": "0.2.35",
+  "overlay": {},
+  "vae_abi": {},
+  "queue_seconds": 458.6619656670373,
+  "requests_per_hour": 15.697835309995583
+}

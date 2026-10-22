@@ -1,0 +1,154 @@
+{
+  "status": "success",
+  "rows": [
+    {
+      "group": 0,
+      "arm": "stream",
+      "warmup": true,
+      "decode_seconds": 10.460656090057455,
+      "total_seconds": 11.188646004069597,
+      "sha256_rgb_pcm_mp4": [
+        "86113c37439276adc259ad00f0d33fe25c2295c6a85e6ee775a1b750eca56aab",
+        "3402341092c55f2c8f78de8332732b84ed2bfc9d38da4bde3525476b5125f6af",
+        "c9e01e778aae5724f1c52c01e5e6a9e36c4bf46568329bde73a9a989b66bbe4f"
+      ]
+    },
+    {
+      "group": 0,
+      "arm": "stream",
+      "warmup": false,
+      "decode_seconds": 9.144469626015052,
+      "total_seconds": 9.87907217303291,
+      "sha256_rgb_pcm_mp4": [
+        "86113c37439276adc259ad00f0d33fe25c2295c6a85e6ee775a1b750eca56aab",
+        "3402341092c55f2c8f78de8332732b84ed2bfc9d38da4bde3525476b5125f6af",
+        "c9e01e778aae5724f1c52c01e5e6a9e36c4bf46568329bde73a9a989b66bbe4f"
+      ]
+    },
+    {
+      "group": 0,
+      "arm": "stream",
+      "warmup": false,
+      "decode_seconds": 9.188667713082395,
+      "total_seconds": 9.934474321082234,
+      "sha256_rgb_pcm_mp4": [
+        "86113c37439276adc259ad00f0d33fe25c2295c6a85e6ee775a1b750eca56aab",
+        "3402341092c55f2c8f78de8332732b84ed2bfc9d38da4bde3525476b5125f6af",
+        "c9e01e778aae5724f1c52c01e5e6a9e36c4bf46568329bde73a9a989b66bbe4f"
+      ]
+    },
+    {
+      "group": 1,
+      "arm": "serial",
+      "warmup": true,
+      "decode_seconds": 9.203982191975228,
+      "total_seconds": 12.46251303004101,
+      "sha256_rgb_pcm_mp4": [
+        "86113c37439276adc259ad00f0d33fe25c2295c6a85e6ee775a1b750eca56aab",
+        "3402341092c55f2c8f78de8332732b84ed2bfc9d38da4bde3525476b5125f6af",
+        "c9e01e778aae5724f1c52c01e5e6a9e36c4bf46568329bde73a9a989b66bbe4f"
+      ]
+    },
+    {
+      "group": 1,
+      "arm": "serial",
+      "warmup": false,
+      "decode_seconds": 9.201330121955834,
+      "total_seconds": 12.522668213001452,
+      "sha256_rgb_pcm_mp4": [
+        "86113c37439276adc259ad00f0d33fe25c2295c6a85e6ee775a1b750eca56aab",
+        "3402341092c55f2c8f78de8332732b84ed2bfc9d38da4bde3525476b5125f6af",
+        "c9e01e778aae5724f1c52c01e5e6a9e36c4bf46568329bde73a9a989b66bbe4f"
+      ]
+    },
+    {
+      "group": 1,
+      "arm": "serial",
+      "warmup": false,
+      "decode_seconds": 9.195965540944599,
+      "total_seconds": 12.396515266038477,
+      "sha256_rgb_pcm_mp4": [
+        "86113c37439276adc259ad00f0d33fe25c2295c6a85e6ee775a1b750eca56aab",
+        "3402341092c55f2c8f78de8332732b84ed2bfc9d38da4bde3525476b5125f6af",
+        "c9e01e778aae5724f1c52c01e5e6a9e36c4bf46568329bde73a9a989b66bbe4f"
+      ]
+    },
+    {
+      "group": 2,
+      "arm": "serial",
+      "warmup": true,
+      "decode_seconds": 9.194365016068332,
+      "total_seconds": 12.420066292979755,
+      "sha256_rgb_pcm_mp4": [
+        "86113c37439276adc259ad00f0d33fe25c2295c6a85e6ee775a1b750eca56aab",
+        "3402341092c55f2c8f78de8332732b84ed2bfc9d38da4bde3525476b5125f6af",
+        "c9e01e778aae5724f1c52c01e5e6a9e36c4bf46568329bde73a9a989b66bbe4f"
+      ]
+    },
+    {
+      "group": 2,
+      "arm": "serial",
+      "warmup": false,
+      "decode_seconds": 9.195233506965451,
+      "total_seconds": 12.394997140043415,
+      "sha256_rgb_pcm_mp4": [
+        "86113c37439276adc259ad00f0d33fe25c2295c6a85e6ee775a1b750eca56aab",
+        "3402341092c55f2c8f78de8332732b84ed2bfc9d38da4bde3525476b5125f6af",
+        "c9e01e778aae5724f1c52c01e5e6a9e36c4bf46568329bde73a9a989b66bbe4f"
+      ]
+    },
+    {
+      "group": 2,
+      "arm": "serial",
+      "warmup": false,
+      "decode_seconds": 9.194418864906766,
+      "total_seconds": 12.381523509975523,
+      "sha256_rgb_pcm_mp4": [
+        "86113c37439276adc259ad00f0d33fe25c2295c6a85e6ee775a1b750eca56aab",
+        "3402341092c55f2c8f78de8332732b84ed2bfc9d38da4bde3525476b5125f6af",
+        "c9e01e778aae5724f1c52c01e5e6a9e36c4bf46568329bde73a9a989b66bbe4f"
+      ]
+    },
+    {
+      "group": 3,
+      "arm": "stream",
+      "warmup": true,
+      "decode_seconds": 9.20537835196592,
+      "total_seconds": 9.94568296300713,
+      "sha256_rgb_pcm_mp4": [
+        "86113c37439276adc259ad00f0d33fe25c2295c6a85e6ee775a1b750eca56aab",
+        "3402341092c55f2c8f78de8332732b84ed2bfc9d38da4bde3525476b5125f6af",
+        "c9e01e778aae5724f1c52c01e5e6a9e36c4bf46568329bde73a9a989b66bbe4f"
+      ]
+    },
+    {
+      "group": 3,
+      "arm": "stream",
+      "warmup": false,
+      "decode_seconds": 9.225464035989717,
+      "total_seconds": 9.965029233018868,
+      "sha256_rgb_pcm_mp4": [
+        "86113c37439276adc259ad00f0d33fe25c2295c6a85e6ee775a1b750eca56aab",
+        "3402341092c55f2c8f78de8332732b84ed2bfc9d38da4bde3525476b5125f6af",
+        "c9e01e778aae5724f1c52c01e5e6a9e36c4bf46568329bde73a9a989b66bbe4f"
+      ]
+    },
+    {
+      "group": 3,
+      "arm": "stream",
+      "warmup": false,
+      "decode_seconds": 9.231999090057798,
+      "total_seconds": 9.966095388983376,
+      "sha256_rgb_pcm_mp4": [
+        "86113c37439276adc259ad00f0d33fe25c2295c6a85e6ee775a1b750eca56aab",
+        "3402341092c55f2c8f78de8332732b84ed2bfc9d38da4bde3525476b5125f6af",
+        "c9e01e778aae5724f1c52c01e5e6a9e36c4bf46568329bde73a9a989b66bbe4f"
+      ]
+    }
+  ],
+  "torch": "2.12.0+cu130",
+  "av": "18.1.0",
+  "gpu": "NVIDIA GeForce RTX 5090 D v2",
+  "cpu_threads": 8,
+  "scope": "Video decode to completed MP4; excludes audio decode, model load, DiT and hashes"
+}

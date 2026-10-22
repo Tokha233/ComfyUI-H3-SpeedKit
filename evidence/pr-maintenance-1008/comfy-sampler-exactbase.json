@@ -1,0 +1,158 @@
+{
+  "torch": "2.12.0+cu130",
+  "gpu": "NVIDIA GeForce RTX 5090 D v2",
+  "baseline_comfy": "af89add63f71a487fde45efc7fba744f3455ae73",
+  "records": [
+    {
+      "arm": "stock",
+      "repeat": -1,
+      "warmup": true,
+      "dit_seconds": 22.008154289098457,
+      "sha256": [
+        "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+        "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb"
+      ],
+      "counts": {
+        "gate": 0,
+        "api": 0
+      },
+      "peak_allocated_bytes": 1664144896
+    },
+    {
+      "arm": "gate",
+      "repeat": -1,
+      "warmup": true,
+      "dit_seconds": 15.56962601095438,
+      "sha256": [
+        "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+        "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb"
+      ],
+      "counts": {
+        "gate": 400,
+        "api": 400
+      },
+      "peak_allocated_bytes": 1664301568
+    },
+    {
+      "arm": "gate",
+      "repeat": 0,
+      "warmup": false,
+      "dit_seconds": 15.570911723189056,
+      "sha256": [
+        "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+        "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb"
+      ],
+      "counts": {
+        "gate": 400,
+        "api": 400
+      },
+      "peak_allocated_bytes": 1664301568
+    },
+    {
+      "arm": "stock",
+      "repeat": 0,
+      "warmup": false,
+      "dit_seconds": 15.730479411082342,
+      "sha256": [
+        "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+        "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb"
+      ],
+      "counts": {
+        "gate": 0,
+        "api": 0
+      },
+      "peak_allocated_bytes": 1664144896
+    },
+    {
+      "arm": "stock",
+      "repeat": 1,
+      "warmup": false,
+      "dit_seconds": 15.731549087911844,
+      "sha256": [
+        "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+        "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb"
+      ],
+      "counts": {
+        "gate": 0,
+        "api": 0
+      },
+      "peak_allocated_bytes": 1664144896
+    },
+    {
+      "arm": "gate",
+      "repeat": 1,
+      "warmup": false,
+      "dit_seconds": 15.569428015034646,
+      "sha256": [
+        "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+        "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb"
+      ],
+      "counts": {
+        "gate": 400,
+        "api": 400
+      },
+      "peak_allocated_bytes": 1664301568
+    },
+    {
+      "arm": "gate",
+      "repeat": 2,
+      "warmup": false,
+      "dit_seconds": 15.567770662950352,
+      "sha256": [
+        "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+        "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb"
+      ],
+      "counts": {
+        "gate": 400,
+        "api": 400
+      },
+      "peak_allocated_bytes": 1664301568
+    },
+    {
+      "arm": "stock",
+      "repeat": 2,
+      "warmup": false,
+      "dit_seconds": 15.949677114142105,
+      "sha256": [
+        "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+        "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb"
+      ],
+      "counts": {
+        "gate": 0,
+        "api": 0
+      },
+      "peak_allocated_bytes": 1664144896
+    },
+    {
+      "arm": "stock",
+      "repeat": 3,
+      "warmup": false,
+      "dit_seconds": 15.719444304937497,
+      "sha256": [
+        "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+        "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb"
+      ],
+      "counts": {
+        "gate": 0,
+        "api": 0
+      },
+      "peak_allocated_bytes": 1664144896
+    },
+    {
+      "arm": "gate",
+      "repeat": 3,
+      "warmup": false,
+      "dit_seconds": 15.56097897212021,
+      "sha256": [
+        "8df41570a04e49d6e71924eacfcf5967baddab5762299589e813f6212d12abf1",
+        "72e7410dc0809f58071a923c9cd8b4c80a2abf3239cafe5910060b4dfb98aefb"
+      ],
+      "counts": {
+        "gate": 400,
+        "api": 400
+      },
+      "peak_allocated_bytes": 1664301568
+    }
+  ],
+  "status": "passed"
+}

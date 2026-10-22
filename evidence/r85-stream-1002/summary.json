@@ -1,0 +1,82 @@
+{
+  "drain-c1.json": {
+    "base": {
+      "total_seconds": 11.502383614482824,
+      "decode_seconds": 8.558003160462249,
+      "encode_tail_seconds": 2.9573352374718525,
+      "formal": 4
+    },
+    "npbase": {
+      "total_seconds": 11.635181566467509,
+      "decode_seconds": 8.600171474507079,
+      "encode_tail_seconds": 3.027989736991003,
+      "formal": 4
+    },
+    "workerbase": {
+      "total_seconds": 11.670133310020901,
+      "decode_seconds": 8.61497491702903,
+      "encode_tail_seconds": 3.0502345310524106,
+      "formal": 4
+    },
+    "stream": {
+      "total_seconds": 9.667563759547193,
+      "decode_seconds": 8.73711202054983,
+      "encode_tail_seconds": 0.9301705454709008,
+      "formal": 4
+    },
+    "npstream": {
+      "total_seconds": 9.715345444506966,
+      "decode_seconds": 8.762325378484093,
+      "encode_tail_seconds": 0.9573349660495296,
+      "formal": 4
+    },
+    "workerstream": {
+      "total_seconds": 9.404993208067026,
+      "decode_seconds": 8.64726963994326,
+      "encode_tail_seconds": 0.7556599585805088,
+      "formal": 4
+    }
+  },
+  "package-c1.json": {
+    "base": {
+      "total_seconds": 11.49019864044385,
+      "decode_seconds": 8.576095447468106,
+      "encode_tail_seconds": 2.923892149992753,
+      "formal": 4
+    },
+    "stream": {
+      "total_seconds": 9.66509300249163,
+      "decode_seconds": 8.704510900541209,
+      "encode_tail_seconds": 0.9595998584409244,
+      "formal": 4
+    }
+  },
+  "package-v2-c1.json": {
+    "stream": {
+      "total_seconds": 9.31095124600688,
+      "decode_seconds": 8.573886918544304,
+      "encode_tail_seconds": 0.7447294219746254,
+      "formal": 4
+    },
+    "base": {
+      "total_seconds": 11.508871879021171,
+      "decode_seconds": 8.585162442992441,
+      "encode_tail_seconds": 2.9260604440351017,
+      "formal": 4
+    }
+  },
+  "package-v2-c8.json": {
+    "base": {
+      "total_seconds": 12.47373847552808,
+      "decode_seconds": 9.204686576500535,
+      "encode_tail_seconds": 3.2852691935258918,
+      "formal": 4
+    },
+    "stream": {
+      "total_seconds": 9.965144770452753,
+      "decode_seconds": 9.234137072984595,
+      "encode_tail_seconds": 0.7321001929813065,
+      "formal": 4
+    }
+  }
+}

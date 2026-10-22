@@ -1,0 +1,44 @@
+F
+=================================== FAILURES ===================================
+__________ test_segmented_residual_preserves_custom_forward_gradients __________
+
+    def test_segmented_residual_preserves_custom_forward_gradients():
+        class OffsetLinear(torch.nn.Linear):
+            def __init__(self):
+                super().__init__(8, 4, bias=False)
+                self.weight.requires_grad_(False)
+                self.offset = torch.nn.Parameter(torch.randn(4))
+    
+            def forward(self, x):
+                return super().forward(x) + self.offset
+    
+        layer = OffsetLinear()
+        x, residual, gate = torch.randn(3, 8), torch.randn(3, 4), torch.randn(1, 4)
+>       result = ops.linear_input_act(layer, x, None, residual=residual,
+                                      residual_scale=gate, residual_segments=[(0, 3, 0)])
+
+tests-unit/comfy_quant/test_indexed_residual.py:168: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+comfy/ops.py:1058: in linear_input_act
+    return residual_out(linear(_eager_input_act(x, input_act, act_weight, act_eps)))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+out = tensor([[ 1.5027,  0.2912, -1.1465,  2.4130],
+        [ 1.2505,  0.5482, -0.0370,  2.3702],
+        [-1.4686, -0.0359, -0.1923,  2.7780]], grad_fn=<AddBackward0>)
+
+    def residual_out(out):
+        if residual_segments is None:
+            return _linear_residual(out, residual, residual_scale)
+        if (not comfy.model_management.in_training and not needs_grad
+                and residual.dtype == out.dtype and not hooks):
+            for start, stop, row in residual_segments:
+                segment = out[start:stop]
+>               torch.addcmul(residual[start:stop], segment, residual_scale[row].to(out.dtype), out=segment)
+E               RuntimeError: addcmul(): functions with out=... arguments don't support automatic differentiation, but one of the arguments requires grad.
+
+comfy/ops.py:1046: RuntimeError
+=========================== short test summary info ============================
+FAILED tests-unit/comfy_quant/test_indexed_residual.py::test_segmented_residual_preserves_custom_forward_gradients
+1 failed, 15 deselected in 1.91s

@@ -104,3 +104,28 @@ class H3SpeedKitSaveVideo(io.ComfyNode):
             filename_prefix, folder_paths.get_output_directory(), frames.pixels.shape[2], frames.pixels.shape[1])
         path = Path(folder) / f"{name}_{counter:05}_.mp4"
         return io.NodeOutput(export_mp4(frames, path, audio, crf=crf))
+
+
+class H3SpeedKitDecodeAndSave(io.ComfyNode):
+    @classmethod
+    def define_schema(cls):
+        return io.Schema(node_id="H3SpeedKitDecodeAndSave", display_name="H3 SpeedKit · Decode and Save Video",
+            category="H3 SpeedKit/Experimental", inputs=[io.Latent.Input("samples"), io.Vae.Input("vae"),
+                io.String.Input("filename_prefix", default="H3-SpeedKit"),
+                io.Float.Input("fps", default=24.0, min=1.0, max=120.0),
+                io.Int.Input("crf", default=23, min=0, max=51), io.Audio.Input("audio", optional=True)],
+            outputs=[io.String.Output("filename")], is_output_node=True)
+
+    @classmethod
+    def execute(cls, samples, vae, filename_prefix="H3-SpeedKit", fps=24.0, crf=23, audio=None):
+        import folder_paths
+        import torch
+        from pathlib import Path
+        from .video import decode_to_mp4
+        parts = samples["samples"]
+        latent = parts if isinstance(parts, torch.Tensor) and parts.ndim == 5 else parts.unbind()[0]
+        _, _, _, height, width = vae.first_stage_model.decode_output_shape(latent.shape)
+        folder, name, counter, _, _ = folder_paths.get_save_image_path(
+            filename_prefix, folder_paths.get_output_directory(), width, height)
+        path = Path(folder) / f"{name}_{counter:05}_.mp4"
+        return io.NodeOutput(decode_to_mp4(samples, vae, path, audio, fps=fps, crf=crf))

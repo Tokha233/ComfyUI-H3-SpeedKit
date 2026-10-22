@@ -1,0 +1,64 @@
+{
+  "complete": true,
+  "prs_checked_at": "2026-10-07T18:56:55.490965+00:00",
+  "pairs": [
+    {
+      "gpu": 0,
+      "baseline": "base",
+      "order": "base \u2192 stream",
+      "base_seconds": 461.18201857898384,
+      "stream_seconds": 457.1215298001189,
+      "seconds_saved": 4.060488778864965,
+      "capacity_gain_pct": 0.8882733614932636,
+      "time_reduction_pct": 0.8804525361540194,
+      "base_capacity": 15.612057083632587,
+      "stream_capacity": 15.750734827887618
+    },
+    {
+      "gpu": 1,
+      "baseline": "base",
+      "order": "stream \u2192 base",
+      "base_seconds": 461.9424992999993,
+      "stream_seconds": 457.6636652748566,
+      "seconds_saved": 4.278834025142714,
+      "capacity_gain_pct": 0.9349298075854495,
+      "time_reduction_pct": 0.9262698348012188,
+      "base_capacity": 15.586355468289797,
+      "stream_capacity": 15.732076951479062
+    },
+    {
+      "gpu": 2,
+      "baseline": "direct",
+      "order": "direct \u2192 stream",
+      "base_seconds": 461.5689862710424,
+      "stream_seconds": 458.6619656670373,
+      "seconds_saved": 2.9070206040050834,
+      "capacity_gain_pct": 0.6338045928393932,
+      "time_reduction_pct": 0.629812810321273,
+      "base_capacity": 15.598968332270095,
+      "stream_capacity": 15.697835309995583
+    }
+  ],
+  "signatures": {
+    "1": [
+      "d7f6b67bed376e4fc8b805474f5d8ab1ac961de9a5a98ea778cd8fccc590f8bf",
+      "5973eeb3722428b4af01ea3dc4fbc275ac601b020bb82391167aaf4d0e68ee04",
+      "fa0a22a4cb29b4bd4f606824d86be60500e55b838fdcdb17c810f751b143cbe2",
+      "122d47f4b48601a8b88d6847634e6455ad61c8bb8d10fb42613c15fabe688dce",
+      "9ba0b14b14ccfdf935dfdef4e7929cb40804ea39aa0fde4ef4ad0afb0f895461"
+    ],
+    "8": [
+      "71d58b454e5e8eea5cbd513516c8cce86fcdef8c83e198cafeecdd9bb437dcd0",
+      "e95f269243f0c41bdde9a9b176b73c087a74f20917317c05204fca4bb89a0226",
+      "86113c37439276adc259ad00f0d33fe25c2295c6a85e6ee775a1b750eca56aab",
+      "3402341092c55f2c8f78de8332732b84ed2bfc9d38da4bde3525476b5125f6af",
+      "c9e01e778aae5724f1c52c01e5e6a9e36c4bf46568329bde73a9a989b66bbe4f"
+    ]
+  },
+  "sampler_medians": {
+    "stock": 15.731014249497093,
+    "gate": 15.568599338992499
+  },
+  "pipeline_formal_requests": 12,
+  "pipeline_warmups": 6
+}
