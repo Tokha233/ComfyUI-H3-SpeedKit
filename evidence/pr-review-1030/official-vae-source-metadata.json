@@ -1,0 +1,20 @@
+[
+  {
+    "type": "file",
+    "oid": "fb5105116e094aface836f5182b126bb4fbdc699",
+    "size": 1164,
+    "path": "Ref2VA/video_vae/source/config.json"
+  },
+  {
+    "type": "file",
+    "oid": "cc1fe048902a2d790834962551620c2c6dbb2b31",
+    "size": 10415548320,
+    "lfs": {
+      "oid": "5f0c2e161d895a9fee7645ca32d4a7e3a22b90cacfcbeba62ec999cdbbefe0d3",
+      "size": 10415548320,
+      "pointerSize": 136
+    },
+    "xetHash": "ca9cf07a7184fdf23229f0147819b0fcb494905f95bafb2dfbbdf9fa0f526b00",
+    "path": "Ref2VA/video_vae/source/model.safetensors"
+  }
+]

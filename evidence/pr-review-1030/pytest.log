@@ -1,0 +1,15 @@
+.....................................................................    [100%]
+=============================== warnings summary ===============================
+../../../h3-omni-1002/vo-env/lib/python3.12/site-packages/torch/jit/_script.py:365: 14 warnings
+  /tmp/h3-omni-1002/vo-env/lib/python3.12/site-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+vllm_omni/__init__.py:22
+  /tmp/h3-pr-review-1030/source/vllm-omni-92595ee491d63aa00d3faa57ab944ddb9f0db4dc/vllm_omni/__init__.py:22: RuntimeWarning: Failed to import version from _version.py: No module named 'vllm_omni._version'
+  This typically happens in development mode before building.
+  Using fallback version 'dev'.
+    from .version import __version__, __version_tuple__  # isort:skip # noqa: F401
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+--- Running Summary
+69 passed, 15 warnings in 3.16s
